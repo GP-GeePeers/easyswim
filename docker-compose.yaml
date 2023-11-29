@@ -1,0 +1,49 @@
+version: '3'
+
+x-defaults:
+  project_name: easySwim
+
+services:
+  db_postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: db_name
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: db_password
+
+  db_mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  backend:
+    build:
+      context: ./backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db_postgres
+      - db_mongo
+    environment:
+      DB_HOST_POSTGRES: db_postgres
+      DB_NAME_POSTGRES: db_name
+      DB_USER_POSTGRES: db_user
+      DB_PASSWORD_POSTGRES: db_password
+      DB_HOST_MONGO: db_mongo
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    command: npm start
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      REACT_APP_API_URL: http://localhost:8000/api # Change this to match your Django backend URL
