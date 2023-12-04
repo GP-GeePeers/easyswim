@@ -2,7 +2,7 @@
 
 **Run and test preferably through the container**
 
-To Run local the backend you need to do this steps:
+However, if you want to run the backend locally, you need to do these steps:
 ### Step 1: Navigate to the Project Directory
 
 Move into the newly created project directory:
