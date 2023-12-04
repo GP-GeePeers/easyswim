@@ -1,3 +1,8 @@
+# Backend - EasySwimAPI
+
+**Run and test preferably through the container**
+
+To Run local the backend you need to do this steps:
 ### Step 1: Navigate to the Project Directory
 
 Move into the newly created project directory:
