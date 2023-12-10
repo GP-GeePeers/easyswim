@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import TestsList from './Components/Tests/TestsList';
+import { BrowserRouter  as Router, Route, Routes} from "react-router-dom";
 
 class App extends Component {
   
@@ -61,20 +63,29 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <input type="text" placeholder='Title' id='title' value={this.state.title} onChange={this.handleChange} required/>
-          </p>
-          <p>
-            <input type="text" placeholder='Description' id='description' value={this.state.description} onChange={this.handleChange} />
-          </p>
-          <p>
-            <input type="file" id='lxf_file' accept='.lxf' onChange={this.handleFileChange} required/>
-          </p>
-          <input type="submit"/>
-        </form>
-      </div>
+      <Router>
+        <Routes>
+        <Route path="/TestsList" element={<TestsList />} />
+        <Route path="/" element={
+        <div className="App">
+          <form onSubmit={this.handleSubmit}>
+            <p>
+              <input type="text" placeholder='Title' id='title' value={this.state.title} onChange={this.handleChange} required/>
+            </p>
+            <p>
+              <input type="text" placeholder='Description' id='description' value={this.state.description} onChange={this.handleChange} />
+            </p>
+            <p>
+              <input type="file" id='lxf_file' accept='.lxf' onChange={this.handleFileChange} required/>
+            </p>
+            <input type="submit"/>
+          </form>
+          
+          
+        </div>
+        }/>
+      </Routes>
+      </Router>
     );
   }
 }
