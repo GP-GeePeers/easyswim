@@ -17,7 +17,7 @@ function TestsList() {
         };
 
         getTestsFromAPI();
-    }, []); // The empty dependency array ensures this effect runs once on mount
+    }, []);
 
     return (
         <div className="ListaProvas">
@@ -28,7 +28,6 @@ function TestsList() {
                         <li key={test.id}>
                             <p>Título: {test.title}</p>
                             <p>Descrição: {test.description}</p>
-                            {/* Outros detalhes da prova */}
                         </li>
                     ))}
                 </ul>
