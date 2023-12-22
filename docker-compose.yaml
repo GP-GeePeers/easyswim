@@ -11,11 +11,6 @@ services:
       POSTGRES_USER: db_user
       POSTGRES_PASSWORD: db_password
 
-  db_mongo:
-    image: mongo
-    ports:
-      - "27017:27017"
-
   backend:
     build:
       context: ./backend
@@ -26,7 +21,6 @@ services:
       - "8000:8000"
     depends_on:
       - db_postgres
-      - db_mongo
     environment:
       DB_HOST_POSTGRES: db_postgres
       DB_NAME_POSTGRES: db_name
