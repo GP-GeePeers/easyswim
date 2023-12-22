@@ -32,4 +32,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('list/competitions', views.listCompetitions, name='List of Competitions'),
     path("admin/", admin.site.urls),
+    path('api/', include('easyswimapp.urls')),
 ]
