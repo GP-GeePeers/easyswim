@@ -29,7 +29,6 @@ function App() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
 
         let form_data = new FormData();
         form_data.append("lxf_file", lxf_file, lxf_file.name);
