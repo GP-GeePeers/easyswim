@@ -18,5 +18,9 @@ def main():
     execute_from_command_line(sys.argv)
 
 
+"""def getSuperUsers():
+    from django.contrib.auth.models import User
+    return User.objects.filter(is_superuser=True).values_list('username')"""
+
 if __name__ == "__main__":
     main()
