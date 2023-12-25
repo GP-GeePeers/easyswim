@@ -9,10 +9,16 @@ on:
 jobs:
 
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use the latest Ubuntu environment
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Checkout code
+        uses: actions/checkout@v3  # Checkout the repository's code
+
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and tag Docker image
+        run: |
+          docker build -t joseaguiar17/easyswim:latest ./backend
+          docker push joseaguiar17/easyswim:latest
