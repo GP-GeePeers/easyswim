@@ -1,14 +1,11 @@
 /* Primary Button */
 .primaryButton {
-    display: flex;
     width: 150px;
     height: 46px;
     padding: 4px 12px;
+    border-radius: 4px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-    border-radius: 8px;
     border: 1px solid #72d5c8;
     background-color: rgba(114, 213, 200, 0.25);
 }
@@ -44,13 +41,11 @@
 .secondaryButton {
     width: 150px;
     height: 46px;
-    background-color: #485452;
-    border-radius: 8px;
-    font-size: 16px;
-    border: 1px solid #b7bab6;
-    cursor: pointer;
-    outline: none;
+    padding: 4px 12px;
     border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #b7bab6;
     background: rgba(183, 186, 182, 0.2);
 }
 
@@ -84,9 +79,8 @@
 .sidebarButton {
     width: 250px;
     height: 46px;
-    background-color: #485452;
+    background-color: transparent;
     border-radius: 8px;
-    font-size: 16px;
     border: none;
     cursor: pointer;
     outline: none;
@@ -97,12 +91,20 @@
 }
 
 .sidebarText {
-    color: #72d5c8;
+    color: #b7bab6;
     text-align: center;
     font-family: Poppins;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.14px;
+}
+
+.sidebarButtonClicked {
+    background-color: #485452;
+}
+
+.sidebarTextClicked {
+    color: #72d5c8;
 }

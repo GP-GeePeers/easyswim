@@ -14,9 +14,16 @@ function Button(props) {
             buttonClass += ` ${classes.smallSecondaryButton}`;
             text = "Inactive";
         }
-    } else if (props.type === "sidebar") {
+    } else if (props.type === "sidebar" || props.type === "sidebarClicked") {
         buttonClass = classes.sidebarButton;
+        if (props.type === "sidebarClicked") {
+            buttonClass += ` ${classes.sidebarButtonClicked}`;
+        }
         textClass = classes.sidebarText;
+        if (props.type === "sidebarClicked") {
+            textClass += ` ${classes.sidebarTextClicked}`;
+        }
+        text = props.text;
     } else {
         buttonClass = classes.primaryButton;
         textClass = classes.primaryText;

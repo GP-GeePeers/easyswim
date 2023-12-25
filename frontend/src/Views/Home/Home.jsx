@@ -55,7 +55,7 @@ function Home() {
             .catch((err) => console.log(err));
     };
     return (
-        <div className="App">
+        <div className={classes.container}>
             <Sidebar />
         </div>
     );

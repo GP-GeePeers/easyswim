@@ -7,11 +7,15 @@
     background-color: #0f1110;
 }
 
+.SidebarRetracted {
+    width: 6.375rem;
+}
+
 .SidebarHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem 1rem 0rem 0rem;
+    padding: 2rem 1rem 0rem 1rem;
 }
 
 .TitleLogoContainer {
@@ -21,15 +25,30 @@
 }
 
 .Logo {
-    height: 3rem;
+    height: 2.7rem;
     margin-right: 5%;
+}
+
+.Title {
+    height: 2.26rem;
 }
 
 .ListButtonContainer {
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 2rem 0rem 0rem 0rem;
+    justify-content: flex-start;
+    margin-top: 4rem;
     width: 100%;
+}
+
+.BottomListButtonContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 4.5rem;
 }
