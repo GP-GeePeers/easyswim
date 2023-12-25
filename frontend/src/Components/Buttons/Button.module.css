@@ -1,0 +1,108 @@
+/* Primary Button */
+.primaryButton {
+    display: flex;
+    width: 150px;
+    height: 46px;
+    padding: 4px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid #72d5c8;
+    background-color: rgba(114, 213, 200, 0.25);
+}
+
+.primaryButton:active {
+    background-color: rgba(143, 208, 199, 0.461);
+}
+
+.primaryButton:disabled {
+    background-color: rgba(114, 213, 200, 0.25);
+}
+
+.primaryText {
+    color: #72d5c8;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+
+.smallPrimaryButton {
+    border-radius: 4px;
+    width: 80px;
+    height: 30px;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+/* Secondary Button */
+
+.secondaryButton {
+    width: 150px;
+    height: 46px;
+    background-color: #485452;
+    border-radius: 8px;
+    font-size: 16px;
+    border: 1px solid #b7bab6;
+    cursor: pointer;
+    outline: none;
+    border-radius: 4px;
+    background: rgba(183, 186, 182, 0.2);
+}
+
+.secondaryButton:active {
+    background-color: rgba(211, 211, 211, 0.264);
+}
+
+.secondaryButton:disabled {
+    background-color: rgba(183, 186, 182, 0.2);
+}
+
+.secondaryText {
+    color: #b7bab6;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+
+.smallSecondaryButton {
+    border-radius: 4px;
+    width: 80px;
+    height: 30px;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+/* Sidebar Button */
+
+.sidebarButton {
+    width: 250px;
+    height: 46px;
+    background-color: #485452;
+    border-radius: 8px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.sidebarButton:active {
+    background-color: #637272;
+}
+
+.sidebarText {
+    color: #72d5c8;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}

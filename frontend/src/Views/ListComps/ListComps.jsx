@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function TestsList() {
+function ListComps() {
     const [tests, setTests] = useState([]);
 
     useEffect(() => {
@@ -38,4 +38,4 @@ function TestsList() {
     );
 }
 
-export default TestsList;
+export default ListComps;
