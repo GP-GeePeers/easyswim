@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import classes from "./Home.module.css";
 import Sidebar from "../../Components/Sidebar/Sidebar";
+import Button from "../../Components/Buttons/Button";
 
 function Home(props) {
     const [title, setTitle] = useState("");
@@ -61,7 +62,21 @@ function Home(props) {
                 setRetracted={props.setRetracted}
                 clicked={false}
             />
-            <form onSubmit={handleSubmit}>
+            <div className={classes.contentContainer}>
+                <div className={classes.headerContainer}>
+                    <h1>
+                        Olá {/*props.company*/} Clube de Natação de Coimbra 👋
+                    </h1>
+                    <Button
+                        text={"Criar prova"}
+                        onClick={() => {
+                            /* TODO: openModal */
+                        }}
+                    />
+                </div>
+            </div>
+
+            {/* <form onSubmit={handleSubmit}>
                 <p>
                     <input
                         type="text"
@@ -91,7 +106,7 @@ function Home(props) {
                     />
                 </p>
                 <input type="submit" />
-            </form>
+            </form> */}
         </div>
     );
 }

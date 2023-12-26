@@ -1,7 +1,37 @@
 .container {
     display: flex;
     flex: 1;
+    height: 102vh;
     align-items: flex-start;
     justify-content: flex-start;
     background: #0f1110;
+}
+
+.contentContainer {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: #010101;
+    margin: 2rem 2rem 2rem 0rem;
+    border-radius: 20px;
+}
+
+h1 {
+    color: #b7bab6;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 2rem 2rem 4rem;
+    width: 100%;
 }
