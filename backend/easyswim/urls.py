@@ -30,4 +30,5 @@ urlpatterns = [
     #path('swagger/',get_swagger_view(title='EasySwim API'),name='swagger'),
     path('', views.home, name='home'),
     path("admin/", admin.site.urls),
+    path('api/', include('easyswimapp.urls')),
 ]
