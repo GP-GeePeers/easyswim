@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "rest_framework_swagger",
     'drf_yasg',
     'rest_framework',               # Django rest framework
     "django.contrib.admin",
