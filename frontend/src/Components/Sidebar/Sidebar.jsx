@@ -18,6 +18,12 @@ function Sidebar(props) {
                     {/* Redirecionar para a página inicial ao clicar */}
                     <img
                         src={process.env.PUBLIC_URL + "/Assets/Images/logo.png"}
+                        style={{
+                            "background-color": props.clicked
+                                ? null
+                                : "#445552",
+                            "border-radius": "8px",
+                        }}
                         alt="Easy Swim Logo"
                         className={classes.Logo}
                     />
