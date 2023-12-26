@@ -3,7 +3,7 @@ import axios from "axios";
 import classes from "./Home.module.css";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 
-function Home() {
+function Home(props) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [lxf_file, setLxfFile] = useState(null);
@@ -56,40 +56,44 @@ function Home() {
     };
     return (
         <div className={classes.container}>
-            <Sidebar />
+            <Sidebar
+                retracted={props.retracted}
+                setRetracted={props.setRetracted}
+                clicked={false}
+            />
+            <form onSubmit={handleSubmit}>
+                <p>
+                    <input
+                        type="text"
+                        placeholder="Title"
+                        id="title"
+                        value={title}
+                        onChange={handleChange}
+                        required
+                    />
+                </p>
+                <p>
+                    <input
+                        type="text"
+                        placeholder="Description"
+                        id="description"
+                        value={description}
+                        onChange={handleChange}
+                    />
+                </p>
+                <p>
+                    <input
+                        type="file"
+                        id="lxf_file"
+                        accept=".lxf"
+                        onChange={handleFileChange}
+                        required
+                    />
+                </p>
+                <input type="submit" />
+            </form>
         </div>
     );
-    //     <form onSubmit={handleSubmit}>
-    //         <p>
-    //             <input
-    //                 type="text"
-    //                 placeholder="Title"
-    //                 id="title"
-    //                 value={title}
-    //                 onChange={handleChange}
-    //                 required
-    //             />
-    //         </p>
-    //         <p>
-    //             <input
-    //                 type="text"
-    //                 placeholder="Description"
-    //                 id="description"
-    //                 value={description}
-    //                 onChange={handleChange}
-    //             />
-    //         </p>
-    //         <p>
-    //             <input
-    //                 type="file"
-    //                 id="lxf_file"
-    //                 accept=".lxf"
-    //                 onChange={handleFileChange}
-    //                 required
-    //             />
-    //         </p>
-    //         <input type="submit" />
-    //     </form>
 }
 
 export default Home;

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import classes from "./ListComps.module.css";
+import Sidebar from "../../Components/Sidebar/Sidebar";
 
-function ListComps() {
+function ListComps(props) {
     const [tests, setTests] = useState([]);
 
     useEffect(() => {
@@ -20,7 +22,12 @@ function ListComps() {
     }, []);
 
     return (
-        <div className="ListaProvas">
+        <div className={classes.container}>
+            <Sidebar
+                retracted={props.retracted}
+                setRetracted={props.setRetracted}
+                clicked={true}
+            />
             <h2>Lista de Provas</h2>
             {tests.length > 0 ? (
                 <ul>

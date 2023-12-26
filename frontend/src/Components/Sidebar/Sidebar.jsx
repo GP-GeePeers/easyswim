@@ -1,21 +1,19 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import classes from "./Sidebar.module.css";
-import Title from "./Assets/Title.svg";
 import Button from "../Buttons/Button";
+import Title from "./Assets/Title.svg";
+import sideIconpng from "./Assets/sideIconpng.png";
 
-function Sidebar() {
-    const [retracted, setRetracted] = useState(false);
-    const [clicked, setClicked] = useState(false);
-
+function Sidebar(props) {
     let Sidebar = classes.Sidebar;
-    if (retracted) {
+    if (props.retracted) {
         Sidebar += ` ${classes.SidebarRetracted}`;
     }
 
     return (
         <div className={Sidebar}>
-            <div className={classes.SidebarHeader}>
-                {/* Logo */}
+            <NavLink to="/" className={classes.SidebarHeader}>
                 <div className={classes.TitleLogoContainer}>
                     {/* Redirecionar para a página inicial ao clicar */}
                     <img
@@ -23,7 +21,7 @@ function Sidebar() {
                         alt="Easy Swim Logo"
                         className={classes.Logo}
                     />
-                    {retracted ? null : (
+                    {props.retracted ? null : (
                         <img
                             src={Title}
                             alt="Easy Swim Title"
@@ -31,25 +29,25 @@ function Sidebar() {
                         />
                     )}
                 </div>
-            </div>
+            </NavLink>
             {/* <div className={classes.SidebarContent}></div> */}
             <div className={classes.ListButtonContainer}>
-                <Button
-                    type={clicked ? "sidebarClicked" : "sidebar"}
-                    // icon={}
-                    text={"Lista de competições"}
-                    retracted={retracted}
-                    onClick={() => {
-                        setClicked(!clicked);
-                    }}
-                />
+                <NavLink to="/TestsList" style={{ "text-decoration": "none" }}>
+                    <Button
+                        type={props.clicked ? "sidebarClicked" : "sidebar"}
+                        icon={sideIconpng}
+                        text={props.retracted ? null : "Lista de competições"}
+                        retracted={props.retracted}
+                    />
+                </NavLink>
                 <div className={classes.BottomListButtonContainer}>
                     <Button
                         type={"sidebar"}
-                        // icon={retracted ? ArrowRight : ArrowLeft}
-                        text={"Lista de competições"}
-                        retracted={retracted}
-                        onClick={() => {}}
+                        text={props.retracted ? ">" : "<"}
+                        retracted={props.retracted}
+                        onClick={() => {
+                            props.setRetracted(!props.retracted);
+                        }}
                     />
                 </div>
             </div>
