@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
     const [retracted, setRetracted] = useState(true);
+    const [organization, setOrganization] = useState(
+        "Clube de Natação de Coimbra" /* TODO: get from API */
+    );
 
     return (
         <Router>
@@ -15,6 +18,7 @@ function App() {
                         <Home
                             retracted={retracted}
                             setRetracted={setRetracted}
+                            organization={organization}
                         />
                     }
                 />

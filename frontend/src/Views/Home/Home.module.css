@@ -1,10 +1,10 @@
 .container {
     display: flex;
     flex: 1;
-    height: 102vh;
     align-items: flex-start;
     justify-content: flex-start;
     background: #0f1110;
+    overflow: hidden;
 }
 
 .contentContainer {
@@ -20,6 +20,9 @@
 }
 
 h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #b7bab6;
     font-family: Poppins;
     font-size: 24px;
@@ -34,4 +37,21 @@ h1 {
     justify-content: space-between;
     margin: 2rem 2rem 2rem 4rem;
     width: 100%;
+    gap: 2rem;
+    overflow: hidden;
+}
+
+/*media query for h1 starting at 586px to make the text show just the end*/
+@media (max-width: 886px) {
+    .headerContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        gap: 0rem;
+    }
+    h1 {
+        font-size: 22px;
+    }
 }

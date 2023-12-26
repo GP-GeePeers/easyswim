@@ -64,9 +64,7 @@ function Home(props) {
             />
             <div className={classes.contentContainer}>
                 <div className={classes.headerContainer}>
-                    <h1>
-                        Olá {/*props.company*/} Clube de Natação de Coimbra 👋
-                    </h1>
+                    <h1>Olá {props.organization} 👋</h1>
                     <Button
                         text={"Criar prova"}
                         onClick={() => {
