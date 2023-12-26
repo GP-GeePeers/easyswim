@@ -36,7 +36,11 @@ function Sidebar(props) {
                     <Button
                         type={props.clicked ? "sidebarClicked" : "sidebar"}
                         icon={sideIconpng}
-                        text={props.retracted ? null : "Lista de competições"}
+                        text={
+                            props.retracted
+                                ? null
+                                : "Lista de competições \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 >"
+                        }
                         retracted={props.retracted}
                     />
                 </NavLink>

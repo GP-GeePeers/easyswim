@@ -2,16 +2,16 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    min-width: 20.4rem;
-    max-width: 20.4rem;
+    min-width: 306px;
+    max-width: 306px;
     align-items: center;
     justify-content: flex-start;
     background-color: #0f1110;
 }
 
 .SidebarRetracted {
-    max-width: 6.2rem;
-    min-width: 6.2rem;
+    max-width: 102px;
+    min-width: 102px;
 }
 
 .SidebarHeader {
