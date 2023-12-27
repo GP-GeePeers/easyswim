@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ListComps from "./Views/ListComps/ListComps";
 import Home from "./Views/Home/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
     const [retracted, setRetracted] = useState(true);
-    const [organization, setOrganization] = useState(
-        "Clube de 1234567 com nome grande de Coimbra" /* TODO: get from API */
-    );
+    const [organization, setOrganization] = useState("");
+    useEffect(() => {
+        setOrganization("Clube de Natação de Coimbra"); /* TODO: get from API */
+    }, []);
 
     return (
         <Router>
