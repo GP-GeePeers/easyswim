@@ -110,6 +110,7 @@
     border: none;
     cursor: pointer;
     outline: none;
+    padding-left: 11px;
 }
 
 .sidebarButton:active {

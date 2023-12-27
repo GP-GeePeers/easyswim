@@ -47,7 +47,7 @@ function Sidebar(props) {
                         retracted={props.retracted}
                     />
                 </NavLink>
-                <NavLink to="/TestsList" style={{ "text-decoration": "none" }}>
+                <NavLink to="/Profile" style={{ "text-decoration": "none" }}>
                     <Button
                         type={
                             props.clickedProfile ? "sidebarClicked" : "sidebar"

@@ -56,11 +56,11 @@
     flex: 1;
     flex-direction: column;
     align-items: center;
-    /* justify-content: space-between; */
     margin-top: 8rem;
-    width: 100%;
-    gap: 1rem;
+    height: calc(100% - 14rem);
+    gap: 1.1rem;
     z-index: 1;
+    overflow: hidden;
 }
 
 .CloseListButtonContainer {
@@ -70,7 +70,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    width: 100%;
-    height: calc(100% - 3rem);
+    height: calc(100% - 2.4rem);
     z-index: 0;
 }
