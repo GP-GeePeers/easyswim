@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
     const [retracted, setRetracted] = useState(true);
     const [organization, setOrganization] = useState(
-        "Clube de Natação de Coimbra" /* TODO: get from API */
+        "Clube de 1234567 de Coimbra" /* TODO: get from API */
     );
 
     return (

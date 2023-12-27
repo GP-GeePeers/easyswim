@@ -21,6 +21,12 @@ function ListComps(props) {
         getTestsFromAPI();
     }, []);
 
+    let contentContainer;
+    contentContainer = classes.contentContainer;
+    if (props.retracted === true) {
+        contentContainer += ` ${classes.contentContainerRetracted}`;
+    }
+
     return (
         <div className={classes.container}>
             <Sidebar
@@ -28,19 +34,21 @@ function ListComps(props) {
                 setRetracted={props.setRetracted}
                 clicked={true}
             />
-            <h2>Lista de Provas</h2>
-            {tests.length > 0 ? (
-                <ul>
-                    {tests.map((test) => (
-                        <li key={test.id}>
-                            <p>Título: {test.title}</p>
-                            <p>Descrição: {test.description}</p>
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <p>Nenhuma prova encontrada.</p>
-            )}
+            <div className={contentContainer}>
+                <h2>Lista de Provas</h2>
+                {tests.length > 0 ? (
+                    <ul>
+                        {tests.map((test) => (
+                            <li key={test.id}>
+                                <p>Título: {test.title}</p>
+                                <p>Descrição: {test.description}</p>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>Nenhuma prova encontrada.</p>
+                )}
+            </div>
         </div>
     );
 }

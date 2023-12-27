@@ -53,7 +53,7 @@ function Sidebar(props) {
                 <div className={classes.BottomListButtonContainer}>
                     <Button
                         type={"sidebar"}
-                        text={props.retracted ? ">" : "<"}
+                        text={props.retracted ? ">" : "Fechar"}
                         retracted={props.retracted}
                         onClick={() => {
                             props.setRetracted(!props.retracted);

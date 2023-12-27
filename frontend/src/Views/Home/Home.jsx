@@ -3,11 +3,24 @@ import axios from "axios";
 import classes from "./Home.module.css";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Button from "../../Components/Buttons/Button";
+import useWindowDimensions from "../../Hooks/useWindowDimensions";
 
 function Home(props) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [lxf_file, setLxfFile] = useState(null);
+    const { width } = useWindowDimensions();
+    let contentContainer;
+    let headerContainer;
+
+    contentContainer = classes.contentContainer;
+    headerContainer = classes.headerContainer;
+    if (props.retracted === true) {
+        contentContainer += ` ${classes.contentContainerRetracted}`;
+    }
+    if (props.retracted === false && width < 673) {
+        headerContainer += ` ${classes.headerContainerRetracted}`;
+    }
 
     const handleChange = (e) => {
         if (e.target.id === "title") {
@@ -55,6 +68,7 @@ function Home(props) {
             })
             .catch((err) => console.log(err));
     };
+
     return (
         <div className={classes.container}>
             <Sidebar
@@ -62,9 +76,14 @@ function Home(props) {
                 setRetracted={props.setRetracted}
                 clicked={false}
             />
-            <div className={classes.contentContainer}>
-                <div className={classes.headerContainer}>
-                    <h1>Olá {props.organization} 👋</h1>
+            <div className={contentContainer}>
+                <div className={headerContainer}>
+                    <h1>
+                        {width > 673
+                            ? `Olá ${props.organization} 👋`
+                            : "Olá 👋"}
+                    </h1>
+
                     <Button
                         text={"Criar prova"}
                         onClick={() => {

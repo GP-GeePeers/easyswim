@@ -10,6 +10,15 @@
     background-color: #0f1110;
 }
 
+/*fill screen with sidebar if width < tablet*/
+@media (max-width: 667px) {
+    .Sidebar {
+        min-width: 100%;
+        max-width: 100%;
+        z-index: 1;
+    }
+}
+
 .SidebarRetracted {
     max-width: 102px;
     min-width: 102px;

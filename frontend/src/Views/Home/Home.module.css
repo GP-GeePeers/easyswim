@@ -8,15 +8,22 @@
 }
 
 .contentContainer {
+    position: fixed;
     display: flex;
     flex: 1;
-    width: 100%;
+    height: calc(100% - 40px);
+    width: calc(100% - 326px);
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
     background: #010101;
-    margin: 2rem 2rem 2rem 0rem;
+    margin: 20px 4px 20px 306px;
     border-radius: 20px;
+}
+
+.contentContainerRetracted {
+    width: calc(100% - 122px);
+    margin: 20px 4px 20px 102px;
 }
 
 h1 {
@@ -35,10 +42,10 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 2rem 2rem 2rem 4rem;
+    margin: 1rem 2.4rem 2rem 2.4rem;
     width: 100%;
     gap: 2rem;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /*media query for h1 starting at 586px to make the text show just the end*/
@@ -50,8 +57,19 @@ h1 {
         text-align: center;
         justify-content: center;
         gap: 0rem;
+        max-height: 4rem;
+        margin-top: 42px;
     }
     h1 {
         font-size: 22px;
     }
+}
+
+.headerContainerRetracted {
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0rem;
+    margin: 1rem 0.7rem 2rem 0.7rem;
+    min-height: 7rem;
+    overflow: hidden;
 }
