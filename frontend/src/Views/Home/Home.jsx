@@ -82,7 +82,7 @@ function Home(props) {
                         }}
                     />
                 </div>
-                <h2>Lista de Provas</h2>
+                <h1>Homepage</h1>
             </div>
 
             {/* <form onSubmit={handleSubmit}>

@@ -46,7 +46,7 @@ function ListComps(props) {
                         }}
                     />
                 </div>
-                <h2>Lista de Provas</h2>
+                <h1>Lista de Provas</h1>
                 {/* {tests.length > 0 ? (
                     <ul>
                         {tests.map((test) => (
