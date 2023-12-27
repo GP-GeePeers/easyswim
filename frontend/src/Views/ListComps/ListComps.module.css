@@ -13,9 +13,10 @@
     flex: 1;
     height: calc(100% - 40px);
     width: calc(100% - 326px);
-    flex-direction: row;
+    flex-direction: column;
+    gap: 2rem;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     background: #010101;
     margin: 20px 4px 20px 306px;
     border-radius: 20px;
@@ -42,13 +43,11 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 1rem 2.4rem 2rem 2.4rem;
-    width: 100%;
+    margin: 20px 0rem 2rem 0rem;
+    width: calc(100% - 4.8rem);
     gap: 2rem;
-    /* overflow: hidden; */
 }
 
-/*media query for h1 starting at 586px to make the text show just the end*/
 @media (max-width: 886px) {
     .headerContainer {
         display: flex;
@@ -57,19 +56,8 @@ h1 {
         text-align: center;
         justify-content: center;
         gap: 0rem;
-        max-height: 4rem;
-        margin-top: 42px;
     }
     h1 {
         font-size: 22px;
     }
-}
-
-.headerContainerRetracted {
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 0rem;
-    margin: 1rem 0.7rem 2rem 0.7rem;
-    max-height: 6.45rem;
-    overflow: hidden;
 }

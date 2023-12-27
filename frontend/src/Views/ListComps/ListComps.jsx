@@ -2,9 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import classes from "./ListComps.module.css";
 import Sidebar from "../../Components/Sidebar/Sidebar";
+import Button from "../../Components/Buttons/Button";
 
 function ListComps(props) {
     const [tests, setTests] = useState([]);
+    let contentContainer;
+
+    contentContainer = classes.contentContainer;
+    if (props.retracted === true) {
+        contentContainer += ` ${classes.contentContainerRetracted}`;
+    }
 
     useEffect(() => {
         const getTestsFromAPI = async () => {
@@ -21,12 +28,6 @@ function ListComps(props) {
         getTestsFromAPI();
     }, []);
 
-    let contentContainer;
-    contentContainer = classes.contentContainer;
-    if (props.retracted === true) {
-        contentContainer += ` ${classes.contentContainerRetracted}`;
-    }
-
     return (
         <div className={classes.container}>
             <Sidebar
@@ -35,8 +36,18 @@ function ListComps(props) {
                 clicked={true}
             />
             <div className={contentContainer}>
+                <div className={classes.headerContainer}>
+                    <h1>Olá {props.organization} 👋</h1>
+
+                    <Button
+                        text={"Criar prova"}
+                        onClick={() => {
+                            /* TODO: openModal */
+                        }}
+                    />
+                </div>
                 <h2>Lista de Provas</h2>
-                {tests.length > 0 ? (
+                {/* {tests.length > 0 ? (
                     <ul>
                         {tests.map((test) => (
                             <li key={test.id}>
@@ -47,7 +58,7 @@ function ListComps(props) {
                     </ul>
                 ) : (
                     <p>Nenhuma prova encontrada.</p>
-                )}
+                )} */}
             </div>
         </div>
     );

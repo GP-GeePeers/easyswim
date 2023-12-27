@@ -3,13 +3,11 @@ import axios from "axios";
 import classes from "./Home.module.css";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Button from "../../Components/Buttons/Button";
-import useWindowDimensions from "../../Hooks/useWindowDimensions";
 
 function Home(props) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [lxf_file, setLxfFile] = useState(null);
-    const { width } = useWindowDimensions();
     let contentContainer;
     let headerContainer;
 
@@ -17,9 +15,6 @@ function Home(props) {
     headerContainer = classes.headerContainer;
     if (props.retracted === true) {
         contentContainer += ` ${classes.contentContainerRetracted}`;
-    }
-    if (props.retracted === false && width < 673) {
-        headerContainer += ` ${classes.headerContainerRetracted}`;
     }
 
     const handleChange = (e) => {
@@ -78,11 +73,7 @@ function Home(props) {
             />
             <div className={contentContainer}>
                 <div className={headerContainer}>
-                    <h1>
-                        {width > 673
-                            ? `Olá ${props.organization} 👋`
-                            : "Olá 👋"}
-                    </h1>
+                    <h1>Olá {props.organization} 👋</h1>
 
                     <Button
                         text={"Criar prova"}
@@ -91,6 +82,7 @@ function Home(props) {
                         }}
                     />
                 </div>
+                <h2>Lista de Provas</h2>
             </div>
 
             {/* <form onSubmit={handleSubmit}>
