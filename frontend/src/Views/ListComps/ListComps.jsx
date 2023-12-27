@@ -33,7 +33,7 @@ function ListComps(props) {
             <Sidebar
                 retracted={props.retracted}
                 setRetracted={props.setRetracted}
-                clicked={true}
+                clickedComp={true}
             />
             <div className={contentContainer}>
                 <div className={classes.headerContainer}>

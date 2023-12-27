@@ -19,9 +19,10 @@ function Sidebar(props) {
                     <img
                         src={process.env.PUBLIC_URL + "/Assets/Images/logo.png"}
                         style={{
-                            "background-color": props.clicked
-                                ? null
-                                : "#445552",
+                            "background-color":
+                                props.clickedComp || props.clickedProfile
+                                    ? null
+                                    : "#445552",
                             "border-radius": "8px",
                         }}
                         alt="Easy Swim Logo"
@@ -40,26 +41,32 @@ function Sidebar(props) {
             <div className={classes.ListButtonContainer}>
                 <NavLink to="/TestsList" style={{ "text-decoration": "none" }}>
                     <Button
-                        type={props.clicked ? "sidebarClicked" : "sidebar"}
+                        type={props.clickedComp ? "sidebarClicked" : "sidebar"}
                         icon={sideIconpng}
-                        text={
-                            props.retracted
-                                ? null
-                                : "Lista de competições \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0 >"
-                        }
+                        text={props.retracted ? null : "Lista de competições"}
                         retracted={props.retracted}
                     />
                 </NavLink>
-                <div className={classes.BottomListButtonContainer}>
+                <NavLink to="/TestsList" style={{ "text-decoration": "none" }}>
                     <Button
-                        type={"sidebar"}
-                        text={props.retracted ? ">" : "Fechar"}
+                        type={
+                            props.clickedProfile ? "sidebarClicked" : "sidebar"
+                        }
+                        icon={sideIconpng}
+                        text={props.retracted ? null : "Perfil"}
                         retracted={props.retracted}
-                        onClick={() => {
-                            props.setRetracted(!props.retracted);
-                        }}
                     />
-                </div>
+                </NavLink>
+            </div>
+            <div className={classes.CloseListButtonContainer}>
+                <Button
+                    type={"close"}
+                    text={props.retracted ? ">" : "Fechar"}
+                    retracted={props.retracted}
+                    onClick={() => {
+                        props.setRetracted(!props.retracted);
+                    }}
+                />
             </div>
             {/* Seta clicável para expandir ou retrair a sidebar */}
         </div>

@@ -17,7 +17,11 @@ function Button(props) {
         if (props.retracted) {
             buttonClass += ` ${classes.retractedSecondaryButton}`;
         }
-    } else if (props.type === "sidebar" || props.type === "sidebarClicked") {
+    } else if (
+        props.type === "sidebar" ||
+        props.type === "sidebarClicked" ||
+        props.type === "close"
+    ) {
         buttonClass = classes.sidebarButton;
         if (props.type === "sidebarClicked") {
             buttonClass += ` ${classes.sidebarButtonClicked}`;
@@ -29,7 +33,9 @@ function Button(props) {
         if (props.type === "sidebarClicked") {
             textClass += ` ${classes.sidebarTextClicked}`;
         }
-
+        if (props.type === "close") {
+            buttonClass += ` ${classes.close}`;
+        }
         text = props.text;
     } else {
         buttonClass = classes.primaryButton;

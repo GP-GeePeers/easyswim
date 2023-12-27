@@ -100,7 +100,7 @@
 
 .sidebarButton {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 1rem;
     width: 250px;
@@ -148,4 +148,8 @@
 .Logo {
     width: 24px;
     height: 24px;
+}
+
+.close {
+    justify-content: center;
 }
