@@ -63,7 +63,7 @@
     overflow: hidden;
 }
 
-.CloseListButtonContainer {
+.BottomButtonContainer {
     position: fixed;
     display: flex;
     flex: 1;

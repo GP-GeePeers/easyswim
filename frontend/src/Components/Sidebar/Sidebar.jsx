@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 import classes from "./Sidebar.module.css";
 import Button from "../Buttons/Button";
 import Title from "./Assets/Title.svg";
-import sideIconpng from "./Assets/sideIconpng.png";
+import sideIcon from "./Assets/sideIcon.png";
+import gear from "./Assets/gear.svg";
 
 function Sidebar(props) {
     let Sidebar = classes.Sidebar;
@@ -42,23 +43,23 @@ function Sidebar(props) {
                 <NavLink to="/TestsList" style={{ "text-decoration": "none" }}>
                     <Button
                         type={props.clickedComp ? "sidebarClicked" : "sidebar"}
-                        icon={sideIconpng}
+                        icon={sideIcon}
                         text={props.retracted ? null : "Lista de competições"}
                         retracted={props.retracted}
                     />
                 </NavLink>
-                <NavLink to="/Profile" style={{ "text-decoration": "none" }}>
+                <NavLink to="/Settings" style={{ "text-decoration": "none" }}>
                     <Button
                         type={
                             props.clickedProfile ? "sidebarClicked" : "sidebar"
                         }
-                        icon={sideIconpng}
-                        text={props.retracted ? null : "Perfil"}
+                        icon={gear}
+                        text={props.retracted ? null : "Definições"}
                         retracted={props.retracted}
                     />
                 </NavLink>
             </div>
-            <div className={classes.CloseListButtonContainer}>
+            <div className={classes.BottomButtonContainer}>
                 <Button
                     type={"close"}
                     text={props.retracted ? ">" : "Fechar"}
