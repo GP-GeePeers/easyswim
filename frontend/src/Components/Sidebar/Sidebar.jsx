@@ -5,6 +5,7 @@ import Button from "../Buttons/Button";
 import Title from "./Assets/Title.svg";
 import sideIcon from "./Assets/sideIcon.png";
 import gear from "./Assets/gear.svg";
+import logout from "./Assets/logout1.png";
 
 function Sidebar(props) {
     let Sidebar = classes.Sidebar;
@@ -60,6 +61,16 @@ function Sidebar(props) {
                 </NavLink>
             </div>
             <div className={classes.BottomButtonContainer}>
+                <Button
+                    // type={"close"}
+                    type={props.clickedComp ? "sidebarClicked" : "sidebar"}
+                    text={props.retracted ? "" : "Logout"}
+                    icon={logout}
+                    retracted={props.retracted}
+                    onClick={() => {
+                        props.setRetracted(!props.retracted);
+                    }}
+                />
                 <Button
                     type={"close"}
                     text={props.retracted ? ">" : "Fechar"}
