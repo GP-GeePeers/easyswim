@@ -19,18 +19,25 @@ function Button(props) {
         }
     } else if (
         props.type === "sidebar" ||
-        props.type === "sidebarClicked" ||
+        props.type === "compClicked" ||
+        props.type === "profileClicked" ||
         props.type === "close"
     ) {
         buttonClass = classes.sidebarButton;
-        if (props.type === "sidebarClicked") {
+        if (props.type === "compClicked") {
+            buttonClass += ` ${classes.sidebarButtonClicked}`;
+        }
+        if (props.type === "profileClicked") {
             buttonClass += ` ${classes.sidebarButtonClicked}`;
         }
         if (props.retracted) {
             buttonClass += ` ${classes.retractedSidebarButton}`;
         }
         textClass = classes.sidebarText;
-        if (props.type === "sidebarClicked") {
+        if (props.type === "compClicked") {
+            textClass += ` ${classes.sidebarTextClicked}`;
+        }
+        if (props.type === "profileClicked") {
             textClass += ` ${classes.sidebarTextClicked}`;
         }
         if (props.type === "close") {

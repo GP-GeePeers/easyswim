@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ListComps from "./Views/ListComps/ListComps";
-import Home from "./Views/Home/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Views/Home/Home";
+import ListComps from "./Views/ListComps/ListComps";
+import Profile from "./Views/Profile/Profile";
 
 function App() {
     const [retracted, setRetracted] = useState(true);
@@ -27,6 +28,16 @@ function App() {
                     path="/TestsList"
                     element={
                         <ListComps
+                            retracted={retracted}
+                            setRetracted={setRetracted}
+                            organization={organization}
+                        />
+                    }
+                />
+                <Route
+                    path="/Settings"
+                    element={
+                        <Profile
                             retracted={retracted}
                             setRetracted={setRetracted}
                             organization={organization}

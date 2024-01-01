@@ -43,7 +43,7 @@ function Sidebar(props) {
             <div className={classes.ListButtonContainer}>
                 <NavLink to="/TestsList" style={{ "text-decoration": "none" }}>
                     <Button
-                        type={props.clickedComp ? "sidebarClicked" : "sidebar"}
+                        type={props.clickedComp ? "compClicked" : "sidebar"}
                         icon={sideIcon}
                         text={props.retracted ? null : "Lista de competições"}
                         retracted={props.retracted}
@@ -52,7 +52,7 @@ function Sidebar(props) {
                 <NavLink to="/Settings" style={{ "text-decoration": "none" }}>
                     <Button
                         type={
-                            props.clickedProfile ? "sidebarClicked" : "sidebar"
+                            props.clickedProfile ? "profileClicked" : "sidebar"
                         }
                         icon={gear}
                         text={props.retracted ? null : "Definições"}
@@ -63,7 +63,7 @@ function Sidebar(props) {
             <div className={classes.BottomButtonContainer}>
                 <Button
                     // type={"close"}
-                    type={props.clickedComp ? "sidebarClicked" : "sidebar"}
+                    type={"sidebar"}
                     text={props.retracted ? "" : "Logout"}
                     icon={logout}
                     retracted={props.retracted}
