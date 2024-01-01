@@ -68,7 +68,7 @@ function Sidebar(props) {
                     icon={logout}
                     retracted={props.retracted}
                     onClick={() => {
-                        props.setRetracted(!props.retracted);
+                        /*TODO: Logout*/
                     }}
                 />
                 <Button
