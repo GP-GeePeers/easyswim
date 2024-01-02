@@ -73,30 +73,6 @@ function Home(props) {
             <div className={contentContainer}>
                 <h1>_</h1>
                 <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
-                <h1>Homepage</h1>
             </div>
 
             {/* <form onSubmit={handleSubmit}>
