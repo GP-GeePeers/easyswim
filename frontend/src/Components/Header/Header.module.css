@@ -3,7 +3,7 @@
     position: fixed;
     align-items: center;
     justify-content: space-between;
-    top: 26px;
+    top: 36px;
     left: calc(306px + 2rem);
     width: calc(100% - (306px + 5rem));
     overflow: hidden;
