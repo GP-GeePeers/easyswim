@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import classes from "./ListComps.module.css";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import Button from "../../Components/Buttons/Button";
 
 function ListComps(props) {
     const [tests, setTests] = useState([]);
@@ -36,16 +35,7 @@ function ListComps(props) {
                 clickedComp={true}
             />
             <div className={contentContainer}>
-                <div className={classes.headerContainer}>
-                    <h1>Olá {props.organization} 👋</h1>
-
-                    <Button
-                        text={"Criar prova"}
-                        onClick={() => {
-                            /* TODO: openModal */
-                        }}
-                    />
-                </div>
+                <h1>_</h1>
                 <h1>Lista de Provas</h1>
                 {/* {tests.length > 0 ? (
                     <ul>

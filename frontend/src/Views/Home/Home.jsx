@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import classes from "./Home.module.css";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import Button from "../../Components/Buttons/Button";
 
 function Home(props) {
     const [title, setTitle] = useState("");
@@ -72,16 +71,31 @@ function Home(props) {
                 clicked={false}
             />
             <div className={contentContainer}>
-                <div className={headerContainer}>
-                    <h1>Olá {props.organization} 👋</h1>
-
-                    <Button
-                        text={"Criar prova"}
-                        onClick={() => {
-                            /* TODO: openModal */
-                        }}
-                    />
-                </div>
+                <h1>_</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
+                <h1>Homepage</h1>
                 <h1>Homepage</h1>
             </div>
 
