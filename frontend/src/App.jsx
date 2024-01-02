@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Background from "./Components/Background/Background";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import Header from "./Components/Header/Header";
 import Home from "./Views/Home/Home";
 import ListComps from "./Views/ListComps/ListComps";
 import Profile from "./Views/Profile/Profile";
-import Header from "./Components/Header/Header";
-// import Sidebar from "./Components/Sidebar/Sidebar";
 
 function App() {
     const [retracted, setRetracted] = useState(true);
@@ -15,15 +16,13 @@ function App() {
 
     return (
         <Router>
-            <Header organization={organization} retracted={retracted} />
-            {/* TODO - have sidebar and background done here so that the views component only aggregate their
-            correspondent components and remove the sidebar from the views that it is currently placed in */}
-            {/* <Sidebar
+            <Background />
+            <Sidebar
                 retracted={retracted}
                 setRetracted={setRetracted}
                 clicked={false}
-            /> */}
-            {/* <Background /> */}
+            />
+            <Header organization={organization} retracted={retracted} />
             <Routes>
                 <Route
                     path="/"

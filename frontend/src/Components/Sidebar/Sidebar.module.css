@@ -7,15 +7,17 @@
     max-width: 306px;
     align-items: center;
     justify-content: flex-start;
-    background-color: #0f1110;
+    z-index: 1;
 }
 
-/*fill screen with sidebar if width < tablet*/
 @media (max-width: 667px) {
     .Sidebar {
+        position: fixed;
         min-width: 100%;
         max-width: 100%;
-        z-index: 1;
+        overflow: hidden;
+        z-index: 100;
+        background-color: #0f1110;
     }
 }
 
@@ -71,5 +73,5 @@
     justify-content: flex-end;
     bottom: 0;
     margin-bottom: 2.4rem;
-    z-index: 0;
+    z-index: 1;
 }

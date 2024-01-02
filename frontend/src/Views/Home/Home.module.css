@@ -1,38 +1,50 @@
 .container {
+    position: absolute;
     display: flex;
-    flex: 1;
-    align-items: flex-start;
     justify-content: flex-start;
-    background: #0f1110;
+    align-items: center;
+    flex-direction: column;
+    background: #010101;
+    border-radius: 20px;
+    z-index: 1;
+    top: 20px;
+    height: calc(100% - 40px);
+    width: calc(100% - 326px);
+    margin: 0px 4px 20px 306px;
     overflow: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
 }
 
 .contentContainer {
-    position: fixed;
+    position: absolute;
     display: flex;
     flex: 1;
-    height: calc(100% - 40px);
-    width: calc(100% - 326px);
+    margin-top: 6rem;
     flex-direction: column;
-    gap: 2rem;
     justify-content: flex-start;
     align-items: center;
-    background: #010101;
-    margin: 20px 4px 20px 306px;
-    border-radius: 20px;
-    overflow: hidden;
-    /* overflow-y: scroll; */
+    padding: 0px 2rem;
+    z-index: 1;
 }
 
-.contentContainerRetracted {
+.containerRetracted {
     width: calc(100% - 122px);
-    margin: 20px 4px 20px 102px;
+    margin: 0px 4px 20px 102px;
+}
+
+@media (max-width: 886px) {
+    .contentContainer {
+        margin-top: 12rem;
+    }
 }
 
 h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: #b7bab6;
     font-family: Poppins;
     font-size: 24px;

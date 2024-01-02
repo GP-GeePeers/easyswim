@@ -9,8 +9,9 @@ function Header(props) {
     }
     return (
         <div className={headerContainer}>
-            <h1>Olá {props.organization} 👋</h1>
-
+            <div className={classes.textContainer}>
+                <h1>Olá {props.organization} 👋</h1>
+            </div>
             <Button
                 text={"Criar prova"}
                 onClick={() => {

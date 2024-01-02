@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import classes from "./Home.module.css";
-import Sidebar from "../../Components/Sidebar/Sidebar";
 
 function Home(props) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [lxf_file, setLxfFile] = useState(null);
-    let contentContainer;
-    let headerContainer;
+    let container = classes.container;
 
-    contentContainer = classes.contentContainer;
-    headerContainer = classes.headerContainer;
     if (props.retracted === true) {
-        contentContainer += ` ${classes.contentContainerRetracted}`;
+        container += ` ${classes.containerRetracted}`;
     }
 
     const handleChange = (e) => {
@@ -64,15 +60,34 @@ function Home(props) {
     };
 
     return (
-        <div className={classes.container}>
-            <Sidebar
-                retracted={props.retracted}
-                setRetracted={props.setRetracted}
-                clicked={false}
-            />
-            <div className={contentContainer}>
-                <h1>_</h1>
+        <div className={container}>
+            <div className={classes.contentContainer}>
                 <h1>Homepage</h1>
+                {/* <h1>
+                    Content Content Content Content Content Content Content
+                    Content Content Content Content Content Content Content
+                    Content Content Content Content Content Content
+                </h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1>
+                <h1>Content</h1> */}
             </div>
 
             {/* <form onSubmit={handleSubmit}>

@@ -8,6 +8,9 @@ import gear from "./Assets/gear.svg";
 import logout from "./Assets/logout1.png";
 
 function Sidebar(props) {
+    const [clickedComp, setClickedComp] = useState(false);
+    const [clickedProfile, setClickedProfile] = useState(false);
+
     let Sidebar = classes.Sidebar;
     if (props.retracted) {
         Sidebar += ` ${classes.SidebarRetracted}`;
@@ -15,14 +18,21 @@ function Sidebar(props) {
 
     return (
         <div className={Sidebar}>
-            <NavLink to="/" className={classes.SidebarHeader}>
+            <NavLink
+                to="/"
+                className={classes.SidebarHeader}
+                onClick={() => {
+                    setClickedComp(false);
+                    setClickedProfile(false);
+                }}
+            >
                 <div className={classes.TitleLogoContainer}>
                     {/* Redirecionar para a página inicial ao clicar */}
                     <img
                         src={process.env.PUBLIC_URL + "/Assets/Images/logo.png"}
                         style={{
                             "background-color":
-                                props.clickedComp || props.clickedProfile
+                                clickedComp || clickedProfile
                                     ? null
                                     : "#445552",
                             "border-radius": "8px",
@@ -43,20 +53,26 @@ function Sidebar(props) {
             <div className={classes.ListButtonContainer}>
                 <NavLink to="/TestsList" style={{ "text-decoration": "none" }}>
                     <Button
-                        type={props.clickedComp ? "compClicked" : "sidebar"}
+                        type={clickedComp ? "compClicked" : "sidebar"}
                         icon={sideIcon}
                         text={props.retracted ? null : "Lista de competições"}
                         retracted={props.retracted}
+                        onClick={() => {
+                            setClickedComp(!clickedComp);
+                            setClickedProfile(false);
+                        }}
                     />
                 </NavLink>
                 <NavLink to="/Settings" style={{ "text-decoration": "none" }}>
                     <Button
-                        type={
-                            props.clickedProfile ? "profileClicked" : "sidebar"
-                        }
+                        type={clickedProfile ? "profileClicked" : "sidebar"}
                         icon={gear}
                         text={props.retracted ? null : "Definições"}
                         retracted={props.retracted}
+                        onClick={() => {
+                            setClickedProfile(!clickedProfile);
+                            setClickedComp(false);
+                        }}
                     />
                 </NavLink>
             </div>
@@ -64,7 +80,7 @@ function Sidebar(props) {
                 <Button
                     // type={"close"}
                     type={"sidebar"}
-                    text={props.retracted ? "" : "Logout"}
+                    text={props.retracted ? "" : "Terminar Sessão"}
                     icon={logout}
                     retracted={props.retracted}
                     onClick={() => {
