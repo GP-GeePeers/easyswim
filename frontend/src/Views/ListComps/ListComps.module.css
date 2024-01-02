@@ -5,12 +5,12 @@
     align-items: center;
     flex-direction: column;
     background: #010101;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     z-index: 1;
-    top: 20px;
+    top: 1.25rem;
     height: calc(100% - 40px);
     width: calc(100% - 326px);
-    margin: 0px 4px 20px 306px;
+    margin: 0px 4px 1.25rem 306px;
     overflow: hidden;
     overflow-y: scroll;
     -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -35,7 +35,7 @@
 
 .containerRetracted {
     width: calc(100% - 122px);
-    margin: 0px 4px 20px 102px;
+    margin: 0px 4px 1.25rem 102px;
 }
 
 @media (max-width: 886px) {

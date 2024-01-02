@@ -1,9 +1,9 @@
 .headerContainer {
-    display: flex;
     position: fixed;
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    top: 20px;
+    top: 1.25rem;
     left: calc(306px + 2rem);
     width: calc(100% - (306px + 5rem));
     overflow: hidden;
@@ -32,5 +32,11 @@
         justify-content: center;
         padding-bottom: 1rem;
         gap: 1.1rem;
+    }
+}
+
+@media (max-height: 235px) {
+    .headerContainer {
+        display: none;
     }
 }

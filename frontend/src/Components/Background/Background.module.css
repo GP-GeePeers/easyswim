@@ -8,11 +8,4 @@
     justify-content: flex-start;
     background: #0f1110;
     z-index: 0;
-    overflow: hidden;
-}
-
-@media (max-width: 667px) {
-    .container {
-        z-index: 0;
-    }
 }
