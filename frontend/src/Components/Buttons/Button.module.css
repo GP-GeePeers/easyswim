@@ -1,8 +1,8 @@
 /* Primary Button */
 .primaryButton {
-    width: 150px;
+    width: 9.375rem;
     height: 46px;
-    padding: 4px 12px;
+    padding: 0.25rem 12px;
     border-radius: 4px;
     justify-content: center;
     align-items: center;
@@ -50,7 +50,7 @@
 /* Secondary Button */
 
 .secondaryButton {
-    width: 150px;
+    width: 9.375rem;
     height: 46px;
     padding: 4px 12px;
     border-radius: 4px;
