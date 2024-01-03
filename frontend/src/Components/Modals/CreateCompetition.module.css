@@ -8,15 +8,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 89;
+    z-index: 91;
 }
 
 .createCompModal {
+    position: absolute;
     background: #fff;
+    width: 70%;
+    height: 80%;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    z-index: 90;
+    z-index: 92;
 }
 
 .createCompModal button {
