@@ -23,14 +23,15 @@ function CreateCompetition(props) {
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
-
+        setErrorMessage("");
         // Check if the file has the .lxf extension
+
         if (selectedFile && selectedFile.name.endsWith(".lxf")) {
             setLxfFile(selectedFile);
             setErrorMessage(""); // Clear error message on valid file
-        } else {
-            setErrorMessage("Por favor introduza um ficheiro .lxf válido.");
-        }
+        } // else {
+        //     setErrorMessage("Por favor introduza um ficheiro .lxf válido.");
+        // }
     };
 
     const handleSubmit = (e) => {
@@ -67,6 +68,8 @@ function CreateCompetition(props) {
             .catch((err) => console.log(err));
     };
 
+    // TODO - fazer uma animação para, onSuccess do request mudar uma variável que muda a visibilidade do conteudo, mostra a mensagem de sucesso e, depois de 3 segundos, fecha o modal
+
     return (
         <div>
             {props.createCompModal && (
@@ -79,42 +82,11 @@ function CreateCompetition(props) {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <h1>Upload ficheiro</h1>
-                        <p>Drop your file or browse</p>
-
-                        <button onClick={props.changeCreateCompModal}>
-                            Submeter
-                        </button>
-                        <button onClick={props.changeCreateCompModal}>
-                            Ver ficheiro
-                        </button>
-                        <button onClick={props.changeCreateCompModal}>
-                            Cancelar
-                        </button>
-
-                        {errorMessage && (
-                            <p className={classes.error}>{errorMessage}</p>
-                        )}
-
+                        <p>
+                            Arraste um ficheiro para esta janela ou escolha um
+                            ficheiro
+                        </p>
                         <form onSubmit={handleSubmit}>
-                            <p>
-                                <input
-                                    type="text"
-                                    placeholder="Title"
-                                    id="title"
-                                    value={title}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </p>
-                            <p>
-                                <input
-                                    type="text"
-                                    placeholder="Description"
-                                    id="description"
-                                    value={description}
-                                    onChange={handleChange}
-                                />
-                            </p>
                             <p>
                                 <input
                                     type="file"
@@ -126,6 +98,19 @@ function CreateCompetition(props) {
                             </p>
                             <input type="submit" />
                         </form>
+                        <button /*onClick={props.changeCreateCompModal}*/>
+                            Submeter
+                        </button>
+                        <button /*onClick={props.changeCreateCompModal}*/>
+                            Ver ficheiro
+                        </button>
+                        <button onClick={props.changeCreateCompModal}>
+                            Cancelar
+                        </button>
+
+                        {errorMessage && (
+                            <p className={classes.error}>{errorMessage}</p>
+                        )}
                     </div>
                 </div>
             )}
