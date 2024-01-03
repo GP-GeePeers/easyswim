@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import classes from "./CreateCompetition.module.css";
+import Button from "../Buttons/Button";
+import Card from "../Cards/Card";
 
 function CreateCompetition(props) {
     const [title, setTitle] = useState("");
@@ -61,6 +63,7 @@ function CreateCompetition(props) {
                 setTitle("");
                 setDescription("");
                 setLxfFile(null);
+                props.changeCreateCompModal();
 
                 // Show success message
                 setErrorMessage("Ficheiro submetido com sucesso!");
@@ -81,12 +84,32 @@ function CreateCompetition(props) {
                         className={classes.createCompModal}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <h1>Upload ficheiro</h1>
-                        <p>
-                            Arraste um ficheiro para esta janela ou escolha um
-                            ficheiro
-                        </p>
-                        <form onSubmit={handleSubmit}>
+                        <div className={classes.headerContainer}>
+                            <h1>Upload ficheiro</h1>
+                            <Button
+                                type={"secondary"}
+                                text={"Cancelar"}
+                                onClick={props.changeCreateCompModal}
+                            />
+                        </div>
+                        <div className={classes.cardContainer}>
+                            <Card type={"secondary"}>
+                                <div className={classes.textCombo}>
+                                    <p>
+                                        Arraste um ficheiro para esta janela ou
+                                    </p>
+                                    <p
+                                        style={{
+                                            color: "#72D5C8",
+                                            marginLeft: "6px",
+                                        }}
+                                    >
+                                        escolha um ficheiro
+                                    </p>
+                                </div>
+                            </Card>
+                        </div>
+                        {/* <form onSubmit={handleSubmit}>
                             <p>
                                 <input
                                     type="file"
@@ -97,17 +120,16 @@ function CreateCompetition(props) {
                                 />
                             </p>
                             <input type="submit" />
-                        </form>
-                        <button /*onClick={props.changeCreateCompModal}*/>
-                            Submeter
-                        </button>
-                        <button /*onClick={props.changeCreateCompModal}*/>
-                            Ver ficheiro
-                        </button>
-                        <button onClick={props.changeCreateCompModal}>
-                            Cancelar
-                        </button>
+                        </form> */}
 
+                        <div className={classes.buttonsContainer}>
+                            <Button text={"Submeter"} onClick={handleSubmit} />
+                            <Button
+                                type={"secondary"}
+                                text={"Ver Ficheiro"}
+                                /*onClick={props.changeCreateCompModal}*/
+                            />
+                        </div>
                         {errorMessage && (
                             <p className={classes.error}>{errorMessage}</p>
                         )}

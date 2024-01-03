@@ -16,13 +16,72 @@
     background: #fff;
     width: 70%;
     height: 80%;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
+    padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+    border-radius: 30px;
     z-index: 92;
+    background-color: #0e1110;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
 }
 
 .createCompModal button {
     margin-top: 10px;
     z-index: 93;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    flex-direction: row;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    flex-direction: row;
+}
+
+.textCombo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+    flex-direction: column;
+    margin: 2rem 0;
+    gap: 1rem;
+}
+
+h1 {
+    color: #b7bab6;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+p {
+    color: #b7bab6;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
