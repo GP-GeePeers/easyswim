@@ -5,9 +5,10 @@
     justify-content: space-between;
     top: 1.25rem;
     left: calc(306px + 2rem);
-    width: calc(100% - (306px + 5rem));
+    min-width: calc(100% - (306px + 5rem));
     overflow: hidden;
     background-color: #010101;
+    background-color: blueviolet;
     z-index: 2;
     padding-top: 16px;
 }
@@ -39,4 +40,10 @@
     .headerContainer {
         display: none;
     }
+}
+
+.buttonContainer {
+    position: absolute;
+    right: 0vw;
+    z-index: 1;
 }

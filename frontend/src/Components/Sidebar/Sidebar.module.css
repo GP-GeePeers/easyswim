@@ -16,7 +16,7 @@
         min-width: 100%;
         max-width: 100%;
         overflow: hidden;
-        z-index: 100;
+        z-index: 90;
         background-color: #0f1110;
     }
 }

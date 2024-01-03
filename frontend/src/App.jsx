@@ -6,13 +6,25 @@ import Header from "./Components/Header/Header";
 import Home from "./Views/Home/Home";
 import ListComps from "./Views/ListComps/ListComps";
 import Profile from "./Views/Profile/Profile";
+import CreateCompetition from "./Components/Modals/CreateCompetition";
 
 function App() {
+    // state to control the sidebar retraction
     const [retracted, setRetracted] = useState(true);
+    // state to control the organization name
     const [organization, setOrganization] = useState("");
+    // state to control the modal to create a competition appearing and disappearing
+    const [createCompModal, setCreateCompModal] = useState(false);
+
+    // get organization name from API
     useEffect(() => {
         setOrganization("Clube de Natação de Coimbra"); /* TODO: get from API */
     }, []);
+
+    //funtion to change state of createCompModal
+    const changeCreateCompModal = () => {
+        setCreateCompModal(!createCompModal);
+    };
 
     return (
         <Router>
@@ -22,7 +34,16 @@ function App() {
                 setRetracted={setRetracted}
                 clicked={false}
             />
-            <Header organization={organization} retracted={retracted} />
+            <Header
+                organization={organization}
+                retracted={retracted}
+                createCompModal={createCompModal}
+                changeCreateCompModal={changeCreateCompModal}
+            />
+            <CreateCompetition
+                createCompModal={createCompModal}
+                changeCreateCompModal={changeCreateCompModal}
+            />
             <Routes>
                 <Route
                     path="/"
