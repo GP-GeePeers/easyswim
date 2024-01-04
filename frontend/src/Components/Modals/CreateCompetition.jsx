@@ -28,7 +28,6 @@ function CreateCompetition(props) {
         // Check if a file is selected
         if (!selectedFile) {
             setErrorMessage("Por favor, selecione um ficheiro.");
-            console.log("No file selected");
             return;
         }
 
