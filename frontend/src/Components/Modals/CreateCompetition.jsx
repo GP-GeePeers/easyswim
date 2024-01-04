@@ -83,9 +83,6 @@ function CreateCompetition(props) {
 
                 setErrorMessage("");
                 setSuccessMessage("Ficheiro submetido com sucesso!");
-                setTimeout(() => {
-                    handleCloseModal();
-                }, 5000);
             })
             .catch((err) => console.log(err));
     };
