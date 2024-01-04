@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./Header.module.css";
 import Button from "../../Components/Buttons/Button";
-import CreateCompetition from "../Modals/CreateCompetition";
 
 function Header(props) {
     let headerContainer = classes.headerContainer;
@@ -19,12 +18,6 @@ function Header(props) {
                     onClick={props.changeCreateCompModal}
                 />
             </div>
-            {props.createCompModal && (
-                <CreateCompetition
-                    createCompModal={props.createCompModal}
-                    changeCreateCompModal={props.changeCreateCompModal}
-                />
-            )}
         </div>
     );
 }

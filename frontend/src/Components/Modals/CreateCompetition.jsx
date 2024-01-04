@@ -32,11 +32,11 @@ function CreateCompetition(props) {
         }
 
         // Check if the file has the .lxf extension
-        if (selectedFile.type === "application/lxf") {
+        if (selectedFile.name.endsWith(".lxf")) {
             setLxfFile(selectedFile);
             setErrorMessage(""); // Clear error message on a valid file
         } else {
-            setErrorMessage("Por favor introduza um ficheiro .lxf válido.");
+            setErrorMessage("Por favor, introduza um ficheiro .lxf válido.");
         }
     };
 
@@ -44,7 +44,7 @@ function CreateCompetition(props) {
         e.preventDefault();
         const droppedFile = e.dataTransfer.files[0];
 
-        if (droppedFile && droppedFile.type === "application/lxf") {
+        if (droppedFile && droppedFile.name.endsWith(".lxf")) {
             setLxfFile(droppedFile);
             setErrorMessage(""); // Clear error message on valid file
         } else {
@@ -86,8 +86,6 @@ function CreateCompetition(props) {
             })
             .catch((err) => console.log(err));
     };
-
-    // TODO - fazer uma animação para, onSuccess do request mudar uma variável que muda a visibilidade do conteudo, mostra a mensagem de sucesso e, depois de 3 segundos, fecha o modal
 
     return (
         <div>
@@ -176,6 +174,7 @@ function CreateCompetition(props) {
                                             ? lxfFile.name
                                             : "Introduza um ficheiro"}
                                     </p>
+                                    <p>{lxfFile && lxfFile.size + " bytes"}</p>
                                 </div>
                             </Card>
                         </div>
