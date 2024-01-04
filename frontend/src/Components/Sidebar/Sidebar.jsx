@@ -31,11 +31,11 @@ function Sidebar(props) {
                     <img
                         src={process.env.PUBLIC_URL + "/Assets/Images/logo.png"}
                         style={{
-                            "background-color":
+                            backgroundColor:
                                 clickedComp || clickedProfile
                                     ? null
                                     : "#445552",
-                            "border-radius": "8px",
+                            borderRadius: "8px",
                         }}
                         alt="Easy Swim Logo"
                         className={classes.Logo}
@@ -51,7 +51,7 @@ function Sidebar(props) {
             </NavLink>
             {/* <div className={classes.SidebarContent}></div> */}
             <div className={classes.ListButtonContainer}>
-                <NavLink to="/TestsList" style={{ "text-decoration": "none" }}>
+                <NavLink to="/TestsList" style={{ textDecoration: "none" }}>
                     <Button
                         type={clickedComp ? "compClicked" : "sidebar"}
                         icon={sideIcon}
@@ -63,7 +63,7 @@ function Sidebar(props) {
                         }}
                     />
                 </NavLink>
-                <NavLink to="/Settings" style={{ "text-decoration": "none" }}>
+                <NavLink to="/Settings" style={{ textDecoration: "none" }}>
                     <Button
                         type={clickedProfile ? "profileClicked" : "sidebar"}
                         icon={gear}
