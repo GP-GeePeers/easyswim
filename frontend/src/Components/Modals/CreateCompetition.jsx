@@ -16,13 +16,14 @@ function CreateCompetition(props) {
         // Clear the error message if the modal is closed
         setErrorMessage("");
         setSuccessMessage("");
+        setLxfFile(null);
     }, [props.createCompModal]);
 
     const handleCloseModal = () => {
         props.changeCreateCompModal();
     };
 
-    const handleFileChange = () => {
+    const handleSelectedFile = () => {
         const selectedFile = fileInputRef.current.files[0];
 
         // Check if a file is selected
@@ -40,7 +41,7 @@ function CreateCompetition(props) {
         }
     };
 
-    const handleFileDrop = (e) => {
+    const handleDroppedFile = (e) => {
         e.preventDefault();
         const droppedFile = e.dataTransfer.files[0];
 
@@ -95,7 +96,7 @@ function CreateCompetition(props) {
                     onClick={handleCloseModal}
                     onDragOver={(e) => e.preventDefault()}
                     onDragEnter={(e) => e.preventDefault()}
-                    onDrop={handleFileDrop}
+                    onDrop={handleDroppedFile}
                 >
                     <div
                         className={classes.createCompModal}
@@ -127,7 +128,7 @@ function CreateCompetition(props) {
                                     <input
                                         type="file"
                                         accept=".lxf"
-                                        onInput={handleFileChange}
+                                        onInput={handleSelectedFile}
                                         style={{ display: "none" }}
                                         ref={fileInputRef}
                                         id="fileInput"
