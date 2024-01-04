@@ -18,11 +18,6 @@ function CreateCompetition(props) {
         setSuccessMessage("");
     }, [props.createCompModal]);
 
-    useEffect(() => {
-        if (errorMessage !== "") console.log(errorMessage);
-        else console.log("No error");
-    }, [errorMessage]);
-
     const handleCloseModal = () => {
         props.changeCreateCompModal();
     };
