@@ -1,0 +1,16 @@
+.primaryCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 92%;
+    background-color: #0e1110;
+    border-radius: 30px;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.secondaryCard {
+    background-color: #010101;
+}

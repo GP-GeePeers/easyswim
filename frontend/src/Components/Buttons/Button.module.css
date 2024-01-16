@@ -1,0 +1,156 @@
+/* Primary Button */
+.primaryButton {
+    width: 9.375rem;
+    height: 46px;
+    padding: 0.25rem 12px;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #72d5c8;
+    background-color: rgba(114, 213, 200, 0.25);
+}
+
+.primaryButton:active {
+    background-color: rgba(143, 208, 199, 0.461);
+}
+
+.primaryButton:disabled {
+    background-color: rgba(114, 213, 200, 0.25);
+}
+
+.primaryText {
+    color: #72d5c8;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+
+.smallPrimaryButton {
+    border-radius: 4px;
+    width: 80px;
+    height: 30px;
+}
+
+.retractedPrimaryButton {
+    width: 46px;
+    height: 46px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #72d5c8;
+    background-color: rgba(114, 213, 200, 0.25);
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+/* Secondary Button */
+
+.secondaryButton {
+    width: 9.375rem;
+    height: 46px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #b7bab6;
+    background: rgba(183, 186, 182, 0.2);
+}
+
+.secondaryButton:active {
+    background-color: rgba(211, 211, 211, 0.264);
+}
+
+.secondaryButton:disabled {
+    background-color: rgba(183, 186, 182, 0.2);
+}
+
+.secondaryText {
+    color: #b7bab6;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+
+.smallSecondaryButton {
+    border-radius: 4px;
+    width: 80px;
+    height: 30px;
+}
+
+.retractedSecondaryButton {
+    width: 46px;
+    height: 46px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #b7bab6;
+    background: rgba(183, 186, 182, 0.2);
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+/* Sidebar Button */
+
+.sidebarButton {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    width: 250px;
+    height: 46px;
+    background-color: transparent;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding-left: 11px;
+}
+
+.sidebarButton:active {
+    background-color: #637272;
+}
+
+.sidebarText {
+    color: #b7bab6;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+
+.sidebarButtonClicked {
+    background-color: #485452;
+}
+
+.sidebarTextClicked {
+    color: #72d5c8;
+}
+
+.retractedSidebarButton {
+    width: 46px;
+    height: 46px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    gap: 0rem;
+}
+
+.Logo {
+    width: 24px;
+    height: 24px;
+}
+
+.close {
+    justify-content: center;
+}
