@@ -1,0 +1,76 @@
+.Sidebar {
+    display: flex;
+    flex: 1;
+    height: 100vh;
+    min-height: 380px;
+    flex-direction: column;
+    min-width: 306px;
+    max-width: 306px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+@media (max-width: 667px) {
+    .Sidebar {
+        position: fixed;
+        min-width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        z-index: 90;
+        background-color: #0f1110;
+    }
+}
+
+.SidebarRetracted {
+    max-width: 102px;
+    min-width: 102px;
+}
+
+.SidebarHeader {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 2rem;
+    z-index: 2;
+}
+
+.TitleLogoContainer {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+}
+
+.Logo {
+    height: 2.7rem;
+}
+
+.Title {
+    height: 2.26rem;
+}
+
+.ListButtonContainer {
+    position: fixed;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8rem;
+    gap: 1.1rem;
+    z-index: 1;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.BottomButtonContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 2.4rem;
+    z-index: 1;
+}
