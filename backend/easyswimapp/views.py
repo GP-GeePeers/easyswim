@@ -71,7 +71,7 @@ def model_data_view(request):
     swimstyle = list(SwimStyle.objects.values())
     fee = list(Fee.objects.values())
     agegroup = list(AgeGroup.objects.values())
-    # Adicione mais consultas para outros modelos conforme necessário
+   
 
     data = {
         'meets': meets,
@@ -86,7 +86,7 @@ def model_data_view(request):
         'swimstyle':swimstyle,
         'fee':fee,
         'agegroup':agegroup,
-        # Adicione mais chaves e valores para outros modelos
+        
     }
     print(meets)
     return JsonResponse(data)
