@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .serializers import LXFSerializer
 from .models import LXF
 #from .utils import read_lef_file
-from .utils import ler_salvar_lenex
+from .utils import read_save_lenex
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
@@ -52,7 +52,7 @@ def read_lef_view(request):
     file_path = os.path.join(settings.MEDIA_ROOT, 'lef_files', 'test.lef')
     print("Caminho: "+file_path)
     try:
-        ler_salvar_lenex(file_path)
+        read_save_lenex(file_path)
         return HttpResponse('Arquivo .lef lido e processado com sucesso.')
     except Exception as e:
         return HttpResponse(f'Ocorreu um erro ao processar o arquivo .lef: {e}')
