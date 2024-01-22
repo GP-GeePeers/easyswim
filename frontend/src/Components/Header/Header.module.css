@@ -1,20 +1,11 @@
-.headerContainer {
-    position: fixed;
+.container {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    top: 1.25rem;
-    left: calc(306px + 2rem);
-    width: calc(100% - (306px + 5rem));
-    overflow: hidden;
-    background-color: #010101;
-    z-index: 2;
-    padding-top: 16px;
-}
-
-.retractedHeaderContainer {
-    left: calc(102px + 2rem);
-    width: calc(100% - (102px + 5rem));
+    flex-direction: row;
+    background: #010101;
+    width: 100%;
 }
 
 .textContainer {
@@ -24,29 +15,21 @@
 }
 
 .buttonContainer {
-    position: absolute;
-    right: 0vw;
+    position: relative;
     z-index: 1;
 }
 
 @media (max-width: 886px) {
-    .headerContainer {
-        display: flex;
+    .container {
         flex-direction: column;
         align-items: center;
         text-align: center;
         justify-content: center;
-        padding-bottom: 1rem;
         gap: 1.1rem;
     }
     .buttonContainer {
         position: relative;
         z-index: 1;
-    }
-}
-
-@media (max-height: 235px) {
-    .headerContainer {
-        display: none;
+        right: 0rem;
     }
 }

@@ -29,7 +29,6 @@
 .SidebarHeader {
     position: fixed;
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: flex-start;
     margin-top: 2rem;

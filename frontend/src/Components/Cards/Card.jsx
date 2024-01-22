@@ -6,6 +6,15 @@ function Card(props) {
     if (props.type === "secondary") {
         card += ` ${classes.secondaryCard}`;
     }
+    // if (props.type === "secondary") {
+    //     card += ` ${classes.secondaryCard}`;
+    // }
+    // if (props.type === "secondary") {
+    //     card += ` ${classes.secondaryCard}`;
+    // }
+    // if (props.type === "secondary") {
+    //     card += ` ${classes.secondaryCard}`;
+    // }
 
     return <div className={card}>{props.children}</div>;
 }

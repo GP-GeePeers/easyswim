@@ -8,7 +8,7 @@ function Header(props) {
         headerContainer += ` ${classes.retractedHeaderContainer}`;
     }
     return (
-        <div className={headerContainer}>
+        <div className={classes.container}>
             <div className={classes.textContainer}>
                 <h1>Olá {props.organization} 👋</h1>
             </div>

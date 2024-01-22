@@ -111,7 +111,7 @@ function CreateCompetition(props) {
                             />
                         </div>
                         <div className={classes.topCardContainer}>
-                            <Card type={"primary"}>
+                            <Card>
                                 <img
                                     src={addDocument}
                                     style={{
@@ -163,7 +163,7 @@ function CreateCompetition(props) {
                             </Card>
                         </div>
                         <div className={classes.bottomCardContainer}>
-                            <Card type={"primary"}>
+                            <Card>
                                 <div className={classes.inputFile}>
                                     <img
                                         src={document}

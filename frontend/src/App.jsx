@@ -7,6 +7,7 @@ import Home from "./Views/Home/Home";
 import ListComps from "./Views/ListComps/ListComps";
 import Profile from "./Views/Profile/Profile";
 import CreateCompetition from "./Components/Modals/CreateCompetition";
+import PageContent from "./Components/PageContent/PageContent";
 
 function App() {
     // state to control the sidebar retraction
@@ -34,48 +35,49 @@ function App() {
                 setRetracted={setRetracted}
                 clicked={false}
             />
-            <Header
-                organization={organization}
-                retracted={retracted}
-                createCompModal={createCompModal}
-                changeCreateCompModal={changeCreateCompModal}
-            />
             <CreateCompetition
                 createCompModal={createCompModal}
                 changeCreateCompModal={changeCreateCompModal}
             />
-            <Routes>
-                <Route
-                    path="/"
-                    element={
-                        <Home
-                            retracted={retracted}
-                            setRetracted={setRetracted}
-                            organization={organization}
-                        />
-                    }
-                />
-                <Route
-                    path="/TestsList"
-                    element={
-                        <ListComps
-                            retracted={retracted}
-                            setRetracted={setRetracted}
-                            organization={organization}
-                        />
-                    }
-                />
-                <Route
-                    path="/Settings"
-                    element={
-                        <Profile
-                            retracted={retracted}
-                            setRetracted={setRetracted}
-                            organization={organization}
-                        />
-                    }
-                />
-            </Routes>
+            <PageContent
+                organization={organization}
+                retracted={retracted}
+                createCompModal={createCompModal}
+                changeCreateCompModal={changeCreateCompModal}
+            >
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <Home
+                                retracted={retracted}
+                                setRetracted={setRetracted}
+                                organization={organization}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/TestsList"
+                        element={
+                            <ListComps
+                                retracted={retracted}
+                                setRetracted={setRetracted}
+                                organization={organization}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/Settings"
+                        element={
+                            <Profile
+                                retracted={retracted}
+                                setRetracted={setRetracted}
+                                organization={organization}
+                            />
+                        }
+                    />
+                </Routes>
+            </PageContent>
         </Router>
     );
 }
