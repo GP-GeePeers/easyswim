@@ -48,7 +48,7 @@
     overflow: hidden;
     background-color: #010101;
     z-index: 2;
-    width: calc(100% - 9.4rem);
+    width: calc(100% - 9.45rem);
 }
 
 @media (max-width: 886px) {
