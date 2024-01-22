@@ -3,10 +3,6 @@ import classes from "./Header.module.css";
 import Button from "../../Components/Buttons/Button";
 
 function Header(props) {
-    let headerContainer = classes.headerContainer;
-    if (props.retracted === true) {
-        headerContainer += ` ${classes.retractedHeaderContainer}`;
-    }
     return (
         <div className={classes.container}>
             <div className={classes.textContainer}>

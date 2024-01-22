@@ -4,13 +4,15 @@ import Header from "../Header/Header";
 
 function PageContent(props) {
     let container = classes.container;
+    let headerContainer = classes.headerContainer;
 
     if (props.retracted === true) {
         container += ` ${classes.containerRetracted}`;
+        headerContainer += ` ${classes.headerContainerRetracted}`;
     }
     return (
         <div className={container}>
-            <div className={classes.headerContainer}>
+            <div className={headerContainer}>
                 <Header
                     organization={props.organization}
                     retracted={props.retracted}

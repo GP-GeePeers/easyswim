@@ -5,8 +5,8 @@
     justify-content: space-between;
     flex-direction: row;
     background: #010101;
-    width: calc(100% - 2rem);
-    padding: 0 0.9rem;
+    width: calc(100% - 4.5rem);
+    padding: 0 2.25rem;
 }
 
 .textContainer {

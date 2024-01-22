@@ -18,10 +18,6 @@
     scrollbar-width: none;
 }
 
-.container > * {
-    width: 100%;
-}
-
 .container::-webkit-scrollbar {
     display: none;
 }
@@ -48,7 +44,12 @@
     overflow: hidden;
     background-color: #010101;
     z-index: 2;
-    width: calc(100% - 9.45rem);
+    border-radius: 1.25rem;
+    width: calc(100% - 326px);
+}
+
+.headerContainerRetracted {
+    width: calc(100% - 122px);
 }
 
 @media (max-width: 886px) {
