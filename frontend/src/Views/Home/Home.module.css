@@ -52,3 +52,64 @@ h1 {
     font-weight: 700;
     line-height: normal;
 }
+
+.box {
+    width: 100%;
+    max-width: 1024px;
+    height: auto;
+    padding: 1rem;
+    background-color: #0f1110;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 1.25rem;
+    margin: 2rem;
+}
+
+.table {
+    width: 100%;
+}
+
+.tableRow {
+    display: flex;
+    border-bottom: 1px solid aquamarine;
+    padding: 10px;
+    text-align: left;
+    color: #b7bab6;
+    flex: 1;
+    border-right: 1px aquamarine;
+}
+
+.tableHeader {
+    font-weight: bold;
+    color: #b7bab6;
+}
+
+.tableCell {
+    display: flex;
+    padding: 10px;
+    text-align: left;
+    color: #b7bab6;
+    flex: 1;
+    border-right: 1px aquamarine;
+}
+
+.tableCell:last-child {
+    border-right: none;
+}
+
+.organizerColumn {
+    flex: 2;
+}
+
+.nameColumn {
+    flex: 3;
+}
+
+.dateColumn {
+    flex: 1;
+}
+
+.stateColumn {
+    flex: 1;
+}

@@ -21,7 +21,7 @@ def home (request):
     :return: HttpResponse object with a greeting message
 
     """
-    return HttpResponse("Hello Word!-EasySwim")
+    return HttpResponse("Hello World!-EasySwim")
 
 class LXFView(APIView):
     parser_classes = (MultiPartParser, FormParser)
