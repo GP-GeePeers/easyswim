@@ -88,6 +88,18 @@ function CreateCompetition(props) {
             .catch((err) => console.log(err));
     };
 
+    const formatFileSize = (bytes) => {
+        const units = ["bytes", "KB", "MB", "GB", "TB"];
+        let i = 0;
+
+        while (bytes >= 1024 && i < units.length - 1) {
+            bytes /= 1024;
+            i++;
+        }
+
+        return `${bytes.toFixed(2)} ${units[i]}`;
+    };
+
     return (
         <div>
             {props.createCompModal && (
@@ -175,7 +187,10 @@ function CreateCompetition(props) {
                                             ? lxfFile.name
                                             : "Introduza um ficheiro"}
                                     </p>
-                                    <p>{lxfFile && lxfFile.size + " bytes"}</p>
+                                    <p>
+                                        {lxfFile &&
+                                            formatFileSize(lxfFile.size)}
+                                    </p>
                                 </div>
                             </Card>
                         </div>
