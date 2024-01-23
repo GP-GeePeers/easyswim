@@ -129,7 +129,7 @@ class Event(models.Model):
     preveventid = models.IntegerField()
 
     def __str__(self):
-        return self.eventid
+        return str(self.eventid)
 
 class SwimStyle(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
@@ -146,7 +146,7 @@ class Fee(models.Model):
     value = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
-        return self.value
+        return str(self.value)
 
 class AgeGroup(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
