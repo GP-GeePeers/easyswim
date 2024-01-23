@@ -89,7 +89,7 @@ function CreateCompetition(props) {
     };
 
     const formatFileSize = (bytes) => {
-        const units = ["bytes", "KB", "MB", "GB", "TB"];
+        const units = ["Bytes", "KB", "MB", "GB", "TB"];
         let i = 0;
 
         while (bytes >= 1024 && i < units.length - 1) {
@@ -115,7 +115,7 @@ function CreateCompetition(props) {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className={classes.headerContainer}>
-                            <h1>Upload ficheiro</h1>
+                            <div className={classes.title}>Upload ficheiro</div>
                             <Button
                                 type={"secondary"}
                                 text={"Cancelar"}

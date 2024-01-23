@@ -175,7 +175,7 @@
     animation: colorChangeSuccess 1s forwards;
 }
 
-h1 {
+.title {
     color: #b7bab6;
     font-family: Poppins;
     font-size: 24px;

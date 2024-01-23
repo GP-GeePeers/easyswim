@@ -6,22 +6,7 @@ function Home(props) {
     return (
         <div className={classes.topCardContainer}>
             <Card>
-                <h1>Competições inscritas</h1>
-            </Card>
-            <Card>
-                <h1>Competições inscritas</h1>
-            </Card>
-            <Card>
-                <h1>Competições inscritas</h1>
-            </Card>
-            <Card>
-                <h1>Competições inscritas</h1>
-            </Card>
-            <Card>
-                <h1>Competições inscritas</h1>
-            </Card>
-            <Card>
-                <h1>Competições inscritas</h1>
+                <div className={classes.title}>Competições inscritas</div>
             </Card>
         </div>
     );
