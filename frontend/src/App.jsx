@@ -4,7 +4,7 @@ import Background from "./Components/Background/Background";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Home from "./Views/Home/Home";
 import ListComps from "./Views/ListComps/ListComps";
-import Profile from "./Views/Profile/Profile";
+import Settings from "./Views/Settings/Settings";
 import CreateCompetition from "./Components/Modals/CreateCompetition";
 import PageContent from "./Components/PageContent/PageContent";
 
@@ -51,7 +51,6 @@ function App() {
                             <Home
                                 retracted={retracted}
                                 setRetracted={setRetracted}
-                                organization={organization}
                             />
                         }
                     />
@@ -61,17 +60,15 @@ function App() {
                             <ListComps
                                 retracted={retracted}
                                 setRetracted={setRetracted}
-                                organization={organization}
                             />
                         }
                     />
                     <Route
                         path="/Settings"
                         element={
-                            <Profile
+                            <Settings
                                 retracted={retracted}
                                 setRetracted={setRetracted}
-                                organization={organization}
                             />
                         }
                     />

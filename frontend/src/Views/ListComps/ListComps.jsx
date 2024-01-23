@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import classes from "./ListComps.module.css";
+import Card from "../../Components/Cards/Card";
 
 function ListComps(props) {
     const [tests, setTests] = useState([]);
@@ -26,10 +27,11 @@ function ListComps(props) {
     }, []);
 
     return (
-        <div className={container}>
-            <div className={classes.contentContainer}>
-                <h1>Lista de Provas</h1>
-                {/* {tests.length > 0 ? (
+        <div className={classes.topCardContainer}>
+            <Card>
+                <div className={classes.title}>Lista de provas</div>
+            </Card>
+            {/* {tests.length > 0 ? (
                     <ul>
                         {tests.map((test) => (
                             <li key={test.id}>
@@ -41,7 +43,6 @@ function ListComps(props) {
                 ) : (
                     <p>Nenhuma prova encontrada.</p>
                 )} */}
-            </div>
         </div>
     );
 }

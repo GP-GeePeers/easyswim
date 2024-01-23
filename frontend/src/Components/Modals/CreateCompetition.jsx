@@ -68,7 +68,7 @@ function CreateCompetition(props) {
             setErrorMessage("Por favor, selecione um ficheiro.");
         }
 
-        let url = "http://localhost:8000/api/lxf/";
+        let url = "http://localhost:8000/api/lxf/"; //TODO Change url to the real endpoint
         axios
             .post(url, form_data, {
                 headers: {
