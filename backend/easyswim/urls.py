@@ -18,7 +18,8 @@ from django.urls import path,include
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
-
+#from easyswimapp import read_lef_view
+#from easyswimapp import model_data_view
 from easyswimapp import views
 
 
@@ -31,4 +32,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path("admin/", admin.site.urls),
     path('api/', include('easyswimapp.urls')),
+    #path('read-lef/', read_lef_view, name='read-lef'),
+    #path('model-data/', model_data_view, name='model-data-view')
 ]

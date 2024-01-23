@@ -1,6 +1,10 @@
 from django import utils
 import os
 import zipfile
+import datetime
+from django.db import transaction
+import xml.etree.ElementTree as ET
+from easyswimapp.models import AgeDate,Constructor, Contact_Constructor,Contact_Meet, Meet, Pool, Facility, PointTable, Session, Event, SwimStyle, Fee, AgeGroup
 
 def descompactar_todos_lxf():
     # Caminhos dos Ficheiros. Se necessário pode ser alterado para a função receber os argumentos
@@ -33,5 +37,123 @@ def descompactar_todos_lxf():
                     )
                     break
 
+@transaction.atomic
+def read_save_lenex(arquivo_entrada):
+    tree = ET.parse(arquivo_entrada)
+    root = tree.getroot()
+
+    for cons in root.findall('.//CONSTRUCTOR'):
+        constructor_obj = Constructor.objects.create(name = cons.get('name'),
+                                                 registration = cons.get('registration'),
+                                                 version = cons.get('version')
+                                                 )
+    
+        print("CONSTRUCTOR SAVE")
+        for cont in cons.findall('./CONTACT'):
+            contact = Contact_Constructor.objects.create(name = cont.get('name'),
+                                                         construtor = constructor_obj,
+                                                        street = cont.get('street'),
+                                                        city = cont.get('city'),
+                                                        zip = cont.get('zip'),
+                                                        country = cont.get('country'),
+                                                        email = cont.get('email'),
+                                                        internet = cont.get('internet'))
+            
+    for meets in root.findall('.//MEET'):
+        meet_obj = Meet.objects.create(
+            name=meets.get('name'),
+            city=meets.get('city'),
+            course=meets.get('course'),
+            deadline=meets.get('deadline'),
+            number=meets.get('number'),
+            organizer=meets.get('organizer'),
+            organizer_url=meets.get('organizer.url'),
+            reservecount=meets.get('reservecount'),
+            startmethod=meets.get('startmethod'),
+            timing=meets.get('timing'),
+            type=meets.get('type'),
+            nation=meets.get('nation'),
+            maxentriesathlete=meets.get('maxentriesathlete')
+        )
+        
+
+        for agedate in meets.findall('./AGEDATE'):
+            agedata_obj= AgeDate.objects.create(meet = meet_obj,
+                                                value = agedate.get('value'),
+                                                type = agedate.get('type'))
+            
+        for pool in meets.findall('./POOL'):
+            pool_obj = Pool.objects.create(name = pool.get('name'),
+                                           meet = meet_obj,
+                                           lane_max = pool.get('lanemax'))
+            
+        for facility in meets.findall('./FACILITY'):
+            facility_obj = Facility.objects.create(city = facility.get('city'),
+                                                   name = facility.get('name'),
+                                                   nation = facility.get('nation'),
+                                                   street = facility.get('street'),
+                                                   zip = facility.get('zip'),
+                                                   meet = meet_obj
+                                                   )
+           
+        for pointtable in meets.findall('./POINTTABLE'):
+            pointtable_obj = PointTable.objects.create(pointtableid = pointtable.get('pointtableid'),
+                                                       name = pointtable.get('name'),
+                                                       meet = meet_obj,
+                                                       version = pointtable.get('version'))
+            
+        for cont in meets.findall('./CONTACT'):
+            #print("ENTREI CONTACTO")
+            contact = Contact_Meet.objects.create(name = cont.get('name'),
+                                                  meet = meet_obj,
+                                             street = cont.get('street'),
+                                             zip = cont.get('zip'),
+                                             email = cont.get('email'),
+                                             )
+            
+        for session in meets.findall('.//SESSION'):
+            session_obj = Session.objects.create(date = session.get('date'),
+                                                 daytime = session.get('daytime'),
+                                                 name = session.get('name'),
+                                                 number = session.get('number'),
+                                                 warmupfrom = session.get('warmupfrom'),
+                                                 warmupuntil = session.get('warmupuntil'),
+                                                 meet = meet_obj,
+                                                 maxentriesathlete = session.get('maxentriesathlete')
+                                                 )
+
+            for event in session.findall('.//EVENT'):
+                event_obj = Event.objects.create(eventid = event.get('eventid'),
+                                                 daytime = event.get('daytime'),
+                                                 gender = event.get('gender'),
+                                                 number = event.get('number'),
+                                                 order = event.get('order'),
+                                                 round = event.get('round'),
+                                                 session = session_obj,
+                                                 preveventid = event.get('preveventid')
+                                                 )
+
+                for swimstyle in  event.findall('./SWIMSTYLE'):
+                    swimstyle_obj = SwimStyle.objects.create(distance = swimstyle.get('distance'),
+                                                             relay_count = swimstyle.get('relaycount'),
+                                                             event = event_obj,
+                                                             stroke = swimstyle.get('stroke')
+                                                             )
+
+                for fee in event.findall('./FEE'):
+                    fee_obj = Fee.objects.create(currency = fee.get('currency'),
+                                                 event = event_obj,
+                                                 value = fee.get('value'))
+
+                for agegroup in event.findall('.//AGEGROUP'):
+                    agegroup_obj = AgeGroup.objects.create(agegroupid = agegroup.get('agegroupid'),
+                                                            agemax = agegroup.get('agemax'),
+                                                            agemin = agegroup.get('agemin'),
+                                                            name = agegroup.get('name'),
+                                                            event = event_obj,
+                                                            handicap = agegroup.get('handicap')
+                                                            )
 
 
+
+        
