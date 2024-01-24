@@ -54,7 +54,7 @@
 
 @media (max-width: 886px) {
     .contentContainer {
-        margin-top: 6.25rem;
+        margin-top: 2rem;
     }
 }
 
@@ -76,6 +76,12 @@
     }
     .contentContainer {
         width: calc(100% - 2rem);
+        margin-top: 3rem;
+    }
+    .headerContainer {
+        padding: 1rem 0rem;
+        width: 100%;
+        background-color: transparent;
     }
 }
 

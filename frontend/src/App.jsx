@@ -30,7 +30,12 @@ function App() {
     }, []);
 
     useEffect(() => {
-        setOrganization("Clube de Natação de Coimbra"); /* TODO: get from API */
+        const orgName = "Clube de Natação de Coimbra";
+        if (orgName.length > 30) {
+            setOrganization(orgName.substring(0, 30) + "...");
+        } else {
+            setOrganization(orgName); /* TODO: get from API */
+        }
     }, []);
 
     const changeCreateCompModal = () => {

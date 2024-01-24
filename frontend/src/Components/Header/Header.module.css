@@ -22,7 +22,7 @@
 
 @media (max-width: 886px) {
     .container {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         text-align: center;
         justify-content: center;
@@ -43,4 +43,21 @@ h1 {
     font-weight: 700;
     line-height: normal;
     margin: 0;
+}
+
+@media (max-width: 667px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+        background: transparent;
+        gap: 1rem;
+    }
+    .textContainer {
+        max-height: 4rem;
+    }
+    h1 {
+        font-size: 22px;
+    }
 }
