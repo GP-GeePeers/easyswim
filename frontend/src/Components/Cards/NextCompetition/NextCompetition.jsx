@@ -4,6 +4,7 @@ import Card from "../../Cards/Card";
 import Button from "../../Buttons/Button";
 
 function NextCompetition(props) {
+    // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
     return (
         <Card>
             <div className={classes.title}>Próxima competição</div>

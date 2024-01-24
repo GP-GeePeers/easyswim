@@ -28,7 +28,7 @@ function ListComps(props) {
 
     return (
         <div className={classes.topCardContainer}>
-            <Card>
+            <Card centered>
                 <div className={classes.title}>Lista de provas</div>
             </Card>
             {/* {tests.length > 0 ? (

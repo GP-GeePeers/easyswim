@@ -6,7 +6,7 @@ import Card from "../../Components/Cards/Card";
 function Profile(props) {
     return (
         <div className={classes.topCardContainer}>
-            <Card>
+            <Card centered>
                 <div className={classes.title}>Definições</div>
             </Card>
         </div>
