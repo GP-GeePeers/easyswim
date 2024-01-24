@@ -58,6 +58,27 @@
     }
 }
 
+@media (max-width: 667px) {
+    .container {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: row;
+        background: #010101;
+        border-radius: 1.25rem;
+        z-index: 1;
+        top: 1.5rem;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 5rem);
+        margin: 3rem 0 0 0;
+    }
+    .contentContainer {
+        width: calc(100% - 2rem);
+    }
+}
+
 @media (max-height: 300px) {
     .container {
         display: none;
