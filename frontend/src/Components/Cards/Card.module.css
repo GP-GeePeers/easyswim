@@ -1,16 +1,16 @@
-.primaryCard {
+.card {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     background-color: #0e1110;
     border-radius: 30px;
     padding: 2rem;
-    gap: 1rem;
+    gap: 2rem;
 }
 
-.secondaryCard {
-    background-color: #010101;
+.centered {
+    align-items: center;
 }

@@ -1,0 +1,66 @@
+.title {
+    color: #72d5c8;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.organizationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 25%;
+}
+
+.dateContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+}
+
+.competitionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 45%;
+}
+.stateContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 6%;
+}
+
+.text {
+    color: #b7bab6;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+
+.line {
+    border-left: 1px solid #335c58;
+    height: 150%;
+    max-height: 100px;
+    margin: 0 1rem;
+}
