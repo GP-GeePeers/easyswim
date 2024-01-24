@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./PageContent.module.css";
 import Header from "../Header/Header";
+import Button from "../Buttons/Button";
 
 function PageContent(props) {
     let container = classes.container;
@@ -21,6 +22,12 @@ function PageContent(props) {
                 />
             </div>
             <div className={classes.contentContainer}>{props.children}</div>
+            <div className={classes.footerContainer}>
+                <Button
+                    text={"Criar prova"}
+                    onClick={props.changeCreateCompModal}
+                />
+            </div>
         </div>
     );
 }

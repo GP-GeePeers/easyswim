@@ -58,6 +58,10 @@
     }
 }
 
+.footerContainer {
+    display: none;
+}
+
 @media (max-width: 667px) {
     .container {
         position: fixed;
@@ -76,12 +80,21 @@
     }
     .contentContainer {
         width: calc(100% - 2rem);
-        margin-top: 3rem;
+        margin-top: -6rem;
     }
     .headerContainer {
-        padding: 1rem 0rem;
+        display: none;
+    }
+    .footerContainer {
+        position: fixed;
+        top: 92vh;
+        height: 8vh;
+        background-color: #0f1110;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        background-color: transparent;
     }
 }
 
