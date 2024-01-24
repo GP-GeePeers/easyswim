@@ -8,6 +8,7 @@ import Settings from "./Views/Settings/Settings";
 import CreateCompetition from "./Components/Modals/CreateCompetition/CreateCompetition";
 import PageContent from "./Components/PageContent/PageContent";
 import CompetetionDetails from "./Components/Modals/CompetetionDetails/CompetetionDetails";
+import Topbar from "./Components/Topbar/Topbar";
 
 function App() {
     // state to control the sidebar retraction
@@ -18,13 +19,20 @@ function App() {
     const [createCompModal, setCreateCompModal] = useState(false);
     // temporary state to control the modal to show the competition details appearing and disappearing
     const [compDetailsModal, setCompDetailsModal] = useState(false);
+    const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
 
-    // get organization name from API
+    useEffect(() => {
+        const updateWidth = () => {
+            setCurrentWidth(window.innerWidth);
+        };
+        window.addEventListener("resize", updateWidth);
+        return () => window.removeEventListener("resize", updateWidth);
+    }, []);
+
     useEffect(() => {
         setOrganization("Clube de Natação de Coimbra"); /* TODO: get from API */
     }, []);
 
-    //funtion to change state of createCompModal
     const changeCreateCompModal = () => {
         setCreateCompModal(!createCompModal);
     };
@@ -36,11 +44,26 @@ function App() {
     return (
         <Router>
             <Background />
-            <Sidebar
-                retracted={retracted}
-                setRetracted={setRetracted}
-                clicked={false}
-            />
+            {currentWidth > 667 ? (
+                <Sidebar
+                    retracted={retracted}
+                    setRetracted={setRetracted}
+                    clicked={false}
+                />
+            ) : retracted ? (
+                <Topbar
+                    retracted={retracted}
+                    setRetracted={setRetracted}
+                    clicked={false}
+                />
+            ) : (
+                <Sidebar
+                    retracted={retracted}
+                    setRetracted={setRetracted}
+                    clicked={false}
+                />
+            )}
+
             <CreateCompetition
                 createCompModal={createCompModal}
                 changeCreateCompModal={changeCreateCompModal}
