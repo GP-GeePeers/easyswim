@@ -18,7 +18,7 @@
 .organizationContainer {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     width: 20vw;
 }
@@ -56,7 +56,8 @@
     letter-spacing: -0.14px;
 }
 
-.line {
+.line,
+.lineOrganization {
     border-left: 1px solid #335c58;
     height: 34px;
     margin: 0 1rem;
@@ -74,5 +75,26 @@
     }
     .stateContainer {
         width: 20%;
+    }
+    .text {
+        color: #b7bab6;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.14px;
+    }
+}
+
+@media (max-width: 667px) {
+    .organizationContainer {
+        display: none;
+    }
+    .lineOrganization {
+        display: none;
+    }
+    .competitionContainer {
+        width: 40%;
     }
 }

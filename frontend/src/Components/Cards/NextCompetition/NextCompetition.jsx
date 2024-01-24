@@ -14,7 +14,7 @@ function NextCompetition(props) {
                         Associação Académica de Coimbra
                     </div>
                 </div>
-                <div className={classes.line} />
+                <div className={classes.lineOrganization} />
                 <div className={classes.competitionContainer}>
                     <div className={classes.text}>
                         Campeonato Interdistrital de Juvenis, Juniores e
