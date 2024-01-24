@@ -1,10 +1,10 @@
 import React, { useState, createRef, useEffect } from "react";
 import axios from "axios";
 import classes from "./CreateCompetition.module.css";
-import Button from "../Buttons/Button";
-import Card from "../Cards/Card";
-import addDocument from "./Assets/addDocument.png";
-import document from "./Assets/document.png";
+import Button from "../../Buttons/Button";
+import Card from "../../Cards/Card";
+import addDocument from "../Assets/addDocument.png";
+import document from "../Assets/document.png";
 
 function CreateCompetition(props) {
     const [lxfFile, setLxfFile] = useState(null);

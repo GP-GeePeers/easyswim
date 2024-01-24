@@ -5,8 +5,9 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import Home from "./Views/Home/Home";
 import ListComps from "./Views/ListComps/ListComps";
 import Settings from "./Views/Settings/Settings";
-import CreateCompetition from "./Components/Modals/CreateCompetition";
+import CreateCompetition from "./Components/Modals/CreateCompetition/CreateCompetition";
 import PageContent from "./Components/PageContent/PageContent";
+import CompetetionDetails from "./Components/Modals/CompetetionDetails/CompetetionDetails";
 
 function App() {
     // state to control the sidebar retraction
@@ -15,6 +16,8 @@ function App() {
     const [organization, setOrganization] = useState("");
     // state to control the modal to create a competition appearing and disappearing
     const [createCompModal, setCreateCompModal] = useState(false);
+    // temporary state to control the modal to show the competition details appearing and disappearing
+    const [compDetailsModal, setCompDetailsModal] = useState(false);
 
     // get organization name from API
     useEffect(() => {
@@ -24,6 +27,10 @@ function App() {
     //funtion to change state of createCompModal
     const changeCreateCompModal = () => {
         setCreateCompModal(!createCompModal);
+    };
+
+    const changeCompDetailsModal = () => {
+        setCompDetailsModal(!compDetailsModal);
     };
 
     return (
@@ -37,6 +44,10 @@ function App() {
             <CreateCompetition
                 createCompModal={createCompModal}
                 changeCreateCompModal={changeCreateCompModal}
+            />
+            <CompetetionDetails
+                compDetailsModal={compDetailsModal}
+                changeCompDetailsModal={changeCompDetailsModal}
             />
             <PageContent
                 organization={organization}
