@@ -18,7 +18,7 @@
 .organizationContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     width: 20vw;
 }
@@ -37,7 +37,10 @@
     align-items: center;
     flex-direction: column;
     width: 40vw;
+    background-color: transparent;
+    border-color: transparent;
 }
+
 .stateContainer {
     display: flex;
     justify-content: center;
@@ -45,7 +48,7 @@
     flex-direction: column;
     width: 10vw;
 }
-
+.competitionText,
 .text {
     color: #b7bab6;
     font-family: Inter;
@@ -56,6 +59,10 @@
     letter-spacing: -0.14px;
 }
 
+.competitionText:hover {
+    color: #032a26;
+}
+
 .line,
 .lineOrganization {
     border-left: 1px solid #335c58;
@@ -63,7 +70,7 @@
     margin: 0 1rem;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 880px) {
     .organizationContainer {
         width: 19%;
     }
@@ -71,7 +78,7 @@
         width: 18%;
     }
     .competitionContainer {
-        width: 36%;
+        width: 38%;
     }
     .stateContainer {
         width: 20%;
@@ -85,16 +92,10 @@
         line-height: normal;
         letter-spacing: -0.14px;
     }
-}
-
-@media (max-width: 667px) {
     .organizationContainer {
         display: none;
     }
     .lineOrganization {
         display: none;
-    }
-    .competitionContainer {
-        width: 40%;
     }
 }

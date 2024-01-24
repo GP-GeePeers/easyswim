@@ -18,7 +18,7 @@ function App() {
     // state to control the modal to create a competition appearing and disappearing
     const [createCompModal, setCreateCompModal] = useState(false);
     // temporary state to control the modal to show the competition details appearing and disappearing
-    const [compDetailsModal, setCompDetailsModal] = useState(true);
+    const [compDetailsModal, setCompDetailsModal] = useState(false);
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -82,6 +82,7 @@ function App() {
                 retracted={retracted}
                 createCompModal={createCompModal}
                 changeCreateCompModal={changeCreateCompModal}
+                changeCompDetailsModal={changeCompDetailsModal}
             >
                 <Routes>
                     <Route
@@ -90,6 +91,7 @@ function App() {
                             <Home
                                 retracted={retracted}
                                 setRetracted={setRetracted}
+                                changeCompDetailsModal={changeCompDetailsModal}
                             />
                         }
                     />

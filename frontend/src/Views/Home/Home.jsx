@@ -5,7 +5,9 @@ import NextCompetition from "../../Components/Cards/NextCompetition/NextCompetit
 function Home(props) {
     return (
         <div className={classes.topCardContainer}>
-            <NextCompetition />
+            <NextCompetition
+                changeCompDetailsModal={props.changeCompDetailsModal}
+            />
         </div>
     );
 }
