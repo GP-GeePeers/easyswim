@@ -123,7 +123,7 @@ function CreateCompetition(props) {
                             />
                         </div>
                         <div className={classes.topCardContainer}>
-                            <Card>
+                            <Card centered>
                                 <img
                                     src={addDocument}
                                     style={{
