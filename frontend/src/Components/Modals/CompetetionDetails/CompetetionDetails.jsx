@@ -23,8 +23,7 @@ function CompetetionDetails(props) {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className={classes.contentContainer}>
-                            {/* <Card centered></Card> */}
-                            <NextCompetition />
+                            <Card centered>Hello teeeaaam! :D</Card>
                         </div>
                     </div>
                 </div>

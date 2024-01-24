@@ -18,7 +18,7 @@ function App() {
     // state to control the modal to create a competition appearing and disappearing
     const [createCompModal, setCreateCompModal] = useState(false);
     // temporary state to control the modal to show the competition details appearing and disappearing
-    const [compDetailsModal, setCompDetailsModal] = useState(false);
+    const [compDetailsModal, setCompDetailsModal] = useState(true);
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
 
     useEffect(() => {

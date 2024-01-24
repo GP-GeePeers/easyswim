@@ -30,49 +30,49 @@
 }
 
 @media (max-height: 708px) {
-    .modal {
+    .modalContent {
         transform: scale(0.9);
     }
 }
 
 @media (max-height: 667px) {
-    .modal {
+    .modalContent {
         transform: scale(0.8);
     }
 }
 
 @media (max-height: 588px) {
-    .modal {
+    .modalContent {
         transform: scale(0.7);
     }
 }
 
 @media (max-height: 529px) {
-    .modal {
+    .modalContent {
         transform: scale(0.6);
     }
 }
 
 @media (max-height: 471px) {
-    .modal {
+    .modalContent {
         transform: scale(0.5);
     }
 }
 
 @media (max-height: 350px) {
-    .modal {
+    .modalContent {
         transform: scale(0.4);
     }
 }
 
 @media (max-height: 280px) {
-    .modal {
+    .modalContent {
         transform: scale(0.3);
     }
 }
 
 @media (max-height: 235px) {
-    .modal {
+    .modalContent {
         display: none;
     }
 }
