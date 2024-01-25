@@ -31,6 +31,7 @@
     align-items: center;
     padding: 0px 2rem;
     z-index: 1;
+    width: calc(100% - 85px);
 }
 
 .containerRetracted {
@@ -55,29 +56,66 @@ h1 {
 
 .box {
     width: 100%;
-    max-width: 1024px;
     height: auto;
     padding: 1rem;
     background-color: #0f1110;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     border-radius: 1.25rem;
     margin: 2rem;
 }
 
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    color: aquamarine;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.titleContainerButtons {
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    margin-left: 1rem;
+    padding: 8px 40px;
+    background-color: rgba(68, 85, 82, 0.2);
+    flex-direction: column;
+    color: #b7bab6;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    align-items: left;
+    display: flex;
+}
+
+
 .table {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tableRowHeader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #b7bab6;
+    flex: 1;
 }
 
 .tableRow {
     display: flex;
-    border-bottom: 1px solid aquamarine;
-    padding: 10px;
-    text-align: left;
+    border-bottom: 1px solid #335C58;
+    justify-content: center;
     color: #b7bab6;
     flex: 1;
-    border-right: 1px aquamarine;
 }
 
 .tableHeader {
@@ -85,31 +123,80 @@ h1 {
     color: #b7bab6;
 }
 
-.tableCell {
+.tableCellHeader {
     display: flex;
-    padding: 10px;
-    text-align: left;
+    align-items: center;
+    padding: 1rem;
+    justify-content: center;
     color: #b7bab6;
     flex: 1;
-    border-right: 1px aquamarine;
+    border-right: 1px #335C58;
+}
+
+.tableCell {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: #b7bab6;
+    flex: 1;
+    border-right: 1px #335C58;
+}
+
+.tableCell:first-child {
+    border-left: none;
+}
+
+.tableCellHeader:first-child {
+    border-left: none;
 }
 
 .tableCell:last-child {
     border-right: none;
 }
 
+.tableCellHeader:last-child {
+    border-right: none;
+}
+
 .organizerColumn {
     flex: 2;
+    border-left: 1px solid #335C58;
+    border-right: 1px solid #335C58;
 }
 
 .nameColumn {
     flex: 3;
+    border-left: 1px solid #335C58;
+    border-right: 1px solid #335C58;
 }
 
 .dateColumn {
     flex: 1;
+    border-left: 1px solid #335C58;
+    border-right: 1px solid #335C58;
 }
 
 .stateColumn {
     flex: 1;
+    border-left: 1px solid #335C58;
+    border-right: 1px solid #335C58;
+}
+
+.pageContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    color: #b7bab6;
+}
+
+.buttonPages {
+    margin-left: 1rem;
+    padding: 8px 40px;
+    background-color: rgba(68, 85, 82, 0.2);
+    justify-content: space-between;
+    color: #b7bab6;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
