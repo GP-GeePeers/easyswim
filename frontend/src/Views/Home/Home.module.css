@@ -25,11 +25,11 @@
     position: absolute;
     display: flex;
     flex: 1;
-    margin-top: 6rem;
+    margin-top: 4rem;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 0px 2rem;
+    padding: 0px rem;
     z-index: 1;
     width: calc(100% - 85px);
 }
@@ -82,6 +82,12 @@ h1 {
     flex-direction: row;
 }
 
+.iconImage {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
 .button {
     margin-left: 1rem;
     padding: 8px 40px;
@@ -104,6 +110,13 @@ h1 {
 
 .tableRowHeader {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #b7bab6;
+    flex: 1;
+}
+
+.tableRow0 {
     display: flex;
     justify-content: center;
     color: #b7bab6;
@@ -185,18 +198,30 @@ h1 {
 
 .pageContainer {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
     margin-top: 1rem;
     color: #b7bab6;
+    font-weight: bold;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 1rem;
+    width: 100%;
+}
+
+.pageContainerButtons {
+    display: flex;
+    flex-direction: row;
 }
 
 .buttonPages {
     margin-left: 1rem;
     padding: 8px 40px;
     background-color: rgba(68, 85, 82, 0.2);
-    justify-content: space-between;
+    flex-direction: column;
     color: #b7bab6;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
+    align-items: left;
+    display: flex;
 }
