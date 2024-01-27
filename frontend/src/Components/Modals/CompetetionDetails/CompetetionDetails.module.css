@@ -16,11 +16,11 @@
     z-index: 92;
     flex-direction: column;
     overflow: hidden;
-    padding: 1rem 2rem;
+    padding: 0rem 1.6rem;
     border-radius: 30px;
     background-color: #0f1110;
-    margin: 1rem;
     width: 80vw;
+    height: fit-content;
     overflow: hidden;
     overflow-y: scroll;
     -ms-overflow-style: none;
