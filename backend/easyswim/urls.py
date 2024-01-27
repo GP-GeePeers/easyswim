@@ -29,7 +29,7 @@ schema_view=get_schema_view(openapi.Info(title="EasySwim-API",default_version='v
 urlpatterns = [
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
     #path('swagger/',get_swagger_view(title='EasySwim API'),name='swagger'),
-    path('/', views.home, name='home'),
+    path('', views.home, name='home'),
     path("admin/", admin.site.urls),
     path('api/', include('easyswimapp.urls')),
     #path('read-lef/', read_lef_view, name='read-lef'),
