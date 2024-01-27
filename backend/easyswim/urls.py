@@ -27,10 +27,10 @@ from easyswimapp import views
 schema_view=get_schema_view(openapi.Info(title="EasySwim-API",default_version='v1',),public=True, permission_classes=(permissions.AllowAny,),)
 
 urlpatterns = [
-    path('docs/', schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
+    path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
     #path('swagger/',get_swagger_view(title='EasySwim API'),name='swagger'),
-    path('', views.home, name='home'),
-    path("admin/", admin.site.urls),
+    path('api/', views.home, name='home'),
+    path("api/admin/", admin.site.urls),
     path('api/', include('easyswimapp.urls')),
     #path('read-lef/', read_lef_view, name='read-lef'),
     #path('model-data/', model_data_view, name='model-data-view')
