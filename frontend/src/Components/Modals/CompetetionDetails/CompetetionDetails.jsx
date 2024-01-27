@@ -54,9 +54,26 @@ function CompetetionDetails(props) {
                     >
                         <div className={classes.cardContainer}>
                             <Card centered>
-                                <div className={classes.titleContainer}>
-                                    <div className={classes.title}>
-                                        Informações da Competição
+                                <div className={classes.header}>
+                                    <div className={classes.titleContainer}>
+                                        <div className={classes.title}>
+                                            Informações da Competição
+                                        </div>
+                                    </div>
+                                    <div
+                                        className={classes.exitButton}
+                                        onClick={handleCloseModal}
+                                    >
+                                        {/* <div className={classes.exitText}>
+                                            X
+                                        </div> */}
+                                        <Button
+                                            type={"secondary"}
+                                            text={"Fechar"}
+                                            onClick={
+                                                props.changeCreateCompModal
+                                            }
+                                        />
                                     </div>
                                 </div>
                                 <div className={classes.tableContainer}>

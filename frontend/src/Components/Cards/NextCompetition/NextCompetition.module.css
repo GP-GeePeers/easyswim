@@ -36,7 +36,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 40vw;
+    min-width: 30vw;
+    max-width: 40vw;
     background-color: transparent;
     border-color: transparent;
 }
@@ -70,7 +71,7 @@
     display: block;
     position: absolute;
     transform: translateX(-50%);
-    top: 19px;
+    bottom: 0;
     left: 50%;
     width: 0;
     height: 2px;
@@ -120,5 +121,13 @@
     }
     .lineOrganization {
         display: none;
+    }
+    .competitionText::before,
+    .competitionText::after {
+        /* make it so that nothing happens */
+        width: 0;
+    }
+    .competitionText:hover::before {
+        width: 0;
     }
 }
