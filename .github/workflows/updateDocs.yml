@@ -1,0 +1,29 @@
+name: Build HTML
+
+on:
+  push:
+    branches:
+      - master 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9 
+
+    - name: Install dependencies
+      run: |
+        pip install -r backend/docs/requirements.txt
+      working-directory: backend/docs
+
+    - name: Run make html
+      run: |
+        make html
+      working-directory: backend/docs
