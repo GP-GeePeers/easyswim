@@ -26,5 +26,5 @@ jobs:
 
     - name: Run make html
       run: |
-        make html
+        sphinx-build -b html ./source ./build 
       working-directory: backend/docs
