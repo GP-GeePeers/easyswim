@@ -9,3 +9,9 @@ URLs
 
 - ``/items/<int:pk>/``
   Description of the endpoint for viewing a specific item.
+
+
+.. automodule::   easyswimapp.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
