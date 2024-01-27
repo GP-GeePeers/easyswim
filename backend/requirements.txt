@@ -48,3 +48,4 @@ sphinxcontrib-serializinghtml==1.1.9
 sqlparse==0.4.4
 uritemplate==4.1.1
 urllib3==1.26.18
+gunicorn==21.2.0
