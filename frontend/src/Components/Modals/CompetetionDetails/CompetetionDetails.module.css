@@ -21,6 +21,14 @@
     background-color: #0f1110;
     margin: 1rem;
     width: 80vw;
+    overflow: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.modalContent::-webkit-scrollbar {
+    display: none;
 }
 
 .cardContainer {
@@ -95,15 +103,6 @@
     height: fit-content;
 }
 
-.title {
-    color: #72d5c8;
-    font-family: Poppins;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
 .exitButton {
     display: flex;
     justify-content: center;
@@ -112,6 +111,7 @@
     height: fit-content;
 }
 
+.title,
 .exitText {
     color: #b7bab6;
     font-family: Poppins;
@@ -119,7 +119,6 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-right: 0.5rem;
 }
 
 .tableContainer {
@@ -179,4 +178,27 @@
 
 ._ {
     display: none;
+}
+
+@media screen and (max-width: 667px) {
+    .modalContent {
+        width: 95vw;
+        height: 100vh;
+    }
+    .contentTitleContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 35vw;
+    }
+
+    .contentDetailsContainer {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 65vw;
+        padding: 2rem 2rem;
+    }
 }
