@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-#=bkxs^nxm1uy^jtro3r2y4=+c&e-)lw5m)v3&v!@)5ju_wj+$
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ["localhost","127.0.0.1","easyswim.online"]
+ALLOWED_HOSTS = ["localhost","127.0.0.1","easyswim.online",]
 
 
 # Application definition
