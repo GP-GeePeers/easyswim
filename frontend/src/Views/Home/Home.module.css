@@ -123,7 +123,7 @@ h1 {
     padding: 8px 30px;
     display: flex;
     justify-content: left;
-    width: 15rem;    
+    width: 15rem;
     background-image: url("./Assets/dropdown.svg");
     background-size: 1rem;
     background-repeat: no-repeat;
@@ -150,11 +150,11 @@ h1 {
     text-decoration: none;
     text-align: left;
 }
-  
+
 .listDropdown a:hover {
     background-color: rgba(183, 186, 182, 0.2);
 }
-  
+
 .dropdown:hover .listDropdown {
     display: block;
 }
@@ -269,18 +269,53 @@ h1 {
 .pageContainerButtons {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
-.buttonPages {
-    margin: 0rem 0.2rem;
-    padding: 0.8rem 0.8rem;
-    background-color: rgba(68, 85, 82, 0.2);
-    flex-direction: column;
-    color: #b7bab6;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    align-items: left;
+.paginationContainer {
     display: flex;
-    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    color: #b7bab6;
+    list-style: none;
 }
+
+.paginationPage {
+    margin: 0 0.3rem;
+    padding: 0.4rem;
+    cursor: pointer;
+    border: 1px solid #b7bab6;
+    background-color: rgba(68, 85, 82, 0.2);
+    border-radius: 4px;
+    width: 1.2rem;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: rgba(211, 211, 211, 0.264);
+    }
+}
+
+.paginationActive {
+    background-color: #335C58;
+    color: #fff;
+    border: 1px solid #335C58;
+}
+
+.paginationPrevious,
+.paginationNext {
+    margin: 0 0.3rem;
+    padding: 0.4rem;
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid #b7bab6;
+    border-radius: 4px;
+    width: 1.2rem;
+    background-color: rgba(68, 85, 82, 0.2);
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: rgba(211, 211, 211, 0.264);
+    }
+}
+

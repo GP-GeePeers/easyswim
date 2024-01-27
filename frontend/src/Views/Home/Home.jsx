@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ReactPaginate from "react-paginate";
 import classes from "./Home.module.css";
 import Button from "../../Components/Buttons/Button";
 
-const TABLE_DATA0 = [ // a retirar no final
+const TABLE_DATA0 = [ // Proxima Competicao
     {
         id: 1,
         organizer: "Associação Académica de Coimbra",
@@ -15,7 +16,7 @@ const TABLE_DATA0 = [ // a retirar no final
 
 const ORDER_OPTIONS = ["Mais recente", "Mais antigo", "Nome"]
 
-const TABLE_DATA = [ // a retirar no final
+const TABLE_DATA = [ // Competicoes Inscritas
     {
         id: 1,
         organizer: "Associação Académica de Coimbra",
@@ -91,61 +92,40 @@ const TABLE_DATA = [ // a retirar no final
 
 function Home(props) {
     let container = classes.container;
-    let minComp=1, maxComp=8, totalComp=80;
-    let currentPage=0, totalPages=1, onPageChange=1;
-
-    //totalComp = ir buscar valor da quantidade total de competicoes
-    if (totalComp < maxComp) {
-        maxComp = totalComp;
-    }
-
     let [selectedOrder, setSelectedOrder] = useState("Mais recente");
+    let minComp=1, maxComp=8, totalComp=80;
+    let currentPage=0, totalPages=2, onPageChange=3, itemsPerPage = 8;
 
+    // Dropdown options
     let handleOrderOptionClick = (option) => {
         setSelectedOrder(option);
     };
 
-    totalPages = totalComp / 8; // 8 competicoes por página
+    //totalComp = total quantity of competitions
+    if (totalComp < maxComp) {
+        maxComp = totalComp;
+    }
 
-    let renderPageButtons = () => {
-        let buttons = [];
-        let maxButtons = 8;
-    
-        for (let i = 1; i <= totalPages; i++) {
-          if (i === 1 || i === totalPages || Math.abs(i - currentPage) <= 2) {
-            // Display the first, last, and a few surrounding buttons
-            buttons.push(
-              <button
-                key={i}
-                onClick={() => onPageChange(i)}
-                className={`${classes.buttonPages} ${currentPage === i ? "active" : ""}`}
-              >
-                {i}
-              </button>
-            );
-          } else if (
-            buttons.length === maxButtons - 1 &&
-            i < totalPages - 1 &&
-            i < currentPage
-          ) {
-            // Insert dots when reaching the maximum number of buttons
-            buttons.push(<span key="dots">...</span>);
-          }
-        }
-    
-        return buttons;
-    };
-    
+    totalPages = Math.ceil(totalComp / itemsPerPage); // 8 competitions per page
+
+    // React Paginate
+    const [currentPage0, setCurrentPage] = useState(0);
+
+    const handlePageChange = ({ selected }) => {
+        setCurrentPage(selected);
+    };    
 
     if (props.retracted === true) {
         container += ` ${classes.containerRetracted}`;
     };
 
+
+    // HTML
     return (
         <div className={container}>
             <div className={classes.contentContainer}>
                 <div className={classes.box}>
-                    {/* Title 0*/}
+                    {/* Title 0 - Proxima Competicao*/}
                     <div className={classes.titleContainer}>
                         <h2>Próxima Competição</h2>
                     </div>
@@ -177,7 +157,7 @@ function Home(props) {
                 </div>
 
                 <div className={classes.box}>
-                    {/* Title and Buttons */}
+                    {/* Title and Buttons - Competicoes Inscritas*/}
                     <div className={classes.titleContainer}>
                         <h2>Competições Inscritas</h2>
                         <div className={classes.titleContainerButtons}>
@@ -241,14 +221,24 @@ function Home(props) {
 
                     {/* Page Number and Buttons */}
                     <div className={classes.pageContainer}>
-                        <span>Dados {minComp} a {maxComp} de {totalComp} entradas</span>
+                        <span>Dados {currentPage0 * itemsPerPage + 1} a {Math.min((currentPage0 + 1) * itemsPerPage, totalComp)} de {totalComp} entradas</span>
                         <div className={classes.pageContainerButtons}>
-                            <button className={classes.buttonPages} onClick={() => onPageChange(currentPage - 1)}>&lt;</button>
-                            {renderPageButtons()}
-                            <button className={classes.buttonPages} onClick={() => onPageChange(currentPage + 1)}>&gt;</button>
-    
+
+                            <ReactPaginate
+                                pageCount={totalPages}
+                                pageRangeDisplayed={2}
+                                marginPagesDisplayed={1}
+                                onPageChange={handlePageChange}
+                                containerClassName={classes.paginationContainer}
+                                pageClassName={classes.paginationPage}
+                                activeClassName={classes.paginationActive}
+                                previousClassName={classes.paginationPrevious}
+                                nextClassName={classes.paginationNext}
+                                previousLabel={"<"}
+                                nextLabel={">"}
+                            />
+
                         </div>
-                        
                     </div>
                 </div>
             </div>
