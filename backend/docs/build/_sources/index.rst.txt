@@ -5,7 +5,7 @@
 
 Welcome to EasySwim's documentation!
 ====================================
-EasySwim is a comprehensive platform for managing swim-related data, including meets, events, constructors, and more. This documentation serves as a guide to understanding and utilizing the various components of the EasySwim application.
+EasySwim is a comprehensive platform for managing swim-related data, including meets, events, competitors, and validate. This documentation serves as a guide to understanding and utilizing the various components of the EasySwim application.
 
 .. note::
    Add descriptions or details about your views here.

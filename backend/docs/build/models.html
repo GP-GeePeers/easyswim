@@ -201,96 +201,1301 @@
 <p class="admonition-title">Note</p>
 <p>Add descriptions or details about your views here.</p>
 </div>
-<dl class="py class" id="module-easyswimapp.views">
-<dt class="sig sig-object py" id="easyswimapp.views.LXFView">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.views.</span></span><span class="sig-name descname"><span class="pre">LXFView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.views.LXFView" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
-<p>View for LXF file upload.</p>
-<p>This view allows users to upload LXF files, and it supports both GET and POST requests.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>request</strong> – HttpRequest object</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Response object with serialized LXF data</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="easyswimapp.views.LXFView.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.views.LXFView.get" title="Link to this definition">#</a></dt>
-<dd><p>Handles GET requests for LXF data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>request</strong> – HttpRequest object</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Response object with serialized LXF data</p>
-</dd>
-</dl>
+<dl class="py class" id="module-easyswimapp.models">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeDate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">AgeDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.AgeDate" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeDate.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.AgeDate.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="easyswimapp.views.LXFView.parser_classes">
-<span class="sig-name descname"><span class="pre">parser_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'rest_framework.parsers.MultiPartParser'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'rest_framework.parsers.FormParser'&gt;)</span></em><a class="headerlink" href="#easyswimapp.views.LXFView.parser_classes" title="Link to this definition">#</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeDate.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.AgeDate.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeDate.get_next_by_value">
+<span class="sig-name descname"><span class="pre">get_next_by_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">value&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.AgeDate.get_next_by_value" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="easyswimapp.views.LXFView.post">
-<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.views.LXFView.post" title="Link to this definition">#</a></dt>
-<dd><p>Handles POST requests for LXF file uploads.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>request</strong> – HttpRequest object with LXF file data</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Response object indicating success or failure</p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="easyswimapp.models.AgeDate.get_previous_by_value">
+<span class="sig-name descname"><span class="pre">get_previous_by_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">value&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.AgeDate.get_previous_by_value" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeDate.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.AgeDate.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeDate.meet">
+<span class="sig-name descname"><span class="pre">meet</span></span><a class="headerlink" href="#easyswimapp.models.AgeDate.meet" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeDate.meet_id">
+<span class="sig-name descname"><span class="pre">meet_id</span></span><a class="headerlink" href="#easyswimapp.models.AgeDate.meet_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeDate.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.AgeDate.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeDate.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#easyswimapp.models.AgeDate.type" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeDate.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#easyswimapp.models.AgeDate.value" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="easyswimapp.views.home">
-<span class="sig-prename descclassname"><span class="pre">easyswimapp.views.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.views.home" title="Link to this definition">#</a></dt>
-<dd><p>Handles the HTTP request and returns a greeting response.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>request</strong> – HttpRequest object</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>HttpResponse object with a greeting message</p>
-</dd>
-</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">AgeGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agegroupid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agemax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agemin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handicap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.AgeGroup" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.AgeGroup.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="easyswimapp.views.model_data_view">
-<span class="sig-prename descclassname"><span class="pre">easyswimapp.views.</span></span><span class="sig-name descname"><span class="pre">model_data_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.views.model_data_view" title="Link to this definition">#</a></dt>
-<dd><p>Retrieves data from various models and returns it as a JSON response.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>request</strong> – HttpRequest object</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>JSON response containing data from various models</p>
-</dd>
-</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.AgeGroup.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="easyswimapp.views.read_lef_view">
-<span class="sig-prename descclassname"><span class="pre">easyswimapp.views.</span></span><span class="sig-name descname"><span class="pre">read_lef_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.views.read_lef_view" title="Link to this definition">#</a></dt>
-<dd><p>Reads and processes a .lef file.</p>
-<p>Expects a GET request and returns an HttpResponse indicating the success or failure of the file processing.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>request</strong> – HttpRequest object</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>HttpResponse indicating success or failure of .lef file processing</p>
-</dd>
-</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup.agegroupid">
+<span class="sig-name descname"><span class="pre">agegroupid</span></span><a class="headerlink" href="#easyswimapp.models.AgeGroup.agegroupid" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup.agemax">
+<span class="sig-name descname"><span class="pre">agemax</span></span><a class="headerlink" href="#easyswimapp.models.AgeGroup.agemax" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup.agemin">
+<span class="sig-name descname"><span class="pre">agemin</span></span><a class="headerlink" href="#easyswimapp.models.AgeGroup.agemin" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup.event">
+<span class="sig-name descname"><span class="pre">event</span></span><a class="headerlink" href="#easyswimapp.models.AgeGroup.event" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup.event_id">
+<span class="sig-name descname"><span class="pre">event_id</span></span><a class="headerlink" href="#easyswimapp.models.AgeGroup.event_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup.handicap">
+<span class="sig-name descname"><span class="pre">handicap</span></span><a class="headerlink" href="#easyswimapp.models.AgeGroup.handicap" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.AgeGroup.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#easyswimapp.models.AgeGroup.name" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.AgeGroup.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.AgeGroup.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.Constructor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">Constructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Constructor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Constructor.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.Constructor.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Constructor.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.Constructor.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Constructor.contact_constructor_set">
+<span class="sig-name descname"><span class="pre">contact_constructor_set</span></span><a class="headerlink" href="#easyswimapp.models.Constructor.contact_constructor_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Constructor.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.Constructor.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Constructor.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#easyswimapp.models.Constructor.name" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Constructor.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.Constructor.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Constructor.registration">
+<span class="sig-name descname"><span class="pre">registration</span></span><a class="headerlink" href="#easyswimapp.models.Constructor.registration" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Constructor.version">
+<span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#easyswimapp.models.Constructor.version" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">Contact_Constructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">construtor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">street</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.city">
+<span class="sig-name descname"><span class="pre">city</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.city" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.construtor">
+<span class="sig-name descname"><span class="pre">construtor</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.construtor" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.construtor_id">
+<span class="sig-name descname"><span class="pre">construtor_id</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.construtor_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.country">
+<span class="sig-name descname"><span class="pre">country</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.country" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.email" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.internet">
+<span class="sig-name descname"><span class="pre">internet</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.internet" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.name" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.street">
+<span class="sig-name descname"><span class="pre">street</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.street" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Constructor.zip">
+<span class="sig-name descname"><span class="pre">zip</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Constructor.zip" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">Contact_Meet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">street</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Contact_Meet" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Meet.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Meet.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Meet.email" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Meet.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet.meet">
+<span class="sig-name descname"><span class="pre">meet</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Meet.meet" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet.meet_id">
+<span class="sig-name descname"><span class="pre">meet_id</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Meet.meet_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Meet.name" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.Contact_Meet.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet.phone">
+<span class="sig-name descname"><span class="pre">phone</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Meet.phone" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet.street">
+<span class="sig-name descname"><span class="pre">street</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Meet.street" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Contact_Meet.zip">
+<span class="sig-name descname"><span class="pre">zip</span></span><a class="headerlink" href="#easyswimapp.models.Contact_Meet.zip" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.Event">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">Event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eventid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">daytime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preveventid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Event" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.Event.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.Event.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.agegroup_set">
+<span class="sig-name descname"><span class="pre">agegroup_set</span></span><a class="headerlink" href="#easyswimapp.models.Event.agegroup_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.daytime">
+<span class="sig-name descname"><span class="pre">daytime</span></span><a class="headerlink" href="#easyswimapp.models.Event.daytime" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.eventid">
+<span class="sig-name descname"><span class="pre">eventid</span></span><a class="headerlink" href="#easyswimapp.models.Event.eventid" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.fee_set">
+<span class="sig-name descname"><span class="pre">fee_set</span></span><a class="headerlink" href="#easyswimapp.models.Event.fee_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.gender">
+<span class="sig-name descname"><span class="pre">gender</span></span><a class="headerlink" href="#easyswimapp.models.Event.gender" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.get_gender_display">
+<span class="sig-name descname"><span class="pre">get_gender_display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">gender&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Event.get_gender_display" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.Event.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.number">
+<span class="sig-name descname"><span class="pre">number</span></span><a class="headerlink" href="#easyswimapp.models.Event.number" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.Event.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.order">
+<span class="sig-name descname"><span class="pre">order</span></span><a class="headerlink" href="#easyswimapp.models.Event.order" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.preveventid">
+<span class="sig-name descname"><span class="pre">preveventid</span></span><a class="headerlink" href="#easyswimapp.models.Event.preveventid" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.round">
+<span class="sig-name descname"><span class="pre">round</span></span><a class="headerlink" href="#easyswimapp.models.Event.round" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.session">
+<span class="sig-name descname"><span class="pre">session</span></span><a class="headerlink" href="#easyswimapp.models.Event.session" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.session_id">
+<span class="sig-name descname"><span class="pre">session_id</span></span><a class="headerlink" href="#easyswimapp.models.Event.session_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Event.swimstyle_set">
+<span class="sig-name descname"><span class="pre">swimstyle_set</span></span><a class="headerlink" href="#easyswimapp.models.Event.swimstyle_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">Facility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">street</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Facility" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.Facility.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.Facility.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility.city">
+<span class="sig-name descname"><span class="pre">city</span></span><a class="headerlink" href="#easyswimapp.models.Facility.city" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.Facility.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility.meet">
+<span class="sig-name descname"><span class="pre">meet</span></span><a class="headerlink" href="#easyswimapp.models.Facility.meet" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility.meet_id">
+<span class="sig-name descname"><span class="pre">meet_id</span></span><a class="headerlink" href="#easyswimapp.models.Facility.meet_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#easyswimapp.models.Facility.name" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility.nation">
+<span class="sig-name descname"><span class="pre">nation</span></span><a class="headerlink" href="#easyswimapp.models.Facility.nation" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.Facility.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility.street">
+<span class="sig-name descname"><span class="pre">street</span></span><a class="headerlink" href="#easyswimapp.models.Facility.street" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Facility.zip">
+<span class="sig-name descname"><span class="pre">zip</span></span><a class="headerlink" href="#easyswimapp.models.Facility.zip" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.Fee">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">Fee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">currency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Fee" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Fee.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.Fee.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Fee.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.Fee.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Fee.currency">
+<span class="sig-name descname"><span class="pre">currency</span></span><a class="headerlink" href="#easyswimapp.models.Fee.currency" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Fee.event">
+<span class="sig-name descname"><span class="pre">event</span></span><a class="headerlink" href="#easyswimapp.models.Fee.event" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Fee.event_id">
+<span class="sig-name descname"><span class="pre">event_id</span></span><a class="headerlink" href="#easyswimapp.models.Fee.event_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Fee.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.Fee.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Fee.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.Fee.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Fee.value">
+<span class="sig-name descname"><span class="pre">value</span></span><a class="headerlink" href="#easyswimapp.models.Fee.value" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.LXF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">LXF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lxf_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.LXF" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.LXF.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.LXF.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.LXF.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.LXF.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.LXF.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#easyswimapp.models.LXF.description" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.LXF.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.LXF.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.LXF.lxf_file">
+<span class="sig-name descname"><span class="pre">lxf_file</span></span><a class="headerlink" href="#easyswimapp.models.LXF.lxf_file" title="Link to this definition">#</a></dt>
+<dd><p>The descriptor for the file attribute on the model instance. Return a
+FieldFile when accessed so you can write code like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">myapp.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+<p>Assign a file object on assignment so you can do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/path/to/hello.world&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">instance</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.LXF.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.LXF.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.LXF.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#easyswimapp.models.LXF.title" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">Meet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deadline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">organizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">organizer_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reservecount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startmethod</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxentriesathlete</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Meet" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.Meet.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.Meet.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.agedate_set">
+<span class="sig-name descname"><span class="pre">agedate_set</span></span><a class="headerlink" href="#easyswimapp.models.Meet.agedate_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.city">
+<span class="sig-name descname"><span class="pre">city</span></span><a class="headerlink" href="#easyswimapp.models.Meet.city" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.contact_meet_set">
+<span class="sig-name descname"><span class="pre">contact_meet_set</span></span><a class="headerlink" href="#easyswimapp.models.Meet.contact_meet_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.course">
+<span class="sig-name descname"><span class="pre">course</span></span><a class="headerlink" href="#easyswimapp.models.Meet.course" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.deadline">
+<span class="sig-name descname"><span class="pre">deadline</span></span><a class="headerlink" href="#easyswimapp.models.Meet.deadline" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.facility_set">
+<span class="sig-name descname"><span class="pre">facility_set</span></span><a class="headerlink" href="#easyswimapp.models.Meet.facility_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.get_next_by_deadline">
+<span class="sig-name descname"><span class="pre">get_next_by_deadline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">deadline&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Meet.get_next_by_deadline" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.get_previous_by_deadline">
+<span class="sig-name descname"><span class="pre">get_previous_by_deadline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">deadline&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Meet.get_previous_by_deadline" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.Meet.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.maxentriesathlete">
+<span class="sig-name descname"><span class="pre">maxentriesathlete</span></span><a class="headerlink" href="#easyswimapp.models.Meet.maxentriesathlete" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#easyswimapp.models.Meet.name" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.nation">
+<span class="sig-name descname"><span class="pre">nation</span></span><a class="headerlink" href="#easyswimapp.models.Meet.nation" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.number">
+<span class="sig-name descname"><span class="pre">number</span></span><a class="headerlink" href="#easyswimapp.models.Meet.number" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.Meet.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.organizer">
+<span class="sig-name descname"><span class="pre">organizer</span></span><a class="headerlink" href="#easyswimapp.models.Meet.organizer" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.organizer_url">
+<span class="sig-name descname"><span class="pre">organizer_url</span></span><a class="headerlink" href="#easyswimapp.models.Meet.organizer_url" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.pointtable_set">
+<span class="sig-name descname"><span class="pre">pointtable_set</span></span><a class="headerlink" href="#easyswimapp.models.Meet.pointtable_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.pool_set">
+<span class="sig-name descname"><span class="pre">pool_set</span></span><a class="headerlink" href="#easyswimapp.models.Meet.pool_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.reservecount">
+<span class="sig-name descname"><span class="pre">reservecount</span></span><a class="headerlink" href="#easyswimapp.models.Meet.reservecount" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.session_set">
+<span class="sig-name descname"><span class="pre">session_set</span></span><a class="headerlink" href="#easyswimapp.models.Meet.session_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.startmethod">
+<span class="sig-name descname"><span class="pre">startmethod</span></span><a class="headerlink" href="#easyswimapp.models.Meet.startmethod" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.timing">
+<span class="sig-name descname"><span class="pre">timing</span></span><a class="headerlink" href="#easyswimapp.models.Meet.timing" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Meet.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#easyswimapp.models.Meet.type" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.PointTable">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">PointTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pointtableid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.PointTable" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.PointTable.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.PointTable.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.PointTable.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.PointTable.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.PointTable.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.PointTable.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.PointTable.meet">
+<span class="sig-name descname"><span class="pre">meet</span></span><a class="headerlink" href="#easyswimapp.models.PointTable.meet" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.PointTable.meet_id">
+<span class="sig-name descname"><span class="pre">meet_id</span></span><a class="headerlink" href="#easyswimapp.models.PointTable.meet_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.PointTable.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#easyswimapp.models.PointTable.name" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.PointTable.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.PointTable.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.PointTable.pointtableid">
+<span class="sig-name descname"><span class="pre">pointtableid</span></span><a class="headerlink" href="#easyswimapp.models.PointTable.pointtableid" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.PointTable.version">
+<span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#easyswimapp.models.PointTable.version" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.Pool">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">Pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lane_max</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Pool" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Pool.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.Pool.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Pool.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.Pool.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Pool.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.Pool.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Pool.lane_max">
+<span class="sig-name descname"><span class="pre">lane_max</span></span><a class="headerlink" href="#easyswimapp.models.Pool.lane_max" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Pool.meet">
+<span class="sig-name descname"><span class="pre">meet</span></span><a class="headerlink" href="#easyswimapp.models.Pool.meet" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Pool.meet_id">
+<span class="sig-name descname"><span class="pre">meet_id</span></span><a class="headerlink" href="#easyswimapp.models.Pool.meet_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Pool.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#easyswimapp.models.Pool.name" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Pool.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.Pool.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.Session">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">Session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">daytime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warmupfrom</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warmupuntil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxentriesathlete</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Session" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.Session.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.Session.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.date">
+<span class="sig-name descname"><span class="pre">date</span></span><a class="headerlink" href="#easyswimapp.models.Session.date" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.daytime">
+<span class="sig-name descname"><span class="pre">daytime</span></span><a class="headerlink" href="#easyswimapp.models.Session.daytime" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.event_set">
+<span class="sig-name descname"><span class="pre">event_set</span></span><a class="headerlink" href="#easyswimapp.models.Session.event_set" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.get_next_by_date">
+<span class="sig-name descname"><span class="pre">get_next_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Session.get_next_by_date" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.get_previous_by_date">
+<span class="sig-name descname"><span class="pre">get_previous_by_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">date&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.Session.get_previous_by_date" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.Session.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.maxentriesathlete">
+<span class="sig-name descname"><span class="pre">maxentriesathlete</span></span><a class="headerlink" href="#easyswimapp.models.Session.maxentriesathlete" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.meet">
+<span class="sig-name descname"><span class="pre">meet</span></span><a class="headerlink" href="#easyswimapp.models.Session.meet" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.meet_id">
+<span class="sig-name descname"><span class="pre">meet_id</span></span><a class="headerlink" href="#easyswimapp.models.Session.meet_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#easyswimapp.models.Session.name" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.number">
+<span class="sig-name descname"><span class="pre">number</span></span><a class="headerlink" href="#easyswimapp.models.Session.number" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.Session.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.warmupfrom">
+<span class="sig-name descname"><span class="pre">warmupfrom</span></span><a class="headerlink" href="#easyswimapp.models.Session.warmupfrom" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.Session.warmupuntil">
+<span class="sig-name descname"><span class="pre">warmupuntil</span></span><a class="headerlink" href="#easyswimapp.models.Session.warmupuntil" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="easyswimapp.models.SwimStyle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.models.</span></span><span class="sig-name descname"><span class="pre">SwimStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relay_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stroke</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.models.SwimStyle" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.SwimStyle.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#easyswimapp.models.SwimStyle.DoesNotExist" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="easyswimapp.models.SwimStyle.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#easyswimapp.models.SwimStyle.MultipleObjectsReturned" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.SwimStyle.distance">
+<span class="sig-name descname"><span class="pre">distance</span></span><a class="headerlink" href="#easyswimapp.models.SwimStyle.distance" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.SwimStyle.event">
+<span class="sig-name descname"><span class="pre">event</span></span><a class="headerlink" href="#easyswimapp.models.SwimStyle.event" title="Link to this definition">#</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.SwimStyle.event_id">
+<span class="sig-name descname"><span class="pre">event_id</span></span><a class="headerlink" href="#easyswimapp.models.SwimStyle.event_id" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.SwimStyle.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#easyswimapp.models.SwimStyle.id" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.SwimStyle.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#easyswimapp.models.SwimStyle.objects" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.SwimStyle.relay_count">
+<span class="sig-name descname"><span class="pre">relay_count</span></span><a class="headerlink" href="#easyswimapp.models.SwimStyle.relay_count" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.models.SwimStyle.stroke">
+<span class="sig-name descname"><span class="pre">stroke</span></span><a class="headerlink" href="#easyswimapp.models.SwimStyle.stroke" title="Link to this definition">#</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -351,15 +1556,211 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Models</a><ul>
-<li><a class="reference internal" href="#easyswimapp.views.LXFView"><code class="docutils literal notranslate"><span class="pre">LXFView</span></code></a><ul>
-<li><a class="reference internal" href="#easyswimapp.views.LXFView.get"><code class="docutils literal notranslate"><span class="pre">LXFView.get()</span></code></a></li>
-<li><a class="reference internal" href="#easyswimapp.views.LXFView.parser_classes"><code class="docutils literal notranslate"><span class="pre">LXFView.parser_classes</span></code></a></li>
-<li><a class="reference internal" href="#easyswimapp.views.LXFView.post"><code class="docutils literal notranslate"><span class="pre">LXFView.post()</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeDate"><code class="docutils literal notranslate"><span class="pre">AgeDate</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.AgeDate.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">AgeDate.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeDate.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">AgeDate.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeDate.get_next_by_value"><code class="docutils literal notranslate"><span class="pre">AgeDate.get_next_by_value()</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeDate.get_previous_by_value"><code class="docutils literal notranslate"><span class="pre">AgeDate.get_previous_by_value()</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeDate.id"><code class="docutils literal notranslate"><span class="pre">AgeDate.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeDate.meet"><code class="docutils literal notranslate"><span class="pre">AgeDate.meet</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeDate.meet_id"><code class="docutils literal notranslate"><span class="pre">AgeDate.meet_id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeDate.objects"><code class="docutils literal notranslate"><span class="pre">AgeDate.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeDate.type"><code class="docutils literal notranslate"><span class="pre">AgeDate.type</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeDate.value"><code class="docutils literal notranslate"><span class="pre">AgeDate.value</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#easyswimapp.views.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
-<li><a class="reference internal" href="#easyswimapp.views.model_data_view"><code class="docutils literal notranslate"><span class="pre">model_data_view()</span></code></a></li>
-<li><a class="reference internal" href="#easyswimapp.views.read_lef_view"><code class="docutils literal notranslate"><span class="pre">read_lef_view()</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup"><code class="docutils literal notranslate"><span class="pre">AgeGroup</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">AgeGroup.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">AgeGroup.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup.agegroupid"><code class="docutils literal notranslate"><span class="pre">AgeGroup.agegroupid</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup.agemax"><code class="docutils literal notranslate"><span class="pre">AgeGroup.agemax</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup.agemin"><code class="docutils literal notranslate"><span class="pre">AgeGroup.agemin</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup.event"><code class="docutils literal notranslate"><span class="pre">AgeGroup.event</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup.event_id"><code class="docutils literal notranslate"><span class="pre">AgeGroup.event_id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup.handicap"><code class="docutils literal notranslate"><span class="pre">AgeGroup.handicap</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup.id"><code class="docutils literal notranslate"><span class="pre">AgeGroup.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup.name"><code class="docutils literal notranslate"><span class="pre">AgeGroup.name</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.AgeGroup.objects"><code class="docutils literal notranslate"><span class="pre">AgeGroup.objects</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.Constructor"><code class="docutils literal notranslate"><span class="pre">Constructor</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.Constructor.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Constructor.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Constructor.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Constructor.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Constructor.contact_constructor_set"><code class="docutils literal notranslate"><span class="pre">Constructor.contact_constructor_set</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Constructor.id"><code class="docutils literal notranslate"><span class="pre">Constructor.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Constructor.name"><code class="docutils literal notranslate"><span class="pre">Constructor.name</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Constructor.objects"><code class="docutils literal notranslate"><span class="pre">Constructor.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Constructor.registration"><code class="docutils literal notranslate"><span class="pre">Constructor.registration</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Constructor.version"><code class="docutils literal notranslate"><span class="pre">Constructor.version</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.city"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.city</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.construtor"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.construtor</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.construtor_id"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.construtor_id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.country"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.country</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.email"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.email</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.id"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.internet"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.internet</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.name"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.name</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.objects"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.street"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.street</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Constructor.zip"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor.zip</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet"><code class="docutils literal notranslate"><span class="pre">Contact_Meet</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Contact_Meet.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Contact_Meet.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet.email"><code class="docutils literal notranslate"><span class="pre">Contact_Meet.email</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet.id"><code class="docutils literal notranslate"><span class="pre">Contact_Meet.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet.meet"><code class="docutils literal notranslate"><span class="pre">Contact_Meet.meet</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet.meet_id"><code class="docutils literal notranslate"><span class="pre">Contact_Meet.meet_id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet.name"><code class="docutils literal notranslate"><span class="pre">Contact_Meet.name</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet.objects"><code class="docutils literal notranslate"><span class="pre">Contact_Meet.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet.phone"><code class="docutils literal notranslate"><span class="pre">Contact_Meet.phone</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet.street"><code class="docutils literal notranslate"><span class="pre">Contact_Meet.street</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Contact_Meet.zip"><code class="docutils literal notranslate"><span class="pre">Contact_Meet.zip</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.Event"><code class="docutils literal notranslate"><span class="pre">Event</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.Event.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Event.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Event.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.agegroup_set"><code class="docutils literal notranslate"><span class="pre">Event.agegroup_set</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.daytime"><code class="docutils literal notranslate"><span class="pre">Event.daytime</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.eventid"><code class="docutils literal notranslate"><span class="pre">Event.eventid</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.fee_set"><code class="docutils literal notranslate"><span class="pre">Event.fee_set</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.gender"><code class="docutils literal notranslate"><span class="pre">Event.gender</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.get_gender_display"><code class="docutils literal notranslate"><span class="pre">Event.get_gender_display()</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.id"><code class="docutils literal notranslate"><span class="pre">Event.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.number"><code class="docutils literal notranslate"><span class="pre">Event.number</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.objects"><code class="docutils literal notranslate"><span class="pre">Event.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.order"><code class="docutils literal notranslate"><span class="pre">Event.order</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.preveventid"><code class="docutils literal notranslate"><span class="pre">Event.preveventid</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.round"><code class="docutils literal notranslate"><span class="pre">Event.round</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.session"><code class="docutils literal notranslate"><span class="pre">Event.session</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.session_id"><code class="docutils literal notranslate"><span class="pre">Event.session_id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Event.swimstyle_set"><code class="docutils literal notranslate"><span class="pre">Event.swimstyle_set</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.Facility"><code class="docutils literal notranslate"><span class="pre">Facility</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.Facility.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Facility.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Facility.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Facility.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Facility.city"><code class="docutils literal notranslate"><span class="pre">Facility.city</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Facility.id"><code class="docutils literal notranslate"><span class="pre">Facility.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Facility.meet"><code class="docutils literal notranslate"><span class="pre">Facility.meet</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Facility.meet_id"><code class="docutils literal notranslate"><span class="pre">Facility.meet_id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Facility.name"><code class="docutils literal notranslate"><span class="pre">Facility.name</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Facility.nation"><code class="docutils literal notranslate"><span class="pre">Facility.nation</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Facility.objects"><code class="docutils literal notranslate"><span class="pre">Facility.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Facility.street"><code class="docutils literal notranslate"><span class="pre">Facility.street</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Facility.zip"><code class="docutils literal notranslate"><span class="pre">Facility.zip</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.Fee"><code class="docutils literal notranslate"><span class="pre">Fee</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.Fee.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Fee.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Fee.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Fee.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Fee.currency"><code class="docutils literal notranslate"><span class="pre">Fee.currency</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Fee.event"><code class="docutils literal notranslate"><span class="pre">Fee.event</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Fee.event_id"><code class="docutils literal notranslate"><span class="pre">Fee.event_id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Fee.id"><code class="docutils literal notranslate"><span class="pre">Fee.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Fee.objects"><code class="docutils literal notranslate"><span class="pre">Fee.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Fee.value"><code class="docutils literal notranslate"><span class="pre">Fee.value</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.LXF"><code class="docutils literal notranslate"><span class="pre">LXF</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.LXF.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">LXF.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.LXF.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">LXF.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.LXF.description"><code class="docutils literal notranslate"><span class="pre">LXF.description</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.LXF.id"><code class="docutils literal notranslate"><span class="pre">LXF.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.LXF.lxf_file"><code class="docutils literal notranslate"><span class="pre">LXF.lxf_file</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.LXF.objects"><code class="docutils literal notranslate"><span class="pre">LXF.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.LXF.title"><code class="docutils literal notranslate"><span class="pre">LXF.title</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet"><code class="docutils literal notranslate"><span class="pre">Meet</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Meet.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Meet.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.agedate_set"><code class="docutils literal notranslate"><span class="pre">Meet.agedate_set</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.city"><code class="docutils literal notranslate"><span class="pre">Meet.city</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.contact_meet_set"><code class="docutils literal notranslate"><span class="pre">Meet.contact_meet_set</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.course"><code class="docutils literal notranslate"><span class="pre">Meet.course</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.deadline"><code class="docutils literal notranslate"><span class="pre">Meet.deadline</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.facility_set"><code class="docutils literal notranslate"><span class="pre">Meet.facility_set</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.get_next_by_deadline"><code class="docutils literal notranslate"><span class="pre">Meet.get_next_by_deadline()</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.get_previous_by_deadline"><code class="docutils literal notranslate"><span class="pre">Meet.get_previous_by_deadline()</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.id"><code class="docutils literal notranslate"><span class="pre">Meet.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.maxentriesathlete"><code class="docutils literal notranslate"><span class="pre">Meet.maxentriesathlete</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.name"><code class="docutils literal notranslate"><span class="pre">Meet.name</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.nation"><code class="docutils literal notranslate"><span class="pre">Meet.nation</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.number"><code class="docutils literal notranslate"><span class="pre">Meet.number</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.objects"><code class="docutils literal notranslate"><span class="pre">Meet.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.organizer"><code class="docutils literal notranslate"><span class="pre">Meet.organizer</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.organizer_url"><code class="docutils literal notranslate"><span class="pre">Meet.organizer_url</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.pointtable_set"><code class="docutils literal notranslate"><span class="pre">Meet.pointtable_set</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.pool_set"><code class="docutils literal notranslate"><span class="pre">Meet.pool_set</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.reservecount"><code class="docutils literal notranslate"><span class="pre">Meet.reservecount</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.session_set"><code class="docutils literal notranslate"><span class="pre">Meet.session_set</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.startmethod"><code class="docutils literal notranslate"><span class="pre">Meet.startmethod</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.timing"><code class="docutils literal notranslate"><span class="pre">Meet.timing</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Meet.type"><code class="docutils literal notranslate"><span class="pre">Meet.type</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.PointTable"><code class="docutils literal notranslate"><span class="pre">PointTable</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.PointTable.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">PointTable.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.PointTable.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">PointTable.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.PointTable.id"><code class="docutils literal notranslate"><span class="pre">PointTable.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.PointTable.meet"><code class="docutils literal notranslate"><span class="pre">PointTable.meet</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.PointTable.meet_id"><code class="docutils literal notranslate"><span class="pre">PointTable.meet_id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.PointTable.name"><code class="docutils literal notranslate"><span class="pre">PointTable.name</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.PointTable.objects"><code class="docutils literal notranslate"><span class="pre">PointTable.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.PointTable.pointtableid"><code class="docutils literal notranslate"><span class="pre">PointTable.pointtableid</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.PointTable.version"><code class="docutils literal notranslate"><span class="pre">PointTable.version</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.Pool"><code class="docutils literal notranslate"><span class="pre">Pool</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.Pool.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Pool.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Pool.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Pool.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Pool.id"><code class="docutils literal notranslate"><span class="pre">Pool.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Pool.lane_max"><code class="docutils literal notranslate"><span class="pre">Pool.lane_max</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Pool.meet"><code class="docutils literal notranslate"><span class="pre">Pool.meet</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Pool.meet_id"><code class="docutils literal notranslate"><span class="pre">Pool.meet_id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Pool.name"><code class="docutils literal notranslate"><span class="pre">Pool.name</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Pool.objects"><code class="docutils literal notranslate"><span class="pre">Pool.objects</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.Session.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Session.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Session.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.date"><code class="docutils literal notranslate"><span class="pre">Session.date</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.daytime"><code class="docutils literal notranslate"><span class="pre">Session.daytime</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.event_set"><code class="docutils literal notranslate"><span class="pre">Session.event_set</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.get_next_by_date"><code class="docutils literal notranslate"><span class="pre">Session.get_next_by_date()</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.get_previous_by_date"><code class="docutils literal notranslate"><span class="pre">Session.get_previous_by_date()</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.id"><code class="docutils literal notranslate"><span class="pre">Session.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.maxentriesathlete"><code class="docutils literal notranslate"><span class="pre">Session.maxentriesathlete</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.meet"><code class="docutils literal notranslate"><span class="pre">Session.meet</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.meet_id"><code class="docutils literal notranslate"><span class="pre">Session.meet_id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.name"><code class="docutils literal notranslate"><span class="pre">Session.name</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.number"><code class="docutils literal notranslate"><span class="pre">Session.number</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.objects"><code class="docutils literal notranslate"><span class="pre">Session.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.warmupfrom"><code class="docutils literal notranslate"><span class="pre">Session.warmupfrom</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.Session.warmupuntil"><code class="docutils literal notranslate"><span class="pre">Session.warmupuntil</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#easyswimapp.models.SwimStyle"><code class="docutils literal notranslate"><span class="pre">SwimStyle</span></code></a><ul>
+<li><a class="reference internal" href="#easyswimapp.models.SwimStyle.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">SwimStyle.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.SwimStyle.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">SwimStyle.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.SwimStyle.distance"><code class="docutils literal notranslate"><span class="pre">SwimStyle.distance</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.SwimStyle.event"><code class="docutils literal notranslate"><span class="pre">SwimStyle.event</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.SwimStyle.event_id"><code class="docutils literal notranslate"><span class="pre">SwimStyle.event_id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.SwimStyle.id"><code class="docutils literal notranslate"><span class="pre">SwimStyle.id</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.SwimStyle.objects"><code class="docutils literal notranslate"><span class="pre">SwimStyle.objects</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.SwimStyle.relay_count"><code class="docutils literal notranslate"><span class="pre">SwimStyle.relay_count</span></code></a></li>
+<li><a class="reference internal" href="#easyswimapp.models.SwimStyle.stroke"><code class="docutils literal notranslate"><span class="pre">SwimStyle.stroke</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
