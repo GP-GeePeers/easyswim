@@ -59,14 +59,37 @@
     letter-spacing: -0.14px;
 }
 
-.competitionText:hover {
-    color: #032a26;
+.competitionText {
+    position: relative;
+    overflow: hidden;
+}
+
+.competitionText::before,
+.competitionText::after {
+    content: "";
+    display: block;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 19px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #72d5c8;
+    transition: width 0.3s ease-in-out;
+}
+
+.competitionText:hover::before {
+    width: 98%;
+}
+
+.competitionText:active {
+    color: #e3efee;
 }
 
 .line,
 .lineOrganization {
     border-left: 1px solid #335c58;
-    height: 34px;
+    height: 2.1rem;
     margin: 0 1rem;
 }
 

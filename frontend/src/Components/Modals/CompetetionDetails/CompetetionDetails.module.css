@@ -16,13 +16,14 @@
     z-index: 92;
     flex-direction: column;
     overflow: hidden;
-    padding: 1.5rem 2.5rem;
+    padding: 2rem 4rem;
     border-radius: 30px;
-    background-color: #010101;
+    background-color: #0f1110;
     margin: 1rem;
+    width: 80vw;
 }
 
-.contentContainer {
+.cardContainer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -75,4 +76,80 @@
     .modalContent {
         display: none;
     }
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.title {
+    color: #72d5c8;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.tableContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+.contentContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    overflow: hidden;
+    width: 100%;
+}
+
+.contentTitleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20rem;
+    /* padding: 0 2rem; */
+}
+
+.contentDetailsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 80rem;
+    padding: 2rem 4rem;
+}
+
+.verticalLine {
+    border-left: 1px solid #335c58;
+}
+
+.horizontalLine {
+    border-bottom: 1px solid #335c58;
+    width: fill-available;
+}
+
+.category,
+.details {
+    color: #b7bab6;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+
+._ {
+    display: none;
 }

@@ -21,8 +21,10 @@ function NextCompetition(props) {
                         onClick={props.changeCompDetailsModal}
                     >
                         <div className={classes.competitionText}>
-                            Campeonato Interdistrital de Juvenis, Juniores e
-                            Seniores PL
+                            <div className={classes.competitionTextContainer}>
+                                Campeonato Interdistrital de Juvenis, Juniores e
+                                Seniores PL
+                            </div>
                         </div>
                     </button>
                     <div className={classes.line} />
