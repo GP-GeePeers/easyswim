@@ -1,0 +1,891 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 --><title>Index - EasySwim documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">EasySwim  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">EasySwim  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="urls.html">URLs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serializers.html">Serializers</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#Z"><strong>Z</strong></a></div>
+</section>
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.AgeDate">AgeDate (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeDate.DoesNotExist">AgeDate.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeDate.MultipleObjectsReturned">AgeDate.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.agedate_set">agedate_set (easyswimapp.models.Meet attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeGroup">AgeGroup (class in easyswimapp.models)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.AgeGroup.DoesNotExist">AgeGroup.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeGroup.MultipleObjectsReturned">AgeGroup.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Event.agegroup_set">agegroup_set (easyswimapp.models.Event attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeGroup.agegroupid">agegroupid (easyswimapp.models.AgeGroup attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeGroup.agemax">agemax (easyswimapp.models.AgeGroup attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeGroup.agemin">agemin (easyswimapp.models.AgeGroup attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Contact_Constructor.city">city (easyswimapp.models.Contact_Constructor attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Facility.city">(easyswimapp.models.Facility attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Meet.city">(easyswimapp.models.Meet attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="models.html#easyswimapp.models.Constructor">Constructor (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Constructor.DoesNotExist">Constructor.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Constructor.MultipleObjectsReturned">Constructor.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Contact_Constructor.construtor">construtor (easyswimapp.models.Contact_Constructor attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Contact_Constructor.construtor_id">construtor_id (easyswimapp.models.Contact_Constructor attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Contact_Constructor">Contact_Constructor (class in easyswimapp.models)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Contact_Constructor.DoesNotExist">Contact_Constructor.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Contact_Constructor.MultipleObjectsReturned">Contact_Constructor.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Constructor.contact_constructor_set">contact_constructor_set (easyswimapp.models.Constructor attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Contact_Meet">Contact_Meet (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Contact_Meet.DoesNotExist">Contact_Meet.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Contact_Meet.MultipleObjectsReturned">Contact_Meet.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.contact_meet_set">contact_meet_set (easyswimapp.models.Meet attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Contact_Constructor.country">country (easyswimapp.models.Contact_Constructor attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.course">course (easyswimapp.models.Meet attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Fee.currency">currency (easyswimapp.models.Fee attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Session.date">date (easyswimapp.models.Session attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Event.daytime">daytime (easyswimapp.models.Event attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Session.daytime">(easyswimapp.models.Session attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Meet.deadline">deadline (easyswimapp.models.Meet attribute)</a>
+</li>
+        <li><a href="utils.html#easyswimapp.utils.descompactar_todos_lxf">descompactar_todos_lxf() (in module easyswimapp.utils)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.LXF.description">description (easyswimapp.models.LXF attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.SwimStyle.distance">distance (easyswimapp.models.SwimStyle attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    easyswimapp.models
+
+        <ul>
+          <li><a href="models.html#module-easyswimapp.models">module</a>
+</li>
+        </ul></li>
+        <li>
+    easyswimapp.serializers
+
+        <ul>
+          <li><a href="serializers.html#module-easyswimapp.serializers">module</a>
+</li>
+        </ul></li>
+        <li>
+    easyswimapp.urls
+
+        <ul>
+          <li><a href="urls.html#module-easyswimapp.urls">module</a>
+</li>
+        </ul></li>
+        <li>
+    easyswimapp.utils
+
+        <ul>
+          <li><a href="utils.html#module-easyswimapp.utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    easyswimapp.views
+
+        <ul>
+          <li><a href="views.html#module-easyswimapp.views">module</a>
+</li>
+        </ul></li>
+        <li><a href="models.html#easyswimapp.models.Contact_Constructor.email">email (easyswimapp.models.Contact_Constructor attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Contact_Meet.email">(easyswimapp.models.Contact_Meet attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Event">Event (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeGroup.event">event (easyswimapp.models.AgeGroup attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Fee.event">(easyswimapp.models.Fee attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.SwimStyle.event">(easyswimapp.models.SwimStyle attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="models.html#easyswimapp.models.Event.DoesNotExist">Event.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Event.MultipleObjectsReturned">Event.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeGroup.event_id">event_id (easyswimapp.models.AgeGroup attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Fee.event_id">(easyswimapp.models.Fee attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.SwimStyle.event_id">(easyswimapp.models.SwimStyle attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="models.html#easyswimapp.models.Session.event_set">event_set (easyswimapp.models.Session attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Event.eventid">eventid (easyswimapp.models.Event attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Facility">Facility (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Facility.DoesNotExist">Facility.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Facility.MultipleObjectsReturned">Facility.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.facility_set">facility_set (easyswimapp.models.Meet attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Fee">Fee (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Fee.DoesNotExist">Fee.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Fee.MultipleObjectsReturned">Fee.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Event.fee_set">fee_set (easyswimapp.models.Event attribute)</a>
+</li>
+        <li><a href="serializers.html#easyswimapp.serializers.LXFSerializer.Meta.fields">fields (easyswimapp.serializers.LXFSerializer.Meta attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Event.gender">gender (easyswimapp.models.Event attribute)</a>
+</li>
+        <li><a href="views.html#easyswimapp.views.LXFView.get">get() (easyswimapp.views.LXFView method)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Event.get_gender_display">get_gender_display() (easyswimapp.models.Event method)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Session.get_next_by_date">get_next_by_date() (easyswimapp.models.Session method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Meet.get_next_by_deadline">get_next_by_deadline() (easyswimapp.models.Meet method)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeDate.get_next_by_value">get_next_by_value() (easyswimapp.models.AgeDate method)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Session.get_previous_by_date">get_previous_by_date() (easyswimapp.models.Session method)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.get_previous_by_deadline">get_previous_by_deadline() (easyswimapp.models.Meet method)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeDate.get_previous_by_value">get_previous_by_value() (easyswimapp.models.AgeDate method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.AgeGroup.handicap">handicap (easyswimapp.models.AgeGroup attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="views.html#easyswimapp.views.home">home() (in module easyswimapp.views)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.AgeDate.id">id (easyswimapp.models.AgeDate attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.AgeGroup.id">(easyswimapp.models.AgeGroup attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Constructor.id">(easyswimapp.models.Constructor attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Contact_Constructor.id">(easyswimapp.models.Contact_Constructor attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Contact_Meet.id">(easyswimapp.models.Contact_Meet attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Event.id">(easyswimapp.models.Event attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Facility.id">(easyswimapp.models.Facility attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Fee.id">(easyswimapp.models.Fee attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.LXF.id">(easyswimapp.models.LXF attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Meet.id">(easyswimapp.models.Meet attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.PointTable.id">(easyswimapp.models.PointTable attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Pool.id">(easyswimapp.models.Pool attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Session.id">(easyswimapp.models.Session attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.SwimStyle.id">(easyswimapp.models.SwimStyle attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Contact_Constructor.internet">internet (easyswimapp.models.Contact_Constructor attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Pool.lane_max">lane_max (easyswimapp.models.Pool attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.LXF">LXF (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.LXF.DoesNotExist">LXF.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.LXF.MultipleObjectsReturned">LXF.MultipleObjectsReturned</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.LXF.lxf_file">lxf_file (easyswimapp.models.LXF attribute)</a>
+</li>
+        <li><a href="serializers.html#easyswimapp.serializers.LXFSerializer">LXFSerializer (class in easyswimapp.serializers)</a>
+</li>
+        <li><a href="serializers.html#easyswimapp.serializers.LXFSerializer.Meta">LXFSerializer.Meta (class in easyswimapp.serializers)</a>
+</li>
+        <li><a href="views.html#easyswimapp.views.LXFView">LXFView (class in easyswimapp.views)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Meet.maxentriesathlete">maxentriesathlete (easyswimapp.models.Meet attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Session.maxentriesathlete">(easyswimapp.models.Session attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="models.html#easyswimapp.models.Meet">Meet (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeDate.meet">meet (easyswimapp.models.AgeDate attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Contact_Meet.meet">(easyswimapp.models.Contact_Meet attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Facility.meet">(easyswimapp.models.Facility attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.PointTable.meet">(easyswimapp.models.PointTable attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Pool.meet">(easyswimapp.models.Pool attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Session.meet">(easyswimapp.models.Session attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="models.html#easyswimapp.models.Meet.DoesNotExist">Meet.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.MultipleObjectsReturned">Meet.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.AgeDate.meet_id">meet_id (easyswimapp.models.AgeDate attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Contact_Meet.meet_id">(easyswimapp.models.Contact_Meet attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Facility.meet_id">(easyswimapp.models.Facility attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.PointTable.meet_id">(easyswimapp.models.PointTable attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Pool.meet_id">(easyswimapp.models.Pool attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Session.meet_id">(easyswimapp.models.Session attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="serializers.html#easyswimapp.serializers.LXFSerializer.Meta.model">model (easyswimapp.serializers.LXFSerializer.Meta attribute)</a>
+</li>
+        <li><a href="views.html#easyswimapp.views.model_data_view">model_data_view() (in module easyswimapp.views)</a>
+</li>
+        <li>
+    module
+
+        <ul>
+          <li><a href="models.html#module-easyswimapp.models">easyswimapp.models</a>
+</li>
+          <li><a href="serializers.html#module-easyswimapp.serializers">easyswimapp.serializers</a>
+</li>
+          <li><a href="urls.html#module-easyswimapp.urls">easyswimapp.urls</a>
+</li>
+          <li><a href="utils.html#module-easyswimapp.utils">easyswimapp.utils</a>
+</li>
+          <li><a href="views.html#module-easyswimapp.views">easyswimapp.views</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.AgeGroup.name">name (easyswimapp.models.AgeGroup attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Constructor.name">(easyswimapp.models.Constructor attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Contact_Constructor.name">(easyswimapp.models.Contact_Constructor attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Contact_Meet.name">(easyswimapp.models.Contact_Meet attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Facility.name">(easyswimapp.models.Facility attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Meet.name">(easyswimapp.models.Meet attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.PointTable.name">(easyswimapp.models.PointTable attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Pool.name">(easyswimapp.models.Pool attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Session.name">(easyswimapp.models.Session attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Facility.nation">nation (easyswimapp.models.Facility attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Meet.nation">(easyswimapp.models.Meet attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="models.html#easyswimapp.models.Event.number">number (easyswimapp.models.Event attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Meet.number">(easyswimapp.models.Meet attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Session.number">(easyswimapp.models.Session attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.AgeDate.objects">objects (easyswimapp.models.AgeDate attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.AgeGroup.objects">(easyswimapp.models.AgeGroup attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Constructor.objects">(easyswimapp.models.Constructor attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Contact_Constructor.objects">(easyswimapp.models.Contact_Constructor attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Contact_Meet.objects">(easyswimapp.models.Contact_Meet attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Event.objects">(easyswimapp.models.Event attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Facility.objects">(easyswimapp.models.Facility attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Fee.objects">(easyswimapp.models.Fee attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.LXF.objects">(easyswimapp.models.LXF attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Meet.objects">(easyswimapp.models.Meet attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.PointTable.objects">(easyswimapp.models.PointTable attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Pool.objects">(easyswimapp.models.Pool attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Session.objects">(easyswimapp.models.Session attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.SwimStyle.objects">(easyswimapp.models.SwimStyle attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Event.order">order (easyswimapp.models.Event attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.organizer">organizer (easyswimapp.models.Meet attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.organizer_url">organizer_url (easyswimapp.models.Meet attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="views.html#easyswimapp.views.LXFView.parser_classes">parser_classes (easyswimapp.views.LXFView attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Contact_Meet.phone">phone (easyswimapp.models.Contact_Meet attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.PointTable">PointTable (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.PointTable.DoesNotExist">PointTable.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.PointTable.MultipleObjectsReturned">PointTable.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.pointtable_set">pointtable_set (easyswimapp.models.Meet attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.PointTable.pointtableid">pointtableid (easyswimapp.models.PointTable attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Pool">Pool (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Pool.DoesNotExist">Pool.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Pool.MultipleObjectsReturned">Pool.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.pool_set">pool_set (easyswimapp.models.Meet attribute)</a>
+</li>
+        <li><a href="views.html#easyswimapp.views.LXFView.post">post() (easyswimapp.views.LXFView method)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Event.preveventid">preveventid (easyswimapp.models.Event attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="views.html#easyswimapp.views.read_lef_view">read_lef_view() (in module easyswimapp.views)</a>
+</li>
+        <li><a href="utils.html#easyswimapp.utils.read_save_lenex">read_save_lenex() (in module easyswimapp.utils)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Constructor.registration">registration (easyswimapp.models.Constructor attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.SwimStyle.relay_count">relay_count (easyswimapp.models.SwimStyle attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.reservecount">reservecount (easyswimapp.models.Meet attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Event.round">round (easyswimapp.models.Event attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Session">Session (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Event.session">session (easyswimapp.models.Event attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Session.DoesNotExist">Session.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Session.MultipleObjectsReturned">Session.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Event.session_id">session_id (easyswimapp.models.Event attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.session_set">session_set (easyswimapp.models.Meet attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Meet.startmethod">startmethod (easyswimapp.models.Meet attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Contact_Constructor.street">street (easyswimapp.models.Contact_Constructor attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Contact_Meet.street">(easyswimapp.models.Contact_Meet attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Facility.street">(easyswimapp.models.Facility attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="models.html#easyswimapp.models.SwimStyle.stroke">stroke (easyswimapp.models.SwimStyle attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.SwimStyle">SwimStyle (class in easyswimapp.models)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.SwimStyle.DoesNotExist">SwimStyle.DoesNotExist</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.SwimStyle.MultipleObjectsReturned">SwimStyle.MultipleObjectsReturned</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.Event.swimstyle_set">swimstyle_set (easyswimapp.models.Event attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Meet.timing">timing (easyswimapp.models.Meet attribute)</a>
+</li>
+        <li><a href="models.html#easyswimapp.models.LXF.title">title (easyswimapp.models.LXF attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.AgeDate.type">type (easyswimapp.models.AgeDate attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Meet.type">(easyswimapp.models.Meet attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.AgeDate.value">value (easyswimapp.models.AgeDate attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Fee.value">(easyswimapp.models.Fee attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Constructor.version">version (easyswimapp.models.Constructor attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.PointTable.version">(easyswimapp.models.PointTable attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Session.warmupfrom">warmupfrom (easyswimapp.models.Session attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Session.warmupuntil">warmupuntil (easyswimapp.models.Session attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="Z" class="genindex-section">
+  <h2>Z</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="models.html#easyswimapp.models.Contact_Constructor.zip">zip (easyswimapp.models.Contact_Constructor attribute)</a>
+
+        <ul>
+          <li><a href="models.html#easyswimapp.models.Contact_Meet.zip">(easyswimapp.models.Contact_Meet attribute)</a>
+</li>
+          <li><a href="models.html#easyswimapp.models.Facility.zip">(easyswimapp.models.Facility attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, GeePeers
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>
