@@ -30,7 +30,7 @@ jobs:
       working-directory: backend/docs
 
     - name: Auto-commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Update HTML documentation"
-          token: ${{ secrets.TOKEN }}
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "Update HTML documentation"
+        token: ${{ secrets.GITHUB_TOKEN }}
