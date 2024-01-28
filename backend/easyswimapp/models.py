@@ -158,3 +158,15 @@ class AgeGroup(models.Model):
 
     def __str__(self):
         return self.name
+    
+'''class Athlete(models.Model):
+    athleteid = models.IntegerField()
+    lastname = models.CharField(max_length=100)
+    firstname = models.CharField(max_length=100)
+    gender = models.CharField(max_length=1)
+    license = models.IntegerField()
+    birthdate = models.DateField()
+
+    def __str__(self):
+        return self.name'''
+    

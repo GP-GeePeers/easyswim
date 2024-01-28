@@ -103,11 +103,10 @@ def read_registered_lxf(request):
 
         unzip_registered_lxf(folder_path, temp_dir) 
 
-        licenses = get_licenses(temp_dir)
+        licenses_dict = get_licenses(temp_dir)
 
-        make_request(licenses)
-
-        #TODO associar a data de expiracao c o nome de cada atleta
+        print("LICENSES:")
+        print(licenses_dict) #dicinario - key: nome do ficheiro, valor: lista com sublistas de 3 elementos [nome do atleta, licensa, data de expiracao]
 
         shutil.rmtree(temp_dir)
 

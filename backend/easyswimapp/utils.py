@@ -170,25 +170,6 @@ def unzip_registered_lxf(folder_path, temp_dir):
             zip_ref.extractall(temp_dir)
 
 
-def get_licenses(temp_dir):
-    licenses = []
-
-    files = os.listdir(temp_dir)
-
-    for file in files:
-
-        file_path = os.path.join(temp_dir, file) 
-
-        with open(file_path, 'r') as opened_file:
-            xml_data = opened_file.read()
-            root = ET.fromstring(xml_data)
-            for athlete_element in root.findall('.//ATHLETE'):
-                athlete_info = extract_athlete_info(athlete_element)
-                licenses.append(athlete_info['license'])
-
-    return licenses
-
-
 def extract_athlete_info(athlete_element):
     return {
         'athleteid': athlete_element.get('athleteid'),
@@ -200,6 +181,41 @@ def extract_athlete_info(athlete_element):
     }
 
 
+def get_licenses(temp_dir):
+    registration_dictionary = {}
+
+    files = os.listdir(temp_dir)
+
+    for file in files:
+
+        file_path = os.path.join(temp_dir, file) 
+
+        with open(file_path, 'r') as opened_file:
+            athletes = []
+            licenses = []
+
+            xml_data = opened_file.read()
+            root = ET.fromstring(xml_data)
+            for athlete_element in root.findall('.//ATHLETE'):
+                athlete_info = extract_athlete_info(athlete_element)
+                athletes.append(athlete_info)
+                licenses.append(athlete_info['license'])
+
+            #print("FILE: " + file + "\n")
+            #print("ATHLETES:")
+            #print(athletes)
+            result = make_request(licenses)
+            #print("\n")
+
+            #print("FINAL LIST")
+            l = final_list(athletes, result)
+            #print(l)
+            registration_dictionary[file] = l    
+            
+    return registration_dictionary
+
+
+
 def make_request(licenses):
         url = 'https://fpnsystem.fpnatacao.pt/api/exam'
 
@@ -209,12 +225,25 @@ def make_request(licenses):
         
         auth = ("validexam@fpnatacao.pt", "#LH26pZNDlJ)")
 
-        response = requests.post(url, headers=headers, json = json_licenses, auth=auth) #data = json.dumps(json_licenses)
-
-        print(response.status_code)
+        response = requests.post(url, headers=headers, json = json_licenses, auth=auth)
 
         if response.status_code == 200:
             result = response.json()
-            print(result)
+            #print("RESULT")
+            #print(result)
+            return result
         else:
             print(f"Error: {response.status_code}, {response.text}")
+
+
+def final_list(athletes, result):
+    result_list = []
+
+    for athlete, validity in zip(athletes, result):
+        athlete_name = f"{athlete['firstname']} {athlete['lastname']}"
+        athlete_license = athlete['license']
+        athlete_validity = validity[0]['valid']
+
+        result_list.append([athlete_name, athlete_license, athlete_validity])
+
+    return result_list
