@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .serializers import LXFSerializer
-from .models import LXF, AgeDate, Constructor, Contact_Meet, Contact_Constructor, Meet, Pool, Facility, PointTable, Session, Event, SwimStyle, Fee, AgeGroup
+from .models import LXF
+#from .utils import read_lef_file
 from .utils import read_save_lenex
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
+from .models import AgeDate_MeetManager,Constructor_MeetManager, Contact_Meet_MeetManager,Contact_Constructor_MeetManager, Meet_MeetManager, Pool_MeetManager, Facility_MeetManager, PointTable_MeetManager, Session_MeetManager, Event_MeetManager, SwimStyle_MeetManager, Fee_MeetManager, AgeGroup_MeetManager
+from django.http import JsonResponse
 from django.conf import settings
 import os
 from django.core.serializers.json import DjangoJSONEncoder
@@ -86,17 +89,19 @@ def read_lef_view(request):
     :param request: HttpRequest object
     :return: HttpResponse indicating success or failure of .lef file processing
     """
+   
     file_path = os.path.join(settings.MEDIA_ROOT, 'lef_files', 'test.lef')
+    print("Path: "+file_path)
     try:
         read_save_lenex(file_path)
-        return HttpResponse('Successfully read and processed the .lef file.')
+        return HttpResponse('.lef file read and processed successfully.')
     except Exception as e:
-        return HttpResponse(f'Error processing the .lef file: {e}')
+        return HttpResponse(f'An error occurred while processing the .lef file: {e}')
+    
 
 def model_data_view(request):
     """
     Retrieves data from various models and returns it as a JSON response.
-
     :param request: HttpRequest object
     :return: JSON response containing data from various models
     """
