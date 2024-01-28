@@ -63,5 +63,5 @@ uritemplate==4.1.1
 urllib3==1.26.18
 virtualenv==20.22.0
 zope.interface==6.0
-sphinxmermaid==0.0.8
+sphinx-mermaid==0.0.8
 
