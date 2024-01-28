@@ -21,12 +21,7 @@ function PageContent(props) {
                     changeCreateCompModal={props.changeCreateCompModal}
                 />
             </div>
-            <div
-                className={classes.contentContainer}
-                changeCompDetailsModal={props.changeCompDetailsModal}
-            >
-                {props.children}
-            </div>
+            <div className={classes.contentContainer}>{props.children}</div>
             <div className={classes.footerContainer}>
                 <Button
                     text={"Criar prova"}
