@@ -1,14 +1,15 @@
+import shutil
 from django.shortcuts import render
 from django.http import HttpResponse
 from .serializers import LXFSerializer
 from .models import LXF
 #from .utils import read_lef_file
-from .utils import read_save_lenex
+from .utils import read_save_lenex, unzip_registered_lxf, get_licenses, make_request
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
-from .models import AgeDate,Constructor, Contact_Meet,Contact_Constructor, Meet, Pool, Facility, PointTable, Session, Event, SwimStyle, Fee, AgeGroup
+from .models import AgeDate, Constructor, Contact_Meet,Contact_Constructor, Meet, Pool, Facility, PointTable, Session, Event, SwimStyle, Fee, AgeGroup
 from django.http import JsonResponse
 from django.conf import settings
 import os
@@ -90,3 +91,29 @@ def model_data_view(request):
     }
     print(meets)
     return JsonResponse(data)
+
+def read_registered_lxf(request):
+    folder_path = os.path.join(settings.MEDIA_ROOT, 'registered_lxf') # vai buscar todos os ficheiros da pasta, TODO mudar para ir buscar os ficheiros de uma prova à db
+
+    if os.path.exists(folder_path):
+        
+        #create temporary dir to extract the files
+        temp_dir = os.path.join(settings.MEDIA_ROOT, 'temp_extracted') 
+        os.makedirs(temp_dir, exist_ok=True)
+
+        unzip_registered_lxf(folder_path, temp_dir) 
+
+        licenses = get_licenses(temp_dir)
+
+        make_request(licenses)
+
+        #TODO associar a data de expiracao c o nome de cada atleta
+
+        shutil.rmtree(temp_dir)
+
+        return  HttpResponse('.lxf files read successfully!') #Response({'message': '.lxf files read successfully!'}, status=status.HTTP_201_CREATED)
+
+    
+    else:
+        print("Folder does not exist: ", folder_path)
+        return  HttpResponse('Error reading .lxf files!')
