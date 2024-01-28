@@ -106,6 +106,7 @@ export const login = (email, password) => async dispatch => {
         });
 
         dispatch(load_user());
+        toast.success('Login success.')
     } catch (err) {
         toast.error('Login Error. Check your credentials.');
 
@@ -126,15 +127,14 @@ export const signup = (first_name, last_name, email, password, re_password) => a
 
     try {
         const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/users/`, body, config);
-
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: res.data
         });
+        toast.success('Signup confirmation sended to your email.')
+
     } catch (err) {
-        console.log('errooooo-----',err);
         if (err.response.status === 400) {
-            // Erro 400 indica que o e-mail já existe
             toast.error('E-mail already registered. Please use another email.');
         } else {
         toast.error('Signup Error. Fill in all fields correctly.');
@@ -160,8 +160,10 @@ export const verify = (uid, token) => async dispatch => {
         dispatch({
             type: ACTIVATION_SUCCESS,
         });
+        toast.success('Account activation success.');
+
     } catch (err) {
-        toast.error('Error activating account');
+        toast.error('Error activating account.');
         dispatch({
             type: ACTIVATION_FAIL
         })
@@ -179,12 +181,14 @@ export const reset_password = (email) => async dispatch => {
 
     try {
         await axios.post(`${process.env.REACT_APP_API_URL}/auth/users/reset_password/`, body, config);
+        toast.success('Reset password confirmation sended to your email.')
 
         dispatch({
             type: PASSWORD_RESET_SUCCESS
         });
+
     } catch (err) {
-        toast.error('Reset Password Error');
+        toast.error('Reset Password Error.');
         dispatch({
             type: PASSWORD_RESET_FAIL
         });
@@ -206,7 +210,10 @@ export const reset_password_confirm = (uid, token, new_password, re_new_password
         dispatch({
             type: PASSWORD_RESET_CONFIRM_SUCCESS
         });
+        toast.success('Reset Password Success.');
+
     } catch (err) {
+        toast.error('Reset Password Error.');
         dispatch({
             type: PASSWORD_RESET_CONFIRM_FAIL
         });
@@ -214,8 +221,6 @@ export const reset_password_confirm = (uid, token, new_password, re_new_password
 };
 
 export const logout = () => dispatch => {
-    console.log("Chamando a função de logout");
-
     dispatch({
         type: LOGOUT
     });

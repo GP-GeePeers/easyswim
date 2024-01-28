@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { verify } from '../../Actions/auth';
+import { verify } from '../../../Actions/auth';
 
 const Activate = ({ verify }) => {
     const navigate = useNavigate();

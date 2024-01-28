@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Link, useNavigate ,Navigate  } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { login } from '../../Actions/auth';
-import axios from 'axios';
+import { login } from '../../../Actions/auth';
 
 const Login = ({ login,props, isAuthenticated }) => {
 

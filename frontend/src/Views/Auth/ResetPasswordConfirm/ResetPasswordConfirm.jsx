@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams  } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { reset_password_confirm } from '../../Actions/auth';
+import { reset_password_confirm } from '../../../Actions/auth';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

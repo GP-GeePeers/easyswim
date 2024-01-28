@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Background from "./Components/Background/Background";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Header from "./Components/Header/Header";
@@ -8,11 +8,11 @@ import ListComps from "./Views/ListComps/ListComps";
 import Profile from "./Views/Profile/Profile";
 import CreateCompetition from "./Components/Modals/CreateCompetition";
 
-import Login from './Views/Auth/Login';
-import Signup from './Views/Auth/Signup';
-import Activate from './Views/Auth/Activate';
-import ResetPassword from './Views/Auth/ResetPassword';
-import ResetPasswordConfirm from './Views/Auth/ResetPasswordConfirm';
+import Login from './Views/Auth/Login/Login';
+import Signup from './Views/Auth/Signup/Signup';
+import Activate from './Views/Auth/Activate/Activate';
+import ResetPassword from './Views/Auth/ResetPassword/ResetPassword';
+import ResetPasswordConfirm from './Views/Auth/ResetPasswordConfirm/ResetPasswordConfirm';
 import PrivateRoute from "./Hooks/Common/PrivateRoute";
 
 import { Provider, useSelector } from 'react-redux';
