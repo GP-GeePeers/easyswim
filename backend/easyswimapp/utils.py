@@ -50,7 +50,6 @@ def read_save_lenex(input_file):
 
     """
     Reads LENEX file "MeetManager" and saves the data to Django models.
-
     This function parses a LENEX file, extracts relevant information, and
     creates Django model instances to store the data in the database.
 
@@ -58,6 +57,7 @@ def read_save_lenex(input_file):
     - input_file (str): The path to the input LENEX file.
     """
     tree = ET.parse(input_file)
+
     root = tree.getroot()
 
     for cons in root.findall('.//CONSTRUCTOR'):
@@ -171,6 +171,62 @@ def read_save_lenex(input_file):
                                                             event = event_obj,
                                                             handicap = agegroup.get('handicap')
                                                             )
+                    
+
+
+
+def upload_blob(bucket_name, source_file_name, destination_blob_name):
+
+    """
+    Uploads a file to Google Cloud Storage bucket.
+
+    Parameters:
+    - bucket_name (str): The name of the Google Cloud Storage bucket.
+    - source_file_name (str): The path to the local file to upload.
+    - destination_blob_name (str): The destination blob name in the bucket.
+    """
+
+    # The ID of your GCS bucket
+    # bucket_name = "your-bucket-name"
+    # The path to your file to upload
+    # source_file_name = "local/path/to/file"
+    # The ID of your GCS object
+    # destination_blob_name = "storage-object-name"
+
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(destination_blob_name)
+
+    # Optional: set a generation-match precondition to avoid potential race conditions
+    # and data corruptions. The request to upload is aborted if the object's
+    # generation number does not match your precondition. For a destination
+    # object that does not yet exist, set the if_generation_match precondition to 0.
+    # If the destination object already exists in your bucket, set instead a
+    # generation-match precondition using its generation number.
+    generation_match_precondition = 0
+
+    blob.upload_from_filename(source_file_name, if_generation_match=generation_match_precondition)
+
+    print(
+        f"File {source_file_name} uploaded to {destination_blob_name}."
+    )
+def download_blob(bucket_name, source_blob_name, destination_file_name):
+
+    """
+    Downloads a file from Google Cloud Storage bucket.
+
+    Parameters:
+    - bucket_name (str): The name of the Google Cloud Storage bucket.
+    - source_blob_name (str): The source blob name in the bucket.
+    - destination_file_name (str): The path to the local file for download.
+    """
+
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(source_blob_name)
+
+    # Download the blob to a local file
+    blob.download_to_filename(destination_file_name)
 
 @transaction.atomic
 def read_save_lenex_TeamManager(input_file):
@@ -185,6 +241,7 @@ def read_save_lenex_TeamManager(input_file):
     - input_file (str): The path to the input LENEX file.
     """
 
+    print(f"Blob {source_blob_name} downloaded to {destination_file_name}.")
 
     tree = ET.parse(input_file)
     root = tree.getroot()

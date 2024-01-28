@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .serializers import LXFSerializer
 from .models import LXF
 #from .utils import read_lef_file
@@ -12,42 +12,68 @@ from .models import AgeDate_MeetManager,Constructor_MeetManager, Contact_Meet_Me
 from django.http import JsonResponse
 from django.conf import settings
 import os
+
 """
-view.py
+views.py
 ====================================
-The core module of my example project
+This module contains the views for the EasySwim app, handling HTTP requests and providing responses.
+
 """
 
-# Create your views here.
-def home (request):
+def home(request):
     """
-    This function handles the HTTP request and returns a greeting response.
+    Handles the HTTP request and returns a greeting response.
 
-    :param request: HttpRequest object1
+    :param request: HttpRequest object
     :return: HttpResponse object with a greeting message
-
     """
-    return HttpResponse("Hello Word!-EasySwim")
+    return HttpResponse("Hello World! - EasySwim")
 
 class LXFView(APIView):
+    """
+    View for LXF file upload.
+
+    This view allows users to upload LXF files, and it supports both GET and POST requests.
+
+    :param request: HttpRequest object
+    :return: Response object with serialized LXF data
+    """
     parser_classes = (MultiPartParser, FormParser)
 
     def get(self, request, *args, **kwargs):
+        """
+        Handles GET requests for LXF data.
+
+        :param request: HttpRequest object
+        :return: Response object with serialized LXF data
+        """
         posts = LXF.objects.all()
         serializer = LXFSerializer(posts, many=True)
         return Response(serializer.data)
-    
+
     def post(self, request, *args, **kwargs):
+        """
+        Handles POST requests for LXF file uploads.
+
+        :param request: HttpRequest object with LXF file data
+        :return: Response object indicating success or failure
+        """
         lxf_serializer = LXFSerializer(data=request.data)
         if lxf_serializer.is_valid():
             lxf_serializer.save()
             return Response(lxf_serializer.data, status=status.HTTP_201_CREATED)
         else:
-            print('error', lxf_serializer.errors)
             return Response(lxf_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def read_lef_view(request):
-    
+    """
+    Reads and processes a .lef file.
+
+    Expects a GET request and returns an HttpResponse indicating the success or failure of the file processing.
+
+    :param request: HttpRequest object
+    :return: HttpResponse indicating success or failure of .lef file processing
+    """
    
     file_path = os.path.join(settings.MEDIA_ROOT, 'lef_files', 'test.lef')
     print("Path: "+file_path)
@@ -57,8 +83,13 @@ def read_lef_view(request):
     except Exception as e:
         return HttpResponse(f'An error occurred while processing the .lef file: {e}')
     
-def model_data_view(request):
 
+def model_data_view(request):
+    """
+    Retrieves data from various models and returns it as a JSON response.
+    :param request: HttpRequest object
+    :return: JSON response containing data from various models
+    """
     meets = list(Meet_MeetManager.objects.values())  
     events = list(Event_MeetManager.objects.values())
     cons = list(Constructor_MeetManager.objects.values())   
@@ -71,24 +102,22 @@ def model_data_view(request):
     swimstyle = list(SwimStyle_MeetManager.objects.values())
     fee = list(Fee_MeetManager.objects.values())
     agegroup = list(AgeGroup_MeetManager.objects.values())
-   
 
     data = {
         'meets': meets,
         'events': events,
         'constructor': cons,
-        'contact_constructor':cont_constructor,
-        'contact_meet':cont_meet,
-        'pool':pool,
-        'facility':facility,
-        'pointtable':pointtable,
-        'session':session,
-        'swimstyle':swimstyle,
-        'fee':fee,
-        'agegroup':agegroup,
-        
+        'contact_constructor': cont_constructor,
+        'contact_meet': cont_meet,
+        'pool': pool,
+        'facility': facility,
+        'pointtable': pointtable,
+        'session': session,
+        'swimstyle': swimstyle,
+        'fee': fee,
+        'agegroup': agegroup,
     }
-    print(meets)
+
     return JsonResponse(data)
 
 
