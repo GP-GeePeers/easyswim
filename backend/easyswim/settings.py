@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
 import os
 from datetime import timedelta
 
@@ -18,7 +17,6 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -29,14 +27,15 @@ SECRET_KEY = "django-insecure-#=bkxs^nxm1uy^jtro3r2y4=+c&e-)lw5m)v3&v!@)5ju_wj+$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost']
+
+ALLOWED_HOSTS = ["localhost","127.0.0.1","easyswim.online","clownfish-app-iesoq.ondigitalocean.app"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'drf_yasg',
-    'rest_framework',               # Django rest framework
+    "drf_yasg",
+    'rest_framework',              
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -49,11 +48,9 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist'
     
-    
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -63,10 +60,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-
-
 CORS_ALLOW_CREDENTIALS = True
-
 
 ROOT_URLCONF = "easyswim.urls"
 
@@ -201,6 +195,7 @@ DJOSER = {
 
 
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -213,3 +208,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'easyswimapp.UserAccount'
+
