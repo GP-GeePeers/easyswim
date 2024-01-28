@@ -61,12 +61,15 @@ function CompetetionDetails(props) {
                                         </div>
                                     </div>
                                     <div
-                                        className={classes.exitButton}
+                                        className={classes.buttonsContainer}
                                         onClick={handleCloseModal}
                                     >
-                                        {/* <div className={classes.exitText}>
-                                            X
-                                        </div> */}
+                                        <Button
+                                            text={"Apagar prova"}
+                                            onClick={
+                                                props.changeCreateCompModal
+                                            }
+                                        />
                                         <Button
                                             type={"secondary"}
                                             text={"Fechar"}

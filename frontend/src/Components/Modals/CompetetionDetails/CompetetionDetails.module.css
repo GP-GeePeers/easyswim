@@ -45,7 +45,12 @@
     align-items: flex-end;
     flex-direction: row;
     width: 100%;
-    height: fit-content;
+    height: 5vh;
+    gap: 1rem;
+}
+
+.header > * {
+    height: 100%;
 }
 
 .titleContainer {
@@ -53,15 +58,15 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: fit-content;
 }
 
-.exitButton {
+.buttonsContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     height: fit-content;
+    gap: 1rem;
 }
 
 .title,
@@ -138,6 +143,9 @@
         width: 95vw;
         height: 100vh;
     }
+    .header {
+        height: 14vh;
+    }
     .contentTitleContainer {
         display: flex;
         justify-content: center;
@@ -145,7 +153,6 @@
         flex-direction: column;
         width: 35vw;
     }
-
     .contentDetailsContainer {
         display: flex;
         justify-content: center;
@@ -153,5 +160,8 @@
         flex-direction: column;
         width: 65vw;
         padding: 2rem 2rem;
+    }
+    .buttonsContainer {
+        flex-direction: column;
     }
 }
