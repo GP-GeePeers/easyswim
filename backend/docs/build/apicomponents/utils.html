@@ -134,9 +134,10 @@
 <dl class="py function" id="module-easyswimapp.utils">
 <dt class="sig sig-object py" id="easyswimapp.utils.descompactar_todos_lxf">
 <span class="sig-prename descclassname"><span class="pre">easyswimapp.utils.</span></span><span class="sig-name descname"><span class="pre">descompactar_todos_lxf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.utils.descompactar_todos_lxf" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#easyswimapp.utils.descompactar_todos_lxf'"><span>#</span></a></dt>
-<dd><p>Extracts all .lxf files in the specified folder.</p>
-<p>This function iterates over all .lxf files in the source folder,
-extracts and renames them to .lef files in the destination folder.</p>
+<dd><p>Reads all .lxf files in the provided location and unzips them to .lef files.</p>
+<p>This function unzips .lxf files, to .lef files and saves them in the provided path.</p>
+<p>Parameters:
+- input_file (str): The path to the input LENEX file.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="easyswimapp.utils.download_blob">
@@ -149,12 +150,21 @@ extracts and renames them to .lef files in the destination folder.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="easyswimapp.utils.read_save_lenex">
-<span class="sig-prename descclassname"><span class="pre">easyswimapp.utils.</span></span><span class="sig-name descname"><span class="pre">read_save_lenex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arquivo_entrada</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.utils.read_save_lenex" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#easyswimapp.utils.read_save_lenex'"><span>#</span></a></dt>
-<dd><p>Reads LENEX file and saves the data to Django models.</p>
+<span class="sig-prename descclassname"><span class="pre">easyswimapp.utils.</span></span><span class="sig-name descname"><span class="pre">read_save_lenex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.utils.read_save_lenex" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#easyswimapp.utils.read_save_lenex'"><span>#</span></a></dt>
+<dd><p>Reads LENEX file “MeetManager” and saves the data to Django models.
+This function parses a LENEX file, extracts relevant information, and
+creates Django model instances to store the data in the database.</p>
+<p>Parameters:
+- input_file (str): The path to the input LENEX file.</p>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="easyswimapp.utils.read_save_lenex_TeamManager">
+<span class="sig-prename descclassname"><span class="pre">easyswimapp.utils.</span></span><span class="sig-name descname"><span class="pre">read_save_lenex_TeamManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.utils.read_save_lenex_TeamManager" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#easyswimapp.utils.read_save_lenex_TeamManager'"><span>#</span></a></dt>
+<dd><p>Reads LENEX file “TeamManager” and saves the data to Django models.</p>
 <p>This function parses a LENEX file, extracts relevant information, and
 creates Django model instances to store the data in the database.</p>
 <p>Parameters:
-- arquivo_entrada (str): The path to the input LENEX file.</p>
+- input_file (str): The path to the input LENEX file.</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="easyswimapp.utils.upload_blob">
@@ -172,6 +182,7 @@ creates Django model instances to store the data in the database.</p>
 <li><a :data-current="activeSection === '#easyswimapp.utils.descompactar_todos_lxf'" class="reference internal" href="#easyswimapp.utils.descompactar_todos_lxf"><code class="docutils literal notranslate"><span class="pre">descompactar_todos_lxf()</span></code></a></li>
 <li><a :data-current="activeSection === '#easyswimapp.utils.download_blob'" class="reference internal" href="#easyswimapp.utils.download_blob"><code class="docutils literal notranslate"><span class="pre">download_blob()</span></code></a></li>
 <li><a :data-current="activeSection === '#easyswimapp.utils.read_save_lenex'" class="reference internal" href="#easyswimapp.utils.read_save_lenex"><code class="docutils literal notranslate"><span class="pre">read_save_lenex()</span></code></a></li>
+<li><a :data-current="activeSection === '#easyswimapp.utils.read_save_lenex_TeamManager'" class="reference internal" href="#easyswimapp.utils.read_save_lenex_TeamManager"><code class="docutils literal notranslate"><span class="pre">read_save_lenex_TeamManager()</span></code></a></li>
 <li><a :data-current="activeSection === '#easyswimapp.utils.upload_blob'" class="reference internal" href="#easyswimapp.utils.upload_blob"><code class="docutils literal notranslate"><span class="pre">upload_blob()</span></code></a></li>
 </ul>
 </div>

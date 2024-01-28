@@ -134,18 +134,17 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="urls.html">URLs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="urls.html#easyswimapp.urls.urlpatterns"><code class="docutils literal notranslate"><span class="pre">urlpatterns</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="urls.html">URLs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="utils.html#easyswimapp.utils.descompactar_todos_lxf"><code class="docutils literal notranslate"><span class="pre">descompactar_todos_lxf()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils.html#easyswimapp.utils.download_blob"><code class="docutils literal notranslate"><span class="pre">download_blob()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils.html#easyswimapp.utils.read_save_lenex"><code class="docutils literal notranslate"><span class="pre">read_save_lenex()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#easyswimapp.utils.read_save_lenex_TeamManager"><code class="docutils literal notranslate"><span class="pre">read_save_lenex_TeamManager()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils.html#easyswimapp.utils.upload_blob"><code class="docutils literal notranslate"><span class="pre">upload_blob()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="views.html">Views</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="views.html#easyswimapp.views.DashboardView"><code class="docutils literal notranslate"><span class="pre">DashboardView</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="views.html#easyswimapp.views.LXFView"><code class="docutils literal notranslate"><span class="pre">LXFView</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="views.html#easyswimapp.views.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="views.html#easyswimapp.views.model_data_view"><code class="docutils literal notranslate"><span class="pre">model_data_view()</span></code></a></li>
@@ -153,20 +152,39 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.AgeDate"><code class="docutils literal notranslate"><span class="pre">AgeDate</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.AgeGroup"><code class="docutils literal notranslate"><span class="pre">AgeGroup</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Constructor"><code class="docutils literal notranslate"><span class="pre">Constructor</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Contact_Constructor"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Contact_Meet"><code class="docutils literal notranslate"><span class="pre">Contact_Meet</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Event"><code class="docutils literal notranslate"><span class="pre">Event</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Facility"><code class="docutils literal notranslate"><span class="pre">Facility</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Fee"><code class="docutils literal notranslate"><span class="pre">Fee</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.AgeDate_MeetManager"><code class="docutils literal notranslate"><span class="pre">AgeDate_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.AgeDate_TeamManager"><code class="docutils literal notranslate"><span class="pre">AgeDate_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.AgeGroup_MeetManager"><code class="docutils literal notranslate"><span class="pre">AgeGroup_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.AgeGroup_TeamManager"><code class="docutils literal notranslate"><span class="pre">AgeGroup_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Athlete_TeamManager"><code class="docutils literal notranslate"><span class="pre">Athlete_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Club_TeamManager"><code class="docutils literal notranslate"><span class="pre">Club_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Constructor_MeetManager"><code class="docutils literal notranslate"><span class="pre">Constructor_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Constructor_TeamManager"><code class="docutils literal notranslate"><span class="pre">Constructor_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Contact_Constructor_MeetManager"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Contact_Constructor_TeamManager"><code class="docutils literal notranslate"><span class="pre">Contact_Constructor_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Contact_Meet_MeetManager"><code class="docutils literal notranslate"><span class="pre">Contact_Meet_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Entry_Athlete_TeamManager"><code class="docutils literal notranslate"><span class="pre">Entry_Athlete_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Entry_Relay_TeamManager"><code class="docutils literal notranslate"><span class="pre">Entry_Relay_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Event_MeetManager"><code class="docutils literal notranslate"><span class="pre">Event_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Event_TeamManager"><code class="docutils literal notranslate"><span class="pre">Event_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Facility_MeetManager"><code class="docutils literal notranslate"><span class="pre">Facility_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Fee_MeetManager"><code class="docutils literal notranslate"><span class="pre">Fee_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Fee_TeamManager"><code class="docutils literal notranslate"><span class="pre">Fee_TeamManager</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.LXF"><code class="docutils literal notranslate"><span class="pre">LXF</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Meet"><code class="docutils literal notranslate"><span class="pre">Meet</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.PointTable"><code class="docutils literal notranslate"><span class="pre">PointTable</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Pool"><code class="docutils literal notranslate"><span class="pre">Pool</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.SwimStyle"><code class="docutils literal notranslate"><span class="pre">SwimStyle</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.MeetInfo_Entry_Athlete_TeamManager"><code class="docutils literal notranslate"><span class="pre">MeetInfo_Entry_Athlete_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.MeetInfo_RelayPosition_TeamManager"><code class="docutils literal notranslate"><span class="pre">MeetInfo_RelayPosition_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Meet_MeetManager"><code class="docutils literal notranslate"><span class="pre">Meet_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Meet_TeamManager"><code class="docutils literal notranslate"><span class="pre">Meet_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.PointTable_MeetManager"><code class="docutils literal notranslate"><span class="pre">PointTable_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Pool_MeetManager"><code class="docutils literal notranslate"><span class="pre">Pool_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Pool_TeamManager"><code class="docutils literal notranslate"><span class="pre">Pool_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Qualify_TeamManager"><code class="docutils literal notranslate"><span class="pre">Qualify_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.RelayPosition_TeamManager"><code class="docutils literal notranslate"><span class="pre">RelayPosition_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Relay_TeamManager"><code class="docutils literal notranslate"><span class="pre">Relay_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Session_MeetManager"><code class="docutils literal notranslate"><span class="pre">Session_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.Session_TeamManager"><code class="docutils literal notranslate"><span class="pre">Session_TeamManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.SwimStyle_MeetManager"><code class="docutils literal notranslate"><span class="pre">SwimStyle_MeetManager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#easyswimapp.models.SwimStyle_TeamManager"><code class="docutils literal notranslate"><span class="pre">SwimStyle_TeamManager</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="serializers.html">Serializers</a><ul>

@@ -130,6 +130,8 @@
 <p class="admonition-title">Note</p>
 <p>Add descriptions or details about your URLs here.</p>
 </div>
+<p>EasySwim adopts a modern and efficient approach to streamline the management of swim-related data. The platform is built with a robust architecture that integrates a React frontend, Django backend, and Axios for seamless communication between the two.</p>
+<p>This diagram provides a visual representation of the system, highlighting the key components and their interactions. Dive into the graph to explore the dynamic relationship between the React , Django , Axios for communication, and the SQL database.</p>
 <div align="center" class="mermaid">
 graph TD
 
@@ -150,18 +152,21 @@ graph TD
    A1 -.-&gt;|HTTP Requests| A
    A1 -.-&gt;|RESTful API| D
    D -.-&gt;|Database Operations| DB
-</div><p>EasySwim adopts a modern and efficient approach to streamline the management of swim-related data. The platform is built with a robust architecture that integrates a React frontend, Django backend, and Axios for seamless communication between the two.</p>
+</div><section id="components">
+<h2>Components<a class="headerlink" href="#components" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#components'"><span>#</span></a></h2>
+<p>The EasySwim platform adopts this approach to managing swim-related data, integrating a React frontend, Django backend, and Axios for seamless communication. Let’s delve into the details of each component:</p>
 <section id="frontend-react-container">
-<h2>Frontend - React (Container)<a class="headerlink" href="#frontend-react-container" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#frontend-react-container'"><span>#</span></a></h2>
-<p>The frontend of EasySwim is developed using React, a popular JavaScript library for building user interfaces. React provides a modular and component-based structure, enabling a scalable and maintainable frontend architecture. The use of containers in React helps manage state and logic, ensuring a smooth and responsive user experience.</p>
+<h3>Frontend - React (Container)<a class="headerlink" href="#frontend-react-container" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#frontend-react-container'"><span>#</span></a></h3>
+<p>The frontend of EasySwim is developed using React, a JavaScript library for building user interfaces. React provides a modular and component-based structure, enabling a scalable and maintainable frontend architecture. The frontend is containerized using Docker, a platform that facilitates the development, deployment, and execution of applications in a consistent manner.</p>
 </section>
 <section id="backend-django-container">
-<h2>Backend - Django (Container)<a class="headerlink" href="#backend-django-container" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#backend-django-container'"><span>#</span></a></h2>
-<p>The backend of EasySwim is powered by Django, a high-level Python web framework known for its simplicity and flexibility. Django facilitates the development of robust backend systems with features like an ORM (Object-Relational Mapping) for database interactions, authentication mechanisms, and RESTful API development.</p>
+<h3>Backend - Django (Container)<a class="headerlink" href="#backend-django-container" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#backend-django-container'"><span>#</span></a></h3>
+<p>The backend of EasySwim is powered by Django, a Python web framework known for its simplicity and flexibility. Django facilitates the development of robust backend systems with features like an ORM (Object-Relational Mapping) for database interactions, authentication mechanisms, and RESTful API development. The backend is containerized using Docker, a platform that facilitates the development, deployment, and execution of applications in a consistent manner.</p>
 </section>
 <section id="axios-seamless-communication">
-<h2>Axios - Seamless Communication<a class="headerlink" href="#axios-seamless-communication" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#axios-seamless-communication'"><span>#</span></a></h2>
+<h3>Axios - Seamless Communication<a class="headerlink" href="#axios-seamless-communication" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#axios-seamless-communication'"><span>#</span></a></h3>
 <p>Axios is employed as the HTTP client to establish seamless communication between the React frontend and Django backend. Axios simplifies the handling of HTTP requests and responses, ensuring efficient data exchange between the client and server components.</p>
+</section>
 </section>
 <section id="deployment-on-digital-ocean-apps">
 <h2>Deployment on Digital Ocean Apps<a class="headerlink" href="#deployment-on-digital-ocean-apps" title="Link to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#deployment-on-digital-ocean-apps'"><span>#</span></a></h2>
@@ -172,9 +177,12 @@ graph TD
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(var(100vh)-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
+<li><a :data-current="activeSection === '#components'" class="reference internal" href="#components">Components</a><ul>
 <li><a :data-current="activeSection === '#frontend-react-container'" class="reference internal" href="#frontend-react-container">Frontend - React (Container)</a></li>
 <li><a :data-current="activeSection === '#backend-django-container'" class="reference internal" href="#backend-django-container">Backend - Django (Container)</a></li>
 <li><a :data-current="activeSection === '#axios-seamless-communication'" class="reference internal" href="#axios-seamless-communication">Axios - Seamless Communication</a></li>
+</ul>
+</li>
 <li><a :data-current="activeSection === '#deployment-on-digital-ocean-apps'" class="reference internal" href="#deployment-on-digital-ocean-apps">Deployment on Digital Ocean Apps</a></li>
 </ul>
 </div>

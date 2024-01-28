@@ -132,6 +132,28 @@
 <p>Add descriptions or details about your views here.</p>
 </div>
 <dl class="py class" id="module-easyswimapp.views">
+<dt class="sig sig-object py" id="easyswimapp.views.DashboardView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.views.</span></span><span class="sig-name descname"><span class="pre">DashboardView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.views.DashboardView" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#easyswimapp.views.DashboardView'"><span>#</span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="easyswimapp.views.DashboardView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.views.DashboardView.get" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#easyswimapp.views.DashboardView.get'"><span>#</span></a></dt>
+<dd><p>Handles GET requests for the dashboard view.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> – HttpRequest object</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>JsonResponse object containing internal database information</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="easyswimapp.views.DashboardView.http_method_names">
+<span class="sig-name descname"><span class="pre">http_method_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['get',</span> <span class="pre">'post']</span></em><a class="headerlink" href="#easyswimapp.views.DashboardView.http_method_names" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#easyswimapp.views.DashboardView.http_method_names'"><span>#</span></a></dt>
+<dd></dd></dl>
+</dd></dl>
+<dl class="py class">
 <dt class="sig sig-object py" id="easyswimapp.views.LXFView">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">easyswimapp.views.</span></span><span class="sig-name descname"><span class="pre">LXFView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.views.LXFView" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#easyswimapp.views.LXFView'"><span>#</span></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
@@ -179,28 +201,22 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="easyswimapp.views.home">
 <span class="sig-prename descclassname"><span class="pre">easyswimapp.views.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.views.home" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#easyswimapp.views.home'"><span>#</span></a></dt>
-<dd><p>Handles the HTTP request and returns a greeting response.</p>
+<dd><p>Renders the home page.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>request</strong> – HttpRequest object</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>HttpResponse object with a greeting message</p>
+<dd class="field-even"><p>HttpResponse object containing the rendered home page</p>
 </dd>
 </dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="easyswimapp.views.model_data_view">
 <span class="sig-prename descclassname"><span class="pre">easyswimapp.views.</span></span><span class="sig-name descname"><span class="pre">model_data_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#easyswimapp.views.model_data_view" title="Link to this definition" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#easyswimapp.views.model_data_view'"><span>#</span></a></dt>
-<dd><p>Retrieves data from various models and returns it as a JSON response.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>request</strong> – HttpRequest object</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>JSON response containing data from various models</p>
-</dd>
-</dl>
+<dd><p>Retrieves data from various models and returns it as a JSON response.
+:param request: HttpRequest object
+:return: JSON response containing data from various models</p>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="easyswimapp.views.read_lef_view">
@@ -220,6 +236,11 @@
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(var(100vh)-5rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
+<li><a :data-current="activeSection === '#easyswimapp.views.DashboardView'" class="reference internal" href="#easyswimapp.views.DashboardView"><code class="docutils literal notranslate"><span class="pre">DashboardView</span></code></a><ul>
+<li><a :data-current="activeSection === '#easyswimapp.views.DashboardView.get'" class="reference internal" href="#easyswimapp.views.DashboardView.get"><code class="docutils literal notranslate"><span class="pre">DashboardView.get()</span></code></a></li>
+<li><a :data-current="activeSection === '#easyswimapp.views.DashboardView.http_method_names'" class="reference internal" href="#easyswimapp.views.DashboardView.http_method_names"><code class="docutils literal notranslate"><span class="pre">DashboardView.http_method_names</span></code></a></li>
+</ul>
+</li>
 <li><a :data-current="activeSection === '#easyswimapp.views.LXFView'" class="reference internal" href="#easyswimapp.views.LXFView"><code class="docutils literal notranslate"><span class="pre">LXFView</span></code></a><ul>
 <li><a :data-current="activeSection === '#easyswimapp.views.LXFView.get'" class="reference internal" href="#easyswimapp.views.LXFView.get"><code class="docutils literal notranslate"><span class="pre">LXFView.get()</span></code></a></li>
 <li><a :data-current="activeSection === '#easyswimapp.views.LXFView.parser_classes'" class="reference internal" href="#easyswimapp.views.LXFView.parser_classes"><code class="docutils literal notranslate"><span class="pre">LXFView.parser_classes</span></code></a></li>
