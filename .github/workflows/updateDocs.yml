@@ -1,6 +1,8 @@
 name: Build HTML and Auto-commit
-
+permissions:
+  contents: write
 on:
+
   push:
     branches:
       - master 
@@ -30,6 +32,7 @@ jobs:
       working-directory: backend/docs
 
     - name: Commit report
+    
       run: |
         git config --global user.name 'Jose Pedro Aguiar'
         git config --global user.email '88104767+josePedroAguiar@users.noreply.github.com.'
