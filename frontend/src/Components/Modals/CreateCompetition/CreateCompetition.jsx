@@ -64,6 +64,7 @@ function CreateCompetition(props) {
         let form_data = new FormData();
         if (lxfFile) {
             form_data.append("lxf_file", lxfFile, lxfFile.name);
+            form_data.append("title", lxfFile.name)
         } else {
             setErrorMessage("Por favor, selecione um ficheiro.");
         }

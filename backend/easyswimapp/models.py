@@ -17,7 +17,7 @@ class LXF(models.Model):
     Methods:
     - __str__(): Returns the title of the LXF as a string.
     """
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, blank=True)
     description = models.TextField(blank=True)
     lxf_file = models.FileField(upload_to='lxf_files')
 
