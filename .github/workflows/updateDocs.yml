@@ -1,4 +1,4 @@
-name: Build HTML
+name: Build HTML and Auto-commit
 
 on:
   push:
@@ -27,6 +27,9 @@ jobs:
     - name: Run make html
       run: |
         sphinx-build -b html ./source ./build 
-        git commit -m "Update HTML documentation" --author="GitHub Actions <actions@github.com>"
-        git push
       working-directory: backend/docs
+
+    - name: Auto-commit changes
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "Update HTML documentation"
