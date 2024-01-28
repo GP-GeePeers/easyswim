@@ -1,12 +1,20 @@
-.container {
-    position: relative;
+.headerContainer {
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row;
-    background: #010101;
-    width: calc(100% - 4.5rem);
-    padding: 0 2.25rem;
+    top: 1.25rem;
+    left: calc(306px + 2rem);
+    width: calc(100% - (306px + 5rem));
+    overflow: hidden;
+    background-color: #010101;
+    z-index: 2;
+    padding-top: 16px;
+}
+
+.retractedHeaderContainer {
+    left: calc(102px + 2rem);
+    width: calc(100% - (102px + 5rem));
 }
 
 .textContainer {
@@ -16,48 +24,29 @@
 }
 
 .buttonContainer {
-    position: relative;
+    position: absolute;
+    right: 0vw;
     z-index: 1;
 }
 
 @media (max-width: 886px) {
-    .container {
-        flex-direction: row;
+    .headerContainer {
+        display: flex;
+        flex-direction: column;
         align-items: center;
         text-align: center;
         justify-content: center;
+        padding-bottom: 1rem;
         gap: 1.1rem;
     }
     .buttonContainer {
         position: relative;
         z-index: 1;
-        right: 0rem;
     }
 }
 
-h1 {
-    color: #b7bab6;
-    font-family: Poppins;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin: 0;
-}
-
-@media (max-width: 667px) {
-    .container {
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        padding: 0;
-        background: transparent;
-        gap: 1rem;
-    }
-    .textContainer {
-        max-height: 4rem;
-    }
-    h1 {
-        font-size: 22px;
+@media (max-height: 235px) {
+    .headerContainer {
+        display: none;
     }
 }

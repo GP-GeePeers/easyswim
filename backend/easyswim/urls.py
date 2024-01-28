@@ -21,7 +21,6 @@ from rest_framework import permissions
 from django.views.generic import TemplateView
 #from easyswimapp import read_lef_view
 #from easyswimapp import model_data_view
-
 from easyswimapp import views
 
 
@@ -30,6 +29,7 @@ schema_view=get_schema_view(openapi.Info(title="EasySwim-API",default_version='v
 
 urlpatterns = [
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
+    #path('swagger/',get_swagger_view(title='EasySwim API'),name='swagger'),
     path('', views.home, name='home'),
     path("admin/", admin.site.urls),
     path('api/', include('easyswimapp.urls')),
@@ -39,4 +39,8 @@ urlpatterns = [
     path('auth/', include('djoser.urls.jwt')),
 ]
 
+<<<<<<< HEAD
 urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]
+=======
+urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]
+>>>>>>> parent of 30a60ad (Merge branch 'master' into 592-Registo-DC)

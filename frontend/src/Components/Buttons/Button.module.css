@@ -61,7 +61,7 @@
 }
 
 .secondaryButton:active {
-    background-color: rgba(211, 211, 211, 0.566);
+    background-color: rgba(211, 211, 211, 0.264);
 }
 
 .secondaryButton:disabled {
