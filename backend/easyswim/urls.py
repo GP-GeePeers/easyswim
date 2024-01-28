@@ -39,8 +39,4 @@ urlpatterns = [
     path('auth/', include('djoser.urls.jwt')),
 ]
 
-<<<<<<< HEAD
 urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]
-=======
-urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]
->>>>>>> parent of 30a60ad (Merge branch 'master' into 592-Registo-DC)

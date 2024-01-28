@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Background from "./Components/Background/Background";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Header from "./Components/Header/Header";
@@ -7,6 +7,10 @@ import Home from "./Views/Home/Home";
 import ListComps from "./Views/ListComps/ListComps";
 import Profile from "./Views/Profile/Profile";
 import CreateCompetition from "./Components/Modals/CreateCompetition";
+import Settings from "./Views/Settings/Settings";
+import PageContent from "./Components/PageContent/PageContent";
+import CompetetionDetails from "./Components/Modals/CompetetionDetails/CompetetionDetails";
+import Topbar from "./Components/Topbar/Topbar";
 
 import Login from './Views/Auth/Login/Login';
 import Signup from './Views/Auth/Signup/Signup';
@@ -23,7 +27,6 @@ import Layout from './Hooks/layout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 function App() {
     // state to control the sidebar retraction
     const [retracted, setRetracted] = useState(true);
@@ -31,6 +34,9 @@ function App() {
     const [organization, setOrganization] = useState("");
     // state to control the modal to create a competition appearing and disappearing
     const [createCompModal, setCreateCompModal] = useState(false);
+    // temporary state to control the modal to show the competition details appearing and disappearing
+    const [compDetailsModal, setCompDetailsModal] = useState(false);
+    const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
 
     const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
@@ -39,13 +45,14 @@ function App() {
         setOrganization("Clube de Natação de Coimbra"); /* TODO: get from API */
     }, []);
 
-    //funtion to change state of createCompModal
+    // function to change state of createCompModal
     const changeCreateCompModal = () => {
         setCreateCompModal(!createCompModal);
     };
 
-  
-      
+    const changeCompDetailsModal = () => {
+        setCompDetailsModal(!compDetailsModal);
+    };
 
     return (
         <Provider store={store}>
@@ -55,12 +62,10 @@ function App() {
                     <Route 
                         path='/login' 
                         element={
-                            
-                                <Layout>
-                                    <Login />
-                                </Layout> 
-                            
-                            } 
+                            <Layout>
+                                <Login />
+                            </Layout> 
+                        } 
                     />
                     <Route 
                         path='/signup' 
@@ -68,7 +73,7 @@ function App() {
                             <Layout>
                                 <Signup />
                             </Layout>
-                            } 
+                        } 
                     />
                     <Route 
                         path='/reset-password' 
@@ -76,7 +81,7 @@ function App() {
                             <Layout>
                                 <ResetPassword />
                             </Layout>
-                            } 
+                        } 
                     />
                     <Route
                         path='/password/reset/confirm/:uid/:token' 
@@ -92,67 +97,66 @@ function App() {
                             <Layout>
                                 <Activate />
                             </Layout>
-                            } 
+                        } 
                     />
                     
                     <Route
                         path="/"
                         element={
                             <PrivateRoute auth={{ isAuthenticated: isAuthenticated }}>
-                            <>
-                            <Background />
-                            <Sidebar
-                                retracted={retracted}
-                                setRetracted={setRetracted}
-                                clicked={false}
-                            />
-                            <Header
-                                organization={organization}
-                                retracted={retracted}
-                                createCompModal={createCompModal}
-                                changeCreateCompModal={changeCreateCompModal}
-                            />
-                            <CreateCompetition
-                                createCompModal={createCompModal}
-                                changeCreateCompModal={changeCreateCompModal}
-                            />
-                            <Home
-                                retracted={retracted}
-                                setRetracted={setRetracted}
-                                organization={organization}
-                            />
-                        </>
-                        </PrivateRoute>
+                                <>
+                                    <Background />
+                                    <Sidebar
+                                        retracted={retracted}
+                                        setRetracted={setRetracted}
+                                        clicked={false}
+                                    />
+                                    <Header
+                                        organization={organization}
+                                        retracted={retracted}
+                                        createCompModal={createCompModal}
+                                        changeCreateCompModal={changeCreateCompModal}
+                                    />
+                                    <CreateCompetition
+                                        createCompModal={createCompModal}
+                                        changeCreateCompModal={changeCreateCompModal}
+                                    />
+                                    <Home
+                                        retracted={retracted}
+                                        setRetracted={setRetracted}
+                                        organization={organization}
+                                    />
+                                </>
+                            </PrivateRoute>
                         }
-                        
                     />
                     <Route
                         path="/TestsList"
                         element={
                             <PrivateRoute auth={{ isAuthenticated: isAuthenticated }}>
-                            <>
-                            <Background />
-                            <Sidebar
-                                retracted={retracted}
-                                setRetracted={setRetracted}
-                                clicked={false}
-                            />
-                            <Header
-                                organization={organization}
-                                retracted={retracted}
-                                createCompModal={createCompModal}
-                                changeCreateCompModal={changeCreateCompModal}
-                            />
-                            <CreateCompetition
-                                createCompModal={createCompModal}
-                                changeCreateCompModal={changeCreateCompModal}
-                            />
-                            <ListComps
-                                retracted={retracted}
-                                setRetracted={setRetracted}
-                                organization={organization}
-                            />
-                            </>
+                                <>
+                                    <Background />
+                                    <Sidebar
+                                        retracted={retracted}
+                                        setRetracted={setRetracted}
+                                        clicked={false}
+                                    />
+                                    <Header
+                                        organization={organization}
+                                        retracted={retracted}
+                                        createCompModal={createCompModal}
+                                        changeCreateCompModal={changeCreateCompModal}
+                                    />
+                                    <CreateCompetition
+                                        createCompModal={createCompModal}
+                                        changeCreateCompModal={changeCreateCompModal}
+                                    />
+                                    <ListComps
+                                        retracted={retracted}
+                                        setRetracted={setRetracted}
+                                        organization={organization}
+                                    />
+                                </>
                             </PrivateRoute>
                         }
                     />
@@ -160,34 +164,33 @@ function App() {
                         path="/Settings"
                         element={
                             <PrivateRoute auth={{ isAuthenticated: isAuthenticated }}>
-                            <>
-                            <Background />
-                            <Sidebar
-                                retracted={retracted}
-                                setRetracted={setRetracted}
-                                clicked={false}
-                            />
-                            <Header
-                                organization={organization}
-                                retracted={retracted}
-                                createCompModal={createCompModal}
-                                changeCreateCompModal={changeCreateCompModal}
-                            />
-                            <CreateCompetition
-                                createCompModal={createCompModal}
-                                changeCreateCompModal={changeCreateCompModal}
-                            />
-                            <Profile
-                                retracted={retracted}
-                                setRetracted={setRetracted}
-                                organization={organization}
-                            />
-                            </>
+                                <>
+                                    <Background />
+                                    <Sidebar
+                                        retracted={retracted}
+                                        setRetracted={setRetracted}
+                                        clicked={false}
+                                    />
+                                    <Header
+                                        organization={organization}
+                                        retracted={retracted}
+                                        createCompModal={createCompModal}
+                                        changeCreateCompModal={changeCreateCompModal}
+                                    />
+                                    <CreateCompetition
+                                        createCompModal={createCompModal}
+                                        changeCreateCompModal={changeCreateCompModal}
+                                    />
+                                    <Profile
+                                        retracted={retracted}
+                                        setRetracted={setRetracted}
+                                        organization={organization}
+                                    />
+                                </>
                             </PrivateRoute>
                         }
                     />
                 </Routes>
-                
             </Router>
         </Provider>
     );
