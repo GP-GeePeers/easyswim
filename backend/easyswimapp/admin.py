@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import LXF, Constructor, Contact_Meet,Contact_Constructor, Meet, Pool, Facility, PointTable, Session, Event, SwimStyle, Fee, AgeGroup,AgeDate
+from .models import LXF, Constructor, Contact_Meet,Contact_Constructor, Meet, Pool, Facility, PointTable, Session, Event, SwimStyle, Fee, AgeGroup,AgeDate, UserAccount
 
 # Register your models here.
 
@@ -17,3 +17,4 @@ admin.site.register(SwimStyle)
 admin.site.register(AgeGroup)
 admin.site.register(Fee)
 admin.site.register(AgeDate)
+admin.site.register(UserAccount)

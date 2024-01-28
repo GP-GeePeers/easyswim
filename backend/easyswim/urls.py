@@ -14,10 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,include, re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+from django.views.generic import TemplateView
 #from easyswimapp import read_lef_view
 #from easyswimapp import model_data_view
 from easyswimapp import views
@@ -34,4 +35,8 @@ urlpatterns = [
     path('api/', include('easyswimapp.urls')),
     #path('read-lef/', read_lef_view, name='read-lef'),
     #path('model-data/', model_data_view, name='model-data-view')
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
 ]
+
+urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]
