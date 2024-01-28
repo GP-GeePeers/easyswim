@@ -6,6 +6,10 @@ import sys
 
 def main():
     """Run administrative tasks."""
+    
+    ##Remove this line in the production version
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
+
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "easyswim.settings")
     try:
         from django.core.management import execute_from_command_line

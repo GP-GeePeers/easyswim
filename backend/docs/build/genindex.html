@@ -39,8 +39,11 @@
     </a><header
   class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
     <div class="hidden mr-4 md:flex">
-      <a href="index.html" class="flex items-center mr-6"><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">EasySwim  documentation</span>
-      </a></div><button
+      <a href="index.html" class="flex items-center mr-6">
+          <img height="24" width="24" class="mr-2 dark:invert" src="_static/logo.png" alt="Logo" /><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">EasySwim  documentation</span>
+      </a><nav class="flex items-center space-x-6 text-sm font-medium">
+        <a href=".html" class="transition-colors hover:text-foreground/80 text-foreground/60"></a>
+      </nav></div><button
       class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden"
       type="button" @click="showSidebar = true">
       <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" aria-hidden="true"
@@ -70,6 +73,20 @@
 </form>
       </div>
       <nav class="flex items-center space-x-1">
+        <a href="https://easyswim.online/backend/docs/" title="Visit Swagger" rel="noopener nofollow">
+          <div
+            class="inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground h-9 w-9">
+            <svg height="26" width="26" viewBox="0 0 510 510" xmlns="http://www.w3.org/2000/svg"><path  fill="currentColor" d="m127.7110825 34.4531364c-170.2814789 98.1692047-170.2814026 344.9245911 0 443.0937195s384.2889175-25.208477 384.2889175-221.5468254-214.0075073-319.7160339-384.2889175-221.5468941zm48.6630477 374.1001168c-122.139801 0-19.929306-137.3335266-104.7761612-134.9657288v-36.7011261c80.0386734 9.9306183-15.3906517-146.2125549 104.1839828-132.5976257v28.4137802c-66.6934204 1.5785828-.3946075 86.8199158-60.3792725 122.5344086 60.3792725 39.6608887-3.1571045 130.0325317 60.9714508 120.1665955v33.1496963zm-4.2858123-133.4223328c-13.7811279-7.9449768-13.7811279-27.9151764 0-35.8600769 13.7810516-7.9449921 31.1009064 2.0401154 31.1009064 17.9299927s-17.3198548 25.875-31.1009064 17.9300842zm73.5291443 0c-13.7810669-7.9449768-13.7810669-27.9151764 0-35.8600769 13.7810669-7.9449921 31.1008911 2.0401154 31.1008911 17.9299927s-17.3198242 25.875-31.1008911 17.9300842zm73.5291442 0c-13.7810669-7.9449768-13.7810669-27.9151764 0-35.8600769 13.7810669-7.9449921 31.1009827 2.0401154 31.1009827 17.9299927s-17.3199158 25.875-31.1009827 17.9300842zm16.4793091 133.4223328v-33.1496887c64.1285706 9.8659363.5921631-80.5057068 60.9714355-120.1665955-59.9846497-35.7144928 6.3141479-120.9558258-60.3792725-122.5344086v-28.4137802c119.574646-13.6149292 24.1453247 142.5282288 104.1839905 132.5976257v36.7011261c-84.8468627-2.3678054 17.3636476 134.9657212-104.7761535 134.9657212z"/></svg>
+          </div>
+        </a>
+        
+        <a href="https://github.com/GP-GeePeers/easyswim" title="Visit GitHub" rel="noopener nofollow">
+          <div
+            class="inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground h-9 w-9">
+            <svg fill="currentColor" height="26px" style="margin-top:-2px;display:inline" viewBox="0 0 45 44" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M22.477.927C10.485.927.76 10.65.76 22.647c0 9.596 6.223 17.736 14.853 20.608 1.087.2 1.483-.47 1.483-1.047 0-.516-.019-1.881-.03-3.693-6.04 1.312-7.315-2.912-7.315-2.912-.988-2.51-2.412-3.178-2.412-3.178-1.972-1.346.149-1.32.149-1.32 2.18.154 3.327 2.24 3.327 2.24 1.937 3.318 5.084 2.36 6.321 1.803.197-1.403.759-2.36 1.379-2.903-4.823-.548-9.894-2.412-9.894-10.734 0-2.37.847-4.31 2.236-5.828-.224-.55-.969-2.759.214-5.748 0 0 1.822-.584 5.972 2.226 1.732-.482 3.59-.722 5.437-.732 1.845.01 3.703.25 5.437.732 4.147-2.81 5.967-2.226 5.967-2.226 1.185 2.99.44 5.198.217 5.748 1.392 1.517 2.232 3.457 2.232 5.828 0 8.344-5.078 10.18-9.916 10.717.779.67 1.474 1.996 1.474 4.021 0 2.904-.027 5.247-.027 5.96 0 .58.392 1.256 1.493 1.044C37.981 40.375 44.2 32.24 44.2 22.647c0-11.996-9.726-21.72-21.722-21.72" fill="currentColor" fill-rule="evenodd"></path></svg>
+          </div>
+        </a>
+        
         <button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'"
           class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9"
           type="button">
@@ -93,18 +110,32 @@
   class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky"
   :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }">
 
-    <a href="index.html" class="!justify-start text-sm md:!hidden bg-background"><span class="font-bold text-clip whitespace-nowrap">EasySwim  documentation</span>
+    <a href="index.html" class="!justify-start text-sm md:!hidden bg-background">
+        <img height="16" width="16" class="mr-2 dark:invert" src="_static/logo.png" alt="Logo" /><span class="font-bold text-clip whitespace-nowrap">EasySwim  documentation</span>
     </a>
 
     <div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
-      <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
-  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="urls.html">URLs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utils.html">Utils</a></li>
-<li class="toctree-l1"><a class="reference internal" href="views.html">Views</a></li>
-<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="serializers.html">Serializers</a></li>
+      <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="flex md:hidden flex-col font-medium mt-4">
+  <a href=".html"></a>
+</nav><nav class="table w-full min-w-full my-6 lg:my-8">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="problem-description.html">Problem Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="current-method.html">Current Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="our-solution.html">Our Solution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/index.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup/backend.html">Backend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup/frontend.html">Frontend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="apicomponents/index.html">Backend Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="apicomponents/urls.html">URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apicomponents/utils.html">Utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apicomponents/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apicomponents/models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apicomponents/serializers.html">Serializers</a></li>
+</ul>
+</li>
 </ul>
 
 </nav>
@@ -148,29 +179,29 @@
   <h2 id="A">A</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.AgeDate">AgeDate (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeDate">AgeDate (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeDate.DoesNotExist">AgeDate.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeDate.DoesNotExist">AgeDate.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeDate.MultipleObjectsReturned">AgeDate.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeDate.MultipleObjectsReturned">AgeDate.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.agedate_set">agedate_set (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.agedate_set">agedate_set (easyswimapp.models.Meet attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeGroup">AgeGroup (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup">AgeGroup (class in easyswimapp.models)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.AgeGroup.DoesNotExist">AgeGroup.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup.DoesNotExist">AgeGroup.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeGroup.MultipleObjectsReturned">AgeGroup.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup.MultipleObjectsReturned">AgeGroup.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Event.agegroup_set">agegroup_set (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.agegroup_set">agegroup_set (easyswimapp.models.Event attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeGroup.agegroupid">agegroupid (easyswimapp.models.AgeGroup attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup.agegroupid">agegroupid (easyswimapp.models.AgeGroup attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeGroup.agemax">agemax (easyswimapp.models.AgeGroup attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup.agemax">agemax (easyswimapp.models.AgeGroup attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeGroup.agemin">agemin (easyswimapp.models.AgeGroup attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup.agemin">agemin (easyswimapp.models.AgeGroup attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -179,47 +210,47 @@
   <h2 id="C">C</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Contact_Constructor.city">city (easyswimapp.models.Contact_Constructor attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.city">city (easyswimapp.models.Contact_Constructor attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Facility.city">(easyswimapp.models.Facility attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Facility.city">(easyswimapp.models.Facility attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Meet.city">(easyswimapp.models.Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Meet.city">(easyswimapp.models.Meet attribute)</a>
 </li>
       </ul></li>
-      <li><a href="models.html#easyswimapp.models.Constructor">Constructor (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Constructor">Constructor (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Constructor.DoesNotExist">Constructor.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.constructor">constructor (easyswimapp.models.Contact_Constructor attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Constructor.MultipleObjectsReturned">Constructor.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Constructor.DoesNotExist">Constructor.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Contact_Constructor.construtor">construtor (easyswimapp.models.Contact_Constructor attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Constructor.MultipleObjectsReturned">Constructor.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Contact_Constructor.construtor_id">construtor_id (easyswimapp.models.Contact_Constructor attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.constructor_id">constructor_id (easyswimapp.models.Contact_Constructor attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Contact_Constructor">Contact_Constructor (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor">Contact_Constructor (class in easyswimapp.models)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Contact_Constructor.DoesNotExist">Contact_Constructor.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.DoesNotExist">Contact_Constructor.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Contact_Constructor.MultipleObjectsReturned">Contact_Constructor.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.MultipleObjectsReturned">Contact_Constructor.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Constructor.contact_constructor_set">contact_constructor_set (easyswimapp.models.Constructor attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Constructor.contact_constructor_set">contact_constructor_set (easyswimapp.models.Constructor attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Contact_Meet">Contact_Meet (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet">Contact_Meet (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Contact_Meet.DoesNotExist">Contact_Meet.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet.DoesNotExist">Contact_Meet.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Contact_Meet.MultipleObjectsReturned">Contact_Meet.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet.MultipleObjectsReturned">Contact_Meet.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.contact_meet_set">contact_meet_set (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.contact_meet_set">contact_meet_set (easyswimapp.models.Meet attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Contact_Constructor.country">country (easyswimapp.models.Contact_Constructor attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.country">country (easyswimapp.models.Contact_Constructor attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.course">course (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.course">course (easyswimapp.models.Meet attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Fee.currency">currency (easyswimapp.models.Fee attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Fee.currency">currency (easyswimapp.models.Fee attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -228,23 +259,23 @@
   <h2 id="D">D</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Session.date">date (easyswimapp.models.Session attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Session.date">date (easyswimapp.models.Session attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Event.daytime">daytime (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.daytime">daytime (easyswimapp.models.Event attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Session.daytime">(easyswimapp.models.Session attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Session.daytime">(easyswimapp.models.Session attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Meet.deadline">deadline (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.deadline">deadline (easyswimapp.models.Meet attribute)</a>
 </li>
-      <li><a href="utils.html#easyswimapp.utils.descompactar_todos_lxf">descompactar_todos_lxf() (in module easyswimapp.utils)</a>
+      <li><a href="apicomponents/utils.html#easyswimapp.utils.descompactar_todos_lxf">descompactar_todos_lxf() (in module easyswimapp.utils)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.LXF.description">description (easyswimapp.models.LXF attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.LXF.description">description (easyswimapp.models.LXF attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.SwimStyle.distance">distance (easyswimapp.models.SwimStyle attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.SwimStyle.distance">distance (easyswimapp.models.SwimStyle attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -257,70 +288,70 @@
     easyswimapp.models
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#module-easyswimapp.models">module</a>
+        <li><a href="apicomponents/models.html#module-easyswimapp.models">module</a>
 </li>
       </ul></li>
       <li>
     easyswimapp.serializers
 
       <ul style="list-style-type:none">
-        <li><a href="serializers.html#module-easyswimapp.serializers">module</a>
+        <li><a href="apicomponents/serializers.html#module-easyswimapp.serializers">module</a>
 </li>
       </ul></li>
       <li>
     easyswimapp.urls
 
       <ul style="list-style-type:none">
-        <li><a href="urls.html#module-easyswimapp.urls">module</a>
+        <li><a href="apicomponents/urls.html#module-easyswimapp.urls">module</a>
 </li>
       </ul></li>
       <li>
     easyswimapp.utils
 
       <ul style="list-style-type:none">
-        <li><a href="utils.html#module-easyswimapp.utils">module</a>
+        <li><a href="apicomponents/utils.html#module-easyswimapp.utils">module</a>
 </li>
       </ul></li>
       <li>
     easyswimapp.views
 
       <ul style="list-style-type:none">
-        <li><a href="views.html#module-easyswimapp.views">module</a>
+        <li><a href="apicomponents/views.html#module-easyswimapp.views">module</a>
 </li>
       </ul></li>
-      <li><a href="models.html#easyswimapp.models.Contact_Constructor.email">email (easyswimapp.models.Contact_Constructor attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.email">email (easyswimapp.models.Contact_Constructor attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Contact_Meet.email">(easyswimapp.models.Contact_Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet.email">(easyswimapp.models.Contact_Meet attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Event">Event (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event">Event (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeGroup.event">event (easyswimapp.models.AgeGroup attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup.event">event (easyswimapp.models.AgeGroup attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Fee.event">(easyswimapp.models.Fee attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Fee.event">(easyswimapp.models.Fee attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.SwimStyle.event">(easyswimapp.models.SwimStyle attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.SwimStyle.event">(easyswimapp.models.SwimStyle attribute)</a>
 </li>
       </ul></li>
-      <li><a href="models.html#easyswimapp.models.Event.DoesNotExist">Event.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.DoesNotExist">Event.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Event.MultipleObjectsReturned">Event.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.MultipleObjectsReturned">Event.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeGroup.event_id">event_id (easyswimapp.models.AgeGroup attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup.event_id">event_id (easyswimapp.models.AgeGroup attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Fee.event_id">(easyswimapp.models.Fee attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Fee.event_id">(easyswimapp.models.Fee attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.SwimStyle.event_id">(easyswimapp.models.SwimStyle attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.SwimStyle.event_id">(easyswimapp.models.SwimStyle attribute)</a>
 </li>
       </ul></li>
-      <li><a href="models.html#easyswimapp.models.Session.event_set">event_set (easyswimapp.models.Session attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Session.event_set">event_set (easyswimapp.models.Session attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Event.eventid">eventid (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.eventid">eventid (easyswimapp.models.Event attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -329,25 +360,25 @@
   <h2 id="F">F</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Facility">Facility (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Facility">Facility (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Facility.DoesNotExist">Facility.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Facility.DoesNotExist">Facility.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Facility.MultipleObjectsReturned">Facility.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Facility.MultipleObjectsReturned">Facility.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.facility_set">facility_set (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.facility_set">facility_set (easyswimapp.models.Meet attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Fee">Fee (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Fee">Fee (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Fee.DoesNotExist">Fee.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Fee.DoesNotExist">Fee.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Fee.MultipleObjectsReturned">Fee.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Fee.MultipleObjectsReturned">Fee.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Event.fee_set">fee_set (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.fee_set">fee_set (easyswimapp.models.Event attribute)</a>
 </li>
-      <li><a href="serializers.html#easyswimapp.serializers.LXFSerializer.Meta.fields">fields (easyswimapp.serializers.LXFSerializer.Meta attribute)</a>
+      <li><a href="apicomponents/serializers.html#easyswimapp.serializers.LXFSerializer.Meta.fields">fields (easyswimapp.serializers.LXFSerializer.Meta attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -356,25 +387,25 @@
   <h2 id="G">G</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Event.gender">gender (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.gender">gender (easyswimapp.models.Event attribute)</a>
 </li>
-      <li><a href="views.html#easyswimapp.views.LXFView.get">get() (easyswimapp.views.LXFView method)</a>
+      <li><a href="apicomponents/views.html#easyswimapp.views.LXFView.get">get() (easyswimapp.views.LXFView method)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Event.get_gender_display">get_gender_display() (easyswimapp.models.Event method)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.get_gender_display">get_gender_display() (easyswimapp.models.Event method)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Session.get_next_by_date">get_next_by_date() (easyswimapp.models.Session method)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Session.get_next_by_date">get_next_by_date() (easyswimapp.models.Session method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Meet.get_next_by_deadline">get_next_by_deadline() (easyswimapp.models.Meet method)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.get_next_by_deadline">get_next_by_deadline() (easyswimapp.models.Meet method)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeDate.get_next_by_value">get_next_by_value() (easyswimapp.models.AgeDate method)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeDate.get_next_by_value">get_next_by_value() (easyswimapp.models.AgeDate method)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Session.get_previous_by_date">get_previous_by_date() (easyswimapp.models.Session method)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Session.get_previous_by_date">get_previous_by_date() (easyswimapp.models.Session method)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.get_previous_by_deadline">get_previous_by_deadline() (easyswimapp.models.Meet method)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.get_previous_by_deadline">get_previous_by_deadline() (easyswimapp.models.Meet method)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeDate.get_previous_by_value">get_previous_by_value() (easyswimapp.models.AgeDate method)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeDate.get_previous_by_value">get_previous_by_value() (easyswimapp.models.AgeDate method)</a>
 </li>
   </ul></td>
   </tr>
@@ -383,11 +414,11 @@
   <h2 id="H">H</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.AgeGroup.handicap">handicap (easyswimapp.models.AgeGroup attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup.handicap">handicap (easyswimapp.models.AgeGroup attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="views.html#easyswimapp.views.home">home() (in module easyswimapp.views)</a>
+      <li><a href="apicomponents/views.html#easyswimapp.views.home">home() (in module easyswimapp.views)</a>
 </li>
   </ul></td>
   </tr>
@@ -396,39 +427,39 @@
   <h2 id="I">I</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.AgeDate.id">id (easyswimapp.models.AgeDate attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeDate.id">id (easyswimapp.models.AgeDate attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.AgeGroup.id">(easyswimapp.models.AgeGroup attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup.id">(easyswimapp.models.AgeGroup attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Constructor.id">(easyswimapp.models.Constructor attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Constructor.id">(easyswimapp.models.Constructor attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Contact_Constructor.id">(easyswimapp.models.Contact_Constructor attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.id">(easyswimapp.models.Contact_Constructor attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Contact_Meet.id">(easyswimapp.models.Contact_Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet.id">(easyswimapp.models.Contact_Meet attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Event.id">(easyswimapp.models.Event attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Event.id">(easyswimapp.models.Event attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Facility.id">(easyswimapp.models.Facility attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Facility.id">(easyswimapp.models.Facility attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Fee.id">(easyswimapp.models.Fee attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Fee.id">(easyswimapp.models.Fee attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.LXF.id">(easyswimapp.models.LXF attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.LXF.id">(easyswimapp.models.LXF attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Meet.id">(easyswimapp.models.Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Meet.id">(easyswimapp.models.Meet attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.PointTable.id">(easyswimapp.models.PointTable attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.PointTable.id">(easyswimapp.models.PointTable attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Pool.id">(easyswimapp.models.Pool attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Pool.id">(easyswimapp.models.Pool attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Session.id">(easyswimapp.models.Session attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Session.id">(easyswimapp.models.Session attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.SwimStyle.id">(easyswimapp.models.SwimStyle attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.SwimStyle.id">(easyswimapp.models.SwimStyle attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Contact_Constructor.internet">internet (easyswimapp.models.Contact_Constructor attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.internet">internet (easyswimapp.models.Contact_Constructor attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -437,23 +468,23 @@
   <h2 id="L">L</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Pool.lane_max">lane_max (easyswimapp.models.Pool attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Pool.lane_max">lane_max (easyswimapp.models.Pool attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.LXF">LXF (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.LXF">LXF (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.LXF.DoesNotExist">LXF.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.LXF.DoesNotExist">LXF.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.LXF.MultipleObjectsReturned">LXF.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.LXF.MultipleObjectsReturned">LXF.MultipleObjectsReturned</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.LXF.lxf_file">lxf_file (easyswimapp.models.LXF attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.LXF.lxf_file">lxf_file (easyswimapp.models.LXF attribute)</a>
 </li>
-      <li><a href="serializers.html#easyswimapp.serializers.LXFSerializer">LXFSerializer (class in easyswimapp.serializers)</a>
+      <li><a href="apicomponents/serializers.html#easyswimapp.serializers.LXFSerializer">LXFSerializer (class in easyswimapp.serializers)</a>
 </li>
-      <li><a href="serializers.html#easyswimapp.serializers.LXFSerializer.Meta">LXFSerializer.Meta (class in easyswimapp.serializers)</a>
+      <li><a href="apicomponents/serializers.html#easyswimapp.serializers.LXFSerializer.Meta">LXFSerializer.Meta (class in easyswimapp.serializers)</a>
 </li>
-      <li><a href="views.html#easyswimapp.views.LXFView">LXFView (class in easyswimapp.views)</a>
+      <li><a href="apicomponents/views.html#easyswimapp.views.LXFView">LXFView (class in easyswimapp.views)</a>
 </li>
   </ul></td>
   </tr>
@@ -462,65 +493,65 @@
   <h2 id="M">M</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Meet.maxentriesathlete">maxentriesathlete (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.maxentriesathlete">maxentriesathlete (easyswimapp.models.Meet attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Session.maxentriesathlete">(easyswimapp.models.Session attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Session.maxentriesathlete">(easyswimapp.models.Session attribute)</a>
 </li>
       </ul></li>
-      <li><a href="models.html#easyswimapp.models.Meet">Meet (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet">Meet (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeDate.meet">meet (easyswimapp.models.AgeDate attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeDate.meet">meet (easyswimapp.models.AgeDate attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Contact_Meet.meet">(easyswimapp.models.Contact_Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet.meet">(easyswimapp.models.Contact_Meet attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Facility.meet">(easyswimapp.models.Facility attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Facility.meet">(easyswimapp.models.Facility attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.PointTable.meet">(easyswimapp.models.PointTable attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.PointTable.meet">(easyswimapp.models.PointTable attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Pool.meet">(easyswimapp.models.Pool attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Pool.meet">(easyswimapp.models.Pool attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Session.meet">(easyswimapp.models.Session attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Session.meet">(easyswimapp.models.Session attribute)</a>
 </li>
       </ul></li>
-      <li><a href="models.html#easyswimapp.models.Meet.DoesNotExist">Meet.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.DoesNotExist">Meet.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.MultipleObjectsReturned">Meet.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.MultipleObjectsReturned">Meet.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.AgeDate.meet_id">meet_id (easyswimapp.models.AgeDate attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeDate.meet_id">meet_id (easyswimapp.models.AgeDate attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Contact_Meet.meet_id">(easyswimapp.models.Contact_Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet.meet_id">(easyswimapp.models.Contact_Meet attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Facility.meet_id">(easyswimapp.models.Facility attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Facility.meet_id">(easyswimapp.models.Facility attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.PointTable.meet_id">(easyswimapp.models.PointTable attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.PointTable.meet_id">(easyswimapp.models.PointTable attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Pool.meet_id">(easyswimapp.models.Pool attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Pool.meet_id">(easyswimapp.models.Pool attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Session.meet_id">(easyswimapp.models.Session attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Session.meet_id">(easyswimapp.models.Session attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="serializers.html#easyswimapp.serializers.LXFSerializer.Meta.model">model (easyswimapp.serializers.LXFSerializer.Meta attribute)</a>
+      <li><a href="apicomponents/serializers.html#easyswimapp.serializers.LXFSerializer.Meta.model">model (easyswimapp.serializers.LXFSerializer.Meta attribute)</a>
 </li>
-      <li><a href="views.html#easyswimapp.views.model_data_view">model_data_view() (in module easyswimapp.views)</a>
+      <li><a href="apicomponents/views.html#easyswimapp.views.model_data_view">model_data_view() (in module easyswimapp.views)</a>
 </li>
       <li>
     module
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#module-easyswimapp.models">easyswimapp.models</a>
+        <li><a href="apicomponents/models.html#module-easyswimapp.models">easyswimapp.models</a>
 </li>
-        <li><a href="serializers.html#module-easyswimapp.serializers">easyswimapp.serializers</a>
+        <li><a href="apicomponents/serializers.html#module-easyswimapp.serializers">easyswimapp.serializers</a>
 </li>
-        <li><a href="urls.html#module-easyswimapp.urls">easyswimapp.urls</a>
+        <li><a href="apicomponents/urls.html#module-easyswimapp.urls">easyswimapp.urls</a>
 </li>
-        <li><a href="utils.html#module-easyswimapp.utils">easyswimapp.utils</a>
+        <li><a href="apicomponents/utils.html#module-easyswimapp.utils">easyswimapp.utils</a>
 </li>
-        <li><a href="views.html#module-easyswimapp.views">easyswimapp.views</a>
+        <li><a href="apicomponents/views.html#module-easyswimapp.views">easyswimapp.views</a>
 </li>
       </ul></li>
   </ul></td>
@@ -530,40 +561,40 @@
   <h2 id="N">N</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.AgeGroup.name">name (easyswimapp.models.AgeGroup attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup.name">name (easyswimapp.models.AgeGroup attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Constructor.name">(easyswimapp.models.Constructor attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Constructor.name">(easyswimapp.models.Constructor attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Contact_Constructor.name">(easyswimapp.models.Contact_Constructor attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.name">(easyswimapp.models.Contact_Constructor attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Contact_Meet.name">(easyswimapp.models.Contact_Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet.name">(easyswimapp.models.Contact_Meet attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Facility.name">(easyswimapp.models.Facility attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Facility.name">(easyswimapp.models.Facility attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Meet.name">(easyswimapp.models.Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Meet.name">(easyswimapp.models.Meet attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.PointTable.name">(easyswimapp.models.PointTable attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.PointTable.name">(easyswimapp.models.PointTable attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Pool.name">(easyswimapp.models.Pool attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Pool.name">(easyswimapp.models.Pool attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Session.name">(easyswimapp.models.Session attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Session.name">(easyswimapp.models.Session attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Facility.nation">nation (easyswimapp.models.Facility attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Facility.nation">nation (easyswimapp.models.Facility attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Meet.nation">(easyswimapp.models.Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Meet.nation">(easyswimapp.models.Meet attribute)</a>
 </li>
       </ul></li>
-      <li><a href="models.html#easyswimapp.models.Event.number">number (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.number">number (easyswimapp.models.Event attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Meet.number">(easyswimapp.models.Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Meet.number">(easyswimapp.models.Meet attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Session.number">(easyswimapp.models.Session attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Session.number">(easyswimapp.models.Session attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -573,43 +604,43 @@
   <h2 id="O">O</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.AgeDate.objects">objects (easyswimapp.models.AgeDate attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeDate.objects">objects (easyswimapp.models.AgeDate attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.AgeGroup.objects">(easyswimapp.models.AgeGroup attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.AgeGroup.objects">(easyswimapp.models.AgeGroup attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Constructor.objects">(easyswimapp.models.Constructor attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Constructor.objects">(easyswimapp.models.Constructor attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Contact_Constructor.objects">(easyswimapp.models.Contact_Constructor attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.objects">(easyswimapp.models.Contact_Constructor attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Contact_Meet.objects">(easyswimapp.models.Contact_Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet.objects">(easyswimapp.models.Contact_Meet attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Event.objects">(easyswimapp.models.Event attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Event.objects">(easyswimapp.models.Event attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Facility.objects">(easyswimapp.models.Facility attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Facility.objects">(easyswimapp.models.Facility attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Fee.objects">(easyswimapp.models.Fee attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Fee.objects">(easyswimapp.models.Fee attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.LXF.objects">(easyswimapp.models.LXF attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.LXF.objects">(easyswimapp.models.LXF attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Meet.objects">(easyswimapp.models.Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Meet.objects">(easyswimapp.models.Meet attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.PointTable.objects">(easyswimapp.models.PointTable attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.PointTable.objects">(easyswimapp.models.PointTable attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Pool.objects">(easyswimapp.models.Pool attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Pool.objects">(easyswimapp.models.Pool attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Session.objects">(easyswimapp.models.Session attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Session.objects">(easyswimapp.models.Session attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.SwimStyle.objects">(easyswimapp.models.SwimStyle attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.SwimStyle.objects">(easyswimapp.models.SwimStyle attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Event.order">order (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.order">order (easyswimapp.models.Event attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.organizer">organizer (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.organizer">organizer (easyswimapp.models.Meet attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.organizer_url">organizer_url (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.organizer_url">organizer_url (easyswimapp.models.Meet attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -618,33 +649,33 @@
   <h2 id="P">P</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="views.html#easyswimapp.views.LXFView.parser_classes">parser_classes (easyswimapp.views.LXFView attribute)</a>
+      <li><a href="apicomponents/views.html#easyswimapp.views.LXFView.parser_classes">parser_classes (easyswimapp.views.LXFView attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Contact_Meet.phone">phone (easyswimapp.models.Contact_Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet.phone">phone (easyswimapp.models.Contact_Meet attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.PointTable">PointTable (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.PointTable">PointTable (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.PointTable.DoesNotExist">PointTable.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.PointTable.DoesNotExist">PointTable.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.PointTable.MultipleObjectsReturned">PointTable.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.PointTable.MultipleObjectsReturned">PointTable.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.pointtable_set">pointtable_set (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.pointtable_set">pointtable_set (easyswimapp.models.Meet attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.PointTable.pointtableid">pointtableid (easyswimapp.models.PointTable attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.PointTable.pointtableid">pointtableid (easyswimapp.models.PointTable attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Pool">Pool (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Pool">Pool (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Pool.DoesNotExist">Pool.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Pool.DoesNotExist">Pool.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Pool.MultipleObjectsReturned">Pool.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Pool.MultipleObjectsReturned">Pool.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.pool_set">pool_set (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.pool_set">pool_set (easyswimapp.models.Meet attribute)</a>
 </li>
-      <li><a href="views.html#easyswimapp.views.LXFView.post">post() (easyswimapp.views.LXFView method)</a>
+      <li><a href="apicomponents/views.html#easyswimapp.views.LXFView.post">post() (easyswimapp.views.LXFView method)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Event.preveventid">preveventid (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.preveventid">preveventid (easyswimapp.models.Event attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -653,19 +684,19 @@
   <h2 id="R">R</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="views.html#easyswimapp.views.read_lef_view">read_lef_view() (in module easyswimapp.views)</a>
+      <li><a href="apicomponents/views.html#easyswimapp.views.read_lef_view">read_lef_view() (in module easyswimapp.views)</a>
 </li>
-      <li><a href="utils.html#easyswimapp.utils.read_save_lenex">read_save_lenex() (in module easyswimapp.utils)</a>
+      <li><a href="apicomponents/utils.html#easyswimapp.utils.read_save_lenex">read_save_lenex() (in module easyswimapp.utils)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Constructor.registration">registration (easyswimapp.models.Constructor attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Constructor.registration">registration (easyswimapp.models.Constructor attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.SwimStyle.relay_count">relay_count (easyswimapp.models.SwimStyle attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.SwimStyle.relay_count">relay_count (easyswimapp.models.SwimStyle attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.reservecount">reservecount (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.reservecount">reservecount (easyswimapp.models.Meet attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Event.round">round (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.round">round (easyswimapp.models.Event attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -674,39 +705,39 @@
   <h2 id="S">S</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Session">Session (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Session">Session (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Event.session">session (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.session">session (easyswimapp.models.Event attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Session.DoesNotExist">Session.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Session.DoesNotExist">Session.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Session.MultipleObjectsReturned">Session.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Session.MultipleObjectsReturned">Session.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Event.session_id">session_id (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.session_id">session_id (easyswimapp.models.Event attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.session_set">session_set (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.session_set">session_set (easyswimapp.models.Meet attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Meet.startmethod">startmethod (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.startmethod">startmethod (easyswimapp.models.Meet attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Contact_Constructor.street">street (easyswimapp.models.Contact_Constructor attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.street">street (easyswimapp.models.Contact_Constructor attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Contact_Meet.street">(easyswimapp.models.Contact_Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet.street">(easyswimapp.models.Contact_Meet attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Facility.street">(easyswimapp.models.Facility attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Facility.street">(easyswimapp.models.Facility attribute)</a>
 </li>
       </ul></li>
-      <li><a href="models.html#easyswimapp.models.SwimStyle.stroke">stroke (easyswimapp.models.SwimStyle attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.SwimStyle.stroke">stroke (easyswimapp.models.SwimStyle attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.SwimStyle">SwimStyle (class in easyswimapp.models)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.SwimStyle">SwimStyle (class in easyswimapp.models)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.SwimStyle.DoesNotExist">SwimStyle.DoesNotExist</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.SwimStyle.DoesNotExist">SwimStyle.DoesNotExist</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.SwimStyle.MultipleObjectsReturned">SwimStyle.MultipleObjectsReturned</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.SwimStyle.MultipleObjectsReturned">SwimStyle.MultipleObjectsReturned</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.Event.swimstyle_set">swimstyle_set (easyswimapp.models.Event attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Event.swimstyle_set">swimstyle_set (easyswimapp.models.Event attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -715,16 +746,16 @@
   <h2 id="T">T</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Meet.timing">timing (easyswimapp.models.Meet attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Meet.timing">timing (easyswimapp.models.Meet attribute)</a>
 </li>
-      <li><a href="models.html#easyswimapp.models.LXF.title">title (easyswimapp.models.LXF attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.LXF.title">title (easyswimapp.models.LXF attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.AgeDate.type">type (easyswimapp.models.AgeDate attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeDate.type">type (easyswimapp.models.AgeDate attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Meet.type">(easyswimapp.models.Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Meet.type">(easyswimapp.models.Meet attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -734,18 +765,18 @@
   <h2 id="V">V</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.AgeDate.value">value (easyswimapp.models.AgeDate attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.AgeDate.value">value (easyswimapp.models.AgeDate attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Fee.value">(easyswimapp.models.Fee attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Fee.value">(easyswimapp.models.Fee attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Constructor.version">version (easyswimapp.models.Constructor attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Constructor.version">version (easyswimapp.models.Constructor attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.PointTable.version">(easyswimapp.models.PointTable attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.PointTable.version">(easyswimapp.models.PointTable attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -755,11 +786,11 @@
   <h2 id="W">W</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Session.warmupfrom">warmupfrom (easyswimapp.models.Session attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Session.warmupfrom">warmupfrom (easyswimapp.models.Session attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Session.warmupuntil">warmupuntil (easyswimapp.models.Session attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Session.warmupuntil">warmupuntil (easyswimapp.models.Session attribute)</a>
 </li>
   </ul></td>
   </tr>
@@ -768,12 +799,12 @@
   <h2 id="Z">Z</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
-      <li><a href="models.html#easyswimapp.models.Contact_Constructor.zip">zip (easyswimapp.models.Contact_Constructor attribute)</a>
+      <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Constructor.zip">zip (easyswimapp.models.Contact_Constructor attribute)</a>
 
       <ul style="list-style-type:none">
-        <li><a href="models.html#easyswimapp.models.Contact_Meet.zip">(easyswimapp.models.Contact_Meet attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Contact_Meet.zip">(easyswimapp.models.Contact_Meet attribute)</a>
 </li>
-        <li><a href="models.html#easyswimapp.models.Facility.zip">(easyswimapp.models.Facility attribute)</a>
+        <li><a href="apicomponents/models.html#easyswimapp.models.Facility.zip">(easyswimapp.models.Facility attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -804,6 +835,8 @@
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script defer="defer" src="_static/theme.js?v=e8bd915e"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({"theme": "dark", "themeVariables": {"lineColor": "#F8B229"}})</script>
   
 </body>
 </html>
