@@ -29,8 +29,9 @@ jobs:
         sphinx-build -b html ./source ./build 
       working-directory: backend/docs
 
-    - name: Auto-commit changes
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: "Update HTML documentation"
-        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Commit report
+      run: |
+        git config --global user.name 'Your Name'
+        git config --global user.email 'your-username@users.noreply.github.com'
+        git commit -am "Automated report"
+        git push
