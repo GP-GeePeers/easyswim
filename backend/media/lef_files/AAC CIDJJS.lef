@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LENEX version="3.0">
+  <CONSTRUCTOR name="SPLASH Team Manager 10" registration="Associacao Academica de Coimbra" version="10.70676">
+    <CONTACT name="Splash Software GmbH" street="Ahornweg 41" city="Spiegel b. Bern" zip="3095" country="CH" email="sales@swimrankings.net" internet="https://www.swimrankings.net" />
+  </CONSTRUCTOR>
+  <MEETS>
+    <MEET name="Campeonato Interdistrital de Juvenis, Juniores e Seniores PL" number="20" city="Coimbra" nation="POR" deadline="2023-07-05" course="LCM">
+      <POOL name="Centro Olimpico de Piscinas" />
+      <AGEDATE value="2023-07-14" type="POR" />
+      <QUALIFY from="2022-07-11" until="2023-07-03" />
+      <SESSIONS>
+        <SESSION number="1" date="2023-07-14" daytime="16:30">
+          <EVENTS>
+            <EVENT number="1" gender="M" eventid="10" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="2" gender="F" eventid="20" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="3" gender="M" eventid="30" preveventid="-1">
+              <SWIMSTYLE distance="1500" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="4" gender="F" eventid="40" preveventid="-1">
+              <SWIMSTYLE distance="1500" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+          </EVENTS>
+        </SESSION>
+        <SESSION number="2" date="2023-07-15" daytime="09:00">
+          <EVENTS>
+            <EVENT number="5" gender="M" eventid="50" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="6" gender="F" eventid="60" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="7" gender="M" eventid="70" preveventid="-1">
+              <SWIMSTYLE distance="800" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="8" gender="F" eventid="80" preveventid="-1">
+              <SWIMSTYLE distance="400" relaycount="1" stroke="MEDLEY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="9" gender="M" eventid="90" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="10" gender="F" eventid="100" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="11" gender="M" eventid="110" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="12" gender="F" eventid="120" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="13" gender="M" eventid="130" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="14" gender="F" eventid="140" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+          </EVENTS>
+        </SESSION>
+        <SESSION number="3" date="2023-07-15" daytime="16:00">
+          <EVENTS>
+            <EVENT number="15" eventid="150" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="MEDLEY" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="16" gender="F" eventid="160" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="17" gender="M" eventid="170" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="18" gender="F" eventid="180" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="19" gender="M" eventid="190" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="20" gender="F" eventid="200" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="21" gender="M" eventid="210" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="22" gender="F" eventid="220" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="23" gender="M" eventid="230" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="24" gender="M" eventid="240" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="25" gender="F" eventid="250" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+          </EVENTS>
+        </SESSION>
+        <SESSION number="4" date="2023-07-16" daytime="09:00">
+          <EVENTS>
+            <EVENT number="26" gender="F" eventid="260" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="4" stroke="MEDLEY" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="27" gender="M" eventid="270" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="4" stroke="MEDLEY" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="28" gender="F" eventid="280" preveventid="-1">
+              <SWIMSTYLE distance="800" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="29" gender="M" eventid="290" preveventid="-1">
+              <SWIMSTYLE distance="400" relaycount="1" stroke="MEDLEY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="30" gender="F" eventid="300" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="31" gender="M" eventid="310" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="32" gender="F" eventid="320" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="33" gender="M" eventid="330" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="34" gender="F" eventid="340" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="35" gender="M" eventid="350" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="36" eventid="360" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+          </EVENTS>
+        </SESSION>
+        <SESSION number="5" date="2023-07-16" daytime="16:00">
+          <EVENTS>
+            <EVENT number="37" gender="M" eventid="370" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="38" gender="F" eventid="380" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="39" gender="M" eventid="390" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="40" gender="F" eventid="400" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="41" gender="M" eventid="410" preveventid="-1">
+              <SWIMSTYLE distance="400" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="42" gender="F" eventid="420" preveventid="-1">
+              <SWIMSTYLE distance="400" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="43" gender="M" eventid="430" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="MEDLEY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="44" gender="F" eventid="440" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="MEDLEY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="45" gender="M" eventid="450" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="MEDLEY" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="46" gender="F" eventid="460" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="MEDLEY" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+          </EVENTS>
+        </SESSION>
+      </SESSIONS>
+      <CLUBS>
+        <CLUB clubid="10" name="Associacao Academica de Coimbra" shortname="Academica de Coimbra" code="AAC" nation="POR" region="ANC">
+          <ATHLETES>
+            <ATHLETE athleteid="4747" lastname="Campos" firstname="Ana Beatriz" gender="F" license="202249" birthdate="2008-07-20">
+              <ENTRIES>
+                <ENTRY eventid="80" entrytime="00:05:45.00">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="160" entrytime="00:01:12.69">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="200" entrytime="00:03:00.91">
+                  <MEETINFO course="LCM" date="2023-04-02" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="320" entrytime="00:02:42.53">
+                  <MEETINFO course="SCM" date="2022-12-18" city="Estarreja" nation="POR" name="Torneio Zonal de Juvenis - Zona Norte" />
+                </ENTRY>
+                <ENTRY eventid="440" entrytime="00:02:39.43">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="4785" lastname="Malhao" firstname="Bernardo Almas" gender="M" license="202060" birthdate="2007-01-09">
+              <ENTRIES>
+                <ENTRY eventid="90" entrytime="00:01:02.14">
+                  <MEETINFO course="LCM" date="2023-06-24" city="Coimbra" nation="POR" name="Taça ANC" />
+                </ENTRY>
+                <ENTRY eventid="310" entrytime="00:00:27.97">
+                  <MEETINFO course="LCM" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="5444" lastname="Neves" firstname="Rita Isabel" gender="F" license="209641" birthdate="2008-08-29">
+              <ENTRIES>
+                <ENTRY eventid="100" entrytime="00:01:08.85">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="220" entrytime="00:02:30.67">
+                  <MEETINFO course="LCM" date="2023-04-29" city="Coimbra" nation="POR" name="XXXVII Torneio de Natação do CNAC- Shigeo Tsukagoshi" />
+                </ENTRY>
+                <ENTRY eventid="300" entrytime="00:00:31.46">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="400" entrytime="00:00:35.24">
+                  <MEETINFO course="LCM" date="2023-01-22" city="Coimbra" nation="POR" name="Taça Velocidade" />
+                </ENTRY>
+                <ENTRY eventid="440" entrytime="00:02:52.08">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="5201" lastname="Pereira" firstname="Francisco Fernandes" gender="M" license="207471" birthdate="2008-05-05">
+              <ENTRIES>
+                <ENTRY eventid="110" entrytime="00:02:24.85">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="190" entrytime="00:00:33.24">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="230" entrytime="00:02:22.67">
+                  <MEETINFO course="LCM" date="2023-05-27" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" />
+                </ENTRY>
+                <ENTRY eventid="370" entrytime="00:01:08.91">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="410" entrytime="00:04:54.09">
+                  <MEETINFO course="LCM" date="2023-05-28" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="4422" lastname="Silva" firstname="David Ferreira" gender="M" license="132849" birthdate="2007-09-29">
+              <ENTRIES>
+                <ENTRY eventid="30" entrytime="00:18:05.67">
+                  <MEETINFO course="LCM" date="2023-05-27" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" />
+                </ENTRY>
+                <ENTRY eventid="70" entrytime="00:09:21.97">
+                  <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="230" entrytime="00:02:11.06">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="310" entrytime="00:00:27.53">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="410" entrytime="00:04:37.86">
+                  <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+          </ATHLETES>
+          <RELAYS>
+            <RELAY relayid="1" number="1" gender="X" agetotalmin="-1" agetotalmax="-1" agemin="14" agemax="15">
+              <ENTRIES>
+                <ENTRY eventid="360" entrytime="00:04:19.76">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="4422">
+                      <MEETINFO course="LCM" date="2023-05-28" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" qualificationtime="00:00:59.70" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="5444">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:08.85" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="4785">
+                      <MEETINFO course="LCM" date="2023-06-24" city="Coimbra" nation="POR" name="Taça ANC" qualificationtime="00:01:02.14" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="4747">
+                      <MEETINFO course="LCM" qualificationtime="00:01:09.07" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+              </ENTRIES>
+            </RELAY>
+          </RELAYS>
+        </CLUB>
+      </CLUBS>
+    </MEET>
+  </MEETS>
+</LENEX>

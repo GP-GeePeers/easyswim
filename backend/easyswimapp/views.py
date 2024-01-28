@@ -9,6 +9,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
 import os
+from django.core.serializers.json import DjangoJSONEncoder
+
 
 """
 views.py
@@ -19,12 +21,25 @@ This module contains the views for the EasySwim app, handling HTTP requests and 
 
 def home(request):
     """
-    Handles the HTTP request and returns a greeting response.
+    Renders the home page.
 
     :param request: HttpRequest object
-    :return: HttpResponse object with a greeting message
+    :return: HttpResponse object containing the rendered home page
     """
-    return HttpResponse("Hello World! - EasySwim")
+    return HttpResponse(request)
+
+class DashboardView(APIView):
+    http_method_names = ['get', 'post']
+
+    def get(self, request):
+        """
+        Handles GET requests for the dashboard view.
+
+        :param request: HttpRequest object
+        :return: JsonResponse object containing internal database information
+        """
+        
+        return model_data_view(request)
 
 class LXFView(APIView):
     """
@@ -85,32 +100,26 @@ def model_data_view(request):
     :param request: HttpRequest object
     :return: JSON response containing data from various models
     """
-    meets = list(Meet.objects.values())
-    events = list(Event.objects.values())
-    cons = list(Constructor.objects.values())
-    cont_constructor = list(Contact_Constructor.objects.values())
-    cont_meet = list(Contact_Meet.objects.values())
-    pool = list(Pool.objects.values())
-    facility = list(Facility.objects.values())
-    pointtable = list(PointTable.objects.values())
-    session = list(Session.objects.values())
-    swimstyle = list(SwimStyle.objects.values())
-    fee = list(Fee.objects.values())
-    agegroup = list(AgeGroup.objects.values())
+    try:
+        meets = list(Meet.objects.values())
+        '''events = list(Event.objects.values())
+        cons = list(Constructor.objects.values())
+        #cont_constructor = list(Contact_Constructor.objects.values())
+        cont_meet = list(Contact_Meet.objects.values())
+        pool = list(Pool.objects.values())
+        facility = list(Facility.objects.values())
+        pointtable = list(PointTable.objects.values())
+        session = list(Session.objects.values())
+        swimstyle = list(SwimStyle.objects.values())
+        fee = list(Fee.objects.values())
+        agegroup = list(AgeGroup.objects.values())
+        '''
 
-    data = {
-        'meets': meets,
-        'events': events,
-        'constructor': cons,
-        'contact_constructor': cont_constructor,
-        'contact_meet': cont_meet,
-        'pool': pool,
-        'facility': facility,
-        'pointtable': pointtable,
-        'session': session,
-        'swimstyle': swimstyle,
-        'fee': fee,
-        'agegroup': agegroup,
-    }
+        data = {
+            'meets': meets,
+        }
 
-    return JsonResponse(data)
+        return JsonResponse(data, safe=False, encoder=DjangoJSONEncoder)
+    except Exception as e:
+        error_message = f"Error: {str(e)}"
+        return JsonResponse({'error': error_message}, status=500)

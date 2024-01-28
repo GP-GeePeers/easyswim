@@ -7,6 +7,8 @@ urlpatterns = [
     path('lxf/', views.LXFView.as_view(), name= 'lxf_list'),
     path('read-lef/', read_lef_view, name='read-lef'),
     path('model-data/', model_data_view, name='model-data-view'),
+    path('', views.DashboardView.as_view(), name='home'),
+
 ]
 
 """
