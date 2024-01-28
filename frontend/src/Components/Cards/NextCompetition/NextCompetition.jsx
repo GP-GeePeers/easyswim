@@ -15,7 +15,7 @@ function NextCompetition(props) {
                             Associação Académica de Coimbra
                         </div>
                     </div>
-                    <div className={classes.lineOrganization} />
+                    <div className={classes.verticalLine} />
                     <button
                         className={classes.competitionContainer}
                         onClick={props.changeCompDetailsModal}
@@ -25,11 +25,11 @@ function NextCompetition(props) {
                             Seniores PL
                         </div>
                     </button>
-                    <div className={classes.line} />
+                    <div className={classes.verticalLine} />
                     <div className={classes.dateContainer}>
                         <div className={classes.text}>17/02/2024</div>
                     </div>
-                    <div className={classes.line} />
+                    <div className={classes.verticalLineState} />
                     <div className={classes.stateContainer}>
                         <Button type={props.active} disabled></Button>
                     </div>

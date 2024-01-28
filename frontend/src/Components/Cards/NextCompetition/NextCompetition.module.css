@@ -36,8 +36,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-width: 30vw;
-    max-width: 40vw;
+    width: 40vw;
     background-color: transparent;
     border-color: transparent;
 }
@@ -87,8 +86,8 @@
     color: #e3efee;
 }
 
-.line,
-.lineOrganization {
+.verticalLine,
+.verticalLineState {
     border-left: 1px solid #335c58;
     height: 2.1rem;
     margin: 0 1rem;
@@ -101,8 +100,8 @@
     .dateContainer {
         width: 18%;
     }
-    .competitionContainer {
-        width: 38%;
+    .organizationContainer {
+        width: 22vw;
     }
     .stateContainer {
         width: 20%;
@@ -116,10 +115,13 @@
         line-height: normal;
         letter-spacing: -0.14px;
     }
-    .organizationContainer {
+    .competitionText {
+        font-size: 14px;
+    }
+    .stateContainer {
         display: none;
     }
-    .lineOrganization {
+    .verticalLineState {
         display: none;
     }
     .competitionText::before,
