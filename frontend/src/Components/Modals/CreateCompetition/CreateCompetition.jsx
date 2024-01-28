@@ -1,10 +1,10 @@
 import React, { useState, createRef, useEffect } from "react";
 import axios from "axios";
 import classes from "./CreateCompetition.module.css";
-import Button from "../Buttons/Button";
-import Card from "../Cards/Card";
-import addDocument from "./Assets/addDocument.png";
-import document from "./Assets/document.png";
+import Button from "../../Buttons/Button";
+import Card from "../../Cards/Card";
+import addDocument from "../Assets/addDocument.png";
+import document from "../Assets/document.png";
 
 function CreateCompetition(props) {
     const [lxfFile, setLxfFile] = useState(null);
@@ -68,7 +68,7 @@ function CreateCompetition(props) {
             setErrorMessage("Por favor, selecione um ficheiro.");
         }
 
-        let url = "http://localhost:8000/api/lxf/";
+        let url = "http://localhost:8000/api/lxf/"; //TODO Change url to the real endpoint
         axios
             .post(url, form_data, {
                 headers: {
@@ -88,6 +88,18 @@ function CreateCompetition(props) {
             .catch((err) => console.log(err));
     };
 
+    const formatFileSize = (bytes) => {
+        const units = ["Bytes", "KB", "MB", "GB", "TB"];
+        let i = 0;
+
+        while (bytes >= 1024 && i < units.length - 1) {
+            bytes /= 1024;
+            i++;
+        }
+
+        return `${bytes.toFixed(2)} ${units[i]}`;
+    };
+
     return (
         <div>
             {props.createCompModal && (
@@ -103,7 +115,7 @@ function CreateCompetition(props) {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className={classes.headerContainer}>
-                            <h1>Upload ficheiro</h1>
+                            <div className={classes.title}>Upload ficheiro</div>
                             <Button
                                 type={"secondary"}
                                 text={"Cancelar"}
@@ -111,7 +123,7 @@ function CreateCompetition(props) {
                             />
                         </div>
                         <div className={classes.topCardContainer}>
-                            <Card type={"primary"}>
+                            <Card centered>
                                 <img
                                     src={addDocument}
                                     style={{
@@ -163,7 +175,7 @@ function CreateCompetition(props) {
                             </Card>
                         </div>
                         <div className={classes.bottomCardContainer}>
-                            <Card type={"primary"}>
+                            <Card>
                                 <div className={classes.inputFile}>
                                     <img
                                         src={document}
@@ -175,7 +187,10 @@ function CreateCompetition(props) {
                                             ? lxfFile.name
                                             : "Introduza um ficheiro"}
                                     </p>
-                                    <p>{lxfFile && lxfFile.size + " bytes"}</p>
+                                    <p>
+                                        {lxfFile &&
+                                            formatFileSize(lxfFile.size)}
+                                    </p>
                                 </div>
                             </Card>
                         </div>

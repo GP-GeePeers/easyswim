@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./Sidebar.module.css";
 import Button from "../Buttons/Button";
@@ -10,11 +10,20 @@ import logout from "./Assets/logout1.png";
 function Sidebar(props) {
     const [clickedComp, setClickedComp] = useState(false);
     const [clickedProfile, setClickedProfile] = useState(false);
+    const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
 
     let Sidebar = classes.Sidebar;
     if (props.retracted) {
         Sidebar += ` ${classes.SidebarRetracted}`;
     }
+
+    useEffect(() => {
+        const updateWidth = () => {
+            setCurrentWidth(window.innerWidth);
+        };
+        window.addEventListener("resize", updateWidth);
+        return () => window.removeEventListener("resize", updateWidth);
+    }, []);
 
     return (
         <div className={Sidebar}>
@@ -24,10 +33,10 @@ function Sidebar(props) {
                 onClick={() => {
                     setClickedComp(false);
                     setClickedProfile(false);
+                    currentWidth <= 667 && props.setRetracted(true);
                 }}
             >
                 <div className={classes.TitleLogoContainer}>
-                    {/* Redirecionar para a página inicial ao clicar */}
                     <img
                         src={process.env.PUBLIC_URL + "/Assets/Images/logo.png"}
                         style={{
@@ -49,7 +58,6 @@ function Sidebar(props) {
                     )}
                 </div>
             </NavLink>
-            {/* <div className={classes.SidebarContent}></div> */}
             <div className={classes.ListButtonContainer}>
                 <NavLink to="/TestsList" style={{ textDecoration: "none" }}>
                     <Button
@@ -60,6 +68,7 @@ function Sidebar(props) {
                         onClick={() => {
                             setClickedComp(!clickedComp);
                             setClickedProfile(false);
+                            currentWidth <= 667 && props.setRetracted(true);
                         }}
                     />
                 </NavLink>
@@ -72,6 +81,7 @@ function Sidebar(props) {
                         onClick={() => {
                             setClickedProfile(!clickedProfile);
                             setClickedComp(false);
+                            currentWidth <= 667 && props.setRetracted(true);
                         }}
                     />
                 </NavLink>
@@ -89,14 +99,13 @@ function Sidebar(props) {
                 />
                 <Button
                     type={"close"}
-                    text={props.retracted ? ">" : "Fechar"}
+                    text={props.retracted ? "➤" : "Fechar"}
                     retracted={props.retracted}
                     onClick={() => {
                         props.setRetracted(!props.retracted);
                     }}
                 />
             </div>
-            {/* Seta clicável para expandir ou retrair a sidebar */}
         </div>
     );
 }

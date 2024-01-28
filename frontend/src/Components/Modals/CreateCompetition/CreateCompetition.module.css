@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     z-index: 91;
+    backdrop-filter: blur(10px);
 }
 
 .createCompModal {
@@ -22,6 +23,7 @@
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
+    box-shadow: 0px 0px 26px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-height: 708px) {
@@ -115,6 +117,8 @@
     align-items: center;
     flex-direction: column;
     margin: 2rem 0;
+    padding: 1rem 1.25rem;
+    width: calc(100% - 2.5rem);
 }
 
 .bottomCardContainer {
@@ -123,6 +127,8 @@
     align-items: center;
     flex-direction: column;
     margin: 0.5rem 0;
+    padding: 0 1.25rem;
+    width: calc(100% - 2.5rem);
 }
 
 .inputFile {
@@ -171,7 +177,7 @@
     animation: colorChangeSuccess 1s forwards;
 }
 
-h1 {
+.title {
     color: #b7bab6;
     font-family: Poppins;
     font-size: 24px;

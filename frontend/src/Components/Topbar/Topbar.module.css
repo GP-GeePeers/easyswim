@@ -1,37 +1,21 @@
 .Sidebar {
     display: flex;
     flex: 1;
-    height: 100vh;
-    min-height: 380px;
-    flex-direction: column;
-    min-width: 306px;
-    max-width: 306px;
-    align-items: center;
+    height: 3rem;
+    flex-direction: row;
+    min-width: 100%;
+    max-width: 100%;
+    align-items: flex-start;
     justify-content: flex-start;
-}
-
-@media (max-width: 667px) {
-    .Sidebar {
-        position: fixed;
-        min-width: 100%;
-        max-width: 100%;
-        overflow: hidden;
-        z-index: 90;
-        background-color: #0f1110;
-    }
-}
-
-.SidebarRetracted {
-    max-width: 102px;
-    min-width: 102px;
+    background-color: #0f1110;
 }
 
 .SidebarHeader {
     position: fixed;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 1rem 0.8rem;
     z-index: 2;
 }
 
@@ -55,7 +39,7 @@
     position: fixed;
     display: flex;
     flex: 1;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin-top: 8rem;
     gap: 1.1rem;
@@ -67,9 +51,9 @@
 .BottomButtonContainer {
     display: flex;
     flex: 1;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    margin-bottom: 2.4rem;
+    margin: 1rem 1rem;
     z-index: 1;
 }
