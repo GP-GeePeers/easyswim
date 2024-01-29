@@ -1,0 +1,59 @@
+.Sidebar {
+    display: flex;
+    flex: 1;
+    height: 3rem;
+    flex-direction: row;
+    min-width: 100%;
+    max-width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #0f1110;
+}
+
+.SidebarHeader {
+    position: fixed;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 1rem 0.8rem;
+    z-index: 2;
+}
+
+.TitleLogoContainer {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+}
+
+.Logo {
+    height: 2.7rem;
+}
+
+.Title {
+    height: 2.26rem;
+}
+
+.ListButtonContainer {
+    position: fixed;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8rem;
+    gap: 1.1rem;
+    z-index: 1;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.BottomButtonContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 1rem 1rem;
+    z-index: 1;
+}
