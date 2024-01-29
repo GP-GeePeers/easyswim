@@ -79,17 +79,15 @@ class LXFView(APIView):
 
         lxf_serializer = LXFSerializer(data=request.data)
 
-        #dir = os.path.join(settings.MEDIA_ROOT, 'lxf_files') 
-        #upload_blob("easyswim", request.data, "1.lxf")
-
-        #print(request.data.title)
-
-        file_path = os.path.join(settings.MEDIA_ROOT, 'lxf_files', request.data['title'])
-        
-        upload_blob("easyswim",file_path,"meets/1.lxf")
+        print(request.data)
 
         if lxf_serializer.is_valid():
             lxf_serializer.save()
+
+            #file_path = os.path.join(settings.MEDIA_ROOT, 'lxf_files', request.data['title'])
+
+            #upload_blob("easyswim", file_path, "meets/1.lxf")
+
             return Response(lxf_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(lxf_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
