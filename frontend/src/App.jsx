@@ -76,6 +76,7 @@ function App() {
             <CompetetionDetails
                 compDetailsModal={compDetailsModal}
                 changeCompDetailsModal={changeCompDetailsModal}
+                create
             />
             <PageContent
                 organization={organization}

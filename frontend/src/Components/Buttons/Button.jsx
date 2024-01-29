@@ -12,7 +12,7 @@ function Button(props) {
         text = props.text;
         if (props.disabled) {
             buttonClass += ` ${classes.smallSecondaryButton}`;
-            text = "Inactive";
+            text = "Inativo";
         }
         if (props.retracted) {
             buttonClass += ` ${classes.retractedSecondaryButton}`;
@@ -50,7 +50,7 @@ function Button(props) {
         text = props.text;
         if (props.disabled) {
             buttonClass += ` ${classes.smallPrimaryButton}`;
-            text = "Active";
+            text = "Ativo";
         }
         if (props.retracted) {
             buttonClass += ` ${classes.retractedPrimaryButton}`;

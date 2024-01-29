@@ -65,14 +65,22 @@ function CompetetionDetails(props) {
                                         onClick={handleCloseModal}
                                     >
                                         <Button
-                                            text={"Apagar prova"}
+                                            text={
+                                                props.create
+                                                    ? "Apagar prova"
+                                                    : "Confirmar"
+                                            }
                                             onClick={
                                                 props.changeCreateCompModal
                                             }
                                         />
                                         <Button
                                             type={"secondary"}
-                                            text={"Fechar"}
+                                            text={
+                                                props.create
+                                                    ? "Fechar"
+                                                    : "Cancelar"
+                                            }
                                             onClick={
                                                 props.changeCreateCompModal
                                             }
