@@ -20,7 +20,7 @@ import {
     LOGOUT
 } from './types';
 
-const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 export const load_user = () => async dispatch => {
     if (localStorage.getItem('access')) {
