@@ -5,6 +5,7 @@ import Button from "../../Components/Buttons/Button";
 
 function Home(props) {
     const [TABLE_DATA, setTableData] = useState([]);
+    const [mockTableData, setMockTableData] = useState([]); // Mock data for testing
     const [searchInput, setSearchInput] = useState("");
     let [selectedOrder, setSelectedOrder] = useState("Mais recente");
 
@@ -15,26 +16,27 @@ function Home(props) {
         id: 1,
         organizer: "Associação Académica de Coimbra",
         name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
+        date: "15-07-2023",
         state: "active"
     },
     {
         id: 2,
-        organizer: "BAssociação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
+        organizer: "Associação Académica de Coimbra",
+        name: "ACampeonato interdistrital de Juvenis, Juniores e Seniores PL",
         date: "14-06-2023",
         state: "inactive"
     },
     {
         id: 3,
-        organizer: "CAssociação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-05-2024",
+        organizer: "Associação Académica de Coimbra",
+        name: "RCampeonato interdistrital de Juvenis, Juniores e Seniores PL",
+        date: "16-05-2024",
         state: "active"
     },
 ]
 
     useEffect(() => {
+        setMockTableData(TABLE_DATA0);
         const fetchData = async () => {
           try {
             const response = await fetch("http://127.0.0.1:8000/api/meets-data/");
@@ -62,12 +64,10 @@ function Home(props) {
         };
     
         fetchData();
-    });
+    }, []);
     
     const tableDataLength = TABLE_DATA ? TABLE_DATA.length : 0;
        
-
-//////
     let container = classes.container;
     let itemsPerPage = 8;
     var totalPages;
@@ -75,21 +75,37 @@ function Home(props) {
     // Dropdown options
     let handleOrderOptionClick = (option) => {
         console.log(option);
-        TABLE_DATA0?.filter(
+        setMockTableData(TABLE_DATA0?.filter(
             (row) =>
             row.organizer.toLowerCase().includes(searchInput.toLowerCase()) ||
             row.name.toLowerCase().includes(searchInput.toLowerCase())
             )
             .sort((a, b) => {
-                if (selectedOrder === "Mais antigo") {
-                    return new Date(a.date) - new Date(b.date);
-                } else if (selectedOrder === "Nome") {
+                console.log(option);
+                let returnDate;
+                if (option === "Mais antigo") {
+                    if (a.date < b.date) {
+                        returnDate = -1;
+                    } else if (a.date > b.date) {
+                        returnDate = 1;
+                    } else {
+                        returnDate = 0;
+                    }
+                    return returnDate;
+                } else if (option === "Nome") {
                     return a.name.localeCompare(b.name);
                 } else {
-                    return new Date(b.date) - new Date(a.date);
+                    if (a.date < b.date) {
+                        returnDate = 1;
+                    } else if (a.date > b.date) {
+                        returnDate = -1;
+                    } else {
+                        returnDate = 0;
+                    }
+                    return returnDate;
                 }
-            })
-        console.log(TABLE_DATA0)
+            }))
+        
         setSelectedOrder(option);
     };
 
@@ -143,8 +159,8 @@ function Home(props) {
                     </div>
 
                     {/* Table 0 */}
+                        {getNextCompetition(TABLE_DATA) !== null ? (
                     <div className={classes.table}>
-                        {getNextCompetition(TABLE_DATA) && (
                             <div key={getNextCompetition(TABLE_DATA).id} className={classes.tableRow0}>
                                 <div className={`${classes.tableCell} ${classes.organizerColumn}`}>{getNextCompetition(TABLE_DATA).organizer}</div>
                                 <div className={`${classes.tableCell} ${classes.nameColumn}`}>{getNextCompetition(TABLE_DATA).name}</div>
@@ -164,8 +180,10 @@ function Home(props) {
                                     )} 
                                 </div>
                             </div>
-                        )}
                     </div>
+                        ) : (
+                        <div style={{'color': "white"}}>Não está inscrito em nenhuma competição!</div>
+                            )}
                 </div>
 
                 <div className={classes.box}>
@@ -189,22 +207,9 @@ function Home(props) {
                                         <a
                                             key={option}
                                             href="/"
-                                            onClick={() => {
+                                            onClick={(event) => {
+                                                event.preventDefault();
                                                 handleOrderOptionClick(option);
-                                                TABLE_DATA0?.filter(
-                                                    (row) =>
-                                                    row.organizer.toLowerCase().includes(searchInput.toLowerCase()) ||
-                                                    row.name.toLowerCase().includes(searchInput.toLowerCase())
-                                                )
-                                                .sort((a, b) => {
-                                                    if (selectedOrder === "Mais antigo") {
-                                                    return new Date(a.date) - new Date(b.date);
-                                                    } else if (selectedOrder === "Nome") {
-                                                    return a.name.localeCompare(b.name);
-                                                    } else {
-                                                    return new Date(b.date) - new Date(a.date);
-                                                    }
-                                                })
                                                 }
                                             }
                                         >
@@ -227,7 +232,7 @@ function Home(props) {
                                 <div className={`${classes.tableCellHeader} ${classes.stateColumn}`}>ESTADO</div>
                             </div>
                         </div>
-                        {TABLE_DATA0?.map((row) => (
+                        {mockTableData?.map((row) => (
                             <div key={row.id} className={classes.tableRow}>
                                 <div className={`${classes.tableCell} ${classes.organizerColumn}`}>{row.organizer}</div>
                                 <div className={`${classes.tableCell} ${classes.nameColumn}`}>{row.name}</div>
