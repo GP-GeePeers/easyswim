@@ -12,7 +12,7 @@ coreschema==0.0.4
 cryptography==40.0.2
 defusedxml==0.7.1
 diff-match-patch==20230430
-Django==5.0.1
+Django==4.1.9
 django-cors-headers==4.0.0
 django-import-export==2.8.0
 django-multiselectfield==0.1.12
@@ -20,8 +20,8 @@ django-rest-swagger==2.2.0
 django-templated-mail==1.1.1
 djangorestframework==3.14.0
 djangorestframework-jsonapi==6.0.0
-djangorestframework-jwt==1.11.0
-djangorestframework-simplejwt==5.2.2
+djangorestframework-jwt
+djangorestframework-simplejwt
 djoser==2.2.2
 docutils==0.20.1
 drf-yasg==1.21.7
@@ -43,7 +43,7 @@ psycopg2==2.9.9
 psycopg2-binary==2.9.9
 pycparser==2.21
 Pygments==2.17.2
-PyJWT==2.8.0
+PyJWT
 python-dateutil==2.8.2
 python3-openid==3.2.0
 pytz==2023.3
@@ -56,7 +56,7 @@ simplejson==3.19.2
 six==1.16.0
 snowballstemmer==2.2.0
 social-auth-app-django==5.4.0
-social-auth-core==4.5.1
+social-auth-core
 Sphinx==7.2.6
 sphinxcontrib-applehelp==1.0.7
 sphinxcontrib-devhelp==1.0.5
