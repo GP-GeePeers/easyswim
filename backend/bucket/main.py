@@ -28,7 +28,22 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
     print(
         f"File {source_file_name} uploaded to {destination_blob_name}."
     )
+def download_blob(bucket_name, source_blob_name, destination_file_name):
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(source_blob_name)
 
+    # Download the blob to a local file
+    blob.download_to_filename(destination_file_name)
 
-upload_blob("easyswim_bucket","t.txt","test.txt")
+    print(f"Blob {source_blob_name} downloaded to {destination_file_name}.")
 
+# Replace 'easyswim_bucket', 'source_blob.txt', and 'downloaded_file.txt' with your specifics
+try:
+    download_blob('easyswim_bucket', 'tes.txt', 'downloaded_file.txt')
+except:
+    print("Ficheiro nao existe")
+try:
+    upload_blob("easyswim_bucket","t.txt","test1.txt")
+except:
+    print("Ficheiro com este nome ja existe")

@@ -1,0 +1,214 @@
+.createCompModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(50, 50, 50, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 91;
+    backdrop-filter: blur(10px);
+}
+
+.createCompModal {
+    position: absolute;
+    background: #fff;
+    padding: 1.5rem 2.5rem;
+    border-radius: 30px;
+    z-index: 92;
+    background-color: #010101;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0px 0px 26px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-height: 708px) {
+    .createCompModal {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-height: 667px) {
+    .createCompModal {
+        transform: scale(0.8);
+    }
+}
+
+@media (max-height: 588px) {
+    .createCompModal {
+        transform: scale(0.7);
+    }
+}
+
+@media (max-height: 529px) {
+    .createCompModal {
+        transform: scale(0.6);
+    }
+}
+
+@media (max-height: 471px) {
+    .createCompModal {
+        transform: scale(0.5);
+    }
+}
+
+@media (max-height: 350px) {
+    .createCompModal {
+        transform: scale(0.4);
+    }
+}
+
+@media (max-height: 280px) {
+    .createCompModal {
+        transform: scale(0.3);
+    }
+}
+
+@media (max-height: 235px) {
+    .createCompModal {
+        display: none;
+    }
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 1.5rem;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+}
+
+.textCombo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    flex-direction: row;
+    /* margin-top: 4.5%; */
+}
+
+@media (max-width: 978px) {
+    .textCombo {
+        flex-direction: column;
+    }
+
+    p {
+        flex-direction: row;
+    }
+}
+
+.topCardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem 0;
+    padding: 1rem 1.25rem;
+    width: calc(100% - 2.5rem);
+}
+
+.bottomCardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0.5rem 0;
+    padding: 0 1.25rem;
+    width: calc(100% - 2.5rem);
+}
+
+.inputFile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 20%;
+    gap: 2rem;
+}
+
+@keyframes colorChangeError {
+    from {
+        color: #ffffff;
+    }
+
+    to {
+        color: #ff0000;
+    }
+}
+
+.errorText {
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    animation: colorChangeError 1s forwards;
+}
+
+@keyframes colorChangeSuccess {
+    from {
+        color: #ffffff;
+    }
+
+    to {
+        color: #00ff44;
+    }
+}
+
+.successText {
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    animation: colorChangeSuccess 1s forwards;
+}
+
+.title {
+    color: #b7bab6;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+p {
+    color: #b7bab6;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+label {
+    color: #b7bab6;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+@media (max-width: 642px) {
+    p {
+        font-size: 21px;
+    }
+}
