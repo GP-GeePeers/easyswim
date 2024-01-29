@@ -104,6 +104,41 @@ def descompactar_todos_lxf():
                     break
 
 
+def read_preview_lenex(input_file, bucket_path):
+    """
+    Reads LENEX file "MeetManager" and returns the data as JSON.
+    This function parses a LENEX file, extracts relevant information, and
+    returns the data in JSON format.
+
+    Parameters:
+    - input_file (str): The path to the input LENEX file.
+    - bucket_path (str): The bucket path associated with the file.
+    """
+    tree = ET.parse(input_file)
+    meet_manager_objects = []
+    root = tree.getroot()
+
+    for meets in root.findall('.//MEET'):
+        meet_manager_obj = {
+            'bucket_path': bucket_path,
+            'name': meets.get('name'),
+            'city': meets.get('city'),
+            'course': meets.get('course'),
+            'deadline': meets.get('deadline'),
+            'number': meets.get('number'),
+            'organizer': meets.get('organizer'),
+            'organizer_url': meets.get('organizer.url'),
+            'reservecount': meets.get('reservecount'),
+            'startmethod': meets.get('startmethod'),
+            'timing': meets.get('timing'),
+            'type': meets.get('type'),
+            'nation': meets.get('nation'),
+            'maxentriesathlete': meets.get('maxentriesathlete')
+        }
+        meet_manager_objects.append(meet_manager_obj)
+    return  meet_manager_objects
+
+
 
 @transaction.atomic
 def read_save_lenex(input_file, bucket_path):
