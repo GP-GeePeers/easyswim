@@ -1,112 +1,59 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState , useEffect} from "react";
 import ReactPaginate from "react-paginate";
 import classes from "./Home.module.css";
 import Button from "../../Components/Buttons/Button";
 
-const TABLE_DATA0 = [ // Proxima Competicao
-    {
-        id: 1,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
-        state: "active"
-    },
-]
-
-const ORDER_OPTIONS = ["Mais recente", "Mais antigo", "Nome"]
-
-const TABLE_DATA = [ // Competicoes Inscritas
-    {
-        id: 1,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
-        state: "active"
-    },
-    {
-        id: 2,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
-        state: "inactive"
-    },
-    {
-        id: 3,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
-        state: "inactive"
-    },
-    {
-        id: 4,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
-        state: "active"
-    },
-    {
-        id: 5,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
-        state: "active"
-    },
-    {
-        id: 6,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
-        state: "inactive"
-    },
-    {
-        id: 7,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
-        state: "inactive"
-    },
-    {
-        id: 8,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
-        state: "active"
-    },
-    {
-        id: 9,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
-        state: "inactive"
-    },
-    {
-        id: 10,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-07-2023",
-        state: "active"
-    },
-    // Add more data as needed
-];
-
 function Home(props) {
+    const [TABLE_DATA, setTableData] = useState([]);
+
+    const ORDER_OPTIONS = ["Mais recente", "Mais antigo", "Nome"];
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch("http://127.0.0.1:8000/api/meets-data/");
+            const data = await response.json();
+            const currentDate = new Date();
+    
+            const updatedTableData = data.meets.map((meet) => {
+              const meetDate = new Date(meet.deadline);
+              const isActive = meetDate >= currentDate;
+    
+              return {
+                id: meet.id,
+                organizer: meet.organizer,
+                name: meet.name,
+                date: meet.deadline,
+                state: isActive ? "active" : "inactive",
+              };
+            });
+    
+            setTableData(updatedTableData);
+            
+          } catch (error) {
+            console.error("Error:", error);
+          }
+        };
+    
+        fetchData();
+    });
+
+
+    const tableDataLength = TABLE_DATA ? TABLE_DATA.length : 0;
+       
+
+//////
     let container = classes.container;
     let [selectedOrder, setSelectedOrder] = useState("Mais recente");
-    let minComp=1, maxComp=8, totalComp=80;
-    let currentPage=0, totalPages=2, onPageChange=3, itemsPerPage = 8;
+    let itemsPerPage = 8;
+    var totalPages;
 
     // Dropdown options
     let handleOrderOptionClick = (option) => {
         setSelectedOrder(option);
     };
 
-    //totalComp = total quantity of competitions
-    if (totalComp < maxComp) {
-        maxComp = totalComp;
-    }
-
-    totalPages = Math.ceil(totalComp / itemsPerPage); // 8 competitions per page
+    totalPages = Math.ceil(tableDataLength / itemsPerPage); // 8 competitions per page
 
     // React Paginate
     const [currentPage0, setCurrentPage] = useState(0);
@@ -119,6 +66,31 @@ function Home(props) {
         container += ` ${classes.containerRetracted}`;
     };
 
+    // Next competition
+    function getNextCompetition(tableData) {
+        if (!tableData || !Array.isArray(tableData)) {
+            // If tableData is undefined or not an array, return null
+            return null;
+        }
+    
+        const currentDate = new Date();
+    
+        for (const meet of tableData) {
+            if (!meet || typeof meet !== 'object' || !meet.date) {
+                // Skip invalid meets without a date
+                continue;
+            }
+    
+            const meetDate = new Date(meet.date);
+    
+            if (meet.state === 'active' && meetDate >= currentDate) {
+                return meet;
+            }
+        }
+    
+        return null;
+    };
+    
 
     // HTML
     return (
@@ -132,27 +104,27 @@ function Home(props) {
 
                     {/* Table 0 */}
                     <div className={classes.table}>
-                        {TABLE_DATA0.map((row) => (
-                            <div key={row.id} className={classes.tableRow0}>
-                                <div className={`${classes.tableCell} ${classes.organizerColumn}`}>{row.organizer}</div>
-                                <div className={`${classes.tableCell} ${classes.nameColumn}`}>{row.name}</div>
-                                <div className={`${classes.tableCell} ${classes.dateColumn}`}>{row.date}</div>
+                        {getNextCompetition(TABLE_DATA) && (
+                            <div key={getNextCompetition(TABLE_DATA).id} className={classes.tableRow0}>
+                                <div className={`${classes.tableCell} ${classes.organizerColumn}`}>{getNextCompetition(TABLE_DATA).organizer}</div>
+                                <div className={`${classes.tableCell} ${classes.nameColumn}`}>{getNextCompetition(TABLE_DATA).name}</div>
+                                <div className={`${classes.tableCell} ${classes.dateColumn}`}>{getNextCompetition(TABLE_DATA).date}</div>
                                 <div className={`${classes.tableCell} ${classes.stateColumn}`}>
-                                    {row.state === "active" ? (
+                                    {getNextCompetition(TABLE_DATA).state === "active" ? (
                                         <Button
-                                            text={row.state}
+                                            text={getNextCompetition(TABLE_DATA).state}
                                             disabled={true}
                                         />
                                     ) : (
                                         <Button
-                                            text={row.state}
+                                            text={getNextCompetition(TABLE_DATA).state}
                                             type="secondary"
                                             disabled={true}
                                         />
                                     )} 
                                 </div>
                             </div>
-                        ))}
+                        )}
                     </div>
                 </div>
 
@@ -174,7 +146,7 @@ function Home(props) {
                                     {ORDER_OPTIONS.map((option) => (
                                         <a
                                             key={option}
-                                            href="#"
+                                            href={"/" + {option}}
                                             onClick={() => handleOrderOptionClick(option)}
                                         >
                                             {option}
@@ -196,7 +168,7 @@ function Home(props) {
                                 <div className={`${classes.tableCellHeader} ${classes.stateColumn}`}>ESTADO</div>
                             </div>
                         </div>
-                        {TABLE_DATA.map((row) => (
+                        {TABLE_DATA?.map((row) => (
                             <div key={row.id} className={classes.tableRow}>
                                 <div className={`${classes.tableCell} ${classes.organizerColumn}`}>{row.organizer}</div>
                                 <div className={`${classes.tableCell} ${classes.nameColumn}`}>{row.name}</div>
@@ -221,7 +193,7 @@ function Home(props) {
 
                     {/* Page Number and Buttons */}
                     <div className={classes.pageContainer}>
-                        <span>Dados {currentPage0 * itemsPerPage + 1} a {Math.min((currentPage0 + 1) * itemsPerPage, totalComp)} de {totalComp} entradas</span>
+                        <span>Dados {currentPage0 * itemsPerPage + 1} a {Math.min((currentPage0 + 1) * itemsPerPage, tableDataLength )} de {tableDataLength} entradas</span>
                         <div className={classes.pageContainerButtons}>
 
                             <ReactPaginate

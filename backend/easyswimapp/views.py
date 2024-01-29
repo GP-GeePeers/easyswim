@@ -120,6 +120,20 @@ def model_data_view(request):
 
     return JsonResponse(data)
 
+def meets_model_data_view(request):
+    """
+    Retrieves data from meets models and returns it as a JSON response.
+    :param request: HttpRequest object
+    :return: JSON response containing data from meets models
+    """
+    meets = list(Meet_MeetManager.objects.values())
+
+    data = {
+        'meets': meets
+    }
+
+    return JsonResponse(data)
+
 
 def read_TeamManager_view(request):
     
