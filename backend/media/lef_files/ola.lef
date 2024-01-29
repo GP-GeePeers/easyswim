@@ -1,0 +1,1170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LENEX version="3.0">
+  <CONSTRUCTOR name="SPLASH Team Manager 10" registration="Clube dos Galitos" version="10.75980">
+    <CONTACT name="Splash Software GmbH" street="Ahornweg 41" city="Spiegel b. Bern" zip="3095" country="CH" email="sales@swimrankings.net" internet="https://www.swimrankings.net" />
+  </CONSTRUCTOR>
+  <MEETS>
+    <MEET name="Campeonato Interdistrital de Juvenis, Juniores e Seniores PL" number="20" city="Coimbra" nation="POR" deadline="2023-07-05" course="LCM">
+      <POOL name="Centro Olimpico de Piscinas" />
+      <AGEDATE value="2023-07-14" type="POR" />
+      <QUALIFY from="2022-07-11" until="2023-06-28" />
+      <SESSIONS>
+        <SESSION number="1" date="2023-07-14" daytime="16:30">
+          <EVENTS>
+            <EVENT number="1" gender="M" eventid="10" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="2" gender="F" eventid="20" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="3" gender="M" eventid="30" preveventid="-1">
+              <SWIMSTYLE distance="1500" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="4" gender="F" eventid="40" preveventid="-1">
+              <SWIMSTYLE distance="1500" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+          </EVENTS>
+        </SESSION>
+        <SESSION number="2" date="2023-07-15" daytime="09:00">
+          <EVENTS>
+            <EVENT number="5" gender="M" eventid="50" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="6" gender="F" eventid="60" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="7" gender="M" eventid="70" preveventid="-1">
+              <SWIMSTYLE distance="800" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="8" gender="F" eventid="80" preveventid="-1">
+              <SWIMSTYLE distance="400" relaycount="1" stroke="MEDLEY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="9" gender="M" eventid="90" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="10" gender="F" eventid="100" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="11" gender="M" eventid="110" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="12" gender="F" eventid="120" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="13" gender="M" eventid="130" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="14" gender="F" eventid="140" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+          </EVENTS>
+        </SESSION>
+        <SESSION number="3" date="2023-07-15" daytime="16:00">
+          <EVENTS>
+            <EVENT number="15" eventid="150" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="MEDLEY" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="16" gender="F" eventid="160" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="17" gender="M" eventid="170" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="18" gender="F" eventid="180" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="19" gender="M" eventid="190" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="20" gender="F" eventid="200" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="21" gender="M" eventid="210" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="22" gender="F" eventid="220" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="23" gender="M" eventid="230" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="24" gender="M" eventid="240" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="25" gender="F" eventid="250" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+          </EVENTS>
+        </SESSION>
+        <SESSION number="4" date="2023-07-16" daytime="09:00">
+          <EVENTS>
+            <EVENT number="26" gender="F" eventid="260" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="4" stroke="MEDLEY" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="27" gender="M" eventid="270" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="4" stroke="MEDLEY" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="28" gender="F" eventid="280" preveventid="-1">
+              <SWIMSTYLE distance="800" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="29" gender="M" eventid="290" preveventid="-1">
+              <SWIMSTYLE distance="400" relaycount="1" stroke="MEDLEY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="30" gender="F" eventid="300" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="31" gender="M" eventid="310" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="32" gender="F" eventid="320" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="33" gender="M" eventid="330" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="34" gender="F" eventid="340" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="35" gender="M" eventid="350" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="BREAST" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="36" eventid="360" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="FREE" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+          </EVENTS>
+        </SESSION>
+        <SESSION number="5" date="2023-07-16" daytime="16:00">
+          <EVENTS>
+            <EVENT number="37" gender="M" eventid="370" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="38" gender="F" eventid="380" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="1" stroke="BACK" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="39" gender="M" eventid="390" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="40" gender="F" eventid="400" preveventid="-1">
+              <SWIMSTYLE distance="50" relaycount="1" stroke="FLY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="41" gender="M" eventid="410" preveventid="-1">
+              <SWIMSTYLE distance="400" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="42" gender="F" eventid="420" preveventid="-1">
+              <SWIMSTYLE distance="400" relaycount="1" stroke="FREE" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="43" gender="M" eventid="430" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="MEDLEY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="2" gender="M" agemin="16" agemax="16" />
+                <AGEGROUP agegroupid="3" gender="M" agemin="17" agemax="18" />
+                <AGEGROUP agegroupid="4" gender="M" agemin="19" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="44" gender="F" eventid="440" preveventid="-1">
+              <SWIMSTYLE distance="200" relaycount="1" stroke="MEDLEY" />
+              <FEE value="260" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="14" />
+                <AGEGROUP agegroupid="2" gender="F" agemin="15" agemax="15" />
+                <AGEGROUP agegroupid="3" gender="F" agemin="16" agemax="17" />
+                <AGEGROUP agegroupid="4" gender="F" agemin="18" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="45" gender="M" eventid="450" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="MEDLEY" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="M" agemin="15" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+            <EVENT number="46" gender="F" eventid="460" preveventid="-1">
+              <SWIMSTYLE distance="100" relaycount="4" stroke="MEDLEY" />
+              <FEE value="750" currency="EUR" />
+              <AGEGROUPS>
+                <AGEGROUP agegroupid="1" gender="F" agemin="14" agemax="-1" />
+              </AGEGROUPS>
+            </EVENT>
+          </EVENTS>
+        </SESSION>
+      </SESSIONS>
+      <CLUBS>
+        <CLUB clubid="6" name="Clube dos Galitos / Bresimar" shortname="Galitos / Bresimar" code="CGA" nation="POR" region="ANCNP">
+          <CONTACT name="Joao Paulo Rodrigues" street="Rua Jaime Moniz - Piscinas - Aveiro" street2=" " zip="3810-123" state="ANA" city="Aveiro" phone="234384110" fax="234384110" mobile="966054105" email="natacao@galitos.pt" />
+          <ATHLETES>
+            <ATHLETE athleteid="437" lastname="Anjos" firstname="Nuno Miguel " gender="M" license="140396" birthdate="2008-11-13">
+              <ENTRIES>
+                <ENTRY eventid="30" entrytime="00:17:51.97">
+                  <MEETINFO course="LCM" />
+                </ENTRY>
+                <ENTRY eventid="130" entrytime="00:00:34.46">
+                  <MEETINFO course="LCM" />
+                </ENTRY>
+                <ENTRY eventid="230" entrytime="00:02:09.22">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="350" entrytime="00:01:17.15">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="410" entrytime="00:04:40.46">
+                  <MEETINFO course="LCM" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="534" lastname="Carola" firstname="Hugo Filipe" gender="M" license="127979" birthdate="2001-11-14">
+              <ENTRIES>
+                <ENTRY eventid="90" entrytime="00:00:55.61">
+                  <MEETINFO course="LCM" date="2023-05-28" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" />
+                </ENTRY>
+                <ENTRY eventid="170" entrytime="00:01:01.32">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="310" entrytime="00:00:24.76">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="390" entrytime="00:00:26.29">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="262" lastname="Carvalho" firstname="Renato Miguel" gender="M" license="125046" birthdate="2003-06-18">
+              <ENTRIES>
+                <ENTRY eventid="130" entrytime="00:00:31.88">
+                  <MEETINFO course="LCM" date="2022-07-28" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="210" entrytime="00:02:45.32">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="350" entrytime="00:01:11.76">
+                  <MEETINFO course="LCM" date="2022-07-27" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="430" entrytime="00:02:20.83">
+                  <MEETINFO course="SCM" date="2023-03-04" city="Gafanha da Nazaré" nation="POR" name="Campeonato Regional de Inverno de Juvenis, Juniores e Seniores" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="441" lastname="Fardilha" firstname="Antonio Cruz" gender="M" license="140216" birthdate="2008-06-05">
+              <ENTRIES>
+                <ENTRY eventid="30" entrytime="00:17:57.91">
+                  <MEETINFO course="LCM" date="2023-06-18" city="S. João da Madeira" nation="POR" name="Campeonato Regional de Verão de Juvenis, Juniores e Seniores" />
+                </ENTRY>
+                <ENTRY eventid="90" entrytime="00:00:57.88">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="230" entrytime="00:02:08.31">
+                  <MEETINFO course="LCM" date="2023-02-12" city="Lisboa" nation="POR" name="ARENA LISBON INTERNATIONAL MEETING 2023" />
+                </ENTRY>
+                <ENTRY eventid="310" entrytime="00:00:26.99">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="410" entrytime="00:04:36.66">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="309" lastname="Fernandes" firstname="Carolina Miranda" gender="F" license="127797" birthdate="2005-09-24">
+              <ENTRIES>
+                <ENTRY eventid="100" entrytime="00:00:58.07">
+                  <MEETINFO course="LCM" date="2022-07-30" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="160" entrytime="00:01:01.67">
+                  <MEETINFO course="LCM" date="2022-07-29" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="300" entrytime="00:00:26.54">
+                  <MEETINFO course="LCM" date="2022-07-27" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="400" entrytime="00:00:27.52">
+                  <MEETINFO course="LCM" date="2023-05-28" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="473" lastname="Ferreira" firstname="Bernardo Reis" gender="M" license="152333" birthdate="2008-09-06">
+              <ENTRIES>
+                <ENTRY eventid="90" entrytime="00:01:01.50">
+                  <MEETINFO course="LCM" date="2023-05-28" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" />
+                </ENTRY>
+                <ENTRY eventid="230" entrytime="00:02:12.64">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="310" entrytime="00:00:28.71">
+                  <MEETINFO course="LCM" date="2023-05-27" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" />
+                </ENTRY>
+                <ENTRY eventid="410" entrytime="00:05:18.68">
+                  <MEETINFO course="LCM" date="2022-07-24" city="Famalicão" nation="POR" name="Campeonato Nacional de Infantis PL" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="395" lastname="Goncalves" firstname="Maria Meleiro" gender="F" license="133052" birthdate="2008-02-18">
+              <ENTRIES>
+                <ENTRY eventid="100" entrytime="00:01:05.60">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="160" entrytime="00:01:11.50">
+                  <MEETINFO course="LCM" date="2023-06-18" city="S. João da Madeira" nation="POR" name="Campeonato Regional de Verão de Juvenis, Juniores e Seniores" />
+                </ENTRY>
+                <ENTRY eventid="300" entrytime="00:00:29.29">
+                  <MEETINFO course="LCM" date="2023-04-07" city="Oeiras" nation="POR" name="Campeonato Nacional Clubes 1 Divisão" />
+                </ENTRY>
+                <ENTRY eventid="400" entrytime="00:00:31.06">
+                  <MEETINFO course="LCM" date="2023-04-02" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="458" lastname="Jorge" firstname="Sofia Pereira" gender="F" license="141291" birthdate="2008-11-17">
+              <ENTRIES>
+                <ENTRY eventid="40" entrytime="00:19:54.76">
+                  <MEETINFO course="LCM" date="2022-07-27" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="100" entrytime="00:01:04.94">
+                  <MEETINFO course="LCM" date="2023-02-12" city="Lisboa" nation="POR" name="ARENA LISBON INTERNATIONAL MEETING 2023" />
+                </ENTRY>
+                <ENTRY eventid="220" entrytime="00:02:21.31">
+                  <MEETINFO course="LCM" date="2023-02-11" city="Lisboa" nation="POR" name="ARENA LISBON INTERNATIONAL MEETING 2023" />
+                </ENTRY>
+                <ENTRY eventid="300" entrytime="00:00:30.40">
+                  <MEETINFO course="LCM" date="2023-05-27" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" />
+                </ENTRY>
+                <ENTRY eventid="420" entrytime="00:05:00.36">
+                  <MEETINFO course="LCM" date="2023-02-12" city="Lisboa" nation="POR" name="ARENA LISBON INTERNATIONAL MEETING 2023" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="434" lastname="Kucheryavenko" firstname="Daniel" gender="M" license="140492" birthdate="2007-11-04">
+              <ENTRIES>
+                <ENTRY eventid="110" entrytime="00:02:20.19">
+                  <MEETINFO course="LCM" date="2023-04-02" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="190" entrytime="00:00:30.06">
+                  <MEETINFO course="LCM" date="2023-03-30" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="310" entrytime="00:00:26.38">
+                  <MEETINFO course="LCM" date="2023-03-30" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="370" entrytime="00:01:04.16">
+                  <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="467" lastname="Lameiro" firstname="Matilde Pinheiro" gender="F" license="140385" birthdate="2008-10-23">
+              <ENTRIES>
+                <ENTRY eventid="120" entrytime="00:02:32.91">
+                  <MEETINFO course="LCM" date="2023-04-02" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="180" entrytime="00:00:32.88">
+                  <MEETINFO course="LCM" date="2022-07-27" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="220" entrytime="00:02:20.78">
+                  <MEETINFO course="LCM" date="2022-07-27" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="300" entrytime="00:00:30.02">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="420" entrytime="00:04:58.87">
+                  <MEETINFO course="SCM" date="2023-05-21" city="Viseu" nation="POR" name="Torneio de Fundo de Infantis e Juvenis" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="390" lastname="Miranda" firstname="Matilde Pinguicha" gender="F" license="132640" birthdate="2008-09-10">
+              <ENTRIES>
+                <ENTRY eventid="100" entrytime="00:01:03.03">
+                  <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="140" entrytime="00:00:34.21">
+                  <MEETINFO course="LCM" date="2023-04-01" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="220" entrytime="00:02:26.80">
+                  <MEETINFO course="SCM" date="2023-05-21" city="Viseu" nation="POR" name="Torneio de Fundo de Infantis e Juvenis" />
+                </ENTRY>
+                <ENTRY eventid="340" entrytime="00:01:17.66">
+                  <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="440" entrytime="00:02:35.88">
+                  <MEETINFO course="LCM" date="2023-04-06" city="Oeiras" nation="POR" name="Campeonato Nacional Clubes 1 Divisão" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="140" lastname="Monteiro" firstname="Margarida Cabral" gender="F" license="117474" birthdate="2002-01-05">
+              <ENTRIES>
+                <ENTRY eventid="80" entrytime="00:05:15.34">
+                  <MEETINFO course="LCM" date="2023-04-07" city="Oeiras" nation="POR" name="Campeonato Nacional Clubes 1 Divisão" />
+                </ENTRY>
+                <ENTRY eventid="100" entrytime="00:01:03.78">
+                  <MEETINFO course="LCM" date="2022-07-27" city="Lodz" nation="POL" name="European University Games" />
+                </ENTRY>
+                <ENTRY eventid="220" entrytime="00:02:11.90">
+                  <MEETINFO course="LCM" date="2023-04-06" city="Oeiras" nation="POR" name="Campeonato Nacional Clubes 1 Divisão" />
+                </ENTRY>
+                <ENTRY eventid="320" entrytime="00:02:24.95">
+                  <MEETINFO course="SCM" date="2023-05-13" city="Gafanha da Nazaré" nation="POR" name="Campeonato Regional de Clubes 1 e 2 Divisão" />
+                </ENTRY>
+                <ENTRY eventid="440" entrytime="00:02:30.22">
+                  <MEETINFO course="LCM" date="2022-07-28" city="Lodz" nation="POL" name="European University Games" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="378" lastname="Nunes" firstname="Duarte Ramos" gender="M" license="131915" birthdate="2007-06-14">
+              <ENTRIES>
+                <ENTRY eventid="30" entrytime="00:17:01.30">
+                  <MEETINFO course="LCM" date="2023-03-30" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="130" entrytime="00:00:31.77">
+                  <MEETINFO course="LCM" date="2023-06-11" city="Porto" nation="POR" name="38.º Meeting Internacional do Porto" />
+                </ENTRY>
+                <ENTRY eventid="230" entrytime="00:02:01.41">
+                  <MEETINFO course="LCM" date="2023-04-29" city="Coimbra" nation="POR" name="XXXVII Torneio de Natação do CNAC- Shigeo Tsukagoshi" />
+                </ENTRY>
+                <ENTRY eventid="410" entrytime="00:04:16.99">
+                  <MEETINFO course="LCM" date="2023-04-01" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="350" entrytime="00:01:09.30">
+                  <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="471" lastname="Oliveira" firstname="Francisca Pinto" gender="F" license="203803" birthdate="2009-04-17">
+              <ENTRIES>
+                <ENTRY eventid="100" entrytime="00:01:06.61">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="180" entrytime="00:00:33.73">
+                  <MEETINFO course="LCM" date="2023-03-30" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="300" entrytime="00:00:30.13">
+                  <MEETINFO course="LCM" date="2023-05-27" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" />
+                </ENTRY>
+                <ENTRY eventid="440" entrytime="00:02:51.76">
+                  <MEETINFO course="LCM" date="2022-07-23" city="Famalicão" nation="POR" name="Campeonato Nacional de Infantis PL" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="445" lastname="Paixao" firstname="Maria Saraiva" gender="F" license="152960" birthdate="2008-03-24">
+              <ENTRIES>
+                <ENTRY eventid="160" entrytime="00:01:08.03">
+                  <MEETINFO course="LCM" date="2023-06-18" city="S. João da Madeira" nation="POR" name="Campeonato Regional de Verão de Juvenis, Juniores e Seniores" />
+                </ENTRY>
+                <ENTRY eventid="220" entrytime="00:02:20.64">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="320" entrytime="00:02:28.25">
+                  <MEETINFO course="LCM" />
+                </ENTRY>
+                <ENTRY eventid="420" entrytime="00:04:57.35">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="440" entrytime="00:02:41.36">
+                  <MEETINFO course="LCM" date="2023-06-18" city="S. João da Madeira" nation="POR" name="Campeonato Regional de Verão de Juvenis, Juniores e Seniores" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="500" lastname="Pedreiro" firstname="Francisca Soreto" gender="F" license="139907" birthdate="2009-06-02">
+              <ENTRIES>
+                <ENTRY eventid="100" entrytime="00:01:06.86">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="220" entrytime="00:02:22.39">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="280" entrytime="00:10:14.14">
+                  <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="420" entrytime="00:04:57.00">
+                  <MEETINFO course="LCM" date="2023-05-28" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="464" lastname="Pires" firstname="Rita Oliveira" gender="F" license="203278" birthdate="2008-03-10">
+              <ENTRIES>
+                <ENTRY eventid="100" entrytime="00:01:05.17">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="220" entrytime="00:02:23.02">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="300" entrytime="00:00:30.35">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="420" entrytime="00:05:08.03">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="345" lastname="Rodrigues" firstname="Joao Carvalho" gender="M" license="129939" birthdate="2006-02-02">
+              <ENTRIES>
+                <ENTRY eventid="90" entrytime="00:00:57.12">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="130" entrytime="00:00:30.51">
+                  <MEETINFO course="LCM" date="2023-04-01" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="210" entrytime="00:02:26.57">
+                  <MEETINFO course="LCM" date="2023-04-02" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="350" entrytime="00:01:06.11">
+                  <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="390" entrytime="00:00:30.04">
+                  <MEETINFO course="LCM" date="2022-07-30" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="447" lastname="Santos" firstname="Carlota Ganito" gender="F" license="201019" birthdate="2009-01-22">
+              <ENTRIES>
+                <ENTRY eventid="140" entrytime="00:00:38.97">
+                  <MEETINFO course="LCM" />
+                </ENTRY>
+                <ENTRY eventid="220" entrytime="00:02:24.86">
+                  <MEETINFO course="LCM" />
+                </ENTRY>
+                <ENTRY eventid="340" entrytime="00:01:25.10">
+                  <MEETINFO course="LCM" date="2023-06-18" city="S. João da Madeira" nation="POR" name="Campeonato Regional de Verão de Juvenis, Juniores e Seniores" />
+                </ENTRY>
+                <ENTRY eventid="420" entrytime="00:05:09.35">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="639" lastname="Santos" firstname="Joana Almeida" gender="F" license="210792" birthdate="2009-09-15">
+              <ENTRIES>
+                <ENTRY eventid="40" entrytime="00:19:18.60">
+                  <MEETINFO course="LCM" date="2023-03-30" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="100" entrytime="00:01:09.99">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="220" entrytime="00:02:22.87">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="280" entrytime="00:10:03.36">
+                  <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="420" entrytime="00:04:58.81">
+                  <MEETINFO course="LCM" date="2023-02-12" city="Lisboa" nation="POR" name="ARENA LISBON INTERNATIONAL MEETING 2023" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="334" lastname="Soares" firstname="Miriam Mortagua" gender="F" license="129027" birthdate="2006-01-04">
+              <ENTRIES>
+                <ENTRY eventid="100" entrytime="00:01:02.61">
+                  <MEETINFO course="LCM" date="2023-02-12" city="Lisboa" nation="POR" name="ARENA LISBON INTERNATIONAL MEETING 2023" />
+                </ENTRY>
+                <ENTRY eventid="180" entrytime="00:00:32.57">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="220" entrytime="00:02:13.75">
+                  <MEETINFO course="LCM" date="2022-07-28" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="300" entrytime="00:00:28.75">
+                  <MEETINFO course="LCM" date="2023-03-30" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="380" entrytime="00:01:10.68">
+                  <MEETINFO course="LCM" date="2023-04-06" city="Oeiras" nation="POR" name="Campeonato Nacional Clubes 1 Divisão" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="317" lastname="Tavares" firstname="Bernardo Rodrigues" gender="M" license="127799" birthdate="2004-12-04">
+              <ENTRIES>
+                <ENTRY eventid="90" entrytime="00:00:55.05">
+                  <MEETINFO course="LCM" />
+                </ENTRY>
+                <ENTRY eventid="170" entrytime="00:00:56.33">
+                  <MEETINFO course="LCM" date="2022-07-29" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="310" entrytime="00:00:25.54">
+                  <MEETINFO course="LCM" />
+                </ENTRY>
+                <ENTRY eventid="390" entrytime="00:00:25.84">
+                  <MEETINFO course="LCM" date="2022-07-27" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="430" entrytime="00:02:13.87">
+                  <MEETINFO course="LCM" date="2022-07-30" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="422" lastname="Vale" firstname="Vicente Sa" gender="M" license="148738" birthdate="2008-05-20">
+              <ENTRIES>
+                <ENTRY eventid="90" entrytime="00:00:58.40">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="210" entrytime="00:02:38.83">
+                  <MEETINFO course="LCM" date="2023-04-02" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="310" entrytime="00:00:26.68">
+                  <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="390" entrytime="00:00:30.59">
+                  <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" />
+                </ENTRY>
+                <ENTRY eventid="430" entrytime="00:02:26.61">
+                  <MEETINFO course="LCM" date="2023-02-12" city="Lisboa" nation="POR" name="ARENA LISBON INTERNATIONAL MEETING 2023" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+            <ATHLETE athleteid="333" lastname="Vasconcelos" firstname="Lara Rodrigues" gender="F" license="128983" birthdate="2005-11-14">
+              <ENTRIES>
+                <ENTRY eventid="100" entrytime="00:01:01.81">
+                  <MEETINFO course="LCM" date="2023-04-07" city="Oeiras" nation="POR" name="Campeonato Nacional Clubes 1 Divisão" />
+                </ENTRY>
+                <ENTRY eventid="140" entrytime="00:00:35.93">
+                  <MEETINFO course="LCM" date="2023-04-01" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="200" entrytime="00:02:55.33">
+                  <MEETINFO course="LCM" date="2023-02-11" city="Lisboa" nation="POR" name="ARENA LISBON INTERNATIONAL MEETING 2023" />
+                </ENTRY>
+                <ENTRY eventid="300" entrytime="00:00:28.50">
+                  <MEETINFO course="LCM" date="2023-03-30" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+                <ENTRY eventid="340" entrytime="00:01:20.50">
+                  <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" />
+                </ENTRY>
+              </ENTRIES>
+            </ATHLETE>
+          </ATHLETES>
+          <RELAYS>
+            <RELAY relayid="1" number="1" gender="M" agetotalmin="-1" agetotalmax="-1" agemin="15" agemax="15">
+              <ENTRIES>
+                <ENTRY eventid="240" entrytime="00:03:57.43">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="441">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:57.88" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="422">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:58.40" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="473">
+                      <MEETINFO course="LCM" date="2023-05-28" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" qualificationtime="00:01:01.50" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="437">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:59.65" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+                <ENTRY eventid="270" entrytime="00:02:12.93">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="441">
+                      <MEETINFO course="LCM" date="2022-07-22" city="Famalicão" nation="POR" name="Campeonato Nacional de Infantis PL" qualificationtime="00:00:39.17" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="437">
+                      <MEETINFO course="LCM" qualificationtime="00:00:34.46" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="422">
+                      <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:30.59" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="473">
+                      <MEETINFO course="LCM" date="2023-05-27" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" qualificationtime="00:00:28.71" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+                <ENTRY eventid="50" entrytime="00:01:49.41">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="422">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:26.68" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="437">
+                      <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:27.03" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="441">
+                      <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:26.99" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="473">
+                      <MEETINFO course="LCM" date="2023-05-27" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" qualificationtime="00:00:28.71" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+                <ENTRY eventid="450" entrytime="00:04:49.01">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="441">
+                      <MEETINFO course="LCM" date="2022-07-22" city="Famalicão" nation="POR" name="Campeonato Nacional de Infantis PL" qualificationtime="00:01:18.69" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="437">
+                      <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:17.15" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="422">
+                      <MEETINFO course="LCM" date="2023-02-04" city="Póvoa de Varzim" nation="POR" name="XIII Meeting Internacional da Póvoa Varzim" qualificationtime="00:01:11.67" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="473">
+                      <MEETINFO course="LCM" date="2023-05-28" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" qualificationtime="00:01:01.50" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+              </ENTRIES>
+            </RELAY>
+            <RELAY relayid="2" number="1" gender="F" agetotalmin="-1" agetotalmax="-1" agemin="15" agemax="15">
+              <ENTRIES>
+                <ENTRY eventid="250" entrytime="00:04:17.40">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="464">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:05.17" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="458">
+                      <MEETINFO course="LCM" date="2023-02-12" city="Lisboa" nation="POR" name="ARENA LISBON INTERNATIONAL MEETING 2023" qualificationtime="00:01:04.94" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="467">
+                      <MEETINFO course="LCM" date="2022-07-30" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:01:04.26" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="390">
+                      <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:01:03.03" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+                <ENTRY eventid="460" entrytime="00:04:41.25">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="467">
+                      <MEETINFO course="LCM" date="2022-07-29" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:01:10.62" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="390">
+                      <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:01:17.66" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="445">
+                      <MEETINFO course="LCM" date="2023-06-18" city="S. João da Madeira" nation="POR" name="Campeonato Regional de Verão de Juvenis, Juniores e Seniores" qualificationtime="00:01:08.03" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="458">
+                      <MEETINFO course="LCM" date="2023-02-12" city="Lisboa" nation="POR" name="ARENA LISBON INTERNATIONAL MEETING 2023" qualificationtime="00:01:04.94" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+                <ENTRY eventid="60" entrytime="00:01:58.61">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="458">
+                      <MEETINFO course="LCM" date="2023-05-27" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" qualificationtime="00:00:30.40" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="467">
+                      <MEETINFO course="LCM" qualificationtime="00:00:29.89" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="390">
+                      <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:29.03" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="395">
+                      <MEETINFO course="LCM" date="2023-04-07" city="Oeiras" nation="POR" name="Campeonato Nacional Clubes 1 Divisão" qualificationtime="00:00:29.29" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+                <ENTRY eventid="260" entrytime="00:02:08.50">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="467">
+                      <MEETINFO course="LCM" date="2022-07-27" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:00:32.88" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="390">
+                      <MEETINFO course="LCM" date="2023-04-01" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:00:34.21" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="395">
+                      <MEETINFO course="LCM" date="2023-04-02" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:00:31.06" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="464">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:30.35" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+              </ENTRIES>
+            </RELAY>
+            <RELAY relayid="3" number="2" gender="F" agetotalmin="-1" agetotalmax="-1" agemin="14" agemax="14">
+              <ENTRIES>
+                <ENTRY eventid="60" entrytime="00:02:08.08">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="471">
+                      <MEETINFO course="LCM" date="2023-05-27" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" qualificationtime="00:00:30.13" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="639">
+                      <MEETINFO course="LCM" date="2023-06-18" city="S. João da Madeira" nation="POR" name="Campeonato Regional de Verão de Juvenis, Juniores e Seniores" qualificationtime="00:00:31.25" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="500">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:32.19" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="447">
+                      <MEETINFO course="LCM" date="2022-07-24" city="Famalicão" nation="POR" name="Campeonato Nacional de Infantis PL" qualificationtime="00:00:34.51" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+                <ENTRY eventid="260" entrytime="00:02:23.65">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="471">
+                      <MEETINFO course="LCM" date="2023-03-30" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:00:33.73" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="447">
+                      <MEETINFO course="LCM" qualificationtime="00:00:38.97" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="639">
+                      <MEETINFO course="LCM" date="2022-07-23" city="Famalicão" nation="POR" name="Campeonato Nacional de Infantis PL" qualificationtime="00:00:38.76" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="500">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:32.19" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+                <ENTRY eventid="460" entrytime="00:05:04.51">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="639">
+                      <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:15.54" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="447">
+                      <MEETINFO course="LCM" date="2023-06-18" city="S. João da Madeira" nation="POR" name="Campeonato Regional de Verão de Juvenis, Juniores e Seniores" qualificationtime="00:01:25.10" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="471">
+                      <MEETINFO course="LCM" qualificationtime="00:01:17.01" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="500">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:06.86" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+                <ENTRY eventid="250" entrytime="00:04:33.98">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="447">
+                      <MEETINFO course="LCM" date="2022-07-24" city="Famalicão" nation="POR" name="Campeonato Nacional de Infantis PL" qualificationtime="00:01:10.52" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="471">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:06.61" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="639">
+                      <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:09.99" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="500">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:06.86" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+              </ENTRIES>
+            </RELAY>
+            <RELAY relayid="4" number="1" gender="X" agetotalmin="-1" agetotalmax="-1" agemin="15" agemax="16">
+              <ENTRIES>
+                <ENTRY eventid="150" entrytime="00:04:24.52">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="434">
+                      <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:01:04.16" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="378">
+                      <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:01:09.30" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="445">
+                      <MEETINFO course="LCM" date="2023-06-18" city="S. João da Madeira" nation="POR" name="Campeonato Regional de Verão de Juvenis, Juniores e Seniores" qualificationtime="00:01:08.03" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="390">
+                      <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:01:03.03" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+                <ENTRY eventid="360" entrytime="00:04:03.30">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="390">
+                      <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:01:03.03" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="467">
+                      <MEETINFO course="LCM" date="2022-07-30" city="Oeiras" nation="POR" name="Campeonatos Nacionais Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:01:04.26" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="378">
+                      <MEETINFO course="LCM" date="2023-03-31" city="Funchal" nation="POR" name="Campeonato Nacional Juvenis e Absolutos de Portugal OPEN" qualificationtime="00:00:56.13" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="434">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:59.88" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+              </ENTRIES>
+            </RELAY>
+            <RELAY relayid="5" number="2" gender="X" agetotalmin="-1" agetotalmax="-1" agemin="14" agemax="15">
+              <ENTRIES>
+                <ENTRY eventid="360" entrytime="00:04:18.00">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="473">
+                      <MEETINFO course="LCM" date="2023-05-28" city="Coimbra" nation="POR" name="XV Meeting Cidade de Coimbra / XXXIV TQueima das Fitas" qualificationtime="00:01:01.50" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="437">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:00:59.65" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="639">
+                      <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:09.99" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="500">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:06.86" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+                <ENTRY eventid="150" entrytime="00:04:50.76">
+                  <RELAYPOSITIONS>
+                    <RELAYPOSITION number="1" athleteid="471">
+                      <MEETINFO course="LCM" qualificationtime="00:01:15.08" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="2" athleteid="437">
+                      <MEETINFO course="LCM" date="2023-03-19" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:17.15" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="3" athleteid="422">
+                      <MEETINFO course="LCM" date="2023-02-04" city="Póvoa de Varzim" nation="POR" name="XIII Meeting Internacional da Póvoa Varzim" qualificationtime="00:01:11.67" />
+                    </RELAYPOSITION>
+                    <RELAYPOSITION number="4" athleteid="500">
+                      <MEETINFO course="LCM" date="2023-03-18" city="Coimbra" nation="POR" name="Campeonato Interdistrital Juvenis, Juniores e Absolutos PL" qualificationtime="00:01:06.86" />
+                    </RELAYPOSITION>
+                  </RELAYPOSITIONS>
+                </ENTRY>
+              </ENTRIES>
+            </RELAY>
+          </RELAYS>
+        </CLUB>
+      </CLUBS>
+    </MEET>
+  </MEETS>
+</LENEX>
