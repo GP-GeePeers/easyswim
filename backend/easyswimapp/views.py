@@ -46,7 +46,7 @@ class DashboardView(APIView):
         :return: JsonResponse object containing internal database information
         """
         
-        return model_data_view(request)
+        return list_meets(request)#model_data_view(request)
 
 class LXFView(APIView):
     """
@@ -282,3 +282,38 @@ def read_TeamManager_view(request):
     except Exception as e:
         return HttpResponse(f'An error occurred while processing the .lef file: {e}')
 
+def list_meets(request):
+    """
+    Retrieves data from various models and returns it as a JSON response.
+    :param request: HttpRequest object
+    :return: JSON response containing data from various models
+    """
+    meets = list(Meet_MeetManager.objects.values())  
+    '''events = list(Event_MeetManager.objects.values())
+    cons = list(Constructor_MeetManager.objects.values())   
+    cont_constructor = list(Contact_Constructor_MeetManager.objects.values())
+    cont_meet = list(Contact_Meet_MeetManager.objects.values())
+    pool = list(Pool_MeetManager.objects.values())
+    facility = list(Facility_MeetManager.objects.values())
+    pointtable = list(PointTable_MeetManager.objects.values())
+    session = list(Session_MeetManager.objects.values())
+    swimstyle = list(SwimStyle_MeetManager.objects.values())
+    fee = list(Fee_MeetManager.objects.values())
+    agegroup = list(AgeGroup_MeetManager.objects.values())'''
+
+    data = {
+        'meets': meets,
+        #'events': events,
+        #'constructor': cons,
+        #'contact_constructor': cont_constructor,
+        #'contact_meet': cont_meet,
+      #  'pool': pool,
+       # 'facility': facility,
+       # 'pointtable': pointtable,
+        #'session': session,
+       # 'swimstyle': swimstyle,
+        #'fee': fee,
+        #'agegroup': agegroup,
+    }
+
+    return JsonResponse(data)
