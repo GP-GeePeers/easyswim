@@ -107,9 +107,9 @@ class LXFMeetView(APIView):
             #Read the file
             read_save_lenex(file_path_s,"meets/+"+uuid_str+".lxf")
 
-            return Response(lxf_serializer.data, status=status.HTTP_201_CREATED)
+            return JsonResponse(data={'notification': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_201_CREATED)
         else:
-            return Response(lxf_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return JsonResponse(data={'notification': 'File not found'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class MeetPreviewView(APIView):
@@ -118,6 +118,18 @@ class MeetPreviewView(APIView):
 
     :return: JsonResponse indicating success or failure
     """
+    parser_classes = (MultiPartParser, FormParser)
+
+    def get(self, request, *args, **kwargs):
+        """
+        Handles GET requests for LXF data.
+
+        :param request: HttpRequest object
+        :return: Response object with serialized LXF data
+        """
+        posts = LXF.objects.all()
+        serializer = LXFSerializer(posts, many=True)
+        return Response(serializer.data)
 
     def post(self, request, *args, **kwargs):
         lxf_serializer = LXFSerializer(data=request.data)
@@ -136,9 +148,6 @@ class MeetPreviewView(APIView):
             # Create a folder for the extracted file
             file_path = os.path.join(dir, request.data['title'])
 
-            # Save the file
-            uuid_str = str(uuid.uuid4())
-            upload_blob("easyswim", file_path, "meets/" + uuid_str + ".lxf")
 
             # Check if the file exists before extracting
             if os.path.exists(file_path):
@@ -148,10 +157,8 @@ class MeetPreviewView(APIView):
                 print("Path: " + file_path_s)
 
                 # Read the file
-                meet = read_preview_lenex(file_path_s, "meets/" + uuid_str + ".lxf")
+                meet = read_preview_lenex(file_path_s)
     
-         
-               
                 return JsonResponse(meet, safe=False)
             else:
                 return JsonResponse(data={'error': 'File not found'}, status=status.HTTP_400_BAD_REQUEST)
@@ -188,8 +195,17 @@ class LXFTeamView(APIView):
         :param request: HttpRequest object with LXF file data
         :return: Response object indicating success or failure
         """
+        meet_id=request.data['id']
 
-        lxf_serializer = LXFSerializer(data=request.data)
+        request_data_copy = request.data.copy()
+        request_data_copy.pop('id', None) 
+
+        meet = list(Meet_MeetManager.objects.filter(id=meet_id).values())[0]
+        print(meet)
+        
+        meet_bucket_uuid = str(meet.get('bucket_path')).split("/")[1][:-4]
+        
+        lxf_serializer = LXFSerializer(data=request_data_copy)
 
         print(request.data)
 
@@ -205,20 +221,20 @@ class LXFTeamView(APIView):
 
             #Save the file
             uuid_str = str(uuid.uuid4())
-            upload_blob("easyswim",file_path,"/+"+uuid_str+".lxf")
-
+            upload_blob("easyswim",file_path,meet_bucket_uuid+"/+"+uuid_str+".lxf")
 
             #Descompact the file
             file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
             basename,_=extract_lxf_file(dir,file_path_s, request.data['title'])
             file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename+".lef")
             print("Path: "+file_path_s)
+            
             #Read the file
-            read_save_lenex_TeamManager(file_path_s,"/+"+uuid_str+".lxf")
+            read_save_lenex_TeamManager(file_path_s)
 
-            return Response(lxf_serializer.data, status=status.HTTP_201_CREATED)
+            return JsonResponse(data={'success': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_201_CREATED)
         else:
-            return Response(lxf_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return JsonResponse(data={'error': 'Ficheiro Invalido'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 def read_lef_view(request):
@@ -329,10 +345,15 @@ def read_TeamManager_view(request):
         return JsonResponse(data, safe=False, encoder=DjangoJSONEncoder)
     except Exception as e:
         return HttpResponse(f'An error occurred while processing the .lef file: {e}')
+    
+
 
 def list_meets(request):
+    
     """
-
+    Retrieves data from various models and returns it as a JSON response.
+    :param request: HttpRequest object
+    :return: JSON response containing data from various models
     """
 
     meet_id = request.GET.get('id')

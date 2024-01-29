@@ -104,7 +104,7 @@ def descompactar_todos_lxf():
                     break
 
 
-def read_preview_lenex(input_file, bucket_path):
+def read_preview_lenex(input_file):
     """
     Reads LENEX file "MeetManager" and returns the data as JSON.
     This function parses a LENEX file, extracts relevant information, and
@@ -120,7 +120,7 @@ def read_preview_lenex(input_file, bucket_path):
 
     for meets in root.findall('.//MEET'):
         meet_manager_obj = {
-            'bucket_path': bucket_path,
+            'bucket_path': "",
             'name': meets.get('name'),
             'city': meets.get('city'),
             'course': meets.get('course'),
