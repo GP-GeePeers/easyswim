@@ -146,6 +146,9 @@ STATIC_ROOT=os.path.join(BASE_DIR,'assests')
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 
+# Handle uploaded files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
 ]
