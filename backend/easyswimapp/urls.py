@@ -8,7 +8,9 @@ urlpatterns = [
     path('lxf-meet-preview/',views.MeetPreviewView.as_view(), name='meet-preview'),
     path('lxf-meet-confirmation/', views.LXFMeetView.as_view(), name='meet-confirmation'),
 
-    path('lxf-team/', views.LXFTeamView.as_view(), name='lxf-team'),
+    path('lxf-team-confirmation/', views.LXFTeamView.as_view(), name='lxf-team-confirmation'),
+
+
     path('read-lef/', read_lef_view, name='read-lef'),
     path('read-TeamManager/', read_TeamManager_view, name='read-TeamManager'),
     path('model-data/', model_data_view, name='model-data-view'),
