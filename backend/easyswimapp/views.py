@@ -15,6 +15,8 @@ from .models import AgeDate_MeetManager,Constructor_MeetManager, Contact_Meet_Me
 from django.http import JsonResponse
 from django.conf import settings
 import os
+from django.core.serializers.json import DjangoJSONEncoder
+
 
 """
 views.py
@@ -25,12 +27,25 @@ This module contains the views for the EasySwim app, handling HTTP requests and 
 
 def home(request):
     """
-    Handles the HTTP request and returns a greeting response.
+    Renders the home page.
 
     :param request: HttpRequest object
-    :return: HttpResponse object with a greeting message
+    :return: HttpResponse object containing the rendered home page
     """
-    return HttpResponse("Hello World! - EasySwim")
+    return HttpResponse(request)
+
+class DashboardView(APIView):
+    http_method_names = ['get', 'post']
+
+    def get(self, request):
+        """
+        Handles GET requests for the dashboard view.
+
+        :param request: HttpRequest object
+        :return: JsonResponse object containing internal database information
+        """
+        
+        return model_data_view(request)
 
 class LXFView(APIView):
     """
@@ -152,8 +167,27 @@ def read_TeamManager_view(request):
     
     file_path = os.path.join(settings.MEDIA_ROOT, 'lef_files', 'teamManager.lef')
     print("Path: "+file_path)
+
     try:
-        read_save_lenex_TeamManager(file_path)
-        return HttpResponse('.lef file read and processed successfully.')
+        meets = list(Meet.objects.values())
+        '''events = list(Event.objects.values())
+        cons = list(Constructor.objects.values())
+        #cont_constructor = list(Contact_Constructor.objects.values())
+        cont_meet = list(Contact_Meet.objects.values())
+        pool = list(Pool.objects.values())
+        facility = list(Facility.objects.values())
+        pointtable = list(PointTable.objects.values())
+        session = list(Session.objects.values())
+        swimstyle = list(SwimStyle.objects.values())
+        fee = list(Fee.objects.values())
+        agegroup = list(AgeGroup.objects.values())
+        '''
+
+        data = {
+            'meets': meets,
+        }
+
+        return JsonResponse(data, safe=False, encoder=DjangoJSONEncoder)
     except Exception as e:
         return HttpResponse(f'An error occurred while processing the .lef file: {e}')
+
