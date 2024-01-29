@@ -4,7 +4,7 @@ import zipfile
 import datetime
 from django.db import transaction
 import xml.etree.ElementTree as ET
-
+from google.cloud import storage
 import requests
 from django.conf import settings
 from os.path import join
