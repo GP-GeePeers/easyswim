@@ -31,7 +31,7 @@ function CompetetionDetails(props) {
         });
 
         setContentHeights(newContentHeights);
-    }, [props.compDetailsModal]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [props.compDetailsModal, window.innerWidth]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleCloseModal = () => {
         props.changeCompDetailsModal();

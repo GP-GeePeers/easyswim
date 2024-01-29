@@ -34,7 +34,7 @@ function CompetitionsList(props) {
         });
 
         setContentHeights(newContentHeights);
-    }, [props.compDetailsModal]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [props.compDetailsModal, window.innerWidth]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const capitalizeFirstLetter = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
