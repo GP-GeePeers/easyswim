@@ -3,8 +3,8 @@ import os
 import zipfile
 import datetime
 from django.db import transaction
+from google.cloud import storage
 import xml.etree.ElementTree as ET
-
 import requests
 from django.conf import settings
 from os.path import join
@@ -17,7 +17,53 @@ Contact_Meet_MeetManager, Meet_MeetManager, Pool_MeetManager, Facility_MeetManag
                     MeetInfo_Entry_Athlete_TeamManager, Relay_TeamManager, Entry_Relay_TeamManager, RelayPosition_TeamManager, \
                         MeetInfo_RelayPosition_TeamManager
 
+
+
+import os
+import zipfile
+
+def extract_lxf_file(lxf_path, lef_path, archive):
+    """
+    Extracts the content of a .lxf file and saves it in the specified destination path as .lef file.
+
+    Parameters:
+    - lxf_path: The path where the .lxf file is located.
+    - lef_path: The path where the .lef file will be saved.
+    - archive: The name of the .lxf file.
+    """
+    complete_path = os.path.join(lxf_path, archive)
+
+    # Make sure the path exists
+    if not os.path.exists(complete_path):
+        raise FileNotFoundError(f"File not found: {complete_path}")
+
+    # Make sure the path is a file, not a directory
+    if not os.path.isfile(complete_path):
+        raise FileNotFoundError(f"Expected a file, but found a directory: {complete_path}")
+
+    base_name = os.path.splitext(archive)[0]
+    destiny_path = os.path.join(lef_path, base_name + '.lef')
+
+    # Unzips the .lxf file
+    with zipfile.ZipFile(complete_path, 'r') as zip_ref:
+        zip_ref.extractall(lef_path)
+        
+    # Renames the file to .lef extension
+    extracted_files = [f for f in os.listdir(lef_path) if f.endswith('.lef')]
+
+    if not extracted_files:
+        raise FileNotFoundError("No .lef file found in the extracted directory")
+
+    # Assuming there's only one .lef file, rename it
+    old_file_path = os.path.join(lef_path, extracted_files[0])
+    os.rename(old_file_path, destiny_path)   
+    
+    return base_name, destiny_path
+
+
+
 def descompactar_todos_lxf():
+    
     """
     Reads all .lxf files in the provided location and unzips them to .lef files.
 
@@ -26,6 +72,7 @@ def descompactar_todos_lxf():
     Parameters:
     - input_file (str): The path to the input LENEX file.
     """
+
     # variables for the read and unzip paths for the files
     lxf_path = 'media/lfx_files'
     lef_path = 'media/lef_files'
@@ -47,7 +94,7 @@ def descompactar_todos_lxf():
             with zipfile.ZipFile(complete_path, 'r') as zip_ref:
                 zip_ref.extractall(lef_path)
 
-            # re names the files to .lef extension
+            # renames the files to .lef extension
             for extracted_file in os.listdir(lef_path):
                 if extracted_file.startswith(base_name):
                     os.rename(
@@ -56,8 +103,10 @@ def descompactar_todos_lxf():
                     )
                     break
 
+
+
 @transaction.atomic
-def read_save_lenex(input_file):
+def read_save_lenex(input_file, bucket_path):
 
     """
     Reads LENEX file "MeetManager" and saves the data to Django models.
@@ -90,6 +139,7 @@ def read_save_lenex(input_file):
             
     for meets in root.findall('.//MEET'):
         meet_MeetManager_obj = Meet_MeetManager.objects.create(
+            bucket_path=bucket_path,
             name=meets.get('name'),
             city=meets.get('city'),
             course=meets.get('course'),
@@ -338,9 +388,6 @@ def read_save_lenex_TeamManager(input_file):
     Parameters:
     - input_file (str): The path to the input LENEX file.
     """
-
-    print(f"Blob {source_blob_name} downloaded to {destination_file_name}.")
-
     tree = ET.parse(input_file)
     root = tree.getroot()
 

@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from .serializers import LXFSerializer
 from .models import LXF
 #from .utils import read_lef_file
-from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request
+from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request, upload_blob,extract_lxf_file
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
@@ -16,6 +16,7 @@ from django.http import JsonResponse
 from django.conf import settings
 import os
 from django.core.serializers.json import DjangoJSONEncoder
+import uuid
 
 
 """
@@ -76,12 +77,101 @@ class LXFView(APIView):
         :param request: HttpRequest object with LXF file data
         :return: Response object indicating success or failure
         """
+
         lxf_serializer = LXFSerializer(data=request.data)
+
+        print(request.data)
+
         if lxf_serializer.is_valid():
+            dir = os.path.join(settings.MEDIA_ROOT, 'lxf_files')
+            #Create a folder for the uploaded file
+            if not os.path.exists(dir):
+                os.mkdir(dir)
             lxf_serializer.save()
+            #Create a folder for the extracted file
+            file_path = os.path.join(dir, request.data['title'])
+
+
+            #Save the file
+            uuid_str = str(uuid.uuid4())
+            upload_blob("easyswim",file_path,"meets/+"+uuid_str+".lxf")
+
+
+            #Descompact the file
+            file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
+            basename,_=extract_lxf_file(dir,file_path_s, request.data['title'])
+            file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename+".lef")
+            print("Path: "+file_path_s)
+
+            #Read the file
+            read_save_lenex(file_path_s,"meets/+"+uuid_str+".lxf")
+
             return Response(lxf_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(lxf_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+class LXFMeetView(APIView):
+    """
+    View for LXF file upload.
+
+    This view allows users to upload LXF files, and it supports both GET and POST requests.
+
+    :param request: HttpRequest object
+    :return: Response object with serialized LXF data
+    """
+    parser_classes = (MultiPartParser, FormParser)
+
+    def get(self, request, *args, **kwargs):
+        """
+        Handles GET requests for LXF data.
+
+        :param request: HttpRequest object
+        :return: Response object with serialized LXF data
+        """
+        posts = LXF.objects.all()
+        serializer = LXFSerializer(posts, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, *args, **kwargs):
+        """
+        Handles POST requests for LXF file uploads.
+
+        :param request: HttpRequest object with LXF file data
+        :return: Response object indicating success or failure
+        """
+
+        lxf_serializer = LXFSerializer(data=request.data)
+
+        print(request.data)
+
+        if lxf_serializer.is_valid():
+            dir = os.path.join(settings.MEDIA_ROOT, 'lxf_files')
+            #Create a folder for the uploaded file
+            if not os.path.exists(dir):
+                os.mkdir(dir)
+            lxf_serializer.save()
+            #Create a folder for the extracted file
+            file_path = os.path.join(dir, request.data['title'])
+
+
+            #Save the file
+            uuid_str = str(uuid.uuid4())
+            upload_blob("easyswim",file_path,"meets/+"+uuid_str+".lxf")
+
+
+            #Descompact the file
+            file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
+            basename,_=extract_lxf_file(dir,file_path_s, request.data['title'])
+            file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename+".lef")
+            print("Path: "+file_path_s)
+
+            #Read the file
+            read_save_lenex_TeamManager(file_path_s,"meets/+"+uuid_str+".lxf")
+
+            return Response(lxf_serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(lxf_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 def read_lef_view(request):
     """
@@ -170,6 +260,7 @@ def read_TeamManager_view(request):
 
     try:
         meets = list(Meet.objects.values())
+
         '''events = list(Event.objects.values())
         cons = list(Constructor.objects.values())
         #cont_constructor = list(Contact_Constructor.objects.values())
