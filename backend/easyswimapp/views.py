@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from .serializers import LXFSerializer
 from .models import LXF
 #from .utils import read_lef_file
-from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request, upload_blob,extract_lxf_file
+from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request, upload_blob,extract_lxf_file,read_preview_lenex
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
@@ -16,6 +16,7 @@ from django.http import JsonResponse
 from django.conf import settings
 import os
 from django.core.serializers.json import DjangoJSONEncoder
+from django.core import serializers
 import uuid
 
 
@@ -48,7 +49,7 @@ class DashboardView(APIView):
         
         return list_meets(request)#model_data_view(request)
 
-class LXFView(APIView):
+class LXFMeetView(APIView):
     """
     View for LXF file upload.
 
@@ -109,8 +110,56 @@ class LXFView(APIView):
             return Response(lxf_serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(lxf_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
-class LXFMeetView(APIView):
+
+
+class MeetPreviewView(APIView):
+    """
+    Handles POST requests for LXF file uploads.
+
+    :return: JsonResponse indicating success or failure
+    """
+
+    def post(self, request, *args, **kwargs):
+        lxf_serializer = LXFSerializer(data=request.data)
+
+        print(request.data)
+
+        if lxf_serializer.is_valid():
+            dir = os.path.join(settings.MEDIA_ROOT, 'lxf_files')
+
+            # Create a folder for the uploaded file
+            if not os.path.exists(dir):
+                os.mkdir(dir)
+
+            lxf_serializer.save()
+
+            # Create a folder for the extracted file
+            file_path = os.path.join(dir, request.data['title'])
+
+            # Save the file
+            uuid_str = str(uuid.uuid4())
+            upload_blob("easyswim", file_path, "meets/" + uuid_str + ".lxf")
+
+            # Check if the file exists before extracting
+            if os.path.exists(file_path):
+                file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
+                basename, _ = extract_lxf_file(dir, file_path_s, request.data['title'])
+                file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename + ".lef")
+                print("Path: " + file_path_s)
+
+                # Read the file
+                meet = read_preview_lenex(file_path_s, "meets/" + uuid_str + ".lxf")
+    
+         
+               
+                return JsonResponse(meet, safe=False)
+            else:
+                return JsonResponse(data={'error': 'File not found'}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return JsonResponse(data={'error': 'Invalid data'}, status=status.HTTP_400_BAD_REQUEST)
+
+     
+class LXFTeamView(APIView):
     """
     View for LXF file upload.
 
@@ -156,7 +205,7 @@ class LXFMeetView(APIView):
 
             #Save the file
             uuid_str = str(uuid.uuid4())
-            upload_blob("easyswim",file_path,"meets/+"+uuid_str+".lxf")
+            upload_blob("easyswim",file_path,"/+"+uuid_str+".lxf")
 
 
             #Descompact the file
@@ -164,9 +213,8 @@ class LXFMeetView(APIView):
             basename,_=extract_lxf_file(dir,file_path_s, request.data['title'])
             file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename+".lef")
             print("Path: "+file_path_s)
-
             #Read the file
-            read_save_lenex_TeamManager(file_path_s,"meets/+"+uuid_str+".lxf")
+            read_save_lenex_TeamManager(file_path_s,"/+"+uuid_str+".lxf")
 
             return Response(lxf_serializer.data, status=status.HTTP_201_CREATED)
         else:
