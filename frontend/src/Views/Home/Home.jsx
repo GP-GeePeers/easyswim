@@ -5,38 +5,14 @@ import Button from "../../Components/Buttons/Button";
 
 function Home(props) {
     const [TABLE_DATA, setTableData] = useState([]);
-    const [mockTableData, setMockTableData] = useState([]); // Mock data for testing
     const [searchInput, setSearchInput] = useState("");
+    const [filteredData, setFilteredData] = useState([]);
     let [selectedOrder, setSelectedOrder] = useState("Mais recente");
 
     const ORDER_OPTIONS = ["Mais recente", "Mais antigo", "Nome"];
 
-    const TABLE_DATA0 = [ // Proxima Competicao
-    {
-        id: 1,
-        organizer: "Associação Académica de Coimbra",
-        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "15-07-2023",
-        state: "active"
-    },
-    {
-        id: 2,
-        organizer: "Associação Académica de Coimbra",
-        name: "ACampeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-06-2023",
-        state: "inactive"
-    },
-    {
-        id: 3,
-        organizer: "Associação Académica de Coimbra",
-        name: "RCampeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "16-05-2024",
-        state: "active"
-    },
-]
-
     useEffect(() => {
-        setMockTableData(TABLE_DATA0);
+        setTableData(TABLE_DATA);
         const fetchData = async () => {
           try {
             const response = await fetch("http://127.0.0.1:8000/api/meets-data/");
@@ -62,20 +38,18 @@ function Home(props) {
             console.error("Error:", error);
           }
         };
-    
         fetchData();
     }, []);
     
     const tableDataLength = TABLE_DATA ? TABLE_DATA.length : 0;
-       
     let container = classes.container;
     let itemsPerPage = 8;
     var totalPages;
 
-    // Dropdown options
+    // Dropdown order options
     let handleOrderOptionClick = (option) => {
         console.log(option);
-        setMockTableData(TABLE_DATA0?.filter(
+        setTableData(TABLE_DATA?.filter(
             (row) =>
             row.organizer.toLowerCase().includes(searchInput.toLowerCase()) ||
             row.name.toLowerCase().includes(searchInput.toLowerCase())
@@ -107,6 +81,22 @@ function Home(props) {
             }))
         
         setSelectedOrder(option);
+    };
+
+    // Search Input
+    const handleSearchInput = (word) => {
+        const wordsInput = word.target.value;
+
+        setSearchInput(wordsInput);
+
+        const tableFilter = TABLE_DATA.filter((competitionFilter) => {
+            const compName = competitionFilter.name;
+            const compOrganizer = competitionFilter.organizer;
+            const compDate = competitionFilter.date;
+            return compName.includes(wordsInput) || compOrganizer.includes(wordsInput) || compDate.includes(wordsInput);
+        });
+        setFilteredData(tableFilter);
+        setTableData(tableFilter);
     };
 
     totalPages = Math.ceil(tableDataLength / itemsPerPage); // 8 competitions per page
@@ -183,7 +173,7 @@ function Home(props) {
                     </div>
                         ) : (
                         <div style={{'color': "white"}}>Não está inscrito em nenhuma competição!</div>
-                            )}
+                        )}
                 </div>
 
                 <div className={classes.box}>
@@ -195,7 +185,7 @@ function Home(props) {
                                 className={classes.buttonSearch} 
                                 placeholder="Pesquisar"
                                 value={searchInput}
-                                onChange={(e) => setSearchInput(e.target.value)}
+                                onChange={handleSearchInput}
                             ></input>
 
                             <div className={classes.dropdown}>
@@ -232,7 +222,7 @@ function Home(props) {
                                 <div className={`${classes.tableCellHeader} ${classes.stateColumn}`}>ESTADO</div>
                             </div>
                         </div>
-                        {mockTableData?.map((row) => (
+                        {TABLE_DATA?.map((row) => (
                             <div key={row.id} className={classes.tableRow}>
                                 <div className={`${classes.tableCell} ${classes.organizerColumn}`}>{row.organizer}</div>
                                 <div className={`${classes.tableCell} ${classes.nameColumn}`}>{row.name}</div>
