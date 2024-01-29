@@ -5,7 +5,6 @@ import datetime
 from django.db import transaction
 from google.cloud import storage
 import xml.etree.ElementTree as ET
-from google.cloud import storage
 import requests
 from django.conf import settings
 from os.path import join
@@ -48,8 +47,19 @@ def extract_lxf_file(lxf_path, lef_path, archive):
     # Unzips the .lxf file
     with zipfile.ZipFile(complete_path, 'r') as zip_ref:
         zip_ref.extractall(lef_path)
+        
+    # Renames the file to .lef extension
+    extracted_files = [f for f in os.listdir(lef_path) if f.endswith('.lef')]
 
+    if not extracted_files:
+        raise FileNotFoundError("No .lef file found in the extracted directory")
+
+    # Assuming there's only one .lef file, rename it
+    old_file_path = os.path.join(lef_path, extracted_files[0])
+    os.rename(old_file_path, destiny_path)   
+    
     return base_name, destiny_path
+
 
 
 def descompactar_todos_lxf():
@@ -84,7 +94,7 @@ def descompactar_todos_lxf():
             with zipfile.ZipFile(complete_path, 'r') as zip_ref:
                 zip_ref.extractall(lef_path)
 
-            # re names the files to .lef extension
+            # renames the files to .lef extension
             for extracted_file in os.listdir(lef_path):
                 if extracted_file.startswith(base_name):
                     os.rename(
@@ -96,7 +106,7 @@ def descompactar_todos_lxf():
 
 
 @transaction.atomic
-def read_save_lenex(input_file):
+def read_save_lenex(input_file, bucket_path):
 
     """
     Reads LENEX file "MeetManager" and saves the data to Django models.
@@ -129,6 +139,7 @@ def read_save_lenex(input_file):
             
     for meets in root.findall('.//MEET'):
         meet_MeetManager_obj = Meet_MeetManager.objects.create(
+            bucket_path=bucket_path,
             name=meets.get('name'),
             city=meets.get('city'),
             course=meets.get('course'),
@@ -377,9 +388,6 @@ def read_save_lenex_TeamManager(input_file):
     Parameters:
     - input_file (str): The path to the input LENEX file.
     """
-
-    print(f"Blob {source_blob_name} downloaded to {destination_file_name}.")
-
     tree = ET.parse(input_file)
     root = tree.getroot()
 
