@@ -1,5 +1,5 @@
 alabaster==0.7.13
-asgiref==3.6.0
+asgiref==3.7.2
 Babel==2.13.1
 boto3==1.26.123
 botocore==1.29.123
@@ -13,7 +13,6 @@ Django==5.0.1
 django-cors-headers==4.0.0
 djangorestframework==3.14.0
 djangorestframework-jsonapi==6.1.0
-djangorestframework-jwt==1.11.0
 djangorestframework-simplejwt==5.2.2
 djoser==2.2.2
 docutils==0.20.1
@@ -30,7 +29,7 @@ packaging==23.2
 psycopg2-binary==2.9.6
 pycparser==2.21
 Pygments==2.17.2
-PyJWT==1.7.1
+PyJWT==2.8.0
 python-dateutil==2.8.2
 pytz==2023.3
 PyYAML==6.0.1
