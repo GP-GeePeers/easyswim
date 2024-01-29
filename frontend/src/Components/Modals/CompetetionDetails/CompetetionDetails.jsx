@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./CompetetionDetails.module.css";
 import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
@@ -11,7 +11,7 @@ const mockData = [
         organizer: "Associação Académica de Coimbra",
         number: "230714",
         date: "14-07-2023",
-        duration: "25m",
+        course_length: "25 meters (SCM)",
         register_limit_date: "13-07-2023 | 09:00",
         state: "active",
     },

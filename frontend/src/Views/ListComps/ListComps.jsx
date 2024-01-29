@@ -5,11 +5,6 @@ import Card from "../../Components/Cards/Card";
 
 function ListComps(props) {
     const [tests, setTests] = useState([]);
-    let container = classes.container;
-
-    if (props.retracted === true) {
-        container += ` ${classes.containerRetracted}`;
-    }
 
     useEffect(() => {
         const getTestsFromAPI = async () => {
