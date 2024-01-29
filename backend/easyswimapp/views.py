@@ -4,7 +4,11 @@ from django.http import HttpResponse, JsonResponse
 from .serializers import LXFSerializer
 from .models import LXF
 #from .utils import read_lef_file
+<<<<<<< Updated upstream
 from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request, upload_blob
+=======
+from .utils import read_save_lenex, upload_blob,extract_lxf_file
+>>>>>>> Stashed changes
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
@@ -16,6 +20,7 @@ from django.http import JsonResponse
 from django.conf import settings
 import os
 from django.core.serializers.json import DjangoJSONEncoder
+import uuid
 
 
 """
@@ -82,11 +87,34 @@ class LXFView(APIView):
         print(request.data)
 
         if lxf_serializer.is_valid():
+            dir = os.path.join(settings.MEDIA_ROOT, 'lxf_files')
+            #Create a folder for the uploaded file
+            if not os.path.exists(dir):
+                os.mkdir(dir)
             lxf_serializer.save()
+<<<<<<< Updated upstream
 
             #file_path = os.path.join(settings.MEDIA_ROOT, 'lxf_files', request.data['title'])
 
             #upload_blob("easyswim", file_path, "meets/1.lxf")
+=======
+            #Create a folder for the extracted file
+            file_path = os.path.join(dir, request.data['title'])
+
+
+            #Save the file
+            uuid_str = str(uuid.uuid4())
+            upload_blob("easyswim",file_path,"meets/+"+uuid_str+".lxf")
+
+
+            #Descompact the file
+            file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
+            _,file_path_s=extract_lxf_file(dir,file_path_s, request.data['title'])
+
+            #Read the file
+            read_save_lenex(file_path_s)
+
+>>>>>>> Stashed changes
 
             return Response(lxf_serializer.data, status=status.HTTP_201_CREATED)
         else:
@@ -179,6 +207,7 @@ def read_TeamManager_view(request):
 
     try:
         meets = list(Meet.objects.values())
+
         '''events = list(Event.objects.values())
         cons = list(Constructor.objects.values())
         #cont_constructor = list(Contact_Constructor.objects.values())

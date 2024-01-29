@@ -3,6 +3,7 @@ import os
 import zipfile
 import datetime
 from django.db import transaction
+from google.cloud import storage
 import xml.etree.ElementTree as ET
 from google.cloud import storage
 import requests
@@ -17,7 +18,42 @@ Contact_Meet_MeetManager, Meet_MeetManager, Pool_MeetManager, Facility_MeetManag
                     MeetInfo_Entry_Athlete_TeamManager, Relay_TeamManager, Entry_Relay_TeamManager, RelayPosition_TeamManager, \
                         MeetInfo_RelayPosition_TeamManager
 
+
+
+import os
+import zipfile
+
+def extract_lxf_file(lxf_path, lef_path, archive):
+    """
+    Extracts the content of a .lxf file and saves it in the specified destination path as .lef file.
+
+    Parameters:
+    - lxf_path: The path where the .lxf file is located.
+    - lef_path: The path where the .lef file will be saved.
+    - archive: The name of the .lxf file.
+    """
+    complete_path = os.path.join(lxf_path, archive)
+
+    # Make sure the path exists
+    if not os.path.exists(complete_path):
+        raise FileNotFoundError(f"File not found: {complete_path}")
+
+    # Make sure the path is a file, not a directory
+    if not os.path.isfile(complete_path):
+        raise FileNotFoundError(f"Expected a file, but found a directory: {complete_path}")
+
+    base_name = os.path.splitext(archive)[0]
+    destiny_path = os.path.join(lef_path, base_name + '.lef')
+
+    # Unzips the .lxf file
+    with zipfile.ZipFile(complete_path, 'r') as zip_ref:
+        zip_ref.extractall(lef_path)
+
+    return base_name, destiny_path
+
+
 def descompactar_todos_lxf():
+    
     """
     Reads all .lxf files in the provided location and unzips them to .lef files.
 
@@ -26,6 +62,7 @@ def descompactar_todos_lxf():
     Parameters:
     - input_file (str): The path to the input LENEX file.
     """
+
     # variables for the read and unzip paths for the files
     lxf_path = 'media/lfx_files'
     lef_path = 'media/lef_files'
@@ -55,6 +92,8 @@ def descompactar_todos_lxf():
                         destiny_path
                     )
                     break
+
+
 
 @transaction.atomic
 def read_save_lenex(input_file):
