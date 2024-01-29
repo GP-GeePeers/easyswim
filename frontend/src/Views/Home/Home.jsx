@@ -5,8 +5,34 @@ import Button from "../../Components/Buttons/Button";
 
 function Home(props) {
     const [TABLE_DATA, setTableData] = useState([]);
+    const [searchInput, setSearchInput] = useState("");
+    let [selectedOrder, setSelectedOrder] = useState("Mais recente");
 
     const ORDER_OPTIONS = ["Mais recente", "Mais antigo", "Nome"];
+
+    const TABLE_DATA0 = [ // Proxima Competicao
+    {
+        id: 1,
+        organizer: "Associação Académica de Coimbra",
+        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
+        date: "14-07-2023",
+        state: "active"
+    },
+    {
+        id: 2,
+        organizer: "BAssociação Académica de Coimbra",
+        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
+        date: "14-06-2023",
+        state: "inactive"
+    },
+    {
+        id: 3,
+        organizer: "CAssociação Académica de Coimbra",
+        name: "Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
+        date: "14-05-2024",
+        state: "active"
+    },
+]
 
     useEffect(() => {
         const fetchData = async () => {
@@ -37,19 +63,33 @@ function Home(props) {
     
         fetchData();
     });
-
-
+    
     const tableDataLength = TABLE_DATA ? TABLE_DATA.length : 0;
        
 
 //////
     let container = classes.container;
-    let [selectedOrder, setSelectedOrder] = useState("Mais recente");
     let itemsPerPage = 8;
     var totalPages;
 
     // Dropdown options
     let handleOrderOptionClick = (option) => {
+        console.log(option);
+        TABLE_DATA0?.filter(
+            (row) =>
+            row.organizer.toLowerCase().includes(searchInput.toLowerCase()) ||
+            row.name.toLowerCase().includes(searchInput.toLowerCase())
+            )
+            .sort((a, b) => {
+                if (selectedOrder === "Mais antigo") {
+                    return new Date(a.date) - new Date(b.date);
+                } else if (selectedOrder === "Nome") {
+                    return a.name.localeCompare(b.name);
+                } else {
+                    return new Date(b.date) - new Date(a.date);
+                }
+            })
+        console.log(TABLE_DATA0)
         setSelectedOrder(option);
     };
 
@@ -136,6 +176,8 @@ function Home(props) {
                             <input 
                                 className={classes.buttonSearch} 
                                 placeholder="Pesquisar"
+                                value={searchInput}
+                                onChange={(e) => setSearchInput(e.target.value)}
                             ></input>
 
                             <div className={classes.dropdown}>
@@ -146,8 +188,25 @@ function Home(props) {
                                     {ORDER_OPTIONS.map((option) => (
                                         <a
                                             key={option}
-                                            href={"/" + {option}}
-                                            onClick={() => handleOrderOptionClick(option)}
+                                            href="/"
+                                            onClick={() => {
+                                                handleOrderOptionClick(option);
+                                                TABLE_DATA0?.filter(
+                                                    (row) =>
+                                                    row.organizer.toLowerCase().includes(searchInput.toLowerCase()) ||
+                                                    row.name.toLowerCase().includes(searchInput.toLowerCase())
+                                                )
+                                                .sort((a, b) => {
+                                                    if (selectedOrder === "Mais antigo") {
+                                                    return new Date(a.date) - new Date(b.date);
+                                                    } else if (selectedOrder === "Nome") {
+                                                    return a.name.localeCompare(b.name);
+                                                    } else {
+                                                    return new Date(b.date) - new Date(a.date);
+                                                    }
+                                                })
+                                                }
+                                            }
                                         >
                                             {option}
                                         </a>
@@ -168,7 +227,7 @@ function Home(props) {
                                 <div className={`${classes.tableCellHeader} ${classes.stateColumn}`}>ESTADO</div>
                             </div>
                         </div>
-                        {TABLE_DATA?.map((row) => (
+                        {TABLE_DATA0?.map((row) => (
                             <div key={row.id} className={classes.tableRow}>
                                 <div className={`${classes.tableCell} ${classes.organizerColumn}`}>{row.organizer}</div>
                                 <div className={`${classes.tableCell} ${classes.nameColumn}`}>{row.name}</div>
