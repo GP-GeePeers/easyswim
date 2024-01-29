@@ -1,13 +1,31 @@
-import React, { useState } from "react";
-import axios from "axios";
-import classes from "./Home.module.css";
+// Home.jsx or any other component
+
+import React, { useEffect, useState } from 'react';
+import classes from './Home.module.css';
+import NextCompetition from '../../Components/Cards/NextCompetition/NextCompetition';
+import axios from 'axios';
 
 function Home(props) {
+    const [data, setData] = useState(null);
+    const url = "http://localhost:8000/api/";
+
     let container = classes.container;
 
     if (props.retracted === true) {
         container += ` ${classes.containerRetracted}`;
     }
+    
+    useEffect(() => {
+        axios.get(url)
+            .then(response => {
+                setData(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+            
+        console.log('Success fetching data:', data);
+    }, []);
 
     return (
         <div className={container}>
@@ -190,6 +208,7 @@ function Home(props) {
             </div>
         </div>
     );
+
 }
 
 export default Home;
