@@ -9,12 +9,13 @@ charset-normalizer==3.3.2
 coreapi==2.3.3
 coreschema==0.0.4
 cryptography==40.0.2
-Django==4.1.9
+Django==5.0.1
 django-cors-headers==4.0.0
 djangorestframework==3.14.0
 djangorestframework-jsonapi==6.1.0
 djangorestframework-jwt==1.11.0
 djangorestframework-simplejwt==5.2.2
+djoser==2.2.2
 docutils==0.20.1
 drf-yasg==1.21.7
 idna==3.6
