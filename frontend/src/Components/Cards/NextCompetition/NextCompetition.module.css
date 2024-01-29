@@ -57,12 +57,12 @@
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.14px;
-    cursor: pointer;
 }
 
 .competitionText {
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .competitionText::before,
