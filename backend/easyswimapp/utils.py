@@ -323,6 +323,7 @@ def final_list(athletes, result):
         result_list.append([athlete_name, athlete_license, athlete_validity])
 
     return result_list
+
 def upload_blob(bucket_name, source_file_name, destination_blob_name):
 
     """
@@ -358,6 +359,7 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
     print(
         f"File {source_file_name} uploaded to {destination_blob_name}."
     )
+
 def download_blob(bucket_name, source_blob_name, destination_file_name):
 
     """
