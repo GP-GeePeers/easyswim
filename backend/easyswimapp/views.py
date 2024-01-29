@@ -4,11 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from .serializers import LXFSerializer
 from .models import LXF
 #from .utils import read_lef_file
-<<<<<<< Updated upstream
-from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request, upload_blob
-=======
-from .utils import read_save_lenex, upload_blob,extract_lxf_file
->>>>>>> Stashed changes
+from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request, upload_blob,extract_lxf_file
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
@@ -92,12 +88,6 @@ class LXFView(APIView):
             if not os.path.exists(dir):
                 os.mkdir(dir)
             lxf_serializer.save()
-<<<<<<< Updated upstream
-
-            #file_path = os.path.join(settings.MEDIA_ROOT, 'lxf_files', request.data['title'])
-
-            #upload_blob("easyswim", file_path, "meets/1.lxf")
-=======
             #Create a folder for the extracted file
             file_path = os.path.join(dir, request.data['title'])
 
@@ -114,7 +104,6 @@ class LXFView(APIView):
             #Read the file
             read_save_lenex(file_path_s)
 
->>>>>>> Stashed changes
 
             return Response(lxf_serializer.data, status=status.HTTP_201_CREATED)
         else:
