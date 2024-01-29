@@ -19,7 +19,7 @@ django-multiselectfield==0.1.12
 django-rest-swagger==2.2.0
 django-templated-mail==1.1.1
 djangorestframework==3.14.0
-djangorestframework-jsonapi==6.0.0
+djangorestframework-jsonapi==6.1.0
 djangorestframework-jwt==1.11.0
 djangorestframework-simplejwt==5.2.2
 djoser==2.2.2
@@ -43,7 +43,7 @@ psycopg2==2.9.9
 psycopg2-binary==2.9.9
 pycparser==2.21
 Pygments==2.17.2
-PyJWT==2.8.0
+PyJWT==1.7.1
 python-dateutil==2.8.2
 python3-openid==3.2.0
 pytz==2023.3
@@ -55,8 +55,6 @@ setuptools==69.0.3
 simplejson==3.19.2
 six==1.16.0
 snowballstemmer==2.2.0
-social-auth-app-django==5.4.0
-social-auth-core==4.5.1
 Sphinx==7.2.6
 sphinxcontrib-applehelp==1.0.7
 sphinxcontrib-devhelp==1.0.5
