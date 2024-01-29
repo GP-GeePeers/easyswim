@@ -55,7 +55,9 @@ function CompetitionsList(props) {
                     <div className={classes.buttonsContainer}>
                         <div className={classes.dropdown}>
                             <div className={classes.buttonDropdown}>
-                                Ordenar por: {selectedOrder}
+                                <div className={classes.text}>
+                                    Ordenar por: {selectedOrder}
+                                </div>
                             </div>
                             <div className={classes.listDropdown}>
                                 {ORDER_OPTIONS.map((option) => (

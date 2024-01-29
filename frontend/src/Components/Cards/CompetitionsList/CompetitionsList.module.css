@@ -41,10 +41,12 @@
     font-weight: bold;
     cursor: pointer;
     margin-left: 1rem;
-    padding: 8px 30px;
+    padding: 8px 16px;
     display: flex;
-    justify-content: left;
-    width: 15rem;
+    justify-content: flex-start;
+    align-items: center;
+    width: 12.8rem;
+    height: 1.4rem;
     background-image: url("./Assets/dropdown.svg");
     background-size: 1rem;
     background-repeat: no-repeat;
@@ -70,6 +72,9 @@
     display: block;
     text-decoration: none;
     text-align: left;
+    background-color: transparent;
+    border: none;
+    width: 100%;
 }
 
 .listDropdown button:hover {
@@ -78,6 +83,24 @@
 
 .dropdown:hover .listDropdown {
     display: block;
+}
+
+.buttonSearch {
+    margin-left: 1rem;
+    padding: 12px 30px;
+    background-color: rgba(68, 85, 82, 0.2);
+    flex-direction: column;
+    color: #b7bab6;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    align-items: left;
+    display: flex;
+    background-image: url("./Assets/search.svg");
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    background-position: 7px 50%;
 }
 
 .title {
@@ -155,24 +178,6 @@
 
 ._ {
     display: none;
-}
-
-.buttonSearch {
-    margin-left: 1rem;
-    padding: 8px 30px;
-    background-color: rgba(68, 85, 82, 0.2);
-    flex-direction: column;
-    color: #b7bab6;
-    font-weight: bold;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    align-items: left;
-    display: flex;
-    background-image: url("./Assets/search.svg");
-    background-size: 1rem;
-    background-repeat: no-repeat;
-    background-position: 7px 50%;
 }
 
 @media screen and (max-width: 667px) {
