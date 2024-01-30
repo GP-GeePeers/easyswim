@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import read_lef_view, model_data_view, read_registered_lxf, read_TeamManager_view
+from .views import read_lef_view, model_data_view, read_registered_lxf, read_TeamManager_view, delete_meet
 
 
 
@@ -10,6 +10,7 @@ urlpatterns = [
 
     path('lxf-team-confirmation/', views.LXFTeamView.as_view(), name='lxf-team-confirmation'),
 
+    path('lxf-delete/', delete_meet, name='delete-meet'),
 
     path('read-lef/', read_lef_view, name='read-lef'),
     path('read-TeamManager/', read_TeamManager_view, name='read-TeamManager'),
