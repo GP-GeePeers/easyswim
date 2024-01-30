@@ -10,7 +10,7 @@ function NextCompetition(props) {
             <Card>
                 <div className={classes.title}>Próxima competição</div>
                 <div className={classes.content}>
-                    {props.mockNextCompetition === null ? (
+                    {!props.nextCompetitionData ? (
                         <div className={classes.text}>
                             Não está inscrito em nenhuma competição!
                         </div>
@@ -18,7 +18,7 @@ function NextCompetition(props) {
                         <>
                             <div className={classes.organizationContainer}>
                                 <div className={classes.text}>
-                                    {props.mockNextCompetition?.organizer}
+                                    {props.nextCompetitionData?.organizer}
                                 </div>
                             </div>
                             <div className={classes.verticalLine} />
@@ -27,13 +27,13 @@ function NextCompetition(props) {
                                 onClick={props.changeCompDetailsModal}
                             >
                                 <div className={classes.competitionText}>
-                                    {props.mockNextCompetition?.name}
+                                    {props.nextCompetitionData?.name}
                                 </div>
                             </button>
                             <div className={classes.verticalLine} />
                             <div className={classes.dateContainer}>
                                 <div className={classes.text}>
-                                    {props.mockNextCompetition.date}
+                                    {props.nextCompetitionData?.date}
                                 </div>
                             </div>
                             <div className={classes.verticalLineState} />

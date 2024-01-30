@@ -30,59 +30,15 @@ const mockDataList = [
 
 function Home(props) {
     const [nextCompetitionData, setNextCompetitionData] = useState();
-    const [tableData, setTableData] = useState();
+    const [tableData, setTableData] = useState([]);
     //mockdata
-    const [mockTableDataList, setMockTableDataList] = useState(mockDataList);
+    // const [mockTableDataList, setMockTableDataList] = useState(mockDataList);
     // console.log(mockTableDataList);
-    const [mockNextCompetition, setMockNextCompetition] = useState(null);
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(
-                "http://127.0.0.1:8000/api/meets-data/"
-            );
-            const data = await response.json();
-            const currentDate = new Date();
-
-            const updatedTableData = data.meets.map((meet) => {
-                const meetDate = new Date(meet.deadline);
-                const isActive = meetDate >= currentDate;
-
-                return {
-                    id: meet.id,
-                    organizer: meet.organizer,
-                    name: meet.name,
-                    date: meet.deadline,
-                    state: isActive ? "active" : "inactive",
-                };
-            });
-
-            setTableData(updatedTableData);
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    };
-
-    const getNextCompetition = () => {
-        if (!mockTableDataList || !Array.isArray(mockTableDataList)) {
-            setMockNextCompetition(null);
-        }
-        const currentDate = new Date();
-        for (const meet of mockTableDataList) {
-            if (!meet || typeof meet !== "object" || !meet.date) {
-                continue;
-            }
-            const [day, month, year] = meet.date.split("-").map(Number);
-            const meetDate = new Date(year, month - 1, day);
-            if (meet.state === "active" && meetDate >= currentDate) {
-                setMockNextCompetition(meet);
-            }
-        }
-    };
+    // const [mockNextCompetition, setMockNextCompetition] = useState(null);
 
     // const getNextCompetition = () => {
     //     if (!mockTableDataList || !Array.isArray(mockTableDataList)) {
-    //         setNextCompetitionData(null);
+    //         setMockNextCompetition(null);
     //     }
     //     const currentDate = new Date();
     //     for (const meet of mockTableDataList) {
@@ -92,27 +48,74 @@ function Home(props) {
     //         const [day, month, year] = meet.date.split("-").map(Number);
     //         const meetDate = new Date(year, month - 1, day);
     //         if (meet.state === "active" && meetDate >= currentDate) {
-    //             setNextCompetitionData(meet);
+    //             setMockNextCompetition(meet);
     //         }
     //     }
     // };
 
+    const getNextCompetition = () => {
+        if (!tableData || !Array.isArray(tableData)) {
+            setNextCompetitionData(null);
+        }
+        const currentDate = new Date();
+        for (const meet of tableData) {
+            if (!meet || typeof meet !== "object" || !meet.date) {
+                continue;
+            }
+            const meetDate = new Date();
+            if (meet.state === "active" && meetDate >= currentDate) {
+                setNextCompetitionData(meet);
+            }
+        }
+    };
+
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(
+                    "http://127.0.0.1:8000/api/read-TeamManager/"
+                );
+                const data = response.data; // Use response.data instead of response.json()
+
+                const currentDate = new Date();
+
+                const updatedTableData = data.meets.map((meet) => {
+                    const meetDate = new Date(meet.deadline);
+                    const isActive = meetDate >= currentDate;
+
+                    return {
+                        id: meet.id,
+                        organizer: meet.organizer,
+                        name: meet.name,
+                        date: meet.deadline,
+                        state: isActive ? "active" : "inactive",
+                    };
+                });
+
+                setTableData(updatedTableData);
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
         fetchData();
-        getNextCompetition();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    useEffect(() => {
+        getNextCompetition();
+    }, [tableData]);
 
     return (
         <div className={classes.topCardContainer}>
             <NextCompetition
                 changeCompDetailsModal={props.changeCompDetailsModal}
                 nextCompetitionData={nextCompetitionData}
-                mockNextCompetition={mockNextCompetition}
+                // mockNextCompetition={mockNextCompetition}
             />
             <CompetitionsList
-                mockDataList={mockTableDataList}
-                setMockTableDataList={setMockTableDataList}
+            // mockDataList={mockTableDataList}
+            // setMockTableDataList={setMockTableDataList}
             />
         </div>
     );
