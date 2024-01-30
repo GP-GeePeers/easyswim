@@ -136,6 +136,7 @@ function App() {
                                         changeCompDetailsModal={
                                             changeCompDetailsModal
                                         }
+                                        create
                                     />
                                     <PageContent
                                         organization={organization}
