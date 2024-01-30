@@ -21,7 +21,7 @@
     border-radius: 30px;
     background-color: #0f1110;
     width: 80vw;
-    height: fit-content;
+    height: stretch;
     overflow: hidden;
     overflow-y: scroll;
     -ms-overflow-style: none;
@@ -119,7 +119,7 @@
 
 .horizontalLine {
     border-bottom: 1px solid #335c58;
-    width: fill-available;
+    width: stretch;
 }
 
 .text,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classes from "./CompetionDetails.module.css";
+import classes from "./CompetitionDetails.module.css";
 import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 
@@ -17,7 +17,7 @@ const mockData = [
     },
 ];
 
-function CompetionDetails(props) {
+function CompetitionDetails(props) {
     let data;
     if (props.create) {
         // data = props.createCompData;
@@ -190,4 +190,4 @@ function CompetionDetails(props) {
     );
 }
 
-export default CompetionDetails;
+export default CompetitionDetails;
