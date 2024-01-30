@@ -8,38 +8,42 @@ function Home(props) {
     const [searchInput, setSearchInput] = useState("");
     const [filteredData, setFilteredData] = useState([]);
     let [selectedOrder, setSelectedOrder] = useState("Mais recente");
+    const [originalData, setOriginalData] = useState([]);
+
 
     const ORDER_OPTIONS = ["Mais recente", "Mais antigo", "Nome"];
 
     useEffect(() => {
-        setTableData(TABLE_DATA);
         const fetchData = async () => {
-          try {
-            const response = await fetch("http://127.0.0.1:8000/api/meets-data/");
-            const data = await response.json();
-            const currentDate = new Date();
-    
-            const updatedTableData = data.meets.map((meet) => {
-              const meetDate = new Date(meet.deadline);
-              const isActive = meetDate >= currentDate;
-    
-              return {
-                id: meet.id,
-                organizer: meet.organizer,
-                name: meet.name,
-                date: meet.deadline,
-                state: isActive ? "active" : "inactive",
-              };
-            });
-    
-            setTableData(updatedTableData);
-            
-          } catch (error) {
-            console.error("Error:", error);
-          }
+            try {
+                const response = await fetch("http://127.0.0.1:8000/api/meets-data/");
+                const data = await response.json();
+                const currentDate = new Date();
+
+                const updatedTableData = data.meets.map((meet) => {
+                    const meetDate = new Date(meet.deadline);
+                    const isActive = meetDate >= currentDate;
+
+                    return {
+                        id: meet.id,
+                        organizer: meet.organizer,
+                        name: meet.name,
+                        date: meet.deadline,
+                        state: isActive ? "active" : "inactive",
+                    };
+                });
+
+                setTableData(updatedTableData);
+                setOriginalData(updatedTableData); // Set original data here
+
+            } catch (error) {
+                console.error("Error:", error);
+            }
         };
+
         fetchData();
     }, []);
+
     
     const tableDataLength = TABLE_DATA ? TABLE_DATA.length : 0;
     let container = classes.container;
@@ -85,19 +89,26 @@ function Home(props) {
 
     // Search Input
     const handleSearchInput = (word) => {
-        const wordsInput = word.target.value;
+        const wordsInput = word.target.value.toLowerCase();
 
         setSearchInput(wordsInput);
 
-        const tableFilter = TABLE_DATA.filter((competitionFilter) => {
-            const compName = competitionFilter.name;
-            const compOrganizer = competitionFilter.organizer;
-            const compDate = competitionFilter.date;
-            return compName.includes(wordsInput) || compOrganizer.includes(wordsInput) || compDate.includes(wordsInput);
-        });
-        setFilteredData(tableFilter);
-        setTableData(tableFilter);
+        if (wordsInput === "") {
+            setFilteredData([]);
+            setTableData(originalData);
+        } else {
+            const tableFilter = originalData.filter((competitionFilter) => {
+                const compName = competitionFilter.name.toLowerCase();
+                const compOrganizer = competitionFilter.organizer.toLowerCase();
+                const compDate = competitionFilter.date.toLowerCase();
+                return compName.includes(wordsInput) || compOrganizer.includes(wordsInput) || compDate.includes(wordsInput);
+            });
+
+            setFilteredData(tableFilter);
+            setTableData(tableFilter);
+        }
     };
+
 
     totalPages = Math.ceil(tableDataLength / itemsPerPage); // 8 competitions per page
 
