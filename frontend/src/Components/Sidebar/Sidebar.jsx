@@ -5,7 +5,10 @@ import Button from "../Buttons/Button";
 import Title from "./Assets/Title.svg";
 import sideIcon from "./Assets/sideIcon.png";
 import gear from "./Assets/gear.svg";
-import logout from "./Assets/logout1.png";
+import logout_img from "./Assets/logout1.png";
+import { logout } from "../../Actions/auth";
+import { connect } from 'react-redux';
+
 
 function Sidebar(props) {
     const [clickedComp, setClickedComp] = useState(false);
@@ -91,10 +94,10 @@ function Sidebar(props) {
                     // type={"close"}
                     type={"sidebar"}
                     text={props.retracted ? "" : "Terminar Sessão"}
-                    icon={logout}
+                    icon={logout_img}
                     retracted={props.retracted}
                     onClick={() => {
-                        /*TODO: Logout*/
+                        props.logout();
                     }}
                 />
                 <Button
@@ -110,4 +113,8 @@ function Sidebar(props) {
     );
 }
 
-export default Sidebar;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { logout }) (Sidebar);

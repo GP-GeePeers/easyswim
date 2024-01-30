@@ -200,7 +200,7 @@ function CreateCompetition(props) {
                             <Button
                                 type={"secondary"}
                                 text={"Ver Ficheiro"}
-                                /*onClick={props.changeCreateCompModal}*/
+                            /*onClick={props.changeCreateCompModal}*/
                             />
                         </div>
                     </div>

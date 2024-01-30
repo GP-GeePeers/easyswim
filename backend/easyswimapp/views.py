@@ -2,7 +2,7 @@ import shutil
 from django.shortcuts import render
 from django.http import FileResponse, HttpResponse, JsonResponse
 from .serializers import LXFSerializer
-from .models import LXF
+from .models import LXF, Meet_TeamManager
 #from .utils import read_lef_file
 from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request, upload_blob,extract_lxf_file,read_preview_lenex,download_blob
 from rest_framework.views import APIView
@@ -302,41 +302,32 @@ def model_data_view(request):
     :param request: HttpRequest object
     :return: JSON response containing data from various models
     """
-    meets = list(Meet_MeetManager.objects.values())  
-    events = list(Event_MeetManager.objects.values())
-    cons = list(Constructor_MeetManager.objects.values())   
-    cont_constructor = list(Contact_Constructor_MeetManager.objects.values())
-    cont_meet = list(Contact_Meet_MeetManager.objects.values())
-    pool = list(Pool_MeetManager.objects.values())
-    facility = list(Facility_MeetManager.objects.values())
-    pointtable = list(PointTable_MeetManager.objects.values())
-    session = list(Session_MeetManager.objects.values())
-    swimstyle = list(SwimStyle_MeetManager.objects.values())
-    fee = list(Fee_MeetManager.objects.values())
-    agegroup = list(AgeGroup_MeetManager.objects.values())
+    try:
+        meets = list(Meet_MeetManager.objects.values())  
+        '''events = list(Event_MeetManager.objects.values())
+        cons = list(Constructor_MeetManager.objects.values())   
+        cont_constructor = list(Contact_Constructor_MeetManager.objects.values())
+        cont_meet = list(Contact_Meet_MeetManager.objects.values())
+        pool = list(Pool_MeetManager.objects.values())
+        facility = list(Facility_MeetManager.objects.values())
+        pointtable = list(PointTable_MeetManager.objects.values())
+        session = list(Session_MeetManager.objects.values())
+        swimstyle = list(SwimStyle_MeetManager.objects.values())
+        fee = list(Fee_MeetManager.objects.values())
+        agegroup = list(AgeGroup_MeetManager.objects.values())'''
 
-    data = {
-        'meets': meets,
-        'events': events,
-        'constructor': cons,
-        'contact_constructor': cont_constructor,
-        'contact_meet': cont_meet,
-        'pool': pool,
-        'facility': facility,
-        'pointtable': pointtable,
-        'session': session,
-        'swimstyle': swimstyle,
-        'fee': fee,
-        'agegroup': agegroup,
-    }
+        data = {
+            'meets': meets,
+        }
 
-    return JsonResponse(data)
+        return JsonResponse(data, safe=False, encoder=DjangoJSONEncoder)
+    except Exception as e:
+        return HttpResponse(f'An error occurred while processing the .lef file: {e}')
 
 def read_registered_lxf(request):
     folder_path = os.path.join(settings.MEDIA_ROOT, 'registered_lxf') # vai buscar todos os ficheiros da pasta, TODO mudar para ir buscar os ficheiros de uma prova à db
 
     if os.path.exists(folder_path):
-        
         #create temporary dir to extract the files
         temp_dir = os.path.join(settings.MEDIA_ROOT, 'temp_extracted') 
         os.makedirs(temp_dir, exist_ok=True)
@@ -351,8 +342,6 @@ def read_registered_lxf(request):
         shutil.rmtree(temp_dir)
 
         return  HttpResponse('.lxf files read successfully!') #Response({'message': '.lxf files read successfully!'}, status=status.HTTP_201_CREATED)
-
-    
     else:
         print("Folder does not exist: ", folder_path)
         return  HttpResponse('Error reading .lxf files!')
@@ -363,8 +352,7 @@ def read_TeamManager_view(request):
     print("Path: "+file_path)
 
     try:
-        meets = list(Meet.objects.values())
-
+        meets = list(Meet_TeamManager.objects.values())
         '''events = list(Event.objects.values())
         cons = list(Constructor.objects.values())
         #cont_constructor = list(Contact_Constructor.objects.values())
