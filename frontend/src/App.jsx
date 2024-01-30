@@ -56,47 +56,22 @@ function App() {
     return (
         <Provider store={store}>
             <Router>
+                <Background />
                 <ToastContainer />
                 <Routes>
-                    <Route
-                        path="/login"
-                        element={
-                            <Layout>
-                                <Login />
-                            </Layout>
-                        }
-                    />
-                    <Route
-                        path="/signup"
-                        element={
-                            <Layout>
-                                <Signup />
-                            </Layout>
-                        }
-                    />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
                     <Route
                         path="/api/reset-password"
-                        element={
-                            <Layout>
-                                <ResetPassword />
-                            </Layout>
-                        }
+                        element={<ResetPassword />}
                     />
                     <Route
                         path="/api/password/reset/confirm/:uid/:token"
-                        element={
-                            <Layout>
-                                <ResetPasswordConfirm />
-                            </Layout>
-                        }
+                        element={<ResetPasswordConfirm />}
                     />
                     <Route
                         path="/api/activate/:uid/:token"
-                        element={
-                            <Layout>
-                                <Activate />
-                            </Layout>
-                        }
+                        element={<Activate />}
                     />
                     <Route
                         path="/"
