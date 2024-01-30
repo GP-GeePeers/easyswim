@@ -31,6 +31,7 @@ const mockDataList = [
 function Home(props) {
     const [nextCompetitionData, setNextCompetitionData] = useState();
     const [tableData, setTableData] = useState([]);
+    const [originalData, setOriginalData] = useState([]);
     //mockdata
     // const [mockTableDataList, setMockTableDataList] = useState(mockDataList);
     // console.log(mockTableDataList);
@@ -91,6 +92,7 @@ function Home(props) {
                 });
 
                 setTableData(updatedTableData);
+                setOriginalData(updatedTableData);
             } catch (error) {
                 console.error("Error:", error);
             }
@@ -114,6 +116,7 @@ function Home(props) {
             <CompetitionsList
                 setTableData={setTableData}
                 tableData={tableData}
+                originalData={originalData}
                 // mockDataList={mockTableDataList}
                 // setMockTableDataList={setMockTableDataList}
             />

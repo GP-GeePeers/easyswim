@@ -4,7 +4,6 @@ import Card from "../Card";
 import Button from "../../Buttons/Button";
 
 const ORDER_OPTIONS = ["Mais antigo", "Mais recente", "Nome"];
-const TABLE_HEADERS = ["ORGANIZADOR", "NOME", "DATA", "ESTADO"];
 
 function CompetitionsList(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
@@ -52,6 +51,32 @@ function CompetitionsList(props) {
         setSelectedOrder(option);
     };
 
+    const handleSearchInput = (word) => {
+        const wordsInput = word.target.value.toLowerCase();
+
+        setSearchInput(wordsInput);
+
+        if (wordsInput === "") {
+            props.setTableData(props.originalData);
+        } else {
+            const tableFilter = props.originalData.filter(
+                (competitionFilter) => {
+                    const compName = competitionFilter.name.toLowerCase();
+                    const compOrganizer =
+                        competitionFilter.organizer.toLowerCase();
+                    const compDate = competitionFilter.date.toLowerCase();
+                    return (
+                        compName.includes(wordsInput) ||
+                        compOrganizer.includes(wordsInput) ||
+                        compDate.includes(wordsInput)
+                    );
+                }
+            );
+
+            props.setTableData(tableFilter);
+        }
+    };
+
     return (
         <>
             <Card>
@@ -65,6 +90,8 @@ function CompetitionsList(props) {
                         <input
                             className={classes.buttonSearch}
                             placeholder="Pesquisar"
+                            value={searchInput}
+                            onChange={handleSearchInput}
                         ></input>
                         <div className={classes.dropdown}>
                             <div className={classes.buttonDropdown}>
