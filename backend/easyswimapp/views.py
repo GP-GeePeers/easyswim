@@ -68,25 +68,31 @@ class LXFMeetView(APIView):
         :return: Response object with serialized LXF data
         """
         download_requested = request.query_params.get('download', False)
-        bucket_path = request.data['bucket_path']
 
+        meet_id = request.query_params.get('id')
+        meet = list(Meet_MeetManager.objects.filter(id=meet_id).values())[0]
+        bucket_path = str(meet.get('bucket_path'))
+        # Split the bucket path to get the file name
+        file_name = bucket_path.split('/')[-1]
         if download_requested:
             
             bucket_name = "easyswim"  
-            destination_file_name = os.path.join(settings.MEDIA_ROOT, 'lxf_files', request.data['title'])
+            destination_file_name = os.path.join(settings.MEDIA_ROOT, 'lxf_files',file_name)
+            print(""+bucket_path)
 
             download_blob(bucket_name, bucket_path, destination_file_name)
 
             response = FileResponse(open(destination_file_name, 'rb'))
-            response['Content-Disposition'] = f'attachment; filename="{request.data["title"]}"'
-            return response
+            response['Content-Disposition'] = f'attachment; filename="{file_name}"'
+            return  JsonResponse(data={'notification': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_200_OK)
 
             #return JsonResponse(data={'notification': 'Download concluído com sucesso!'}, status=status.HTTP_200_OK)
         else:
             # Se não for uma solicitação de download, continue com a lógica existente
             posts = LXF.objects.all()
             serializer = LXFSerializer(posts, many=True)
-            return Response(serializer.data)
+            return  JsonResponse(data={'notification': 'FUCK!'}, status=status.HTTP_201_CREATED)
+
 
     def post(self, request, *args, **kwargs):
         """
