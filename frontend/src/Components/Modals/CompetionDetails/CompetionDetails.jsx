@@ -18,7 +18,16 @@ const mockData = [
 ];
 
 function CompetionDetails(props) {
-    const keys = Object.keys(mockData[0]);
+    let data;
+    if (props.create) {
+        // data = props.createCompData;
+        data = mockData;
+    } else {
+        console.log(props.filePreview);
+        data = props.filePreview;
+    }
+
+    const keys = Object.keys(data[0]);
 
     const [contentHeights, setContentHeights] = useState(
         Array(keys.length).fill(0)
@@ -64,25 +73,19 @@ function CompetionDetails(props) {
                                         className={classes.buttonsContainer}
                                         onClick={handleCloseModal}
                                     >
-                                        <Button
-                                            text={
-                                                props.create
-                                                    ? "Cancelar prova"
-                                                    : "Confirmar"
-                                            }
-                                            onClick={
-                                                props.create
-                                                    ? props.changeCreateCompModal
-                                                    : props.handleSubmitOnPreview
-                                            }
-                                        />
+                                        {props.create && (
+                                            <Button
+                                                text={"Cancelar prova"}
+                                                onClick={
+                                                    props.create
+                                                        ? props.changeCreateCompModal
+                                                        : props.handleSubmitOnPreview
+                                                }
+                                            />
+                                        )}
                                         <Button
                                             type={"secondary"}
-                                            text={
-                                                props.create
-                                                    ? "Fechar"
-                                                    : "Cancelar"
-                                            }
+                                            text={"Fechar"}
                                             onClick={
                                                 props.changeCreateCompModal
                                             }
@@ -92,8 +95,14 @@ function CompetionDetails(props) {
                                 <div className={classes.tableContainer}>
                                     {keys.map(
                                         (key, index) =>
-                                            // Exclude "id" from rendering
-                                            key !== "id" && (
+                                            key !== "id" &&
+                                            key !== "bucket_path" &&
+                                            key !== "maxentriesathlete" &&
+                                            key !== "number" &&
+                                            key !== "reservecount" &&
+                                            key !== "startmethod" &&
+                                            key !== "timing" &&
+                                            key !== "type" && (
                                                 <React.Fragment key={key}>
                                                     <div
                                                         className={
@@ -137,7 +146,7 @@ function CompetionDetails(props) {
                                                                     classes.details
                                                                 }
                                                             >
-                                                                {mockData.map(
+                                                                {data.map(
                                                                     (data) => (
                                                                         <React.Fragment
                                                                             key={
@@ -158,7 +167,10 @@ function CompetionDetails(props) {
                                                         </div>
                                                     </div>
                                                     {index <
-                                                        keys.length - 1 && (
+                                                        (props.create
+                                                            ? keys.length - 1
+                                                            : keys.length -
+                                                              2) && (
                                                         <div
                                                             className={
                                                                 classes.horizontalLine

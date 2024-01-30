@@ -12,7 +12,7 @@ function CreateCompetition(props) {
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
     const [showFile, setShowFile] = useState(false);
-    const [filePreview, setFilePreview] = useState([]);
+    const [filePreview, setFilePreview] = useState();
     const fileInputRef = createRef();
 
     useEffect(() => {
@@ -21,6 +21,14 @@ function CreateCompetition(props) {
         setSuccessMessage("");
         setLxfFile(null);
     }, [props.createCompModal]);
+
+    useEffect(() => {
+        if (errorMessage) {
+            setSuccessMessage("");
+        } else if (successMessage) {
+            setErrorMessage("");
+        }
+    }, [errorMessage, successMessage]);
 
     const handleCloseModal = () => {
         props.changeCreateCompModal();
@@ -57,7 +65,7 @@ function CreateCompetition(props) {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         if (errorMessage) {
             // Do not submit if there is an error
@@ -68,11 +76,12 @@ function CreateCompetition(props) {
         if (lxfFile) {
             form_data.append("lxf_file", lxfFile, lxfFile.name);
             form_data.append("title", lxfFile.name);
+            console.log(123);
         } else {
             setErrorMessage("Por favor, selecione um ficheiro.");
         }
 
-        let url = "http://localhost:8000/api/lxf-meet-confirmation/"; //TODO Change url to the real endpoint
+        let url = "http://localhost:8000/api/lxf-meet-confirmation/";
         axios
             .post(url, form_data, {
                 headers: {
@@ -108,21 +117,39 @@ function CreateCompetition(props) {
 
     const handleFilePreview = async () => {
         if (lxfFile) {
-            try {
-                const response = await axios.get(
-                    "http://localhost:8000/api/lxf-meet-preview/"
-                );
-                console.log(response.data);
-                setFilePreview(response.data);
-            } catch (error) {
-                console.error("Erro ao buscar provas:", error);
+            if (errorMessage) {
+                // Do not submit if there is an error
+                return;
             }
+
+            let form_data = new FormData();
+            if (lxfFile) {
+                form_data.append("lxf_file", lxfFile, lxfFile.name);
+                form_data.append("title", lxfFile.name);
+            } else {
+                setErrorMessage("Por favor, selecione um ficheiro.");
+            }
+
+            let url = "http://localhost:8000/api/lxf-meet-preview/";
+            axios
+                .post(url, form_data, {
+                    headers: {
+                        "content-type": "multipart/form-data",
+                    },
+                })
+                .then((res) => {
+                    console.log(res.data);
+                    setFilePreview(res.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                    setErrorMessage("ERRO: " + err.message);
+                });
         }
     };
 
     const handleShowFile = () => {
         if (lxfFile) {
-            props.changeCreateCompModal();
             setShowFile(!showFile);
             handleFilePreview();
         } else {
@@ -130,7 +157,6 @@ function CreateCompetition(props) {
         }
 
         if (showFile) {
-            props.changeCreateCompModal();
             setShowFile(!showFile);
         }
     };
@@ -142,16 +168,19 @@ function CreateCompetition(props) {
 
     return (
         <div>
-            {showFile && (
+            {showFile && filePreview && (
                 <CompetionDetails
                     compDetailsModal={showFile}
                     changeCompDetailsModal={handleShowFile}
                     handleSubmitOnPreview={handleSubmitOnPreview}
+                    filePreview={filePreview}
                 />
             )}
             {props.createCompModal && (
                 <div
-                    className={classes.createCompModalOverlay}
+                    className={
+                        !showFile ? classes.createCompModalOverlay : classes._
+                    }
                     onClick={handleCloseModal}
                     onDragOver={(e) => e.preventDefault()}
                     onDragEnter={(e) => e.preventDefault()}
