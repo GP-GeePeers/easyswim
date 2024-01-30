@@ -5,7 +5,7 @@ import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 import addDocument from "../Assets/addDocument.png";
 import document from "../Assets/document.png";
-import CompetionDetails from "../CompetionDetails/CompetionDetails";
+import CompetitionDetails from "../CompetitionDetails/CompetitionDetails";
 
 function CreateCompetition(props) {
     const [lxfFile, setLxfFile] = useState(null);
@@ -169,7 +169,7 @@ function CreateCompetition(props) {
     return (
         <div>
             {showFile && filePreview && (
-                <CompetionDetails
+                <CompetitionDetails
                     compDetailsModal={showFile}
                     changeCompDetailsModal={handleShowFile}
                     handleSubmitOnPreview={handleSubmitOnPreview}

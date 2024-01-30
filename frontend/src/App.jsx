@@ -6,7 +6,7 @@ import Home from "./Views/Home/Home";
 import ListComps from "./Views/ListComps/ListComps";
 import Settings from "./Views/Settings/Settings";
 import PageContent from "./Components/PageContent/PageContent";
-import CompetionDetails from "./Components/Modals/CompetionDetails/CompetionDetails";
+import CompetitionDetails from "./Components/Modals/CompetitionDetails/CompetitionDetails";
 import CreateCompetition from "./Components/Modals/CreateCompetition/CreateCompetition";
 import Topbar from "./Components/Topbar/Topbar";
 import Login from "./Views/Auth/Login/Login";
@@ -18,8 +18,6 @@ import PrivateRoute from "./Hooks/Common/PrivateRoute";
 
 import { Provider, useSelector } from "react-redux";
 import store from "./store";
-
-import Layout from "./Hooks/layout";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -106,7 +104,7 @@ function App() {
                                             changeCreateCompModal
                                         }
                                     />
-                                    <CompetionDetails
+                                    <CompetitionDetails
                                         compDetailsModal={compDetailsModal}
                                         changeCompDetailsModal={
                                             changeCompDetailsModal
