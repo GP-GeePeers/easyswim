@@ -173,6 +173,10 @@ def read_save_lenex(input_file, bucket_path):
                                                         internet = cont.get('internet'))
             
     for meets in root.findall('.//MEET'):
+
+        print("DEADLINE")
+        print(meets.get('deadline'))
+
         meet_MeetManager_obj = Meet_MeetManager.objects.create(
             bucket_path=bucket_path,
             name=meets.get('name'),
