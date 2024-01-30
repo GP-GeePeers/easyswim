@@ -7,41 +7,55 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 # Email: admin@email.com
 # Password: admin
 
-
 class UserAccountManager(BaseUserManager):
-    def create_user(self, email, password=None, **extra_fields):
+    def create_user(self, username, email, password=None, **extra_fields):
         if not email:
             raise ValueError('Users must have an email address')
 
         email = self.normalize_email(email)
-        user = self.model(email=email, **extra_fields)
+        user = self.model(username=username, email=email, **extra_fields)
 
         user.set_password(password)
         user.save()
 
         return user
 
+    def create_superuser(self, username, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_active', True)
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+
+        return self.create_user(username, email, password, **extra_fields)
+
+
 class UserAccount(AbstractBaseUser, PermissionsMixin):
+    username = models.CharField(
+        max_length=255, unique=True, default='default_username')
     email = models.EmailField(max_length=255, unique=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
 
     objects = UserAccountManager()
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
 
     def get_full_name(self):
         return self.first_name
 
     def get_short_name(self):
         return self.first_name
-    
+
     def __str__(self):
         return self.email
- 
 
 
 class LXF(models.Model):
@@ -83,6 +97,7 @@ class Constructor_MeetManager(models.Model):
     def __str__(self):
         return self.name
 
+
 class Contact_Constructor_MeetManager(models.Model):
     """
     Represents contact information for a Constructor.
@@ -100,7 +115,8 @@ class Contact_Constructor_MeetManager(models.Model):
     Methods:
     - __str__(): Returns the name of the contact as a string.
     """
-    construtor = models.ForeignKey(Constructor_MeetManager, on_delete=models.CASCADE)
+    construtor = models.ForeignKey(
+        Constructor_MeetManager, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     street = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
@@ -178,6 +194,7 @@ class Contact_Meet_MeetManager(models.Model):
     def __str__(self):
         return self.name
 
+
 class Pool_MeetManager(models.Model):
     """
     Represents a swimming pool associated with a Meet.
@@ -197,6 +214,7 @@ class Pool_MeetManager(models.Model):
     def __str__(self):
         return self.name
 
+
 class AgeDate_MeetManager(models.Model):
     """
     Represents an age date associated with a Meet.
@@ -210,11 +228,12 @@ class AgeDate_MeetManager(models.Model):
     - __str__(): Returns the type of the age date as a string.
     """
     meet = models.ForeignKey(Meet_MeetManager, on_delete=models.CASCADE)
-    value  = models.DateField()
+    value = models.DateField()
     type = models.CharField(max_length=200)
 
     def __str__(self):
         return self.type
+
 
 class Facility_MeetManager(models.Model):
     """
@@ -241,6 +260,7 @@ class Facility_MeetManager(models.Model):
     def __str__(self):
         return self.name
 
+
 class PointTable_MeetManager(models.Model):
     """
     Represents a point table associated with a Meet.
@@ -261,6 +281,7 @@ class PointTable_MeetManager(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Session_MeetManager(models.Model):
     """
@@ -291,6 +312,7 @@ class Session_MeetManager(models.Model):
     def __str__(self):
         return self.name
 
+
 class Event_MeetManager(models.Model):
     """
     Represents an event associated with a Session.
@@ -311,7 +333,8 @@ class Event_MeetManager(models.Model):
     session = models.ForeignKey(Session_MeetManager, on_delete=models.CASCADE)
     eventid = models.IntegerField()
     daytime = models.TimeField(null=True)
-    gender = models.CharField(max_length=50, choices=[('F', 'Female'), ('M', 'Male')], null=True)
+    gender = models.CharField(max_length=50, choices=[
+                              ('F', 'Female'), ('M', 'Male')], null=True)
     number = models.IntegerField()
     order = models.IntegerField()
     round = models.CharField(max_length=50)
@@ -319,6 +342,7 @@ class Event_MeetManager(models.Model):
 
     def __str__(self):
         return str(self.eventid)
+
 
 class SwimStyle_MeetManager(models.Model):
     """
@@ -341,6 +365,7 @@ class SwimStyle_MeetManager(models.Model):
     def __str__(self):
         return self.stroke
 
+
 class Fee_MeetManager(models.Model):
     """
     Represents a fee associated with an Event.
@@ -359,6 +384,7 @@ class Fee_MeetManager(models.Model):
 
     def __str__(self):
         return str(self.value)
+
 
 class AgeGroup_MeetManager(models.Model):
     """
@@ -384,8 +410,9 @@ class AgeGroup_MeetManager(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     ################################ MODELS TEAM MANAGER ####################
+
 
 class Constructor_TeamManager(models.Model):
     name = models.CharField(max_length=100)
@@ -395,8 +422,10 @@ class Constructor_TeamManager(models.Model):
     def __str__(self):
         return self.name
 
+
 class Contact_Constructor_TeamManager(models.Model):
-    construtor = models.ForeignKey(Constructor_TeamManager, on_delete=models.CASCADE)
+    construtor = models.ForeignKey(
+        Constructor_TeamManager, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     street = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
@@ -409,8 +438,6 @@ class Contact_Constructor_TeamManager(models.Model):
         return self.name
 
 
-
-
 class Meet_TeamManager(models.Model):
     city = models.CharField(max_length=100)
     name = models.CharField(max_length=255)
@@ -421,7 +448,7 @@ class Meet_TeamManager(models.Model):
 
     def __str__(self):
         return self.name
-   
+
 
 class Qualify_TeamManager(models.Model):
     meet = models.ForeignKey(Meet_TeamManager, on_delete=models.CASCADE)
@@ -431,6 +458,7 @@ class Qualify_TeamManager(models.Model):
     def __str__(self):
         return str(self.from1)
 
+
 class Pool_TeamManager(models.Model):
     meet = models.ForeignKey(Meet_TeamManager, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
@@ -438,9 +466,10 @@ class Pool_TeamManager(models.Model):
     def __str__(self):
         return self.name
 
+
 class AgeDate_TeamManager(models.Model):
     meet = models.ForeignKey(Meet_TeamManager, on_delete=models.CASCADE)
-    value  = models.DateField()
+    value = models.DateField()
     type = models.CharField(max_length=200)
 
     def __str__(self):
@@ -452,20 +481,22 @@ class Session_TeamManager(models.Model):
     date = models.DateField()
     daytime = models.TimeField()
     number = models.IntegerField()
-    
 
     def __str__(self):
         return str(self.number)
 
+
 class Event_TeamManager(models.Model):
     session = models.ForeignKey(Session_TeamManager, on_delete=models.CASCADE)
     eventid = models.IntegerField()
-    gender = models.CharField(max_length=50, choices=[('F', 'Female'), ('M', 'Male')],null=True,blank=True)
+    gender = models.CharField(max_length=50, choices=[(
+        'F', 'Female'), ('M', 'Male')], null=True, blank=True)
     number = models.IntegerField()
     preveventid = models.IntegerField()
 
     def __str__(self):
         return str(self.eventid)
+
 
 class SwimStyle_TeamManager(models.Model):
     event = models.ForeignKey(Event_TeamManager, on_delete=models.CASCADE)
@@ -476,6 +507,7 @@ class SwimStyle_TeamManager(models.Model):
     def __str__(self):
         return self.stroke
 
+
 class Fee_TeamManager(models.Model):
     event = models.ForeignKey(Event_TeamManager, on_delete=models.CASCADE)
     currency = models.CharField(max_length=3)
@@ -484,17 +516,19 @@ class Fee_TeamManager(models.Model):
     def __str__(self):
         return str(self.value)
 
+
 class AgeGroup_TeamManager(models.Model):
     event = models.ForeignKey(Event_TeamManager, on_delete=models.CASCADE)
     agegroupid = models.IntegerField()
-    gender = models.CharField(max_length=50, choices=[('F', 'Female'), ('M', 'Male')], null = True,blank=True)
+    gender = models.CharField(max_length=50, choices=[(
+        'F', 'Female'), ('M', 'Male')], null=True, blank=True)
     agemax = models.IntegerField()
     agemin = models.IntegerField()
-    
 
     def __str__(self):
         return str(self.agegroupid)
-    
+
+
 class Club_TeamManager(models.Model):
     meet = models.ForeignKey(Meet_TeamManager, on_delete=models.CASCADE)
     clubid = models.IntegerField()
@@ -507,36 +541,43 @@ class Club_TeamManager(models.Model):
     def __str__(self):
         return self.name
 
+
 class Athlete_TeamManager(models.Model):
     club = models.ForeignKey(Club_TeamManager, on_delete=models.CASCADE)
     athleteid = models.IntegerField()
     lastname = models.CharField(max_length=500)
     firstname = models.CharField(max_length=500)
-    gender = models.CharField(max_length=50, choices=[('F', 'Female'), ('M', 'Male')], null = True,blank=True)
+    gender = models.CharField(max_length=50, choices=[(
+        'F', 'Female'), ('M', 'Male')], null=True, blank=True)
     license = models.IntegerField()
     birthdate = models.DateField()
 
     def __str__(self):
         return self.firstname
-    
+
+
 class Entry_Athlete_TeamManager(models.Model):
-    athlete = models.ForeignKey(Athlete_TeamManager, on_delete=models.CASCADE, null=True)
+    athlete = models.ForeignKey(
+        Athlete_TeamManager, on_delete=models.CASCADE, null=True)
     eventid = models.IntegerField()
     entrytime = models.TimeField()
 
     def __str__(self):
         return str(self.eventid)
 
+
 class MeetInfo_Entry_Athlete_TeamManager(models.Model):
-    entry = models.ForeignKey(Entry_Athlete_TeamManager, on_delete=models.CASCADE)
+    entry = models.ForeignKey(
+        Entry_Athlete_TeamManager, on_delete=models.CASCADE)
     course = models.CharField(max_length=50)
-    date = models.DateField(null = True,blank=True)
-    city = models.CharField(max_length=100, null = True,blank=True)
-    nation = models.CharField(max_length=20, null = True,blank=True)
-    name = models.CharField(max_length=500, null = True,blank=True)
+    date = models.DateField(null=True, blank=True)
+    city = models.CharField(max_length=100, null=True, blank=True)
+    nation = models.CharField(max_length=20, null=True, blank=True)
+    name = models.CharField(max_length=500, null=True, blank=True)
 
     def __str__(self):
         return self.name
+
 
 class Relay_TeamManager(models.Model):
     club = models.ForeignKey(Club_TeamManager, on_delete=models.CASCADE)
@@ -546,32 +587,38 @@ class Relay_TeamManager(models.Model):
     agetotalmin = models.IntegerField()
     agemin = models.IntegerField()
     agemax = models.IntegerField()
-    gender = models.CharField(max_length=50, choices=[('F', 'Female'), ('M', 'Male')], null = True,blank=True)
-    
+    gender = models.CharField(max_length=50, choices=[(
+        'F', 'Female'), ('M', 'Male')], null=True, blank=True)
+
     def __str__(self):
         return str(self.relayid)
-    
+
+
 class Entry_Relay_TeamManager(models.Model):
-    relay = models.ForeignKey(Relay_TeamManager, on_delete=models.CASCADE, null=True)
+    relay = models.ForeignKey(
+        Relay_TeamManager, on_delete=models.CASCADE, null=True)
     eventid = models.IntegerField()
     entrytime = models.TimeField()
 
     def __str__(self):
         return str(self.eventid)
 
+
 class RelayPosition_TeamManager(models.Model):
-    entry = models.ForeignKey(Entry_Relay_TeamManager, on_delete=models.CASCADE, null=True)
+    entry = models.ForeignKey(Entry_Relay_TeamManager,
+                              on_delete=models.CASCADE, null=True)
     number = models.IntegerField()
     athleteid = models.IntegerField()
 
     def __str__(self):
         return str(self.athleteid)
 
+
 class MeetInfo_RelayPosition_TeamManager(models.Model):
-    relaypositon = models.ForeignKey(RelayPosition_TeamManager, on_delete=models.CASCADE, null = True,blank=True)
+    relaypositon = models.ForeignKey(
+        RelayPosition_TeamManager, on_delete=models.CASCADE, null=True, blank=True)
     course = models.CharField(max_length=50)
     qualificationtime = models.CharField(max_length=10)
 
     def __str__(self):
         return self.course
-    
