@@ -75,7 +75,7 @@ function App() {
                         }
                     />
                     <Route
-                        path='/reset-password'
+                        path='/api/reset-password'
                         element={
                             <Layout>
                                 <ResetPassword />
@@ -83,7 +83,7 @@ function App() {
                         }
                     />
                     <Route
-                        path='/password/reset/confirm/:uid/:token'
+                        path='/api/password/reset/confirm/:uid/:token'
                         element={
                             <Layout>
                                 <ResetPasswordConfirm />
@@ -91,7 +91,7 @@ function App() {
                         }
                     />
                     <Route
-                        path='/activate/:uid/:token'
+                        path='/api/activate/:uid/:token'
                         element={
                             <Layout>
                                 <Activate />

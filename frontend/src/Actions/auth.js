@@ -97,6 +97,7 @@ export const login = (email, password) => async dispatch => {
     };
 
     const body = JSON.stringify({ email, password });
+    console.log(body);
 
     try {
         const res = await axios.post(`${apiUrl}/auth/jwt/create/`, body, config);
@@ -109,6 +110,7 @@ export const login = (email, password) => async dispatch => {
         dispatch(load_user());
         toast.success('Login success.')
     } catch (err) {
+        console.log(err.response.data);
         toast.error('Login Error. Check your credentials.');
 
         dispatch({
@@ -136,7 +138,21 @@ export const signup = (first_name, last_name, email, password, re_password) => a
 
     } catch (err) {
         if (err.response.status === 400) {
-            toast.error('E-mail already registered. Please use another email.');
+            if (err.response && err.response.data) {
+                const errorDetails = err.response.data;
+
+                if (errorDetails.password) {
+                    toast.error(`${errorDetails.password[0]}`);
+                } else if (errorDetails.email) {
+                    toast.error(`${errorDetails.email[0]}`);
+                } else if (errorDetails.detail) {
+                    toast.error(`${errorDetails.detail}`);
+                } else {
+                    toast.error('Something went wrong. Please try again.');
+                }
+            } else {
+                toast.error('Something went wrong. Please try again.');
+            }
         } else {
             toast.error('Signup Error. Fill in all fields correctly.');
         }
@@ -189,6 +205,7 @@ export const reset_password = (email) => async dispatch => {
         });
 
     } catch (err) {
+        console.log(err.response.data)
         toast.error('Reset Password Error.');
         dispatch({
             type: PASSWORD_RESET_FAIL
@@ -214,6 +231,7 @@ export const reset_password_confirm = (uid, token, new_password, re_new_password
         toast.success('Reset Password Success.');
 
     } catch (err) {
+        console.log(err.response.data)
         toast.error('Reset Password Error.');
         dispatch({
             type: PASSWORD_RESET_CONFIRM_FAIL

@@ -66,7 +66,7 @@ const Login = ({ login,props, isAuthenticated }) => {
                 Don't have an account? <Link to='/signup'>Sign Up</Link>
             </p>
             <p className='mt-3'>
-                Forgot your Password? <Link to='/reset-password'>Reset Password</Link>
+                Forgot your Password? <Link to='/api/reset-password'>Reset Password</Link>
             </p>
         </div>
     );

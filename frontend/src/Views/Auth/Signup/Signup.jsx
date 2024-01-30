@@ -87,7 +87,7 @@ const Signup = ({ signup, isAuthenticated }) => {
                         name='password'
                         value={password}
                         onChange={e => onChange(e)}
-                        minLength='6'
+                        minLength='8'   //Do not change this value. The library Djoser only accepts passwords with a minimum length of 8 characters.
                         required
                     />
                 </div>
@@ -99,7 +99,7 @@ const Signup = ({ signup, isAuthenticated }) => {
                         name='re_password'
                         value={re_password}
                         onChange={e => onChange(e)}
-                        minLength='6'
+                        minLength='8'   //Do not change this value. The library Djoser only accepts passwords with a minimum length of 8 characters.
                         required
                     />
                 </div>

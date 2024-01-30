@@ -58,8 +58,8 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     objects = UserAccountManager()
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
 
     def get_full_name(self):
         return self.first_name
@@ -86,6 +86,8 @@ class LXF(models.Model):
     title = models.CharField(max_length=100, blank=True)
     description = models.TextField(blank=True)
     lxf_file = models.FileField(upload_to='lxf_files')
+    #Foring key to the meet
+    meet = models.ForeignKey('Meet_MeetManager', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title
@@ -164,7 +166,10 @@ class Meet_MeetManager(models.Model):
     Methods:
     - __str__(): Returns the name of the meet as a string.
     """
+    
+    bucket_path = models.CharField(max_length=500)
     city = models.CharField(max_length=100)
+    is_active=models.BooleanField(default=True)
     name = models.CharField(max_length=255)
     course = models.CharField(max_length=50)
     deadline = models.DateField()
@@ -176,7 +181,7 @@ class Meet_MeetManager(models.Model):
     timing = models.CharField(max_length=50)
     type = models.CharField(max_length=50)
     nation = models.CharField(max_length=50)
-    maxentriesathlete = models.IntegerField()
+    maxentriesathlete = models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
@@ -320,7 +325,7 @@ class Session_MeetManager(models.Model):
     number = models.IntegerField()
     warmupfrom = models.TimeField()
     warmupuntil = models.TimeField()
-    maxentriesathlete = models.IntegerField()
+    maxentriesathlete = models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
@@ -418,7 +423,7 @@ class AgeGroup_MeetManager(models.Model):
     agegroupid = models.IntegerField()
     agemax = models.IntegerField()
     agemin = models.IntegerField()
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, null=True)
     handicap = models.CharField(max_length=500, null=True)
 
     def __str__(self):
