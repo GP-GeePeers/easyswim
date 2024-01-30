@@ -113,7 +113,7 @@ class Meet_MeetManager(models.Model):
     timing = models.CharField(max_length=50)
     type = models.CharField(max_length=50)
     nation = models.CharField(max_length=50)
-    maxentriesathlete = models.IntegerField()
+    maxentriesathlete = models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
@@ -252,7 +252,7 @@ class Session_MeetManager(models.Model):
     number = models.IntegerField()
     warmupfrom = models.TimeField()
     warmupuntil = models.TimeField()
-    maxentriesathlete = models.IntegerField()
+    maxentriesathlete = models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
@@ -345,7 +345,7 @@ class AgeGroup_MeetManager(models.Model):
     agegroupid = models.IntegerField()
     agemax = models.IntegerField()
     agemin = models.IntegerField()
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, null=True)
     handicap = models.CharField(max_length=500, null=True)
 
     def __str__(self):

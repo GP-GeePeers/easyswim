@@ -18,6 +18,7 @@ import os
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core import serializers
 import uuid
+from datetime import datetime
 
 
 """
@@ -113,7 +114,9 @@ class LXFMeetView(APIView):
                 os.mkdir(dir)
             lxf_serializer.save()
             #Create a folder for the extracted file
-            file_path = os.path.join(dir, request.data['title'])
+
+            file_title = request.data['title'].replace(" ", "_")
+            file_path = os.path.join(dir, file_title)
 
 
             #Save the file
@@ -123,7 +126,10 @@ class LXFMeetView(APIView):
 
             #Descompact the file
             file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
-            basename,_=extract_lxf_file(dir,file_path_s, request.data['title'])
+
+            
+
+            basename,_=extract_lxf_file(dir,file_path_s, file_title)
             file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename+".lef")
             print("Path: "+file_path_s)
 
@@ -393,11 +399,23 @@ def list_meets(request):
 
     meet_id = request.GET.get('id')
 
+
     if meet_id is not None:
         meets = list(Meet_MeetManager.objects.filter(id=meet_id).values())
     else:
         meets = list(Meet_MeetManager.objects.values())  
 
+    # Iterate through meets and modify values
+    for meet in meets:
+        deadline = meet.get('deadline')
+        is_active = True  # Set default value
+
+        # Your conditions for setting is_active based on deadline
+        if deadline is not None and deadline <= datetime.now().date():
+            is_active = False
+
+        # Update the 'is_active' field in the meet dictionary
+        meet['is_active'] = is_active
 
     data = {
         'meets': meets,
