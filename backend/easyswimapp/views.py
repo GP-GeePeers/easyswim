@@ -231,7 +231,7 @@ class LXFTeamView(APIView):
         :return: Response object indicating success or failure
         """
         meet_id=request.data['id']
-
+        meet_obj = Meet_MeetManager.get(id=meet_id)
         request_data_copy = request.data.copy()
         request_data_copy.pop('id', None) 
 
@@ -268,7 +268,7 @@ class LXFTeamView(APIView):
 
             
             #Read the file
-            read_save_lenex_TeamManager(file_path_s)
+            read_save_lenex_TeamManager(file_path_s,meet_obj)
             os.remove(file_path_s)
             os.remove(file_path)
 

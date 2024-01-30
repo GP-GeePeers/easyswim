@@ -418,7 +418,7 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
     blob.download_to_filename(destination_file_name)
 
 @transaction.atomic
-def read_save_lenex_TeamManager(input_file):
+def read_save_lenex_TeamManager(input_file,meet_object):
 
     """
     Reads LENEX file "TeamManager" and saves the data to Django models.
@@ -451,6 +451,7 @@ def read_save_lenex_TeamManager(input_file):
             
     for meets in root.findall('.//MEET'):
         meet_obj = Meet_TeamManager.objects.create(
+            meet = meet_object,
             name=meets.get('name'),
             city=meets.get('city'),
             course=meets.get('course'),

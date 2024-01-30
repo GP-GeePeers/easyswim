@@ -457,6 +457,7 @@ class Contact_Constructor_TeamManager(models.Model):
 
 
 class Meet_TeamManager(models.Model):
+    meet = models.ForeignKey(Meet_MeetManager, on_delete=models.CASCADE, null=True)
     city = models.CharField(max_length=100)
     name = models.CharField(max_length=255)
     course = models.CharField(max_length=50)
