@@ -169,7 +169,7 @@ class Meet_MeetManager(models.Model):
     
     bucket_path = models.CharField(max_length=500)
     city = models.CharField(max_length=100)
-    is_active=models.BooleanField(default=True)
+    is_active = models.IntegerField(default=0) #0 = inactive, 1 = active, 2 = canceled        models.BooleanField(default=True) 
     name = models.CharField(max_length=255)
     course = models.CharField(max_length=50)
     deadline = models.DateField()

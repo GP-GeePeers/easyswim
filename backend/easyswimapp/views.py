@@ -396,11 +396,14 @@ def list_meets(request):
     # Iterate through meets and modify values
     for meet in meets:
         deadline = meet.get('deadline')
-        is_active = True  # Set default value
+        is_active = 1
 
         # Your conditions for setting is_active based on deadline
-        if deadline is not None and deadline <= datetime.now().date():
-            is_active = False
+        if deadline is not None and deadline <= datetime.now().date() and meet.get('is_active') != 2:
+            #Meet_MeetManager.objects.filter(id=meet_id).update(is_active=0)
+            is_active = 0
+        elif meet.get('is_active') == 2:
+            is_active = 2
 
         # Update the 'is_active' field in the meet dictionary
         meet['is_active'] = is_active
@@ -408,5 +411,25 @@ def list_meets(request):
     data = {
         'meets': meets,
     }
+
+    return JsonResponse(data)
+
+def delete_meet(request):
+    
+    meet_id = request.GET.get('id')
+
+    if meet_id is None:
+        return JsonResponse({'error': 'Empty ID!'})
+    
+    try:
+        meet_id = int(meet_id)
+    except ValueError:
+        return JsonResponse({'error': 'Invalid ID!'})
+
+    
+    Meet_MeetManager.objects.filter(id=meet_id).update(is_active=2)
+
+
+    data = {'message': 'Meet deleted successfully'}   
 
     return JsonResponse(data)
