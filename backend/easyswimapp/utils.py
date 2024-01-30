@@ -3,67 +3,10 @@ import os
 import zipfile
 import datetime
 from django.db import transaction
-from google.cloud import storage
 import xml.etree.ElementTree as ET
-import requests
-from django.conf import settings
-from os.path import join
-from easyswimapp.models import AgeDate_MeetManager,Constructor_MeetManager, Contact_Constructor_MeetManager, \
-Contact_Meet_MeetManager, Meet_MeetManager, Pool_MeetManager, Facility_MeetManager, PointTable_MeetManager, \
-    Session_MeetManager, Event_MeetManager, SwimStyle_MeetManager, Fee_MeetManager, AgeGroup_MeetManager, \
-        Constructor_TeamManager, Contact_Constructor_TeamManager, Meet_TeamManager, Qualify_TeamManager, \
-            Pool_TeamManager, AgeDate_TeamManager, Session_TeamManager, Event_TeamManager, SwimStyle_TeamManager, \
-                Fee_TeamManager, AgeGroup_TeamManager, Club_TeamManager, Athlete_TeamManager, Entry_Athlete_TeamManager, \
-                    MeetInfo_Entry_Athlete_TeamManager, Relay_TeamManager, Entry_Relay_TeamManager, RelayPosition_TeamManager, \
-                        MeetInfo_RelayPosition_TeamManager
-
-
-
-import os
-import zipfile
-
-def extract_lxf_file(lxf_path, lef_path, archive):
-    """
-    Extracts the content of a .lxf file and saves it in the specified destination path as .lef file.
-
-    Parameters:
-    - lxf_path: The path where the .lxf file is located.
-    - lef_path: The path where the .lef file will be saved.
-    - archive: The name of the .lxf file.
-    """
-    complete_path = os.path.join(lxf_path, archive)
-
-    # Make sure the path exists
-    if not os.path.exists(complete_path):
-        raise FileNotFoundError(f"File not found: {complete_path}")
-
-    # Make sure the path is a file, not a directory
-    if not os.path.isfile(complete_path):
-        raise FileNotFoundError(f"Expected a file, but found a directory: {complete_path}")
-
-    base_name = os.path.splitext(archive)[0]
-    destiny_path = os.path.join(lef_path, base_name + '.lef')
-
-    # Unzips the .lxf file
-    with zipfile.ZipFile(complete_path, 'r') as zip_ref:
-        zip_ref.extractall(lef_path)
-        
-    # Renames the file to .lef extension
-    extracted_files = [f for f in os.listdir(lef_path) if f.endswith('.lef')]
-
-    if not extracted_files:
-        raise FileNotFoundError("No .lef file found in the extracted directory")
-
-    # Assuming there's only one .lef file, rename it
-    old_file_path = os.path.join(lef_path, extracted_files[0])
-    os.rename(old_file_path, destiny_path)   
-    
-    return base_name, destiny_path
-
-
+from easyswimapp.models import AgeDate_MeetManager,Constructor_MeetManager, Contact_Constructor_MeetManager,Contact_Meet_MeetManager, Meet_MeetManager, Pool_MeetManager, Facility_MeetManager, PointTable_MeetManager, Session_MeetManager, Event_MeetManager, SwimStyle_MeetManager, Fee_MeetManager, AgeGroup_MeetManager, Constructor_TeamManager, Contact_Constructor_TeamManager, Meet_TeamManager, Qualify_TeamManager, Pool_TeamManager, AgeDate_TeamManager, Session_TeamManager, Event_TeamManager, SwimStyle_TeamManager, Fee_TeamManager, AgeGroup_TeamManager, Club_TeamManager, Athlete_TeamManager, Entry_Athlete_TeamManager, MeetInfo_Entry_Athlete_TeamManager, Relay_TeamManager, Entry_Relay_TeamManager, RelayPosition_TeamManager, MeetInfo_RelayPosition_TeamManager
 
 def descompactar_todos_lxf():
-    
     """
     Reads all .lxf files in the provided location and unzips them to .lef files.
 
@@ -72,7 +15,6 @@ def descompactar_todos_lxf():
     Parameters:
     - input_file (str): The path to the input LENEX file.
     """
-
     # variables for the read and unzip paths for the files
     lxf_path = 'media/lfx_files'
     lef_path = 'media/lef_files'
@@ -94,7 +36,7 @@ def descompactar_todos_lxf():
             with zipfile.ZipFile(complete_path, 'r') as zip_ref:
                 zip_ref.extractall(lef_path)
 
-            # renames the files to .lef extension
+            # re names the files to .lef extension
             for extracted_file in os.listdir(lef_path):
                 if extracted_file.startswith(base_name):
                     os.rename(
@@ -103,45 +45,8 @@ def descompactar_todos_lxf():
                     )
                     break
 
-
-def read_preview_lenex(input_file):
-    """
-    Reads LENEX file "MeetManager" and returns the data as JSON.
-    This function parses a LENEX file, extracts relevant information, and
-    returns the data in JSON format.
-
-    Parameters:
-    - input_file (str): The path to the input LENEX file.
-    - bucket_path (str): The bucket path associated with the file.
-    """
-    tree = ET.parse(input_file)
-    meet_manager_objects = []
-    root = tree.getroot()
-
-    for meets in root.findall('.//MEET'):
-        meet_manager_obj = {
-            'bucket_path': "",
-            'name': meets.get('name'),
-            'city': meets.get('city'),
-            'course': meets.get('course'),
-            'deadline': meets.get('deadline'),
-            'number': meets.get('number'),
-            'organizer': meets.get('organizer'),
-            'organizer_url': meets.get('organizer.url'),
-            'reservecount': meets.get('reservecount'),
-            'startmethod': meets.get('startmethod'),
-            'timing': meets.get('timing'),
-            'type': meets.get('type'),
-            'nation': meets.get('nation'),
-            'maxentriesathlete': meets.get('maxentriesathlete')
-        }
-        meet_manager_objects.append(meet_manager_obj)
-    return  meet_manager_objects
-
-
-
 @transaction.atomic
-def read_save_lenex(input_file, bucket_path):
+def read_save_lenex(input_file):
 
     """
     Reads LENEX file "MeetManager" and saves the data to Django models.
@@ -174,7 +79,6 @@ def read_save_lenex(input_file, bucket_path):
             
     for meets in root.findall('.//MEET'):
         meet_MeetManager_obj = Meet_MeetManager.objects.create(
-            bucket_path=bucket_path,
             name=meets.get('name'),
             city=meets.get('city'),
             course=meets.get('course'),
@@ -270,94 +174,6 @@ def read_save_lenex(input_file, bucket_path):
                     
 
 
-def unzip_registered_lxf(folder_path, temp_dir):
-
-    files = os.listdir(folder_path) #lista de ficheiros da pasta
-
-    for file_name in files:
-        file_path = join(folder_path, file_name)
-
-        with zipfile.ZipFile(file_path, 'r') as zip_ref:
-            zip_ref.extractall(temp_dir)
-
-
-def extract_athlete_info(athlete_element):
-    return {
-        'athleteid': athlete_element.get('athleteid'),
-        'lastname': athlete_element.get('lastname'),
-        'firstname': athlete_element.get('firstname'),
-        'gender': athlete_element.get('gender'),
-        'license': athlete_element.get('license'),
-        'birthdate': athlete_element.get('birthdate')
-    }
-
-
-def get_licenses(temp_dir):
-    registration_dictionary = {}
-
-    files = os.listdir(temp_dir)
-
-    for file in files:
-
-        file_path = os.path.join(temp_dir, file) 
-
-        with open(file_path, 'r') as opened_file:
-            athletes = []
-            licenses = []
-
-            xml_data = opened_file.read()
-            root = ET.fromstring(xml_data)
-            for athlete_element in root.findall('.//ATHLETE'):
-                athlete_info = extract_athlete_info(athlete_element)
-                athletes.append(athlete_info)
-                licenses.append(athlete_info['license'])
-
-            #print("FILE: " + file + "\n")
-            #print("ATHLETES:")
-            #print(athletes)
-            result = make_request(licenses)
-            #print("\n")
-
-            #print("FINAL LIST")
-            l = final_list(athletes, result)
-            #print(l)
-            registration_dictionary[file] = l    
-            
-    return registration_dictionary
-
-
-
-def make_request(licenses):
-        url = 'https://fpnsystem.fpnatacao.pt/api/exam'
-
-        headers = {}
-
-        json_licenses = {'licenses': licenses}
-        
-        auth = ("validexam@fpnatacao.pt", "#LH26pZNDlJ)")
-
-        response = requests.post(url, headers=headers, json = json_licenses, auth=auth)
-
-        if response.status_code == 200:
-            result = response.json()
-            #print("RESULT")
-            #print(result)
-            return result
-        else:
-            print(f"Error: {response.status_code}, {response.text}")
-
-
-def final_list(athletes, result):
-    result_list = []
-
-    for athlete, validity in zip(athletes, result):
-        athlete_name = f"{athlete['firstname']} {athlete['lastname']}"
-        athlete_license = athlete['license']
-        athlete_validity = validity[0]['valid']
-
-        result_list.append([athlete_name, athlete_license, athlete_validity])
-
-    return result_list
 
 def upload_blob(bucket_name, source_file_name, destination_blob_name):
 
@@ -394,7 +210,6 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
     print(
         f"File {source_file_name} uploaded to {destination_blob_name}."
     )
-
 def download_blob(bucket_name, source_blob_name, destination_file_name):
 
     """
@@ -425,6 +240,9 @@ def read_save_lenex_TeamManager(input_file):
     Parameters:
     - input_file (str): The path to the input LENEX file.
     """
+
+    print(f"Blob {source_blob_name} downloaded to {destination_file_name}.")
+
     tree = ET.parse(input_file)
     root = tree.getroot()
 

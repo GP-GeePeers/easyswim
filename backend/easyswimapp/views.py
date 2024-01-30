@@ -1,24 +1,17 @@
-import shutil
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .serializers import LXFSerializer
 from .models import LXF
 #from .utils import read_lef_file
-from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request, upload_blob,extract_lxf_file,read_preview_lenex
+from .utils import read_save_lenex, read_save_lenex_TeamManager
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework import status
-from .models import AgeDate_MeetManager,Constructor_MeetManager, Contact_Meet_MeetManager,Contact_Constructor_MeetManager, \
-    Meet_MeetManager, Pool_MeetManager, Facility_MeetManager, PointTable_MeetManager, Session_MeetManager, Event_MeetManager, \
-        SwimStyle_MeetManager, Fee_MeetManager, AgeGroup_MeetManager
+from .models import AgeDate_MeetManager,Constructor_MeetManager, Contact_Meet_MeetManager,Contact_Constructor_MeetManager, Meet_MeetManager, Pool_MeetManager, Facility_MeetManager, PointTable_MeetManager, Session_MeetManager, Event_MeetManager, SwimStyle_MeetManager, Fee_MeetManager, AgeGroup_MeetManager
 from django.http import JsonResponse
 from django.conf import settings
 import os
-from django.core.serializers.json import DjangoJSONEncoder
-from django.core import serializers
-import uuid
-
 
 """
 views.py
@@ -29,27 +22,14 @@ This module contains the views for the EasySwim app, handling HTTP requests and 
 
 def home(request):
     """
-    Renders the home page.
+    Handles the HTTP request and returns a greeting response.
 
     :param request: HttpRequest object
-    :return: HttpResponse object containing the rendered home page
+    :return: HttpResponse object with a greeting message
     """
-    return HttpResponse(request)
+    return HttpResponse("Hello World! - EasySwim")
 
-class DashboardView(APIView):
-    http_method_names = ['get', 'post']
-
-    def get(self, request):
-        """
-        Handles GET requests for the dashboard view.
-
-        :param request: HttpRequest object
-        :return: JsonResponse object containing internal database information
-        """
-        
-        return list_meets(request)#model_data_view(request)
-
-class LXFMeetView(APIView):
+class LXFView(APIView):
     """
     View for LXF file upload.
 
@@ -78,173 +58,12 @@ class LXFMeetView(APIView):
         :param request: HttpRequest object with LXF file data
         :return: Response object indicating success or failure
         """
-
         lxf_serializer = LXFSerializer(data=request.data)
-
-        print(request.data)
-
         if lxf_serializer.is_valid():
-            dir = os.path.join(settings.MEDIA_ROOT, 'lxf_files')
-            #Create a folder for the uploaded file
-            if not os.path.exists(dir):
-                os.mkdir(dir)
             lxf_serializer.save()
-            #Create a folder for the extracted file
-            file_path = os.path.join(dir, request.data['title'])
-
-
-            #Save the file
-            uuid_str = str(uuid.uuid4())
-            upload_blob("easyswim",file_path,"meets/+"+uuid_str+".lxf")
-
-
-            #Descompact the file
-            file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
-            basename,_=extract_lxf_file(dir,file_path_s, request.data['title'])
-            file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename+".lef")
-            print("Path: "+file_path_s)
-
-            #Read the file
-            read_save_lenex(file_path_s,"meets/+"+uuid_str+".lxf")
-            os.remove(file_path_s)
-            os.remove(file_path)
-
-            return JsonResponse(data={'notification': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_201_CREATED)
+            return Response(lxf_serializer.data, status=status.HTTP_201_CREATED)
         else:
-            return JsonResponse(data={'notification': 'File not found'}, status=status.HTTP_400_BAD_REQUEST)
-
-
-class MeetPreviewView(APIView):
-    """
-    Handles POST requests for LXF file uploads.
-
-    :return: JsonResponse indicating success or failure
-    """
-    parser_classes = (MultiPartParser, FormParser)
-
-    def get(self, request, *args, **kwargs):
-        """
-        Handles GET requests for LXF data.
-
-        :param request: HttpRequest object
-        :return: Response object with serialized LXF data
-        """
-        posts = LXF.objects.all()
-        serializer = LXFSerializer(posts, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, *args, **kwargs):
-        lxf_serializer = LXFSerializer(data=request.data)
-
-        print(request.data)
-
-        if lxf_serializer.is_valid():
-            dir = os.path.join(settings.MEDIA_ROOT, 'lxf_files')
-
-            # Create a folder for the uploaded file
-            if not os.path.exists(dir):
-                os.mkdir(dir)
-
-            lxf_serializer.save()
-
-            # Create a folder for the extracted file
-            file_path = os.path.join(dir, request.data['title'])
-
-
-            # Check if the file exists before extracting
-            if os.path.exists(file_path):
-                file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
-                basename, _ = extract_lxf_file(dir, file_path_s, request.data['title'])
-                file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename + ".lef")
-                print("Path: " + file_path_s)
-
-                # Read the file
-                meet = read_preview_lenex(file_path_s)
-                os.remove(file_path_s)
-                os.remove(file_path)
-    
-                return JsonResponse(meet, safe=False)
-            else:
-                return JsonResponse(data={'error': 'File not found'}, status=status.HTTP_400_BAD_REQUEST)
-        else:
-            return JsonResponse(data={'error': 'Invalid data'}, status=status.HTTP_400_BAD_REQUEST)
-
-     
-class LXFTeamView(APIView):
-    """
-    View for LXF file upload.
-
-    This view allows users to upload LXF files, and it supports both GET and POST requests.
-
-    :param request: HttpRequest object
-    :return: Response object with serialized LXF data
-    """
-    parser_classes = (MultiPartParser, FormParser)
-
-    def get(self, request, *args, **kwargs):
-        """
-        Handles GET requests for LXF data.
-
-        :param request: HttpRequest object
-        :return: Response object with serialized LXF data
-        """
-        posts = LXF.objects.all()
-        serializer = LXFSerializer(posts, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, *args, **kwargs):
-        """
-        Handles POST requests for LXF file uploads.
-
-        :param request: HttpRequest object with LXF file data
-        :return: Response object indicating success or failure
-        """
-        meet_id=request.data['id']
-
-        request_data_copy = request.data.copy()
-        request_data_copy.pop('id', None) 
-
-        meet = list(Meet_MeetManager.objects.filter(id=meet_id).values())[0]
-        print(meet)
-        
-        meet_bucket_uuid = str(meet.get('bucket_path')).split("/")[1][:-4]
-        
-        lxf_serializer = LXFSerializer(data=request_data_copy)
-
-        print(request.data)
-
-        if lxf_serializer.is_valid():
-            dir = os.path.join(settings.MEDIA_ROOT, 'lxf_files')
-            #Create a folder for the uploaded file
-            if not os.path.exists(dir):
-                os.mkdir(dir)
-            lxf_serializer.save()
-            #Create a folder for the extracted file
-            file_path = os.path.join(dir, request.data['title'])
-
-
-            #Save the file
-            uuid_str = str(uuid.uuid4())
-            upload_blob("easyswim",file_path,meet_bucket_uuid+"/+"+uuid_str+".lxf")
-
-            #Descompact the file
-            file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
-            basename,_= extract_lxf_file(dir,file_path_s, request.data['title'])
-            file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename+".lef")
-            
-            print("Path: "+file_path_s)
-
-
-            
-            #Read the file
-            read_save_lenex_TeamManager(file_path_s)
-            os.remove(file_path_s)
-            os.remove(file_path)
-
-            return JsonResponse(data={'success': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_201_CREATED)
-        else:
-            return JsonResponse(data={'error': 'Ficheiro Invalido'}, status=status.HTTP_400_BAD_REQUEST)
-
+            return Response(lxf_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def read_lef_view(request):
     """
@@ -301,81 +120,27 @@ def model_data_view(request):
 
     return JsonResponse(data)
 
-def read_registered_lxf(request):
-    folder_path = os.path.join(settings.MEDIA_ROOT, 'registered_lxf') # vai buscar todos os ficheiros da pasta, TODO mudar para ir buscar os ficheiros de uma prova à db
+def meets_model_data_view(request):
+    """
+    Retrieves data from meets models and returns it as a JSON response.
+    :param request: HttpRequest object
+    :return: JSON response containing data from meets models
+    """
+    meets = list(Meet_MeetManager.objects.values())
 
-    if os.path.exists(folder_path):
-        
-        #create temporary dir to extract the files
-        temp_dir = os.path.join(settings.MEDIA_ROOT, 'temp_extracted') 
-        os.makedirs(temp_dir, exist_ok=True)
+    data = {
+        'meets': meets
+    }
 
-        unzip_registered_lxf(folder_path, temp_dir) 
+    return JsonResponse(data)
 
-        licenses_dict = get_licenses(temp_dir)
-
-        print("LICENSES:")
-        print(licenses_dict) #dicinario - key: nome do ficheiro, valor: lista com sublistas de 3 elementos [nome do atleta, licensa, data de expiracao]
-
-        shutil.rmtree(temp_dir)
-
-        return  HttpResponse('.lxf files read successfully!') #Response({'message': '.lxf files read successfully!'}, status=status.HTTP_201_CREATED)
-
-    
-    else:
-        print("Folder does not exist: ", folder_path)
-        return  HttpResponse('Error reading .lxf files!')
 
 def read_TeamManager_view(request):
     
     file_path = os.path.join(settings.MEDIA_ROOT, 'lef_files', 'teamManager.lef')
     print("Path: "+file_path)
-
     try:
-        meets = list(Meet.objects.values())
-
-        '''events = list(Event.objects.values())
-        cons = list(Constructor.objects.values())
-        #cont_constructor = list(Contact_Constructor.objects.values())
-        cont_meet = list(Contact_Meet.objects.values())
-        pool = list(Pool.objects.values())
-        facility = list(Facility.objects.values())
-        pointtable = list(PointTable.objects.values())
-        session = list(Session.objects.values())
-        swimstyle = list(SwimStyle.objects.values())
-        fee = list(Fee.objects.values())
-        agegroup = list(AgeGroup.objects.values())
-        '''
-
-        data = {
-            'meets': meets,
-        }
-
-        return JsonResponse(data, safe=False, encoder=DjangoJSONEncoder)
+        read_save_lenex_TeamManager(file_path)
+        return HttpResponse('.lef file read and processed successfully.')
     except Exception as e:
         return HttpResponse(f'An error occurred while processing the .lef file: {e}')
-    
-
-
-
-def list_meets(request):
-    
-    """
-    Retrieves data from various models and returns it as a JSON response.
-    :param request: HttpRequest object
-    :return: JSON response containing data from various models
-    """
-
-    meet_id = request.GET.get('id')
-
-    if meet_id is not None:
-        meets = list(Meet_MeetManager.objects.filter(id=meet_id).values())
-    else:
-        meets = list(Meet_MeetManager.objects.values())  
-
-
-    data = {
-        'meets': meets,
-    }
-
-    return JsonResponse(data)

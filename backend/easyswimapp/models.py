@@ -20,8 +20,6 @@ class LXF(models.Model):
     title = models.CharField(max_length=100, blank=True)
     description = models.TextField(blank=True)
     lxf_file = models.FileField(upload_to='lxf_files')
-    #Foring key to the meet
-    meet = models.ForeignKey('Meet_MeetManager', on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title
@@ -98,10 +96,7 @@ class Meet_MeetManager(models.Model):
     Methods:
     - __str__(): Returns the name of the meet as a string.
     """
-    
-    bucket_path = models.CharField(max_length=500)
     city = models.CharField(max_length=100)
-    is_active=models.BooleanField(default=True)
     name = models.CharField(max_length=255)
     course = models.CharField(max_length=50)
     deadline = models.DateField()
