@@ -40,7 +40,6 @@
     border: none;
     font-weight: bold;
     cursor: pointer;
-    margin-left: 1rem;
     padding: 8px 16px;
     display: flex;
     justify-content: flex-start;
@@ -63,7 +62,7 @@
     border: none;
     border-radius: 0.5rem;
     z-index: 10;
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
 }
 
 .listDropdown button {
@@ -121,47 +120,99 @@
     line-height: normal;
 }
 
-.tableContainer {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
+.table {
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.contentContainer {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: row;
-    overflow: hidden;
+.tableRowHeader {
     width: 100%;
-}
-
-.contentTitleContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 20vw;
+    color: #b7bab6;
+    flex: 1;
 }
 
-.contentDetailsContainer {
+.tableRow {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 80vw;
-    padding: 2rem 4rem;
-}
-
-.verticalLine {
-    border-left: 1px solid #335c58;
-}
-
-.horizontalLine {
     border-bottom: 1px solid #335c58;
-    width: stretch;
+    justify-content: center;
+    color: #b7bab6;
+    flex: 1;
+}
+.tableRow:last-child {
+    border-bottom: none;
+}
+
+.tableHeader {
+    font-weight: bold;
+    color: #b7bab6;
+}
+
+.tableCellHeader {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: center;
+    color: #b7bab6;
+    flex: 1;
+    border-right: 1px #335c58;
+}
+
+.tableCell {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: #b7bab6;
+    flex: 1;
+    border-right: 1px #335c58;
+}
+
+.tableCell:first-child {
+    border-left: none;
+}
+
+.tableCellHeader:first-child {
+    border-left: none;
+}
+
+.tableCell:last-child {
+    border-right: none;
+}
+
+.tableCellHeader:last-child {
+    border-right: none;
+}
+
+.organizerColumn {
+    /* flex: 3; */
+    width: 6rem;
+    border-left: 1px solid #335c58;
+    border-right: 1px solid #335c58;
+}
+
+.nameColumn {
+    /* flex: 4; */
+    width: 6rem;
+    border-left: 1px solid #335c58;
+    border-right: 1px solid #335c58;
+}
+
+.dateColumn {
+    /* flex: 4; */
+    width: 6rem;
+    border-left: 1px solid #335c58;
+    border-right: 1px solid #335c58;
+}
+
+.stateColumn {
+    /* flex: 6; */
+    width: 6rem;
+    border-left: 1px solid #335c58;
+    border-right: 1px solid #335c58;
 }
 
 .text,
@@ -201,5 +252,8 @@
     }
     .buttonsContainer {
         flex-direction: column;
+    }
+    .buttonDropdown {
+        margin-left: 1rem;
     }
 }
