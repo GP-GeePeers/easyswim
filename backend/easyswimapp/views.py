@@ -346,13 +346,14 @@ def read_registered_lxf(request):
         print("Folder does not exist: ", folder_path)
         return  HttpResponse('Error reading .lxf files!')
 
-def read_TeamManager_view(request):
+def read_meet_manager(request):
     
     file_path = os.path.join(settings.MEDIA_ROOT, 'lef_files', 'teamManager.lef')
     print("Path: "+file_path)
 
     try:
-        meets = list(Meet_TeamManager.objects.values())
+        meets = list(Meet_MeetManager.objects.values())
+
         '''events = list(Event.objects.values())
         cons = list(Constructor.objects.values())
         #cont_constructor = list(Contact_Constructor.objects.values())

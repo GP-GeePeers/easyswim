@@ -8,4 +8,12 @@
     justify-content: flex-start;
     background: #0f1110;
     z-index: 0;
+    overflow: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
 }

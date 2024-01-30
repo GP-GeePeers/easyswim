@@ -10,29 +10,38 @@ function NextCompetition(props) {
             <Card>
                 <div className={classes.title}>Próxima competição</div>
                 <div className={classes.content}>
-                    <div className={classes.organizationContainer}>
+                    {!props.nextCompetitionData ? (
                         <div className={classes.text}>
-                            Associação Académica de Coimbra
+                            Não está inscrito em nenhuma competição!
                         </div>
-                    </div>
-                    <div className={classes.verticalLine} />
-                    <button
-                        className={classes.competitionContainer}
-                        onClick={props.changeCompDetailsModal}
-                    >
-                        <div className={classes.competitionText}>
-                            Campeonato Interdistrital de Juvenis, Juniores e
-                            Seniores PL
-                        </div>
-                    </button>
-                    <div className={classes.verticalLine} />
-                    <div className={classes.dateContainer}>
-                        <div className={classes.text}>17/02/2024</div>
-                    </div>
-                    <div className={classes.verticalLineState} />
-                    <div className={classes.stateContainer}>
-                        <Button type={props.active} disabled></Button>
-                    </div>
+                    ) : (
+                        <>
+                            <div className={classes.organizationContainer}>
+                                <div className={classes.text}>
+                                    {props.nextCompetitionData?.organizer}
+                                </div>
+                            </div>
+                            <div className={classes.verticalLine} />
+                            <button
+                                className={classes.competitionContainer}
+                                onClick={props.changeCompDetailsModal}
+                            >
+                                <div className={classes.competitionText}>
+                                    {props.nextCompetitionData?.name}
+                                </div>
+                            </button>
+                            <div className={classes.verticalLine} />
+                            <div className={classes.dateContainer}>
+                                <div className={classes.text}>
+                                    {props.nextCompetitionData?.date}
+                                </div>
+                            </div>
+                            <div className={classes.verticalLineState} />
+                            <div className={classes.stateContainer}>
+                                <Button type={props.active} disabled></Button>
+                            </div>
+                        </>
+                    )}
                 </div>
             </Card>
         </>

@@ -69,7 +69,7 @@ function Sidebar(props) {
                         text={props.retracted ? null : "Lista de competições"}
                         retracted={props.retracted}
                         onClick={() => {
-                            setClickedComp(!clickedComp);
+                            setClickedComp(true);
                             setClickedProfile(false);
                             currentWidth <= 667 && props.setRetracted(true);
                         }}
@@ -82,7 +82,7 @@ function Sidebar(props) {
                         text={props.retracted ? null : "Definições"}
                         retracted={props.retracted}
                         onClick={() => {
-                            setClickedProfile(!clickedProfile);
+                            setClickedProfile(true);
                             setClickedComp(false);
                             currentWidth <= 667 && props.setRetracted(true);
                         }}

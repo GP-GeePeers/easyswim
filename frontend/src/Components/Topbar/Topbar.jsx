@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Topbar.module.css";
 import Button from "../Buttons/Button";
 import Title from "./Assets/Title.svg";

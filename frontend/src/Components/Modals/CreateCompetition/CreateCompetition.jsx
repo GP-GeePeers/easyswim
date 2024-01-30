@@ -5,11 +5,14 @@ import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 import addDocument from "../Assets/addDocument.png";
 import document from "../Assets/document.png";
+import CompetionDetails from "../CompetionDetails/CompetionDetails";
 
 function CreateCompetition(props) {
     const [lxfFile, setLxfFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
+    const [showFile, setShowFile] = useState(false);
+    const [filePreview, setFilePreview] = useState();
     const fileInputRef = createRef();
 
     useEffect(() => {
@@ -18,6 +21,14 @@ function CreateCompetition(props) {
         setSuccessMessage("");
         setLxfFile(null);
     }, [props.createCompModal]);
+
+    useEffect(() => {
+        if (errorMessage) {
+            setSuccessMessage("");
+        } else if (successMessage) {
+            setErrorMessage("");
+        }
+    }, [errorMessage, successMessage]);
 
     const handleCloseModal = () => {
         props.changeCreateCompModal();
@@ -54,7 +65,7 @@ function CreateCompetition(props) {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         if (errorMessage) {
             // Do not submit if there is an error
@@ -64,12 +75,13 @@ function CreateCompetition(props) {
         let form_data = new FormData();
         if (lxfFile) {
             form_data.append("lxf_file", lxfFile, lxfFile.name);
-            form_data.append("title", lxfFile.name)
+            form_data.append("title", lxfFile.name);
+            console.log(123);
         } else {
             setErrorMessage("Por favor, selecione um ficheiro.");
         }
 
-        let url = "http://localhost:8000/api/lxf-meet-confirmation/"; //TODO Change url to the real endpoint
+        let url = "http://localhost:8000/api/lxf-meet-confirmation/";
         axios
             .post(url, form_data, {
                 headers: {
@@ -81,12 +93,14 @@ function CreateCompetition(props) {
 
                 // Clear the form fields after a successful submission
                 setLxfFile(null);
-                props.changeCreateCompModal();
 
                 setErrorMessage("");
                 setSuccessMessage("Ficheiro submetido com sucesso!");
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+                setErrorMessage("ERRO: " + err.message);
+            });
     };
 
     const formatFileSize = (bytes) => {
@@ -101,11 +115,72 @@ function CreateCompetition(props) {
         return `${bytes.toFixed(2)} ${units[i]}`;
     };
 
+    const handleFilePreview = async () => {
+        if (lxfFile) {
+            if (errorMessage) {
+                // Do not submit if there is an error
+                return;
+            }
+
+            let form_data = new FormData();
+            if (lxfFile) {
+                form_data.append("lxf_file", lxfFile, lxfFile.name);
+                form_data.append("title", lxfFile.name);
+            } else {
+                setErrorMessage("Por favor, selecione um ficheiro.");
+            }
+
+            let url = "http://localhost:8000/api/lxf-meet-preview/";
+            axios
+                .post(url, form_data, {
+                    headers: {
+                        "content-type": "multipart/form-data",
+                    },
+                })
+                .then((res) => {
+                    console.log(res.data);
+                    setFilePreview(res.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                    setErrorMessage("ERRO: " + err.message);
+                });
+        }
+    };
+
+    const handleShowFile = () => {
+        if (lxfFile) {
+            setShowFile(!showFile);
+            handleFilePreview();
+        } else {
+            setErrorMessage("Por favor, selecione um ficheiro.");
+        }
+
+        if (showFile) {
+            setShowFile(!showFile);
+        }
+    };
+
+    const handleSubmitOnPreview = () => {
+        handleSubmit();
+        setShowFile(!showFile);
+    };
+
     return (
         <div>
+            {showFile && filePreview && (
+                <CompetionDetails
+                    compDetailsModal={showFile}
+                    changeCompDetailsModal={handleShowFile}
+                    handleSubmitOnPreview={handleSubmitOnPreview}
+                    filePreview={filePreview}
+                />
+            )}
             {props.createCompModal && (
                 <div
-                    className={classes.createCompModalOverlay}
+                    className={
+                        !showFile ? classes.createCompModalOverlay : classes._
+                    }
                     onClick={handleCloseModal}
                     onDragOver={(e) => e.preventDefault()}
                     onDragEnter={(e) => e.preventDefault()}
@@ -200,7 +275,7 @@ function CreateCompetition(props) {
                             <Button
                                 type={"secondary"}
                                 text={"Ver Ficheiro"}
-                            /*onClick={props.changeCreateCompModal}*/
+                                onClick={handleShowFile}
                             />
                         </div>
                     </div>

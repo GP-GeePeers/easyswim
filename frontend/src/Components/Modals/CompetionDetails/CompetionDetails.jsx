@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import classes from "./CompetetionDetails.module.css";
+import React, { useState, useEffect } from "react";
+import classes from "./CompetionDetails.module.css";
 import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 
@@ -11,14 +11,23 @@ const mockData = [
         organizer: "Associação Académica de Coimbra",
         number: "230714",
         date: "14-07-2023",
-        duration: "25m",
+        course_length: "25 meters (SCM)",
         register_limit_date: "13-07-2023 | 09:00",
         state: "active",
     },
 ];
 
-function CompetetionDetails(props) {
-    const keys = Object.keys(mockData[0]);
+function CompetionDetails(props) {
+    let data;
+    if (props.create) {
+        // data = props.createCompData;
+        data = mockData;
+    } else {
+        console.log(props.filePreview);
+        data = props.filePreview;
+    }
+
+    const keys = Object.keys(data[0]);
 
     const [contentHeights, setContentHeights] = useState(
         Array(keys.length).fill(0)
@@ -31,7 +40,7 @@ function CompetetionDetails(props) {
         });
 
         setContentHeights(newContentHeights);
-    }, [props.compDetailsModal]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [props.compDetailsModal, window.innerWidth]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleCloseModal = () => {
         props.changeCompDetailsModal();
@@ -64,12 +73,16 @@ function CompetetionDetails(props) {
                                         className={classes.buttonsContainer}
                                         onClick={handleCloseModal}
                                     >
-                                        <Button
-                                            text={"Apagar prova"}
-                                            onClick={
-                                                props.changeCreateCompModal
-                                            }
-                                        />
+                                        {props.create && (
+                                            <Button
+                                                text={"Cancelar prova"}
+                                                onClick={
+                                                    props.create
+                                                        ? props.changeCreateCompModal
+                                                        : props.handleSubmitOnPreview
+                                                }
+                                            />
+                                        )}
                                         <Button
                                             type={"secondary"}
                                             text={"Fechar"}
@@ -82,8 +95,14 @@ function CompetetionDetails(props) {
                                 <div className={classes.tableContainer}>
                                     {keys.map(
                                         (key, index) =>
-                                            // Exclude "id" from rendering
-                                            key !== "id" && (
+                                            key !== "id" &&
+                                            key !== "bucket_path" &&
+                                            key !== "maxentriesathlete" &&
+                                            key !== "number" &&
+                                            key !== "reservecount" &&
+                                            key !== "startmethod" &&
+                                            key !== "timing" &&
+                                            key !== "type" && (
                                                 <React.Fragment key={key}>
                                                     <div
                                                         className={
@@ -127,7 +146,7 @@ function CompetetionDetails(props) {
                                                                     classes.details
                                                                 }
                                                             >
-                                                                {mockData.map(
+                                                                {data.map(
                                                                     (data) => (
                                                                         <React.Fragment
                                                                             key={
@@ -148,7 +167,10 @@ function CompetetionDetails(props) {
                                                         </div>
                                                     </div>
                                                     {index <
-                                                        keys.length - 1 && (
+                                                        (props.create
+                                                            ? keys.length - 1
+                                                            : keys.length -
+                                                              2) && (
                                                         <div
                                                             className={
                                                                 classes.horizontalLine
@@ -168,4 +190,4 @@ function CompetetionDetails(props) {
     );
 }
 
-export default CompetetionDetails;
+export default CompetionDetails;

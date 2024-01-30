@@ -6,23 +6,23 @@ import Home from "./Views/Home/Home";
 import ListComps from "./Views/ListComps/ListComps";
 import Settings from "./Views/Settings/Settings";
 import PageContent from "./Components/PageContent/PageContent";
-import CompetetionDetails from "./Components/Modals/CompetetionDetails/CompetetionDetails";
+import CompetionDetails from "./Components/Modals/CompetionDetails/CompetionDetails";
 import CreateCompetition from "./Components/Modals/CreateCompetition/CreateCompetition";
 import Topbar from "./Components/Topbar/Topbar";
-import Login from './Views/Auth/Login/Login';
-import Signup from './Views/Auth/Signup/Signup';
-import Activate from './Views/Auth/Activate/Activate';
-import ResetPassword from './Views/Auth/ResetPassword/ResetPassword';
-import ResetPasswordConfirm from './Views/Auth/ResetPasswordConfirm/ResetPasswordConfirm';
+import Login from "./Views/Auth/Login/Login";
+import Signup from "./Views/Auth/Signup/Signup";
+import Activate from "./Views/Auth/Activate/Activate";
+import ResetPassword from "./Views/Auth/ResetPassword/ResetPassword";
+import ResetPasswordConfirm from "./Views/Auth/ResetPasswordConfirm/ResetPasswordConfirm";
 import PrivateRoute from "./Hooks/Common/PrivateRoute";
 
-import { Provider, useSelector } from 'react-redux';
-import store from './store';
+import { Provider, useSelector } from "react-redux";
+import store from "./store";
 
-import Layout from './Hooks/layout';
+import Layout from "./Hooks/layout";
 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
     const [retracted, setRetracted] = useState(true);
@@ -31,7 +31,7 @@ function App() {
     const [compDetailsModal, setCompDetailsModal] = useState(false);
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
 
-    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
     useEffect(() => {
         const updateWidth = () => {
@@ -56,52 +56,29 @@ function App() {
     return (
         <Provider store={store}>
             <Router>
+                <Background />
                 <ToastContainer />
                 <Routes>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
                     <Route
-                        path='/login'
-                        element={
-                            <Layout>
-                                <Login />
-                            </Layout>
-                        }
+                        path="/api/reset-password"
+                        element={<ResetPassword />}
                     />
                     <Route
-                        path='/signup'
-                        element={
-                            <Layout>
-                                <Signup />
-                            </Layout>
-                        }
+                        path="/api/password/reset/confirm/:uid/:token"
+                        element={<ResetPasswordConfirm />}
                     />
                     <Route
-                        path='/api/reset-password'
-                        element={
-                            <Layout>
-                                <ResetPassword />
-                            </Layout>
-                        }
-                    />
-                    <Route
-                        path='/api/password/reset/confirm/:uid/:token'
-                        element={
-                            <Layout>
-                                <ResetPasswordConfirm />
-                            </Layout>
-                        }
-                    />
-                    <Route
-                        path='/api/activate/:uid/:token'
-                        element={
-                            <Layout>
-                                <Activate />
-                            </Layout>
-                        }
+                        path="/api/activate/:uid/:token"
+                        element={<Activate />}
                     />
                     <Route
                         path="/"
                         element={
-                            <PrivateRoute auth={{ isAuthenticated: isAuthenticated }}>
+                            <PrivateRoute
+                                auth={{ isAuthenticated: isAuthenticated }}
+                            >
                                 <>
                                     <Background />
                                     {currentWidth > 667 ? (
@@ -125,18 +102,27 @@ function App() {
                                     )}
                                     <CreateCompetition
                                         createCompModal={createCompModal}
-                                        changeCreateCompModal={changeCreateCompModal}
+                                        changeCreateCompModal={
+                                            changeCreateCompModal
+                                        }
                                     />
-                                    <CompetetionDetails
+                                    <CompetionDetails
                                         compDetailsModal={compDetailsModal}
-                                        changeCompDetailsModal={changeCompDetailsModal}
+                                        changeCompDetailsModal={
+                                            changeCompDetailsModal
+                                        }
+                                        create
                                     />
                                     <PageContent
                                         organization={organization}
                                         retracted={retracted}
                                         createCompModal={createCompModal}
-                                        changeCreateCompModal={changeCreateCompModal}
-                                        changeCompDetailsModal={changeCompDetailsModal}
+                                        changeCreateCompModal={
+                                            changeCreateCompModal
+                                        }
+                                        changeCompDetailsModal={
+                                            changeCompDetailsModal
+                                        }
                                     >
                                         <Routes>
                                             <Route
@@ -144,8 +130,12 @@ function App() {
                                                 element={
                                                     <Home
                                                         retracted={retracted}
-                                                        setRetracted={setRetracted}
-                                                        changeCompDetailsModal={changeCompDetailsModal}
+                                                        setRetracted={
+                                                            setRetracted
+                                                        }
+                                                        changeCompDetailsModal={
+                                                            changeCompDetailsModal
+                                                        }
                                                     />
                                                 }
                                             />
@@ -154,7 +144,9 @@ function App() {
                                                 element={
                                                     <ListComps
                                                         retracted={retracted}
-                                                        setRetracted={setRetracted}
+                                                        setRetracted={
+                                                            setRetracted
+                                                        }
                                                     />
                                                 }
                                             />
@@ -163,7 +155,9 @@ function App() {
                                                 element={
                                                     <Settings
                                                         retracted={retracted}
-                                                        setRetracted={setRetracted}
+                                                        setRetracted={
+                                                            setRetracted
+                                                        }
                                                     />
                                                 }
                                             />

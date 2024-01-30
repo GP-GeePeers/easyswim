@@ -62,6 +62,7 @@
 .competitionText {
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .competitionText::before,
