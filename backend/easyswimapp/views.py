@@ -129,6 +129,8 @@ class LXFMeetView(APIView):
 
             #Read the file
             read_save_lenex(file_path_s,"meets/+"+uuid_str+".lxf")
+            os.remove(file_path_s)
+            os.remove(file_path)
 
             return JsonResponse(data={'notification': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_201_CREATED)
         else:
@@ -181,6 +183,8 @@ class MeetPreviewView(APIView):
 
                 # Read the file
                 meet = read_preview_lenex(file_path_s)
+                os.remove(file_path_s)
+                os.remove(file_path)
     
                 return JsonResponse(meet, safe=False)
             else:
@@ -250,12 +254,17 @@ class LXFTeamView(APIView):
 
             #Descompact the file
             file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
-            basename,_=extract_lxf_file(dir,file_path_s, request.data['title'])
+            basename,_= extract_lxf_file(dir,file_path_s, request.data['title'])
             file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename+".lef")
+            
             print("Path: "+file_path_s)
+
+
             
             #Read the file
             read_save_lenex_TeamManager(file_path_s)
+            os.remove(file_path_s)
+            os.remove(file_path)
 
             return JsonResponse(data={'success': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_201_CREATED)
         else:
@@ -371,6 +380,7 @@ def read_TeamManager_view(request):
     except Exception as e:
         return HttpResponse(f'An error occurred while processing the .lef file: {e}')
     
+
 
 
 def list_meets(request):
