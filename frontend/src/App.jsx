@@ -6,7 +6,7 @@ import Home from "./Views/Home/Home";
 import ListComps from "./Views/ListComps/ListComps";
 import Settings from "./Views/Settings/Settings";
 import PageContent from "./Components/PageContent/PageContent";
-import CompetetionDetails from "./Components/Modals/CompetetionDetails/CompetetionDetails";
+import CompetionDetails from "./Components/Modals/CompetionDetails/CompetionDetails";
 import CreateCompetition from "./Components/Modals/CreateCompetition/CreateCompetition";
 import Topbar from "./Components/Topbar/Topbar";
 import Login from "./Views/Auth/Login/Login";
@@ -131,7 +131,7 @@ function App() {
                                             changeCreateCompModal
                                         }
                                     />
-                                    <CompetetionDetails
+                                    <CompetionDetails
                                         compDetailsModal={compDetailsModal}
                                         changeCompDetailsModal={
                                             changeCompDetailsModal

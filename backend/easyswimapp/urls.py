@@ -1,6 +1,6 @@
 from django.urls import include, path
 from . import views
-from .views import read_lef_view, model_data_view, read_registered_lxf, read_TeamManager_view, delete_meet
+from .views import read_lef_view, model_data_view, read_registered_lxf, read_meet_manager, delete_meet
 
 
 
