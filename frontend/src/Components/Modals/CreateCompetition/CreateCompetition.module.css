@@ -106,6 +106,7 @@
     .textCombo {
         flex-direction: column;
     }
+
     p {
         flex-direction: row;
     }
@@ -145,6 +146,7 @@
     from {
         color: #ffffff;
     }
+
     to {
         color: #ff0000;
     }
@@ -163,6 +165,7 @@
     from {
         color: #ffffff;
     }
+
     to {
         color: #00ff44;
     }
