@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classes from "./CompetetionDetails.module.css";
+import classes from "./CompetionDetails.module.css";
 import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 
@@ -17,7 +17,7 @@ const mockData = [
     },
 ];
 
-function CompetetionDetails(props) {
+function CompetionDetails(props) {
     const keys = Object.keys(mockData[0]);
 
     const [contentHeights, setContentHeights] = useState(
@@ -178,4 +178,4 @@ function CompetetionDetails(props) {
     );
 }
 
-export default CompetetionDetails;
+export default CompetionDetails;

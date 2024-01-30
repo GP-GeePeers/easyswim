@@ -72,9 +72,7 @@ function Home(props) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(
-                    "http://127.0.0.1:8000/api/read-TeamManager/"
-                );
+                const response = await axios.get("http://127.0.0.1:8000/api/");
                 const data = response.data; // Use response.data instead of response.json()
 
                 const currentDate = new Date();

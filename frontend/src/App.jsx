@@ -7,7 +7,7 @@ import ListComps from "./Views/ListComps/ListComps";
 import Settings from "./Views/Settings/Settings";
 import CreateCompetition from "./Components/Modals/CreateCompetition/CreateCompetition";
 import PageContent from "./Components/PageContent/PageContent";
-import CompetetionDetails from "./Components/Modals/CompetetionDetails/CompetetionDetails";
+import CompetionDetails from "./Components/Modals/CompetionDetails/CompetionDetails";
 import Topbar from "./Components/Topbar/Topbar";
 
 function App() {
@@ -73,7 +73,7 @@ function App() {
                 createCompModal={createCompModal}
                 changeCreateCompModal={changeCreateCompModal}
             />
-            <CompetetionDetails
+            <CompetionDetails
                 compDetailsModal={compDetailsModal}
                 changeCompDetailsModal={changeCompDetailsModal}
                 create

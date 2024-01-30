@@ -5,13 +5,14 @@ import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 import addDocument from "../Assets/addDocument.png";
 import document from "../Assets/document.png";
-import CompetetionDetails from "../CompetetionDetails/CompetetionDetails";
+import CompetionDetails from "../CompetionDetails/CompetionDetails";
 
 function CreateCompetition(props) {
     const [lxfFile, setLxfFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
     const [showFile, setShowFile] = useState(false);
+    const [filePreview, setFilePreview] = useState([]);
     const fileInputRef = createRef();
 
     useEffect(() => {
@@ -105,10 +106,25 @@ function CreateCompetition(props) {
         return `${bytes.toFixed(2)} ${units[i]}`;
     };
 
+    const handleFilePreview = async () => {
+        if (lxfFile) {
+            try {
+                const response = await axios.get(
+                    "http://localhost:8000/api/lxf-meet-preview/"
+                );
+                console.log(response.data);
+                setFilePreview(response.data);
+            } catch (error) {
+                console.error("Erro ao buscar provas:", error);
+            }
+        }
+    };
+
     const handleShowFile = () => {
         if (lxfFile) {
             props.changeCreateCompModal();
             setShowFile(!showFile);
+            handleFilePreview();
         } else {
             setErrorMessage("Por favor, selecione um ficheiro.");
         }
@@ -127,7 +143,7 @@ function CreateCompetition(props) {
     return (
         <div>
             {showFile && (
-                <CompetetionDetails
+                <CompetionDetails
                     compDetailsModal={showFile}
                     changeCompDetailsModal={handleShowFile}
                     handleSubmitOnPreview={handleSubmitOnPreview}
