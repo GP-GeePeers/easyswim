@@ -1,6 +1,6 @@
 from django.urls import include, path
 from . import views
-from .views import read_lef_view, model_data_view, read_registered_lxf, read_meet_manager, delete_meet
+from .views import read_lef_view, model_data_view, read_registered_lxf, read_meet_manager, delete_meet,list_TeamManager_by_Meet
 
 
 
@@ -16,6 +16,7 @@ urlpatterns = [
     path('read-TeamManager/', read_meet_manager, name='read-TeamManager'),
     path('model-data/', model_data_view, name='model-data-view'),
     path('registered-lxf/', read_registered_lxf, name='reagistered-lxf'),
+    path('list-TeamManager-by-Meet/', list_TeamManager_by_Meet, name='read-lef'),
     path('', views.DashboardView.as_view(), name='home'),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),

@@ -1,5 +1,5 @@
 import shutil
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import FileResponse, HttpResponse, JsonResponse
 from .serializers import LXFSerializer
 from .models import LXF, Meet_TeamManager
@@ -434,3 +434,19 @@ def delete_meet(request):
     data = {'message': 'Meet deleted successfully'}   
 
     return JsonResponse(data)
+
+def list_TeamManager_by_Meet(request):
+    meet_id = request.GET.get('id')
+
+    try:
+        meet_id = int(meet_id)
+    except (ValueError, TypeError):
+        return JsonResponse(data={'error': 'ID do Meet inválido'}, status=400)
+
+    meet_manager = get_object_or_404(Meet_MeetManager, id=meet_id)
+
+    team_managers = Meet_TeamManager.objects.filter(meet_manager=meet_manager)
+
+    serialized_team_managers = [{'id': team_manager.id, 'nome': team_manager.nome} for team_manager in team_managers]
+
+    return JsonResponse(data={'team_managers': serialized_team_managers}, status=200)
