@@ -140,7 +140,7 @@
     display: flex;
     border-bottom: 1px solid #335c58;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     color: #b7bab6;
     flex: 1;
 }

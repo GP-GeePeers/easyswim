@@ -5,11 +5,13 @@ import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 import addDocument from "../Assets/addDocument.png";
 import document from "../Assets/document.png";
+import CompetetionDetails from "../CompetetionDetails/CompetetionDetails";
 
 function CreateCompetition(props) {
     const [lxfFile, setLxfFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
+    const [showFile, setShowFile] = useState(false);
     const fileInputRef = createRef();
 
     useEffect(() => {
@@ -85,7 +87,10 @@ function CreateCompetition(props) {
                 setErrorMessage("");
                 setSuccessMessage("Ficheiro submetido com sucesso!");
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+                setErrorMessage("ERRO: " + err.message);
+            });
     };
 
     const formatFileSize = (bytes) => {
@@ -100,8 +105,34 @@ function CreateCompetition(props) {
         return `${bytes.toFixed(2)} ${units[i]}`;
     };
 
+    const handleShowFile = () => {
+        if (lxfFile) {
+            props.changeCreateCompModal();
+            setShowFile(!showFile);
+        } else {
+            setErrorMessage("Por favor, selecione um ficheiro.");
+        }
+
+        if (showFile) {
+            props.changeCreateCompModal();
+            setShowFile(!showFile);
+        }
+    };
+
+    const handleSubmitOnPreview = () => {
+        handleSubmit();
+        setShowFile(!showFile);
+    };
+
     return (
         <div>
+            {showFile && (
+                <CompetetionDetails
+                    compDetailsModal={showFile}
+                    changeCompDetailsModal={handleShowFile}
+                    handleSubmitOnPreview={handleSubmitOnPreview}
+                />
+            )}
             {props.createCompModal && (
                 <div
                     className={classes.createCompModalOverlay}
@@ -199,7 +230,7 @@ function CreateCompetition(props) {
                             <Button
                                 type={"secondary"}
                                 text={"Ver Ficheiro"}
-                                /*onClick={props.changeCreateCompModal}*/
+                                onClick={handleShowFile}
                             />
                         </div>
                     </div>

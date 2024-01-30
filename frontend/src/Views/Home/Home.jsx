@@ -114,8 +114,10 @@ function Home(props) {
                 // mockNextCompetition={mockNextCompetition}
             />
             <CompetitionsList
-            // mockDataList={mockTableDataList}
-            // setMockTableDataList={setMockTableDataList}
+                setTableData={setTableData}
+                tableData={tableData}
+                // mockDataList={mockTableDataList}
+                // setMockTableDataList={setMockTableDataList}
             />
         </div>
     );

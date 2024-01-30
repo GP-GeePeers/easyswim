@@ -3,17 +3,17 @@ import classes from "./CompetitionsList.module.css";
 import Card from "../Card";
 import Button from "../../Buttons/Button";
 
-const ORDER_OPTIONS = ["Mais recente", "Mais antigo", "Nome"];
+const ORDER_OPTIONS = ["Mais antigo", "Mais recente", "Nome"];
 const TABLE_HEADERS = ["ORGANIZADOR", "NOME", "DATA", "ESTADO"];
 
 function CompetitionsList(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
     const [searchInput, setSearchInput] = useState("");
-    const [selectedOrder, setSelectedOrder] = useState("Mais recente");
+    const [selectedOrder, setSelectedOrder] = useState("Mais antigo");
 
     const handleOrderOptionClick = (option) => {
-        props.setMockTableDataList(
-            props.mockDataList
+        props.setTableData(
+            props.tableData
                 .filter(
                     (row) =>
                         row.organizer
@@ -130,7 +130,7 @@ function CompetitionsList(props) {
                             </div>
                         </div>
                     </div>
-                    {props.mockDataList?.map((row) => (
+                    {props.tableData?.map((row) => (
                         <div key={row.id} className={classes.tableRow}>
                             <div
                                 className={

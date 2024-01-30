@@ -67,11 +67,13 @@ function CompetetionDetails(props) {
                                         <Button
                                             text={
                                                 props.create
-                                                    ? "Apagar prova"
+                                                    ? "Cancelar prova"
                                                     : "Confirmar"
                                             }
                                             onClick={
-                                                props.changeCreateCompModal
+                                                props.create
+                                                    ? props.changeCreateCompModal
+                                                    : props.handleSubmitOnPreview
                                             }
                                         />
                                         <Button
