@@ -104,6 +104,41 @@ def descompactar_todos_lxf():
                     break
 
 
+def read_preview_lenex(input_file):
+    """
+    Reads LENEX file "MeetManager" and returns the data as JSON.
+    This function parses a LENEX file, extracts relevant information, and
+    returns the data in JSON format.
+
+    Parameters:
+    - input_file (str): The path to the input LENEX file.
+    - bucket_path (str): The bucket path associated with the file.
+    """
+    tree = ET.parse(input_file)
+    meet_manager_objects = []
+    root = tree.getroot()
+
+    for meets in root.findall('.//MEET'):
+        meet_manager_obj = {
+            'bucket_path': "",
+            'name': meets.get('name'),
+            'city': meets.get('city'),
+            'course': meets.get('course'),
+            'deadline': meets.get('deadline'),
+            'number': meets.get('number'),
+            'organizer': meets.get('organizer'),
+            'organizer_url': meets.get('organizer.url'),
+            'reservecount': meets.get('reservecount'),
+            'startmethod': meets.get('startmethod'),
+            'timing': meets.get('timing'),
+            'type': meets.get('type'),
+            'nation': meets.get('nation'),
+            'maxentriesathlete': meets.get('maxentriesathlete')
+        }
+        meet_manager_objects.append(meet_manager_obj)
+    return  meet_manager_objects
+
+
 
 @transaction.atomic
 def read_save_lenex(input_file, bucket_path):
@@ -323,6 +358,7 @@ def final_list(athletes, result):
         result_list.append([athlete_name, athlete_license, athlete_validity])
 
     return result_list
+
 def upload_blob(bucket_name, source_file_name, destination_blob_name):
 
     """
@@ -358,6 +394,7 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
     print(
         f"File {source_file_name} uploaded to {destination_blob_name}."
     )
+
 def download_blob(bucket_name, source_blob_name, destination_file_name):
 
     """

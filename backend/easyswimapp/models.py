@@ -98,8 +98,10 @@ class Meet_MeetManager(models.Model):
     Methods:
     - __str__(): Returns the name of the meet as a string.
     """
+    
     bucket_path = models.CharField(max_length=500)
     city = models.CharField(max_length=100)
+    is_active=models.BooleanField(default=True)
     name = models.CharField(max_length=255)
     course = models.CharField(max_length=50)
     deadline = models.DateField()
