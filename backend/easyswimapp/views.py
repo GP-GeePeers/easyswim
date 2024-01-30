@@ -1,10 +1,10 @@
 import shutil
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import FileResponse, HttpResponse, JsonResponse
 from .serializers import LXFSerializer
 from .models import LXF
 #from .utils import read_lef_file
-from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request, upload_blob,extract_lxf_file,read_preview_lenex
+from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request, upload_blob,extract_lxf_file,read_preview_lenex,download_blob
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
@@ -67,9 +67,32 @@ class LXFMeetView(APIView):
         :param request: HttpRequest object
         :return: Response object with serialized LXF data
         """
-        posts = LXF.objects.all()
-        serializer = LXFSerializer(posts, many=True)
-        return Response(serializer.data)
+        download_requested = request.query_params.get('download', False)
+
+        meet_id = request.query_params.get('id')
+        meet = list(Meet_MeetManager.objects.filter(id=meet_id).values())[0]
+        bucket_path = str(meet.get('bucket_path'))
+        # Split the bucket path to get the file name
+        file_name = bucket_path.split('/')[-1]
+        if download_requested:
+            
+            bucket_name = "easyswim"  
+            destination_file_name = os.path.join(settings.MEDIA_ROOT, 'lxf_files',file_name)
+            print(""+bucket_path)
+
+            download_blob(bucket_name, bucket_path, destination_file_name)
+
+            response = FileResponse(open(destination_file_name, 'rb'))
+            response['Content-Disposition'] = f'attachment; filename="{file_name}"'
+            return  JsonResponse(data={'notification': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_200_OK)
+
+            #return JsonResponse(data={'notification': 'Download concluído com sucesso!'}, status=status.HTTP_200_OK)
+        else:
+            # Se não for uma solicitação de download, continue com a lógica existente
+            posts = LXF.objects.all()
+            serializer = LXFSerializer(posts, many=True)
+            return  JsonResponse(data={'notification': 'FUCK!'}, status=status.HTTP_201_CREATED)
+
 
     def post(self, request, *args, **kwargs):
         """
@@ -188,6 +211,8 @@ class LXFTeamView(APIView):
         :param request: HttpRequest object
         :return: Response object with serialized LXF data
         """
+        
+        
         posts = LXF.objects.all()
         serializer = LXFSerializer(posts, many=True)
         return Response(serializer.data)
