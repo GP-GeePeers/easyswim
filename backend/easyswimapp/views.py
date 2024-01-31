@@ -446,7 +446,7 @@ def list_meets(request):
 
 
 def list_TeamManager_by_Meet(request):
-    meet_id = request.data['id']
+    meet_id = request.GET.get('id')
 
     try:
         meet_id = int(meet_id)
@@ -455,9 +455,11 @@ def list_TeamManager_by_Meet(request):
 
     meet_manager = get_object_or_404(Meet_MeetManager, id=meet_id)
 
-    clubs = Club_TeamManager.objects.filter(meet_manager=meet_manager)
+    team_manager = Meet_TeamManager.objects.filter(meet=meet_manager)
 
-    serialized_club = [{'id': club.clubid, 'name': club.name,
-                        'shortname': club.shortname} for club in clubs]
+    club = Club_TeamManager.objects.filter(meet=team_manager)
 
-    return JsonResponse(data={'clubs': serialized_club}, status=200)
+    serialized_club = {'id': club.clubid, 'name': club.name,
+                        'shortname': club.shortname}
+
+    return JsonResponse(data={'club': serialized_club}, status=200)
