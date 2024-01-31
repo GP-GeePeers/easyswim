@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Background from "./Components/Background/Background";
 import Sidebar from "./Components/Sidebar/Sidebar";
@@ -15,6 +15,7 @@ import Activate from "./Views/Auth/Activate/Activate";
 import ResetPassword from "./Views/Auth/ResetPassword/ResetPassword";
 import ResetPasswordConfirm from "./Views/Auth/ResetPasswordConfirm/ResetPasswordConfirm";
 import PrivateRoute from "./Hooks/Common/PrivateRoute";
+import { CompetitionDetailsContext } from "./contexts/competition-details";
 
 import { Provider, useSelector } from "react-redux";
 import store from "./store";
@@ -23,13 +24,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./Hooks/layout";
 
-
 function App() {
     const [retracted, setRetracted] = useState(true);
     const [organization, setOrganization] = useState("");
     const [createCompModal, setCreateCompModal] = useState(false);
-    const [compDetailsModal, setCompDetailsModal] = useState(false);
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
+    const [reloadHomepage, setReloadHomepage] = useState(false);
+    const { fileInfo, flag } = useContext(CompetitionDetailsContext);
 
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
@@ -42,15 +43,12 @@ function App() {
     }, []);
 
     useEffect(() => {
-        setOrganization("Clube de Natação de Coimbra"); /* TODO: get from API */
+        setOrganization(""); /* TODO: get from API */
     }, []);
 
     const changeCreateCompModal = () => {
         setCreateCompModal(!createCompModal);
-    };
-
-    const changeCompDetailsModal = () => {
-        setCompDetailsModal(!compDetailsModal);
+        setReloadHomepage(createCompModal);
     };
 
     return (
@@ -59,38 +57,48 @@ function App() {
                 <Background />
                 <ToastContainer />
                 <Routes>
-                    <Route path="/login" element={
-                        <Layout>
-                            <Login />
-                        </Layout>
-                    } />
-                    <Route path="/signup" element={
-                        <Layout>
-                            <Signup />
-                        </Layout>} />
+                    <Route
+                        path="/login"
+                        element={
+                            <Layout>
+                                <Login />
+                            </Layout>
+                        }
+                    />
+                    <Route
+                        path="/signup"
+                        element={
+                            <Layout>
+                                <Signup />
+                            </Layout>
+                        }
+                    />
                     <Route
                         path="/api/reset-password"
                         element={
                             <Layout>
                                 <ResetPassword />
-                            </Layout>}
+                            </Layout>
+                        }
                     />
                     <Route
                         path="/api/password/reset/confirm/:uid/:token"
                         element={
                             <Layout>
                                 <ResetPasswordConfirm />
-                            </Layout>}
+                            </Layout>
+                        }
                     />
                     <Route
                         path="/api/activate/:uid/:token"
                         element={
                             <Layout>
                                 <Activate />
-                            </Layout>}
+                            </Layout>
+                        }
                     />
                     <Route
-                        path="/"
+                        path="*"
                         element={
                             <PrivateRoute
                                 auth={{ isAuthenticated: isAuthenticated }}
@@ -122,22 +130,18 @@ function App() {
                                             changeCreateCompModal
                                         }
                                     />
-                                    <CompetitionDetails
-                                        compDetailsModal={compDetailsModal}
-                                        changeCompDetailsModal={
-                                            changeCompDetailsModal
-                                        }
-                                        create
-                                    />
+                                    {fileInfo && flag && (
+                                        <CompetitionDetails
+                                            flag={flag}
+                                            fileInfo={fileInfo}
+                                        />
+                                    )}
                                     <PageContent
                                         organization={organization}
                                         retracted={retracted}
                                         createCompModal={createCompModal}
                                         changeCreateCompModal={
                                             changeCreateCompModal
-                                        }
-                                        changeCompDetailsModal={
-                                            changeCompDetailsModal
                                         }
                                     >
                                         <Routes>
@@ -149,14 +153,17 @@ function App() {
                                                         setRetracted={
                                                             setRetracted
                                                         }
-                                                        changeCompDetailsModal={
-                                                            changeCompDetailsModal
+                                                        reloadHomepage={
+                                                            reloadHomepage
+                                                        }
+                                                        setReloadHomepage={
+                                                            setReloadHomepage
                                                         }
                                                     />
                                                 }
                                             />
-                                            <Route
-                                                path="/TestsList"
+                                            {/* <Route
+                                                path="/api/TestsList"
                                                 element={
                                                     <ListComps
                                                         retracted={retracted}
@@ -167,7 +174,7 @@ function App() {
                                                 }
                                             />
                                             <Route
-                                                path="/Settings"
+                                                path="/api/Settings"
                                                 element={
                                                     <Settings
                                                         retracted={retracted}
@@ -176,7 +183,7 @@ function App() {
                                                         }
                                                     />
                                                 }
-                                            />
+                                            /> */}
                                         </Routes>
                                     </PageContent>
                                 </>

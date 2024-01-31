@@ -127,7 +127,6 @@
     }
     .competitionText::before,
     .competitionText::after {
-        /* make it so that nothing happens */
         width: 0;
     }
     .competitionText:hover::before {

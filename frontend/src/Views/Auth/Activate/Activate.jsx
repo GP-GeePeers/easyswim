@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { verify } from '../../../Actions/auth';
+import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { connect } from "react-redux";
+import { verify } from "../../../Actions/auth";
+import classes from "./Activate.module.css";
+import Button from "../../../Components/Buttons/Button";
 
 const Activate = ({ verify }) => {
     const navigate = useNavigate();
@@ -15,24 +17,23 @@ const Activate = ({ verify }) => {
     };
 
     if (verified) {
-        navigate('/login');
+        navigate("/login");
     }
 
     return (
-        <div className='container'>
-            <div 
-                className='d-flex flex-column justify-content-center align-items-center'
-                style={{ marginTop: '200px' }}
-            >
-                <h1>Verify your Account:</h1>
-                <button
-                    onClick={verify_account}
-                    style={{ marginTop: '50px' }}
-                    type='button'
-                    className='btn btn-primary'
+        <div className={classes.container}>
+            <div className={classes.topCardContainer}>
+                <h1 className={classes.title}>Verify your Account:</h1>
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        marginTop: "0.8rem",
+                    }}
                 >
-                    Verify
-                </button>
+                    <Button text="Verify" onClick={verify_account} />
+                </div>
             </div>
         </div>
     );

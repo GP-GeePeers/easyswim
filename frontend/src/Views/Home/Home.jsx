@@ -4,29 +4,29 @@ import NextCompetition from "../../Components/Cards/NextCompetition/NextCompetit
 import CompetitionsList from "../../Components/Cards/CompetitionsList/CompetitionsList";
 import axios from "axios";
 
-const mockDataList = [
-    {
-        id: 1,
-        organizer: "Associação Académica de Coimbra",
-        name: "A - Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "15-07-2024",
-        state: "active",
-    },
-    {
-        id: 2,
-        organizer: "Associação Académica de Coimbra",
-        name: "B - Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "14-06-2024",
-        state: "inactive",
-    },
-    {
-        id: 3,
-        organizer: "Associação Académica de Coimbra",
-        name: "C - Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
-        date: "16-05-2024",
-        state: "active",
-    },
-];
+// const mockDataList = [
+//     {
+//         id: 1,
+//         organizer: "Associação Académica de Coimbra",
+//         name: "A - Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
+//         date: "15-07-2024",
+//         state: "active",
+//     },
+//     {
+//         id: 2,
+//         organizer: "Associação Académica de Coimbra",
+//         name: "B - Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
+//         date: "14-06-2024",
+//         state: "inactive",
+//     },
+//     {
+//         id: 3,
+//         organizer: "Associação Académica de Coimbra",
+//         name: "C - Campeonato interdistrital de Juvenis, Juniores e Seniores PL",
+//         date: "16-05-2024",
+//         state: "active",
+//     },
+// ];
 
 function Home(props) {
     const [nextCompetitionData, setNextCompetitionData] = useState();
@@ -70,48 +70,56 @@ function Home(props) {
         }
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            console.log('Fetch');
-            console.log(localStorage.getItem('access'));
-            try {
-                const config = {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `JWT ${localStorage.getItem('access')}`,
-                    }
+    const fetchData = async () => {
+        try {
+            const config = {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `JWT ${localStorage.getItem("access")}`,
+                },
+            };
+            const response = await axios.get(
+                "http://127.0.0.1:8000/api/",
+                config
+            );
+            const data = response.data; // Use response.data instead of response.json()
+
+            const currentDate = new Date();
+
+            const updatedTableData = data.meets.map((meet) => {
+                const meetDate = new Date(meet.deadline);
+                const isActive = meetDate >= currentDate;
+
+                return {
+                    id: meet.id,
+                    organizer: meet.organizer,
+                    name: meet.name,
+                    date: meet.deadline,
+                    state: isActive ? "active" : "inactive",
                 };
-                const response = await axios.get("http://127.0.0.1:8000/api/", config);
-                const data = response.data; // Use response.data instead of response.json()
+            });
 
-                const currentDate = new Date();
+            setTableData(updatedTableData);
+            setOriginalData(updatedTableData);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
 
-                const updatedTableData = data.meets.map((meet) => {
-                    const meetDate = new Date(meet.deadline);
-                    const isActive = meetDate >= currentDate;
-
-                    return {
-                        id: meet.id,
-                        organizer: meet.organizer,
-                        name: meet.name,
-                        date: meet.deadline,
-                        state: isActive ? "active" : "inactive",
-                    };
-                });
-
-                setTableData(updatedTableData);
-                setOriginalData(updatedTableData);
-            } catch (error) {
-                console.error("Error:", error);
-            }
-        };
-
+    useEffect(() => {
         fetchData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
+        if (props.reloadHomepage) {
+            fetchData();
+        }
+    }, [props.reloadHomepage]);
+
+    useEffect(() => {
         getNextCompetition();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tableData]);
 
     return (
@@ -119,12 +127,15 @@ function Home(props) {
             <NextCompetition
                 changeCompDetailsModal={props.changeCompDetailsModal}
                 nextCompetitionData={nextCompetitionData}
+                setReloadHomepage={props.setReloadHomepage}
                 // mockNextCompetition={mockNextCompetition}
             />
             <CompetitionsList
+                changeCompDetailsModal={props.changeCompDetailsModal}
                 setTableData={setTableData}
                 tableData={tableData}
                 originalData={originalData}
+                setReloadHomepage={props.setReloadHomepage}
                 // mockDataList={mockTableDataList}
                 // setMockTableDataList={setMockTableDataList}
             />
