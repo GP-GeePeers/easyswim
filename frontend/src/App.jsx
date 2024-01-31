@@ -89,8 +89,7 @@ function App() {
                                 <Activate />
                             </Layout>}
                     />
-                    <Route
-                        path="/"
+                    <Route path="*"
                         element={
                             <PrivateRoute
                                 auth={{ isAuthenticated: isAuthenticated }}

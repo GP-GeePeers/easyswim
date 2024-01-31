@@ -19,6 +19,8 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.core import serializers
 import uuid
 from datetime import datetime
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
 
 """
@@ -198,7 +200,7 @@ class MeetPreviewView(APIView):
         else:
             return JsonResponse(data={'error': 'Invalid data'}, status=status.HTTP_400_BAD_REQUEST)
 
-     
+
 class LXFTeamView(APIView):
     """
     View for LXF file upload.
@@ -230,51 +232,55 @@ class LXFTeamView(APIView):
         :param request: HttpRequest object with LXF file data
         :return: Response object indicating success or failure
         """
+        print("Received POST request for LXF file upload.")
         meet_id=request.data['id']
-        meet_obj = Meet_MeetManager.get(id=meet_id)
-        request_data_copy = request.data.copy()
-        request_data_copy.pop('id', None) 
+        print("Meet ID: "+meet_id)
+        try:
+            meet_obj = Meet_MeetManager.objects.get(id=meet_id)
+            request_data_copy = request.data.copy()
+            request_data_copy.pop('id', None) 
 
-        meet = list(Meet_MeetManager.objects.filter(id=meet_id).values())[0]
-        print(meet)
-        
-        meet_bucket_uuid = str(meet.get('bucket_path')).split("/")[1][:-4]
-        
-        lxf_serializer = LXFSerializer(data=request_data_copy)
-
-        print(request.data)
-
-        if lxf_serializer.is_valid():
-            dir = os.path.join(settings.MEDIA_ROOT, 'lxf_files')
-            #Create a folder for the uploaded file
-            if not os.path.exists(dir):
-                os.mkdir(dir)
-            lxf_serializer.save()
-            #Create a folder for the extracted file
-            file_path = os.path.join(dir, request.data['title'])
-
-
-            #Save the file
-            uuid_str = str(uuid.uuid4())
-            upload_blob("easyswim",file_path,meet_bucket_uuid+"/+"+uuid_str+".lxf")
-
-            #Descompact the file
-            file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
-            basename,_= extract_lxf_file(dir,file_path_s, request.data['title'])
-            file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename+".lef")
+            meet = list(Meet_MeetManager.objects.filter(id=meet_id).values())[0]
+            print(meet)
             
-            print("Path: "+file_path_s)
-
-
+            meet_bucket_uuid = str(meet.get('bucket_path')).split("/")[1][:-4]
             
-            #Read the file
-            read_save_lenex_TeamManager(file_path_s,meet_obj)
-            os.remove(file_path_s)
-            os.remove(file_path)
+            lxf_serializer = LXFSerializer(data=request_data_copy)
 
-            return JsonResponse(data={'success': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_201_CREATED)
-        else:
-            return JsonResponse(data={'error': 'Ficheiro Invalido'}, status=status.HTTP_400_BAD_REQUEST)
+            print(request.data)
+
+            if lxf_serializer.is_valid():
+                print("Valid")
+                dir = os.path.join(settings.MEDIA_ROOT, 'lxf_files')
+                #Create a folder for the uploaded file
+                if not os.path.exists(dir):
+                    os.mkdir(dir)
+                lxf_serializer.save()
+                #Create a folder for the extracted file
+                file_path = os.path.join(dir, request.data['title'])
+
+
+                #Save the file
+                uuid_str = str(uuid.uuid4())
+                upload_blob("easyswim",file_path,meet_bucket_uuid+"/+"+uuid_str+".lxf")
+
+                #Descompact the file
+                file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files')
+                basename,_= extract_lxf_file(dir,file_path_s, request.data['title'])
+                file_path_s = os.path.join(settings.MEDIA_ROOT, 'lef_files', basename+".lef")
+                
+                print("Path: "+file_path_s)
+
+                #Read the file
+                read_save_lenex_TeamManager(file_path_s,meet_obj)
+                os.remove(file_path_s)
+                os.remove(file_path)
+
+                return JsonResponse(data={'success': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_201_CREATED)
+            else:
+                return JsonResponse(data={'error': 'Ficheiro Invalido'}, status=status.HTTP_400_BAD_REQUEST)
+        except Meet_MeetManager.DoesNotExist:
+            return JsonResponse(data={'error': 'Meet Manager não encontrado'}, status=status.HTTP_404_BAD_REQUEST)
 
 
 def read_lef_view(request):

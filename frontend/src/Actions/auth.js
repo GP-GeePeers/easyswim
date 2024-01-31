@@ -24,12 +24,16 @@ const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
 
 export const load_user = () => async dispatch => {
     const accessToken = localStorage.getItem('access');
+    const csrfToken = localStorage.getItem('csrfToken');
+    console.log(accessToken);
+    console.log(csrfToken);
 
     if (accessToken) {
         try {
             const res = await axios.get(`${apiUrl}/auth/users/me/`, {
                 headers: {
-                    'Authorization': `JWT ${accessToken}`
+                    'Authorization': `JWT ${accessToken}`,
+                    'X-CSRFToken': csrfToken,
                 }
             });
 
@@ -103,6 +107,7 @@ export const login = (email, password) => async dispatch => {
         const res = await axios.post(`${apiUrl}/auth/jwt/create/`, body, config);
 
         localStorage.setItem('access', res.data.access);
+        localStorage.setItem('csrfToken', res.data.csrfToken);
 
         dispatch({
             type: LOGIN_SUCCESS,
