@@ -85,17 +85,28 @@ function CompetitionDetails(props) {
 
     const cancelCompetition = () => {
         let form_data = new FormData();
+
+        console.log(data);
+        console.log(data.id);
         if (data.id) {
+            console.log("id");
             form_data.append("id", data.id);
+            console.log(form_data);
         }
 
-        // console.log(document.cookie);
-        let url = "http://localhost:8000/api/lxf-delete/";
+        console.log(form_data);
+        let body = JSON.stringify({'id': data.id});
+
+        const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
+        console.log(csrftoken);
+        let url = `http://localhost:8000/api/lxf-delete/`;
+        console.log(url);
         axios
-            .get(url, form_data, {
+            .patch(url, form_data, {
                 headers: {
                     "content-type": "multipart/form-data",
                     Authorization: `JWT ${localStorage.getItem("access")}`,
+                    'X-CSRFToken': `${csrftoken}`,
                 },
                 withCredentials: true,
             })

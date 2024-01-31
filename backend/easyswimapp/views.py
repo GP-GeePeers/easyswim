@@ -281,6 +281,24 @@ class LXFTeamView(APIView):
                 return JsonResponse(data={'error': 'Ficheiro Invalido'}, status=status.HTTP_400_BAD_REQUEST)
         except Meet_MeetManager.DoesNotExist:
             return JsonResponse(data={'error': 'Meet Manager não encontrado'}, status=status.HTTP_404_BAD_REQUEST)
+        
+    def patch(self, request, *args, **kwargs):
+        meet_id = request.data['id']
+        print(meet_id)
+
+        if meet_id is None:
+            return JsonResponse({'error': 'Empty ID!'})
+        
+        try:
+            meet_id = int(meet_id)
+        except ValueError:
+            return JsonResponse({'error': 'Invalid ID!'})
+        
+        Meet_MeetManager.objects.filter(id=meet_id).update(is_active=2)
+
+        data = {'message': 'Meet deleted successfully'}   
+
+        return JsonResponse(data)
 
 
 def read_lef_view(request):
@@ -418,26 +436,6 @@ def list_meets(request):
     data = {
         'meets': meets,
     }
-
-    return JsonResponse(data)
-
-def delete_meet(request):
-    
-    meet_id = request.GET.get('id')
-
-    if meet_id is None:
-        return JsonResponse({'error': 'Empty ID!'})
-    
-    try:
-        meet_id = int(meet_id)
-    except ValueError:
-        return JsonResponse({'error': 'Invalid ID!'})
-
-    
-    Meet_MeetManager.objects.filter(id=meet_id).update(is_active=2)
-
-
-    data = {'message': 'Meet deleted successfully'}   
 
     return JsonResponse(data)
 

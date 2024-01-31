@@ -69,12 +69,14 @@ function Home(props) {
                 const meetDate = new Date(meet.deadline);
                 const isActive = meetDate >= currentDate;
 
+                console.log("meet", meet);
+
                 return {
                     id: meet.id,
                     organizer: meet.organizer,
                     name: meet.name,
                     date: meet.deadline,
-                    state: isActive ? "active" : "inactive",
+                    state: meet.is_active === 0 ? "inactive" : meet.is_active === 1  ? "active" : "canceled",
                 };
             });
 
