@@ -95,8 +95,7 @@ function CreateCompetition(props) {
                 withCredentials: true, // Include this line in the configuration object
             })
             .then((res) => {
-                console.log(res.data);
-
+                // console.log(res.data);
                 // Clear the form fields after a successful submission
                 setLxfFile(null);
 
@@ -146,7 +145,6 @@ function CreateCompetition(props) {
                     },
                 })
                 .then((res) => {
-                    console.log(res.data);
                     setFilePreview(res.data);
                 })
                 .catch((err) => {

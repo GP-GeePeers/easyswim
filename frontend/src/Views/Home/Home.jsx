@@ -107,6 +107,7 @@ function Home(props) {
                 changeCompDetailsModal={props.changeCompDetailsModal}
                 nextCompetitionData={nextCompetitionData}
                 setReloadHomepage={props.setReloadHomepage}
+                // mockNextCompetition={mockNextCompetition}
             />
             <CompetitionsList
                 changeCompDetailsModal={props.changeCompDetailsModal}
@@ -114,6 +115,8 @@ function Home(props) {
                 tableData={tableData}
                 originalData={originalData}
                 setReloadHomepage={props.setReloadHomepage}
+                // mockDataList={mockTableDataList}
+                // setMockTableDataList={setMockTableDataList}
             />
         </div>
     );

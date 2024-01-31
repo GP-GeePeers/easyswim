@@ -111,8 +111,11 @@ function CompetitionDetails(props) {
 
     return (
         <div>
-            {props.compDetailsModal && (
-                <div className={classes.modalOverlay} onClick={handleCloseModal}>
+            {(props.compDetailsModal || visible) && (
+                <div
+                    className={classes.modalOverlay}
+                    onClick={handleCloseModal}
+                >
                     <div
                         className={classes.modalContent}
                         onClick={(e) => e.stopPropagation()}
@@ -171,24 +174,60 @@ function CompetitionDetails(props) {
                                                             className={classes.contentDetailsContainer}
                                                             id={`content-${index}`}
                                                         >
-                                                            <div className={classes.details}>
-                                                                {flag === "details" ? (
-                                                                    <React.Fragment key={data[key]}>
-                                                                        {data[key]}
+                                                            <div
+                                                                className={
+                                                                    classes.details
+                                                                }
+                                                            >
+                                                                {flag ===
+                                                                "details" ? (
+                                                                    <React.Fragment
+                                                                        key={
+                                                                            data[
+                                                                                key
+                                                                            ]
+                                                                        }
+                                                                    >
+                                                                        {
+                                                                            data[
+                                                                                key
+                                                                            ]
+                                                                        }
                                                                     </React.Fragment>
                                                                 ) : (
-                                                                    // Display teams' information
-                                                                    teams.map((team, teamIndex) => (
-                                                                        <React.Fragment key={teamIndex}>
-                                                                            {team[key]}
-                                                                        </React.Fragment>
-                                                                    ))
+                                                                    data.map(
+                                                                        (
+                                                                            data
+                                                                        ) => (
+                                                                            <React.Fragment
+                                                                                key={
+                                                                                    data[
+                                                                                        key
+                                                                                    ]
+                                                                                }
+                                                                            >
+                                                                                {
+                                                                                    data[
+                                                                                        key
+                                                                                    ]
+                                                                                }
+                                                                            </React.Fragment>
+                                                                        )
+                                                                    )
                                                                 )}
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {index < (flag === "details" ? keys.length - 1 : keys.length - 2) && (
-                                                        <div className={classes.horizontalLine} />
+                                                    {index <
+                                                        (flag === "details"
+                                                            ? keys.length - 1
+                                                            : keys.length -
+                                                              2) && (
+                                                        <div
+                                                            className={
+                                                                classes.horizontalLine
+                                                            }
+                                                        />
                                                     )}
                                                 </React.Fragment>
                                             )

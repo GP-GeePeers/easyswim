@@ -9,13 +9,13 @@ import { CompetitionDetailsProvider } from "./contexts/competition-details";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider store={store}>
-    <CompetitionDetailsProvider>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </CompetitionDetailsProvider>
-  </Provider>
+    <Provider store={store}>
+        <CompetitionDetailsProvider>
+            <React.StrictMode>
+                <App />
+            </React.StrictMode>
+        </CompetitionDetailsProvider>
+    </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

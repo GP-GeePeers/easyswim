@@ -290,7 +290,6 @@
     .header {
         height: 14vh;
     }
-
     .buttonsContainer {
         flex-direction: column;
     }
@@ -298,7 +297,6 @@
     .buttonDropdown {
         margin-left: 1rem;
     }
-
     .organizerColumn {
         min-width: 25%;
         max-width: 25%;
@@ -317,6 +315,28 @@
     .stateColumn {
         min-width: 15%;
         max-width: 15%;
+    }
+}
+
+@media (max-width: 880px) {
+    .text {
+        color: #b7bab6;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.14px;
+    }
+    .competitionText {
+        font-size: 14px;
+    }
+    .competitionText::before,
+    .competitionText::after {
+        width: 0;
+    }
+    .competitionText:hover::before {
+        width: 0;
     }
 }
 

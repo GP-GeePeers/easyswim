@@ -2,11 +2,11 @@ import React, { createContext, useState } from "react";
 
 export const CompetitionDetailsContext = createContext({
     competitionInfo: [],
-    setCompetitionInfo: () => { },
+    setCompetitionInfo: () => {},
     flag: "",
-    setModalFlag: () => { },
+    setModalFlag: () => {},
     visible: false,
-    setModalVisible: () => { },
+    setModalVisible: () => {},
 });
 
 export const CompetitionDetailsProvider = ({ children }) => {
