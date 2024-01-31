@@ -36,7 +36,7 @@ function App() {
 
     const user = useSelector((state) => state.auth.user);
     const userName = user ? user.first_name + " " + user.last_name : null;
-    console.log("user", user);
+    // console.log("user", user);
 
     useEffect(() => {
         const updateWidth = () => {
