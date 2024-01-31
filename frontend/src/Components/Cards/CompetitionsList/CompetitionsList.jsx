@@ -13,10 +13,15 @@ function CompetitionsList(props) {
     const [identifier, setIdentifier] = useState(0);
     const {
         setCompetitionInfo,
-        setModalFlag,
         competitionDetailsVisible: visible,
         setCompetitionDetailsModalVisible: setModalVisible,
     } = useContext(CompetitionDetailsContext);
+
+    useEffect(() => {
+        setCompetitionInfo(
+            props.tableData.find((row) => row.id === identifier)
+        );
+    }, [identifier]);
 
     const handleOrderOptionClick = (option) => {
         props.setTableData(
@@ -88,18 +93,6 @@ function CompetitionsList(props) {
         setModalVisible(!visible);
         props.setReloadHomepage(visible);
     };
-
-    // useEffect(() => {
-    //     setModalFlag("details");
-    // }, []);
-
-    useEffect(() => {
-        setCompetitionInfo(
-            props.tableData.find((row) => row.id === identifier)
-        );
-    }, [identifier]);
-
-    // console.log(props.tableData);
 
     return (
         <>

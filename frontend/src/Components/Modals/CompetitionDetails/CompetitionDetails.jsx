@@ -71,7 +71,7 @@ function CompetitionDetails(props) {
                     setTeams(response.data.teams);
                 } catch (err) {
                     console.log(err);
-                    console.log(err.response.data);
+                    // console.log(err.response.data);
                     toast.error("Erro ao carregar equipas!");
                 }
             };
