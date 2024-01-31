@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../../Actions/auth";
 import classes from "./Login.module.css";
+import Button from "../../../Components/Buttons/Button";
 
 const Login = ({ login, isAuthenticated }) => {
     const navigate = useNavigate();
@@ -55,9 +56,17 @@ const Login = ({ login, isAuthenticated }) => {
                             required
                         />
                     </div>
-                    <button className={classes.submitButton} type="submit">
-                        Login
-                    </button>
+
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginTop: "0.8rem",
+                        }}
+                    >
+                        <Button text="Login" />
+                    </div>
                 </form>
                 <br />
 

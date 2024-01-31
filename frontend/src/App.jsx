@@ -6,7 +6,7 @@ import Home from "./Views/Home/Home";
 import ListComps from "./Views/ListComps/ListComps";
 import Settings from "./Views/Settings/Settings";
 import PageContent from "./Components/PageContent/PageContent";
-import CompetionDetails from "./Components/Modals/CompetionDetails/CompetionDetails";
+import CompetitionDetails from "./Components/Modals/CompetitionDetails/CompetitionDetails";
 import CreateCompetition from "./Components/Modals/CreateCompetition/CreateCompetition";
 import Topbar from "./Components/Topbar/Topbar";
 import Login from "./Views/Auth/Login/Login";
@@ -19,10 +19,10 @@ import PrivateRoute from "./Hooks/Common/PrivateRoute";
 import { Provider, useSelector } from "react-redux";
 import store from "./store";
 
-import Layout from "./Hooks/layout";
-
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Layout from "./Hooks/layout";
+
 
 function App() {
     const [retracted, setRetracted] = useState(true);
@@ -59,19 +59,35 @@ function App() {
                 <Background />
                 <ToastContainer />
                 <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/login" element={
+                        <Layout>
+                            <Login />
+                        </Layout>
+                    } />
+                    <Route path="/signup" element={
+                        <Layout>
+                            <Signup />
+                        </Layout>} />
                     <Route
                         path="/api/reset-password"
-                        element={<ResetPassword />}
+                        element={
+                            <Layout>
+                                <ResetPassword />
+                            </Layout>}
                     />
                     <Route
                         path="/api/password/reset/confirm/:uid/:token"
-                        element={<ResetPasswordConfirm />}
+                        element={
+                            <Layout>
+                                <ResetPasswordConfirm />
+                            </Layout>}
                     />
                     <Route
                         path="/api/activate/:uid/:token"
-                        element={<Activate />}
+                        element={
+                            <Layout>
+                                <Activate />
+                            </Layout>}
                     />
                     <Route
                         path="/"
@@ -106,7 +122,7 @@ function App() {
                                             changeCreateCompModal
                                         }
                                     />
-                                    <CompetionDetails
+                                    <CompetitionDetails
                                         compDetailsModal={compDetailsModal}
                                         changeCompDetailsModal={
                                             changeCompDetailsModal

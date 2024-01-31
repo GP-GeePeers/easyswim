@@ -5,7 +5,7 @@ import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 import addDocument from "../Assets/addDocument.png";
 import document from "../Assets/document.png";
-import CompetionDetails from "../CompetionDetails/CompetionDetails";
+import CompetitionDetails from "../CompetitionDetails/CompetitionDetails";
 
 function CreateCompetition(props) {
     const [lxfFile, setLxfFile] = useState(null);
@@ -86,6 +86,7 @@ function CreateCompetition(props) {
             .post(url, form_data, {
                 headers: {
                     "content-type": "multipart/form-data",
+                    'Authorization': `JWT ${localStorage.getItem('access')}`
                 },
             })
             .then((res) => {
@@ -135,6 +136,7 @@ function CreateCompetition(props) {
                 .post(url, form_data, {
                     headers: {
                         "content-type": "multipart/form-data",
+                        'Authorization': `JWT ${localStorage.getItem('access')}`
                     },
                 })
                 .then((res) => {
@@ -169,7 +171,7 @@ function CreateCompetition(props) {
     return (
         <div>
             {showFile && filePreview && (
-                <CompetionDetails
+                <CompetitionDetails
                     compDetailsModal={showFile}
                     changeCompDetailsModal={handleShowFile}
                     handleSubmitOnPreview={handleSubmitOnPreview}

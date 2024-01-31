@@ -1,17 +1,27 @@
-import React, { useEffect } from 'react';
-import Navbar from '../Components/AuthNavbar/AuthNavbar';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { checkAuthenticated, load_user } from '../Actions/auth';
 
 const Layout = ({ checkAuthenticated, load_user, children }) => {
+    const [authenticated, setAuthenticated] = useState(false);
     useEffect(() => {
-        checkAuthenticated();
-        load_user();
-    }, []);
+        const fetchData = async () => {
+            await checkAuthenticated();
+            if(checkAuthenticated) {
+                setAuthenticated(true);
+            } else {
+                setAuthenticated(false);
+            }
+            await load_user();
+        };
+
+        fetchData();
+    }, [checkAuthenticated, load_user]);
+
+    
 
     return (
-        <div>
-            <Navbar />
+        <div style={{backgroundColor: 'transparent', display: !authenticated && 'none' }}>
             {children}
         </div>
     );
