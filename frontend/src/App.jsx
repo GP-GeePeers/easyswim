@@ -42,9 +42,6 @@ function App() {
         return () => window.removeEventListener("resize", updateWidth);
     }, []);
 
-    console.log(fileInfo);
-    console.log(flag);
-
     useEffect(() => {
         setOrganization(""); /* TODO: get from API */
     }, []);
