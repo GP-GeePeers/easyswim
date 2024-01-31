@@ -68,16 +68,14 @@ function CompetitionDetails(props) {
         if (data.id) {
             form_data.append("id", data.id);
         }
-        // const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
 
         // console.log(document.cookie);
         let url = "http://localhost:8000/api/lxf-delete/";
         axios
-            .put(url, form_data, {
+            .get(url, form_data, {
                 headers: {
                     "content-type": "multipart/form-data",
                     Authorization: `JWT ${localStorage.getItem("access")}`,
-                    // "X-CSRFToken": `${csrftoken}`,
                 },
                 withCredentials: true,
             })
