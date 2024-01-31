@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import classes from "./CompetitionsList.module.css";
 import Card from "../Card";
 import Button from "../../Buttons/Button";
-import CompetitionDetails from "../../Modals/CompetitionDetails/CompetitionDetails";
+import { CompetitionDetailsContext } from "../../../contexts/competition-details";
 
 const ORDER_OPTIONS = ["Mais antigo", "Mais recente", "Nome"];
 
@@ -10,9 +10,9 @@ function CompetitionsList(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
     const [searchInput, setSearchInput] = useState("");
     const [selectedOrder, setSelectedOrder] = useState("Mais antigo");
-    const [showInfo, setShowInfo] = useState(false);
     const [identifier, setIdentifier] = useState(0);
-    const [competitionToShow, setCompetitionToShow] = useState([]);
+    const { setCompetitionInfo, setModalFlag, visible, setModalVisible } =
+        useContext(CompetitionDetailsContext);
 
     const handleOrderOptionClick = (option) => {
         props.setTableData(
@@ -81,12 +81,16 @@ function CompetitionsList(props) {
     };
 
     const handleShowInfo = () => {
-        setShowInfo(!showInfo);
-        props.setReloadHomepage(showInfo);
+        setModalVisible(!visible);
+        props.setReloadHomepage(visible);
     };
 
     useEffect(() => {
-        setCompetitionToShow(
+        setModalFlag("details");
+    }, []);
+
+    useEffect(() => {
+        setCompetitionInfo(
             props.tableData.find((row) => row.id === identifier)
         );
     }, [identifier]);
@@ -95,14 +99,6 @@ function CompetitionsList(props) {
 
     return (
         <>
-            {showInfo && competitionToShow && (
-                <CompetitionDetails
-                    compDetailsModal={showInfo}
-                    changeCompDetailsModal={handleShowInfo}
-                    compInfo={competitionToShow}
-                    details
-                />
-            )}
             <Card>
                 <div className={classes.header}>
                     <div className={classes.titleContainer}>

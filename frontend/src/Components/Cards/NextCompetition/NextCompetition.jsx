@@ -1,29 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import classes from "./NextCompetition.module.css";
 import Card from "../../Cards/Card";
 import Button from "../../Buttons/Button";
-import CompetitionDetails from "../../Modals/CompetitionDetails/CompetitionDetails";
+import { CompetitionDetailsContext } from "../../../contexts/competition-details";
 
 function NextCompetition(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
-    const [showInfo, setShowInfo] = useState(false);
+    const { setCompetitionInfo, setModalFlag, visible, setModalVisible } =
+        useContext(CompetitionDetailsContext);
+
+    useEffect(() => {
+        if (props.nextCompetitionData) {
+            setCompetitionInfo(props.nextCompetitionData);
+            setModalFlag("details");
+        }
+    }, [props.nextCompetitionData]);
 
     const handleShowInfo = () => {
-        setShowInfo(!showInfo);
-        props.setReloadHomepage(showInfo);
+        setModalVisible(!visible);
+        props.setReloadHomepage(visible);
     };
 
     return (
         <>
-            {showInfo && props.nextCompetitionData && (
-                <CompetitionDetails
-                    compDetailsModal={showInfo}
-                    changeCompDetailsModal={handleShowInfo}
-                    compInfo={props.nextCompetitionData}
-                    details
-                />
-            )}
-
             <Card>
                 <div className={classes.title}>Próxima competição</div>
                 <div className={classes.content}>

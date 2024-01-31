@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Background from "./Components/Background/Background";
 import Sidebar from "./Components/Sidebar/Sidebar";
@@ -15,6 +15,7 @@ import Activate from "./Views/Auth/Activate/Activate";
 import ResetPassword from "./Views/Auth/ResetPassword/ResetPassword";
 import ResetPasswordConfirm from "./Views/Auth/ResetPasswordConfirm/ResetPasswordConfirm";
 import PrivateRoute from "./Hooks/Common/PrivateRoute";
+import { CompetitionDetailsContext } from "./contexts/competition-details";
 
 import { Provider, useSelector } from "react-redux";
 import store from "./store";
@@ -29,6 +30,7 @@ function App() {
     const [createCompModal, setCreateCompModal] = useState(false);
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
     const [reloadHomepage, setReloadHomepage] = useState(false);
+    const { fileInfo, flag } = useContext(CompetitionDetailsContext);
 
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
@@ -40,8 +42,11 @@ function App() {
         return () => window.removeEventListener("resize", updateWidth);
     }, []);
 
+    console.log(fileInfo);
+    console.log(flag);
+
     useEffect(() => {
-        setOrganization("Clube de Natação de Coimbra"); /* TODO: get from API */
+        setOrganization(""); /* TODO: get from API */
     }, []);
 
     const changeCreateCompModal = () => {
@@ -128,6 +133,12 @@ function App() {
                                             changeCreateCompModal
                                         }
                                     />
+                                    {fileInfo && flag && (
+                                        <CompetitionDetails
+                                            flag={flag}
+                                            fileInfo={fileInfo}
+                                        />
+                                    )}
                                     <PageContent
                                         organization={organization}
                                         retracted={retracted}

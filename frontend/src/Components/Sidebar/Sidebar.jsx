@@ -5,6 +5,7 @@ import Button from "../Buttons/Button";
 import Title from "./Assets/Title.svg";
 import sideIcon from "./Assets/sideIcon.png";
 import gear from "./Assets/gear.svg";
+import logo from "./Assets/logo.png";
 import logout_img from "./Assets/logout1.png";
 import { logout } from "../../Actions/auth";
 import { connect } from "react-redux";
@@ -40,7 +41,7 @@ function Sidebar(props) {
             >
                 <div className={classes.TitleLogoContainer}>
                     <img
-                        src={process.env.PUBLIC_URL + "/Assets/Images/logo.png"}
+                        src={logo}
                         style={{
                             backgroundColor:
                                 clickedComp || clickedProfile

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import classes from "./CompetitionDetails.module.css";
 import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { CompetitionDetailsContext } from "../../../contexts/competition-details";
 
 const mockData = [
     {
@@ -20,10 +21,14 @@ const mockData = [
 ];
 
 function CompetitionDetails(props) {
+    const { fileInfo, flag, visible, setModalVisible } = useContext(
+        CompetitionDetailsContext
+    );
+
     let data;
     let keys;
-    if (props.details) {
-        data = props.compInfo;
+    if (flag === "details") {
+        data = fileInfo;
         keys = Object.keys(data);
     } else {
         data = props.filePreview;
@@ -41,10 +46,17 @@ function CompetitionDetails(props) {
         });
 
         setContentHeights(newContentHeights);
-    }, [props.compDetailsModal, window.innerWidth]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [props.compDetailsModal, visible, window.innerWidth]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleCloseModal = () => {
-        props.changeCompDetailsModal();
+        if (
+            props.compDetailsModal === true ||
+            props.compDetailsModal === false
+        ) {
+            props.changeCompDetailsModal();
+        } else {
+            setModalVisible(!visible);
+        }
     };
 
     const capitalizeFirstLetter = (str) => {
@@ -57,10 +69,11 @@ function CompetitionDetails(props) {
             form_data.append("id", data.id);
         }
         // const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
+
         // console.log(document.cookie);
         let url = "http://localhost:8000/api/lxf-delete/";
         axios
-            .post(url, form_data, {
+            .put(url, form_data, {
                 headers: {
                     "content-type": "multipart/form-data",
                     Authorization: `JWT ${localStorage.getItem("access")}`,
@@ -69,7 +82,7 @@ function CompetitionDetails(props) {
                 withCredentials: true,
             })
             .then((res) => {
-                toast.success("Ficheiro submetido com sucesso!");
+                toast.success("Prova cancelada com sucesso!");
                 handleCloseModal();
             })
             .catch((err) => {
@@ -80,7 +93,7 @@ function CompetitionDetails(props) {
 
     return (
         <div>
-            {props.compDetailsModal && (
+            {(props.compDetailsModal || visible) && (
                 <div
                     className={classes.modalOverlay}
                     onClick={handleCloseModal}
@@ -98,7 +111,7 @@ function CompetitionDetails(props) {
                                         </div>
                                     </div>
                                     <div className={classes.buttonsContainer}>
-                                        {props.details && (
+                                        {flag === "details" && (
                                             <Button
                                                 text={"Cancelar prova"}
                                                 onClick={() => {
@@ -167,7 +180,8 @@ function CompetitionDetails(props) {
                                                                     classes.details
                                                                 }
                                                             >
-                                                                {props.details ? (
+                                                                {flag ===
+                                                                "details" ? (
                                                                     <React.Fragment
                                                                         key={
                                                                             data[
@@ -206,7 +220,7 @@ function CompetitionDetails(props) {
                                                         </div>
                                                     </div>
                                                     {index <
-                                                        (props.details
+                                                        (flag === "details"
                                                             ? keys.length - 1
                                                             : keys.length -
                                                               2) && (
