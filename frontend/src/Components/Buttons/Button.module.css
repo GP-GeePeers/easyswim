@@ -56,6 +56,7 @@
     border-radius: 4px;
     justify-content: center;
     align-items: center;
+    text-align: center;
     border: 1px solid #b7bab6;
     background: rgba(183, 186, 182, 0.2);
 }
@@ -68,6 +69,7 @@
     background-color: rgba(183, 186, 182, 0.2);
 }
 
+.canceledText,
 .secondaryText {
     color: #b7bab6;
     font-family: Poppins;
@@ -76,6 +78,10 @@
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.14px;
+}
+
+.canceledText {
+    font-size: 10px;
 }
 
 .smallSecondaryButton {

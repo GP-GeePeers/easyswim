@@ -1,4 +1,4 @@
-import React, { useState, createRef, useEffect } from "react";
+import React, { useState, createRef, useEffect, useContext } from "react";
 import axios from "axios";
 import classes from "./CreateCompetition.module.css";
 import Button from "../../Buttons/Button";
@@ -6,6 +6,7 @@ import Card from "../../Cards/Card";
 import addDocument from "../Assets/addDocument.png";
 import document_ from "../Assets/document.png";
 import CompetitionDetails from "../CompetitionDetails/CompetitionDetails";
+import { CompetitionDetailsContext } from "../../../contexts/competition-details";
 
 function CreateCompetition(props) {
     const [lxfFile, setLxfFile] = useState(null);
@@ -14,6 +15,10 @@ function CreateCompetition(props) {
     const [showFile, setShowFile] = useState(false);
     const [filePreview, setFilePreview] = useState();
     const fileInputRef = createRef();
+
+    const { setCompetitionInfo, setModalFlag } = useContext(
+        CompetitionDetailsContext
+    );
 
     useEffect(() => {
         // Clear the error message if the modal is closed
@@ -77,7 +82,6 @@ function CreateCompetition(props) {
             form_data.append("lxf_file", lxfFile, lxfFile.name);
             form_data.append("title", lxfFile.name);
             //form_data.append("id", 1);
-            console.log(123);
         } else {
             setErrorMessage("Por favor, selecione um ficheiro.");
         }
@@ -89,7 +93,7 @@ function CreateCompetition(props) {
             .post(url, form_data, {
                 headers: {
                     "content-type": "multipart/form-data",
-                    'Authorization': `JWT ${localStorage.getItem('access')}`,
+                    Authorization: `JWT ${localStorage.getItem("access")}`,
                     //'X-CSRFToken': `${csrftoken}`,
                 },
                 withCredentials: true, // Include this line in the configuration object
@@ -136,15 +140,18 @@ function CreateCompetition(props) {
                 setErrorMessage("Por favor, selecione um ficheiro.");
             }
 
+            console.log("4:" + form_data);
+
             let url = "http://localhost:8000/api/lxf-meet-preview/";
             axios
                 .post(url, form_data, {
                     headers: {
                         "content-type": "multipart/form-data",
-                        'Authorization': `JWT ${localStorage.getItem('access')}`
+                        Authorization: `JWT ${localStorage.getItem("access")}`,
                     },
                 })
                 .then((res) => {
+                    console.log("2:" + res.data);
                     setFilePreview(res.data);
                 })
                 .catch((err) => {
@@ -157,13 +164,10 @@ function CreateCompetition(props) {
     const handleShowFile = () => {
         if (lxfFile) {
             setShowFile(!showFile);
+            console.log("3:" + lxfFile.name);
             handleFilePreview();
         } else {
             setErrorMessage("Por favor, selecione um ficheiro.");
-        }
-
-        if (showFile) {
-            setShowFile(!showFile);
         }
     };
 
@@ -171,6 +175,11 @@ function CreateCompetition(props) {
         handleSubmit();
         setShowFile(!showFile);
     };
+
+    useEffect(() => {
+        if (showFile) setModalFlag("");
+        else setModalFlag("details");
+    }, [showFile]);
 
     return (
         <div>

@@ -85,9 +85,9 @@ function CompetitionsList(props) {
         props.setReloadHomepage(visible);
     };
 
-    useEffect(() => {
-        setModalFlag("details");
-    }, []);
+    // useEffect(() => {
+    //     setModalFlag("details");
+    // }, []);
 
     useEffect(() => {
         setCompetitionInfo(
@@ -221,7 +221,7 @@ function CompetitionsList(props) {
                                     classes.stateColumn
                                 }
                             >
-                                {row.state === "active" ? (
+                                {row.state === "Active" ? (
                                     <Button text={row.state} disabled={true} />
                                 ) : (
                                     <Button

@@ -35,7 +35,6 @@ function App() {
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
     const user = useSelector((state) => state.auth.user);
-    const userName = user ? user.first_name + " " + user.last_name : null;
     // console.log("user", user);
 
     useEffect(() => {
@@ -47,8 +46,9 @@ function App() {
     }, []);
 
     useEffect(() => {
+        const userName = user ? user.first_name + " " + user.last_name : null;
         setOrganization(userName);
-    }, []);
+    }, [user]);
 
     const changeCreateCompModal = () => {
         setCreateCompModal(!createCompModal);

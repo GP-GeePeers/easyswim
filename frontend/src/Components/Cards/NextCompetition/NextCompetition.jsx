@@ -12,7 +12,7 @@ function NextCompetition(props) {
     useEffect(() => {
         if (props.nextCompetitionData) {
             setCompetitionInfo(props.nextCompetitionData);
-            setModalFlag("details");
+            // setModalFlag("details");
         }
     }, [props.nextCompetitionData]);
 
