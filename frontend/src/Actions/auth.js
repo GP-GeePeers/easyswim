@@ -23,23 +23,22 @@ import {
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
 
 export const load_user = () => async dispatch => {
-    if (localStorage.getItem('access')) {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `JWT ${localStorage.getItem('access')}`,
-                'Accept': 'application/json'
-            }
-        };
+    const accessToken = localStorage.getItem('access');
 
+    if (accessToken) {
         try {
-            const res = await axios.get(`${apiUrl}/auth/users/me/`, config);
+            const res = await axios.get(`${apiUrl}/auth/users/me/`, {
+                headers: {
+                    'Authorization': `JWT ${accessToken}`
+                }
+            });
 
             dispatch({
                 type: USER_LOADED_SUCCESS,
                 payload: res.data
             });
         } catch (err) {
+            console.log(err.response.data);
             dispatch({
                 type: USER_LOADED_FAIL
             });
@@ -50,6 +49,7 @@ export const load_user = () => async dispatch => {
         });
     }
 };
+
 
 
 
@@ -101,6 +101,8 @@ export const login = (email, password) => async dispatch => {
 
     try {
         const res = await axios.post(`${apiUrl}/auth/jwt/create/`, body, config);
+
+        localStorage.setItem('access', res.data.access);
 
         dispatch({
             type: LOGIN_SUCCESS,

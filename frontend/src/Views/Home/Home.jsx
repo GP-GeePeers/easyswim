@@ -72,8 +72,16 @@ function Home(props) {
 
     useEffect(() => {
         const fetchData = async () => {
+            console.log('Fetch');
+            console.log(localStorage.getItem('access'));
             try {
-                const response = await axios.get("http://127.0.0.1:8000/api/");
+                const config = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `JWT ${localStorage.getItem('access')}`,
+                    }
+                };
+                const response = await axios.get("http://127.0.0.1:8000/api/", config);
                 const data = response.data; // Use response.data instead of response.json()
 
                 const currentDate = new Date();

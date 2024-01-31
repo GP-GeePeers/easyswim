@@ -86,6 +86,7 @@ function CreateCompetition(props) {
             .post(url, form_data, {
                 headers: {
                     "content-type": "multipart/form-data",
+                    'Authorization': `JWT ${localStorage.getItem('access')}`
                 },
             })
             .then((res) => {
@@ -135,6 +136,7 @@ function CreateCompetition(props) {
                 .post(url, form_data, {
                     headers: {
                         "content-type": "multipart/form-data",
+                        'Authorization': `JWT ${localStorage.getItem('access')}`
                     },
                 })
                 .then((res) => {
