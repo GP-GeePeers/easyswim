@@ -43,7 +43,7 @@ function Home(props) {
                 continue;
             }
             const meetDate = new Date();
-            if (meet.state === "active" && meetDate >= currentDate) {
+            if (meet.state === "Active" && meetDate >= currentDate) {
                 setNextCompetitionData(meet);
             }
         }
@@ -94,7 +94,6 @@ function Home(props) {
 
     useEffect(() => {
         fetchData();
-        console.log("1" + nextCompetitionData);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

@@ -21,9 +21,12 @@ const mockData = [
 ];
 
 function CompetitionDetails(props) {
-    const { fileInfo, flag, visible, setModalVisible } = useContext(
-        CompetitionDetailsContext
-    );
+    const {
+        fileInfo,
+        competitionDetailsFlag: flag,
+        competitionDetailsVisible: visible,
+        setCompetitionDetailsModalVisible: setModalVisible,
+    } = useContext(CompetitionDetailsContext);
 
     let data;
     let keys;
@@ -122,6 +125,10 @@ function CompetitionDetails(props) {
             });
     };
 
+    const uploadTeamManager = () => {
+        //open create competition modal
+    };
+
     return (
         <div>
             {(props.compDetailsModal || visible) && (
@@ -143,12 +150,20 @@ function CompetitionDetails(props) {
                                     </div>
                                     <div className={classes.buttonsContainer}>
                                         {flag === "details" && (
-                                            <Button
-                                                text={"Cancelar prova"}
-                                                onClick={() => {
-                                                    cancelCompetition();
-                                                }}
-                                            />
+                                            <>
+                                                <Button
+                                                    text={"Cancelar prova"}
+                                                    onClick={() => {
+                                                        cancelCompetition();
+                                                    }}
+                                                />
+                                                <Button
+                                                    text={"Upload Team"}
+                                                    onClick={() => {
+                                                        uploadTeamManager();
+                                                    }}
+                                                />
+                                            </>
                                         )}
                                         <Button
                                             type={"secondary"}

@@ -11,8 +11,12 @@ function CompetitionsList(props) {
     const [searchInput, setSearchInput] = useState("");
     const [selectedOrder, setSelectedOrder] = useState("Mais antigo");
     const [identifier, setIdentifier] = useState(0);
-    const { setCompetitionInfo, setModalFlag, visible, setModalVisible } =
-        useContext(CompetitionDetailsContext);
+    const {
+        setCompetitionInfo,
+        setModalFlag,
+        competitionDetailsVisible: visible,
+        setCompetitionDetailsModalVisible: setModalVisible,
+    } = useContext(CompetitionDetailsContext);
 
     const handleOrderOptionClick = (option) => {
         props.setTableData(

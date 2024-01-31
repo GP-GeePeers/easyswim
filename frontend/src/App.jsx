@@ -30,7 +30,9 @@ function App() {
     const [createCompModal, setCreateCompModal] = useState(false);
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
     const [reloadHomepage, setReloadHomepage] = useState(false);
-    const { fileInfo, flag } = useContext(CompetitionDetailsContext);
+    const { fileInfo, competitionDetailsFlag: flag } = useContext(
+        CompetitionDetailsContext
+    );
 
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 

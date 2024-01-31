@@ -6,13 +6,16 @@ import { CompetitionDetailsContext } from "../../../contexts/competition-details
 
 function NextCompetition(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
-    const { setCompetitionInfo, setModalFlag, visible, setModalVisible } =
-        useContext(CompetitionDetailsContext);
+    const {
+        setCompetitionInfo,
+        competitionDetailsVisible: visible,
+        setCompetitionDetailsModalVisible: setModalVisible,
+    } = useContext(CompetitionDetailsContext);
 
     useEffect(() => {
+        console.log("props.nextCompetitionData", props.nextCompetitionData);
         if (props.nextCompetitionData) {
             setCompetitionInfo(props.nextCompetitionData);
-            // setModalFlag("details");
         }
     }, [props.nextCompetitionData]);
 

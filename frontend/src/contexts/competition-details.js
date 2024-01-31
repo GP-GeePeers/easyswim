@@ -3,10 +3,10 @@ import React, { createContext, useState } from "react";
 export const CompetitionDetailsContext = createContext({
     competitionInfo: [],
     setCompetitionInfo: () => {},
-    flag: "",
+    competitionDetailsFlag: "",
     setModalFlag: () => {},
-    visible: false,
-    setModalVisible: () => {},
+    competitionDetailsVisible: false,
+    setCompetitionDetailsModalVisible: () => {},
 });
 
 export const CompetitionDetailsProvider = ({ children }) => {
@@ -31,10 +31,10 @@ export const CompetitionDetailsProvider = ({ children }) => {
             value={{
                 fileInfo,
                 setCompetitionInfo: setCompetitionInfo,
-                flag,
+                competitionDetailsFlag: flag,
                 setModalFlag: setModalFlag,
-                visible,
-                setModalVisible: setModalVisible,
+                competitionDetailsVisible: visible,
+                setCompetitionDetailsModalVisible: setModalVisible,
             }}
         >
             {children}

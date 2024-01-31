@@ -8,7 +8,7 @@ import document_ from "../Assets/document.png";
 import CompetitionDetails from "../CompetitionDetails/CompetitionDetails";
 import { CompetitionDetailsContext } from "../../../contexts/competition-details";
 
-function CreateCompetition(props) {
+function EnrollTeam(props) {
     const [lxfFile, setLxfFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
@@ -299,4 +299,4 @@ function CreateCompetition(props) {
     );
 }
 
-export default CreateCompetition;
+export default EnrollTeam;
