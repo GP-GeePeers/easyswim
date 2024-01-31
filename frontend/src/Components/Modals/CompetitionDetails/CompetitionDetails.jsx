@@ -29,23 +29,19 @@ function CompetitionDetails(props) {
         setCompetitionDetailsModalVisible: setModalVisible,
     } = useContext(CompetitionDetailsContext);
 
-    const {
-        teamInfo,
-        setTeamInfo,
-        enrollTeamvisible,
-        setEnrollTeamModalVisible,
-    } = useContext(EnrollTeamContext);
+    const { setMeetId, enrollTeamvisible, setEnrollTeamModalVisible } =
+        useContext(EnrollTeamContext);
 
     let data;
     let keys;
     if (flag === "details") {
         data = fileInfo;
         keys = Object.keys(data);
-        console.log(keys.length);
+        // console.log(keys.length);
     } else {
         data = props.filePreview;
         keys = Object.keys(data[0]);
-        console.log(keys.length);
+        // console.log(keys.length);
     }
 
     const [contentHeights, setContentHeights] = useState(
@@ -58,19 +54,37 @@ function CompetitionDetails(props) {
         if (flag === "details") {
             const fetchTeams = async () => {
                 try {
-                    const response = await axios.get(
-                        `http://localhost:8000/api/list-TeamManager-by-Meet/${data.id}`
-                    );
+                    // Use data.id as the id parameter in the URL
+                    let url = `http://localhost:8000/api/list-TeamManager-by-Meet/?id=${data.id}`;
 
+                    const response = await axios.get(url, {
+                        headers: {
+                            "content-type": "multipart/form-data",
+                            Authorization: `JWT ${localStorage.getItem(
+                                "access"
+                            )}`,
+                        },
+                        withCredentials: true,
+                    });
+
+                    console.log(response.data);
                     setTeams(response.data.teams);
-                } catch (error) {
-                    console.error("Error fetching teams:", error);
+                } catch (err) {
+                    console.log(err);
+                    console.log(err.response.data);
+                    toast.error("Erro ao carregar equipas!");
                 }
             };
 
             fetchTeams();
         }
     }, [data.id, flag]);
+
+    useEffect(() => {
+        if (teams) {
+            console.log("teams: " + teams);
+        }
+    }, []);
 
     useEffect(() => {
         const newContentHeights = contentHeights.map((_, index) => {
@@ -134,6 +148,7 @@ function CompetitionDetails(props) {
     };
 
     const uploadTeamManager = () => {
+        setMeetId(data.id);
         setEnrollTeamModalVisible(!enrollTeamvisible);
     };
 
@@ -141,7 +156,9 @@ function CompetitionDetails(props) {
         <div>
             {(props.compDetailsModal || visible) && (
                 <div
-                    className={classes.modalOverlay}
+                    className={
+                        !enrollTeamvisible ? classes.modalOverlay : classes._
+                    }
                     onClick={handleCloseModal}
                 >
                     <div

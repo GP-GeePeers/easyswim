@@ -1,31 +1,31 @@
 import React, { createContext, useState } from "react";
 
 export const EnrollTeamContext = createContext({
-    teamInfo: [],
-    setTeamInfo: () => {},
+    meetId: "",
+    setMeetId: () => {},
     enrollTeamvisible: false,
     setEnrollTeamModalVisible: () => {},
 });
 
 export const EnrollTeamProvider = ({ children }) => {
-    const [fileInfo, setFileInfo] = useState([]);
     const [visible, setVisible] = useState(false);
-
-    const setCompetitionInfo = (file) => {
-        setFileInfo(file);
-    };
+    const [meetId, setMeetId] = useState("");
 
     const setModalVisible = (visible) => {
         setVisible(visible);
     };
 
+    const setTeamMeetId = (meetId) => {
+        setMeetId(meetId);
+    };
+
     return (
         <EnrollTeamContext.Provider
             value={{
-                fileInfo,
-                setTeamInfo: setCompetitionInfo,
                 enrollTeamvisible: visible,
                 setEnrollTeamModalVisible: setModalVisible,
+                meetId,
+                setMeetId: setTeamMeetId,
             }}
         >
             {children}

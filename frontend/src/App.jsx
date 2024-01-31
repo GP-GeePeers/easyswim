@@ -23,6 +23,7 @@ import store from "./store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./Hooks/layout";
+import EnrollTeam from "./Components/Modals/EnrollTeam/EnrollTeam";
 
 function App() {
     const [retracted, setRetracted] = useState(true);
@@ -136,6 +137,7 @@ function App() {
                                             changeCreateCompModal
                                         }
                                     />
+                                    <EnrollTeam />
                                     {fileInfo && flag && (
                                         <CompetitionDetails
                                             flag={flag}
