@@ -1,12 +1,11 @@
 import React, { useState, createRef, useEffect, useContext } from "react";
 import axios from "axios";
-import classes from "./CreateCompetition.module.css";
+import classes from "./EnrollTeam.module.css";
 import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 import addDocument from "../Assets/addDocument.png";
 import document_ from "../Assets/document.png";
-import CompetitionDetails from "../CompetitionDetails/CompetitionDetails";
-import { CompetitionDetailsContext } from "../../../contexts/competition-details";
+import { EnrollTeamContext } from "../../../contexts/enroll-team";
 
 function EnrollTeam(props) {
     const [lxfFile, setLxfFile] = useState(null);
@@ -16,9 +15,12 @@ function EnrollTeam(props) {
     const [filePreview, setFilePreview] = useState();
     const fileInputRef = createRef();
 
-    const { setCompetitionInfo, setModalFlag } = useContext(
-        CompetitionDetailsContext
-    );
+    const {
+        teamInfo,
+        setTeamInfo,
+        enrollTeamvisible,
+        setEnrollTeamModalVisible,
+    } = useContext(EnrollTeamContext);
 
     useEffect(() => {
         // Clear the error message if the modal is closed
@@ -125,71 +127,8 @@ function EnrollTeam(props) {
         return `${bytes.toFixed(2)} ${units[i]}`;
     };
 
-    const handleFilePreview = async () => {
-        if (lxfFile) {
-            if (errorMessage) {
-                // Do not submit if there is an error
-                return;
-            }
-
-            let form_data = new FormData();
-            if (lxfFile) {
-                form_data.append("lxf_file", lxfFile, lxfFile.name);
-                form_data.append("title", lxfFile.name);
-            } else {
-                setErrorMessage("Por favor, selecione um ficheiro.");
-            }
-
-            console.log("4:" + form_data);
-
-            let url = "http://localhost:8000/api/lxf-meet-preview/";
-            axios
-                .post(url, form_data, {
-                    headers: {
-                        "content-type": "multipart/form-data",
-                        Authorization: `JWT ${localStorage.getItem("access")}`,
-                    },
-                })
-                .then((res) => {
-                    console.log("2:" + res.data);
-                    setFilePreview(res.data);
-                })
-                .catch((err) => {
-                    console.log(err);
-                    setErrorMessage("ERRO: " + err.message);
-                });
-        }
-    };
-
-    const handleShowFile = () => {
-        if (lxfFile) {
-            setShowFile(!showFile);
-            handleFilePreview();
-        } else {
-            setErrorMessage("Por favor, selecione um ficheiro.");
-        }
-    };
-
-    const handleSubmitOnPreview = () => {
-        handleSubmit();
-        setShowFile(!showFile);
-    };
-
-    useEffect(() => {
-        if (showFile) setModalFlag("");
-        else setModalFlag("details");
-    }, [showFile]);
-
     return (
         <div>
-            {showFile && filePreview && (
-                <CompetitionDetails
-                    compDetailsModal={showFile}
-                    changeCompDetailsModal={handleShowFile}
-                    handleSubmitOnPreview={handleSubmitOnPreview}
-                    filePreview={filePreview}
-                />
-            )}
             {props.createCompModal && (
                 <div
                     className={
@@ -286,11 +225,11 @@ function EnrollTeam(props) {
                         </div>
                         <div className={classes.buttonsContainer}>
                             <Button text={"Submeter"} onClick={handleSubmit} />
-                            <Button
+                            {/* <Button
                                 type={"secondary"}
                                 text={"Ver Ficheiro"}
                                 onClick={handleShowFile}
-                            />
+                            /> */}
                         </div>
                     </div>
                 </div>

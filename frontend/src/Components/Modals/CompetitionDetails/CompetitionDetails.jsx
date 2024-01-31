@@ -5,6 +5,7 @@ import Card from "../../Cards/Card";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { CompetitionDetailsContext } from "../../../contexts/competition-details";
+import { EnrollTeamContext } from "../../../contexts/enroll-team";
 
 const mockData = [
     {
@@ -27,6 +28,13 @@ function CompetitionDetails(props) {
         competitionDetailsVisible: visible,
         setCompetitionDetailsModalVisible: setModalVisible,
     } = useContext(CompetitionDetailsContext);
+
+    const {
+        teamInfo,
+        setTeamInfo,
+        enrollTeamvisible,
+        setEnrollTeamModalVisible,
+    } = useContext(EnrollTeamContext);
 
     let data;
     let keys;
@@ -126,7 +134,7 @@ function CompetitionDetails(props) {
     };
 
     const uploadTeamManager = () => {
-        //open create competition modal
+        setEnrollTeamModalVisible(!enrollTeamvisible);
     };
 
     return (
