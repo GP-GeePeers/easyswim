@@ -21,7 +21,7 @@
     border-radius: 30px;
     background-color: #0f1110;
     width: 80vw;
-    height: stretch;
+    height: fit-content;
     overflow: hidden;
     overflow-y: scroll;
     -ms-overflow-style: none;

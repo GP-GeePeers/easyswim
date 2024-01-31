@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { Provider } from 'react-redux';
-import store from './store';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { Provider } from "react-redux";
+import store from "./store";
+import reportWebVitals from "./reportWebVitals";
+import { CompetitionDetailsProvider } from "./contexts/competition-details";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App/>
-    </React.StrictMode>
+    <CompetitionDetailsProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </CompetitionDetailsProvider>
   </Provider>
 );
 

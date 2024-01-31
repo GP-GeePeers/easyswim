@@ -5,10 +5,10 @@ import Button from "../Buttons/Button";
 import Title from "./Assets/Title.svg";
 import sideIcon from "./Assets/sideIcon.png";
 import gear from "./Assets/gear.svg";
+import logo from "./Assets/logo.png";
 import logout_img from "./Assets/logout1.png";
 import { logout } from "../../Actions/auth";
-import { connect } from 'react-redux';
-
+import { connect } from "react-redux";
 
 function Sidebar(props) {
     const [clickedComp, setClickedComp] = useState(false);
@@ -41,7 +41,7 @@ function Sidebar(props) {
             >
                 <div className={classes.TitleLogoContainer}>
                     <img
-                        src={process.env.PUBLIC_URL + "/Assets/Images/logo.png"}
+                        src={logo}
                         style={{
                             backgroundColor:
                                 clickedComp || clickedProfile
@@ -62,7 +62,7 @@ function Sidebar(props) {
                 </div>
             </NavLink>
             <div className={classes.ListButtonContainer}>
-                <NavLink to="/TestsList" style={{ textDecoration: "none" }}>
+                {/* <NavLink to="/api/TestsList" style={{ textDecoration: "none" }}>
                     <Button
                         type={clickedComp ? "compClicked" : "sidebar"}
                         icon={sideIcon}
@@ -75,7 +75,7 @@ function Sidebar(props) {
                         }}
                     />
                 </NavLink>
-                <NavLink to="/Settings" style={{ textDecoration: "none" }}>
+                <NavLink to="/api/Settings" style={{ textDecoration: "none" }}>
                     <Button
                         type={clickedProfile ? "profileClicked" : "sidebar"}
                         icon={gear}
@@ -87,7 +87,7 @@ function Sidebar(props) {
                             currentWidth <= 667 && props.setRetracted(true);
                         }}
                     />
-                </NavLink>
+                </NavLink> */}
             </div>
             <div className={classes.BottomButtonContainer}>
                 <Button
@@ -113,8 +113,8 @@ function Sidebar(props) {
     );
 }
 
-const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { logout }) (Sidebar);
+export default connect(mapStateToProps, { logout })(Sidebar);

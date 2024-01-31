@@ -12,7 +12,11 @@ function Button(props) {
         text = props.text;
         if (props.disabled) {
             buttonClass += ` ${classes.smallSecondaryButton}`;
-            text = "Inativo";
+            if (props.text === "canceled") {
+                text = "Cancelado";
+            } else {
+                text = "Inativo";
+            }
         }
         if (props.retracted) {
             buttonClass += ` ${classes.retractedSecondaryButton}`;

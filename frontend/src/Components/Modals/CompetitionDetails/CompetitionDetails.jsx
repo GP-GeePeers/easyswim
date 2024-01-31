@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import classes from "./CompetitionDetails.module.css";
 import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { CompetitionDetailsContext } from "../../../contexts/competition-details";
 
 const mockData = [
     {
@@ -18,20 +21,43 @@ const mockData = [
 ];
 
 function CompetitionDetails(props) {
-    let data;
-    if (props.create) {
-        // data = props.createCompData;
-        data = mockData;
-    } else {
-        console.log(props.filePreview);
-        data = props.filePreview;
-    }
+    const { fileInfo, flag, visible, setModalVisible } = useContext(
+        CompetitionDetailsContext
+    );
 
-    const keys = Object.keys(data[0]);
+    let data;
+    let keys;
+    if (flag === "details") {
+        data = fileInfo;
+        keys = Object.keys(data);
+    } else {
+        data = props.filePreview;
+        keys = Object.keys(data[0]);
+    }
 
     const [contentHeights, setContentHeights] = useState(
         Array(keys.length).fill(0)
     );
+
+    const [teams, setTeams] = useState([]);
+
+    useEffect(() => {
+        const fetchTeams = async () => {
+            try {
+                const response = await axios.get(
+                    `http://localhost:8000/api/list-TeamManager-by-Meet/${data.id}`
+                );
+
+                setTeams(response.data.teams);
+            } catch (error) {
+                console.error("Error fetching teams:", error);
+            }
+        };
+
+        if (flag === "details") {
+            fetchTeams();
+        }
+    }, [data.id, flag]);
 
     useEffect(() => {
         const newContentHeights = contentHeights.map((_, index) => {
@@ -40,23 +66,53 @@ function CompetitionDetails(props) {
         });
 
         setContentHeights(newContentHeights);
-    }, [props.compDetailsModal, window.innerWidth]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [props.compDetailsModal, visible, window.innerWidth]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleCloseModal = () => {
-        props.changeCompDetailsModal();
+        if (
+            props.compDetailsModal === true ||
+            props.compDetailsModal === false
+        ) {
+            props.changeCompDetailsModal();
+        } else {
+            setModalVisible(!visible);
+        }
     };
 
     const capitalizeFirstLetter = (str) => {
         return str.charAt(0).toUpperCase() + str.slice(1);
     };
 
+    const cancelCompetition = () => {
+        let form_data = new FormData();
+        if (data.id) {
+            form_data.append("id", data.id);
+        }
+
+        // console.log(document.cookie);
+        let url = "http://localhost:8000/api/lxf-delete/";
+        axios
+            .get(url, form_data, {
+                headers: {
+                    "content-type": "multipart/form-data",
+                    Authorization: `JWT ${localStorage.getItem("access")}`,
+                },
+                withCredentials: true,
+            })
+            .then((res) => {
+                toast.success("Prova cancelada com sucesso!");
+                handleCloseModal();
+            })
+            .catch((err) => {
+                console.log(err);
+                toast.error("Erro ao cancelar prova!");
+            });
+    };
+
     return (
         <div>
             {props.compDetailsModal && (
-                <div
-                    className={classes.modalOverlay}
-                    onClick={handleCloseModal}
-                >
+                <div className={classes.modalOverlay} onClick={handleCloseModal}>
                     <div
                         className={classes.modalContent}
                         onClick={(e) => e.stopPropagation()}
@@ -69,26 +125,19 @@ function CompetitionDetails(props) {
                                             Informações da Competição
                                         </div>
                                     </div>
-                                    <div
-                                        className={classes.buttonsContainer}
-                                        onClick={handleCloseModal}
-                                    >
-                                        {props.create && (
+                                    <div className={classes.buttonsContainer}>
+                                        {flag === "details" && (
                                             <Button
                                                 text={"Cancelar prova"}
-                                                onClick={
-                                                    props.create
-                                                        ? props.changeCreateCompModal
-                                                        : props.handleSubmitOnPreview
-                                                }
+                                                onClick={() => {
+                                                    cancelCompetition();
+                                                }}
                                             />
                                         )}
                                         <Button
                                             type={"secondary"}
                                             text={"Fechar"}
-                                            onClick={
-                                                props.changeCreateCompModal
-                                            }
+                                            onClick={handleCloseModal}
                                         />
                                     </div>
                                 </div>
@@ -104,78 +153,42 @@ function CompetitionDetails(props) {
                                             key !== "timing" &&
                                             key !== "type" && (
                                                 <React.Fragment key={key}>
-                                                    <div
-                                                        className={
-                                                            classes.contentContainer
-                                                        }
-                                                    >
-                                                        <div
-                                                            className={
-                                                                classes.contentTitleContainer
-                                                            }
-                                                        >
-                                                            <div
-                                                                className={
-                                                                    classes.category
-                                                                }
-                                                            >
+                                                    <div className={classes.contentContainer}>
+                                                        <div className={classes.contentTitleContainer}>
+                                                            <div className={classes.category}>
                                                                 {capitalizeFirstLetter(
-                                                                    key.replace(
-                                                                        /_/g,
-                                                                        " "
-                                                                    )
+                                                                    key.replace(/_/g, " ")
                                                                 )}
                                                             </div>
                                                         </div>
                                                         <div
-                                                            className={
-                                                                classes.verticalLine
-                                                            }
+                                                            className={classes.verticalLine}
                                                             style={{
                                                                 height: `${contentHeights[index]}px`,
                                                             }}
                                                         />
                                                         <div
-                                                            className={
-                                                                classes.contentDetailsContainer
-                                                            }
+                                                            className={classes.contentDetailsContainer}
                                                             id={`content-${index}`}
                                                         >
-                                                            <div
-                                                                className={
-                                                                    classes.details
-                                                                }
-                                                            >
-                                                                {data.map(
-                                                                    (data) => (
-                                                                        <React.Fragment
-                                                                            key={
-                                                                                data[
-                                                                                    key
-                                                                                ]
-                                                                            }
-                                                                        >
-                                                                            {
-                                                                                data[
-                                                                                    key
-                                                                                ]
-                                                                            }
+                                                            <div className={classes.details}>
+                                                                {flag === "details" ? (
+                                                                    <React.Fragment key={data[key]}>
+                                                                        {data[key]}
+                                                                    </React.Fragment>
+                                                                ) : (
+                                                                    // Display teams' information
+                                                                    teams.map((team, teamIndex) => (
+                                                                        <React.Fragment key={teamIndex}>
+                                                                            {team[key]}
                                                                         </React.Fragment>
-                                                                    )
+                                                                    ))
                                                                 )}
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {index <
-                                                        (props.create
-                                                            ? keys.length - 1
-                                                            : keys.length -
-                                                              2) && (
-                                                        <div
-                                                            className={
-                                                                classes.horizontalLine
-                                                            }
-                                                        />
+                                                    {index < (flag === "details" ? keys.length - 1 : keys.length - 2) && (
+                                                        <div className={classes.horizontalLine} />
                                                     )}
                                                 </React.Fragment>
                                             )

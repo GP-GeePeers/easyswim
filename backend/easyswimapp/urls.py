@@ -13,7 +13,7 @@ urlpatterns = [
     path('read-TeamManager/', read_meet_manager, name='read-TeamManager'),
     path('model-data/', model_data_view, name='model-data-view'),
     path('registered-lxf/', read_registered_lxf, name='reagistered-lxf'),
-    path('list-TeamManager-by-Meet/', list_TeamManager_by_Meet, name='read-lef'),
+    path('list-TeamManager-by-Meet/', list_TeamManager_by_Meet, name='list-TeamManager-by-Meet'),
     path('', views.DashboardView.as_view(), name='home'),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),

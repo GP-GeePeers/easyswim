@@ -184,7 +184,6 @@ class Meet_MeetManager(models.Model):
     type = models.CharField(max_length=50)
     nation = models.CharField(max_length=50)
     maxentriesathlete = models.IntegerField(null=True)
-    teams = models.ManyToManyField('Meet_TeamManager', related_name='meets')
 
     def __str__(self):
         return self.name

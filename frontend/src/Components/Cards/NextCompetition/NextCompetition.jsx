@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import classes from "./NextCompetition.module.css";
 import Card from "../../Cards/Card";
 import Button from "../../Buttons/Button";
+import { CompetitionDetailsContext } from "../../../contexts/competition-details";
 
 function NextCompetition(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
+    const { setCompetitionInfo, setModalFlag, visible, setModalVisible } =
+        useContext(CompetitionDetailsContext);
+
+    useEffect(() => {
+        if (props.nextCompetitionData) {
+            setCompetitionInfo(props.nextCompetitionData);
+            setModalFlag("details");
+        }
+    }, [props.nextCompetitionData]);
+
+    const handleShowInfo = () => {
+        setModalVisible(!visible);
+        props.setReloadHomepage(visible);
+    };
+
     return (
         <>
             <Card>
@@ -24,7 +40,7 @@ function NextCompetition(props) {
                             <div className={classes.verticalLine} />
                             <button
                                 className={classes.competitionContainer}
-                                onClick={props.changeCompDetailsModal}
+                                onClick={handleShowInfo}
                             >
                                 <div className={classes.competitionText}>
                                     {props.nextCompetitionData?.name}

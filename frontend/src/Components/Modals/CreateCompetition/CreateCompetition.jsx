@@ -76,21 +76,21 @@ function CreateCompetition(props) {
         if (lxfFile) {
             form_data.append("lxf_file", lxfFile, lxfFile.name);
             form_data.append("title", lxfFile.name);
-            form_data.append("id", 1);
+            //form_data.append("id", 1);
             console.log(123);
         } else {
             setErrorMessage("Por favor, selecione um ficheiro.");
         }
 
-        const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
-        console.log(csrftoken);
-        let url = "http://localhost:8000/api/lxf-team-confirmation/";
+        //const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
+        //console.log(csrftoken);
+        let url = "http://localhost:8000/api/lxf-meet-confirmation/";
         axios
             .post(url, form_data, {
                 headers: {
                     "content-type": "multipart/form-data",
                     'Authorization': `JWT ${localStorage.getItem('access')}`,
-                    'X-CSRFToken': `${csrftoken}`,
+                    //'X-CSRFToken': `${csrftoken}`,
                 },
                 withCredentials: true, // Include this line in the configuration object
             })

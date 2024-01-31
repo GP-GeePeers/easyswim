@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { reset_password } from '../../../Actions/auth';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { reset_password } from "../../../Actions/auth";
+import classes from "./ResetPassword.module.css";
+import Button from "../../../Components/Buttons/Button";
 
 const ResetPassword = ({ reset_password }) => {
     const navigate = useNavigate();
 
     const [requestSent, setRequestSent] = useState(false);
     const [formData, setFormData] = useState({
-        email: ''
+        email: "",
     });
 
     const { email } = formData;
 
-    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+    const onChange = (e) =>
+        setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const onSubmit = e => {
+    const onSubmit = (e) => {
         e.preventDefault();
 
         reset_password(email);
@@ -23,26 +26,37 @@ const ResetPassword = ({ reset_password }) => {
     };
 
     if (requestSent) {
-        navigate('/');
+        navigate("/");
     }
-    
+
     return (
-        <div className='container mt-5'>
-            <h1>Request Password Reset:</h1>
-            <form onSubmit={e => onSubmit(e)}>
-                <div className='form-group'>
-                    <input
-                        className='form-control'
-                        type='email'
-                        placeholder='Email'
-                        name='email'
-                        value={email}
-                        onChange={e => onChange(e)}
-                        required
-                    />
-                </div>
-                <button className='btn btn-primary' type='submit'>Reset Password</button>
-            </form>
+        <div className={classes.container}>
+            <div className={classes.topCardContainer}>
+                <h1 className={classes.title}>Request Password Reset:</h1>
+                <form onSubmit={(e) => onSubmit(e)}>
+                    <div className={classes.formGroup}>
+                        <input
+                            className={classes.input}
+                            type="email"
+                            placeholder="Email"
+                            name="email"
+                            value={email}
+                            onChange={(e) => onChange(e)}
+                            required
+                        />
+                    </div>
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginTop: "0.8rem",
+                        }}
+                    >
+                        <Button text="Reset Password" />
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };
