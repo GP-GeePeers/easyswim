@@ -23,13 +23,12 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./Hooks/layout";
 
-
 function App() {
     const [retracted, setRetracted] = useState(true);
     const [organization, setOrganization] = useState("");
     const [createCompModal, setCreateCompModal] = useState(false);
-    const [compDetailsModal, setCompDetailsModal] = useState(false);
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
+    const [reloadHomepage, setReloadHomepage] = useState(false);
 
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
@@ -47,10 +46,7 @@ function App() {
 
     const changeCreateCompModal = () => {
         setCreateCompModal(!createCompModal);
-    };
-
-    const changeCompDetailsModal = () => {
-        setCompDetailsModal(!compDetailsModal);
+        setReloadHomepage(createCompModal);
     };
 
     return (
@@ -59,38 +55,48 @@ function App() {
                 <Background />
                 <ToastContainer />
                 <Routes>
-                    <Route path="/login" element={
-                        <Layout>
-                            <Login />
-                        </Layout>
-                    } />
-                    <Route path="/signup" element={
-                        <Layout>
-                            <Signup />
-                        </Layout>} />
+                    <Route
+                        path="/login"
+                        element={
+                            <Layout>
+                                <Login />
+                            </Layout>
+                        }
+                    />
+                    <Route
+                        path="/signup"
+                        element={
+                            <Layout>
+                                <Signup />
+                            </Layout>
+                        }
+                    />
                     <Route
                         path="/api/reset-password"
                         element={
                             <Layout>
                                 <ResetPassword />
-                            </Layout>}
+                            </Layout>
+                        }
                     />
                     <Route
                         path="/api/password/reset/confirm/:uid/:token"
                         element={
                             <Layout>
                                 <ResetPasswordConfirm />
-                            </Layout>}
+                            </Layout>
+                        }
                     />
                     <Route
                         path="/api/activate/:uid/:token"
                         element={
                             <Layout>
                                 <Activate />
-                            </Layout>}
+                            </Layout>
+                        }
                     />
                     <Route
-                        path="/"
+                        path="*"
                         element={
                             <PrivateRoute
                                 auth={{ isAuthenticated: isAuthenticated }}
@@ -122,22 +128,12 @@ function App() {
                                             changeCreateCompModal
                                         }
                                     />
-                                    <CompetitionDetails
-                                        compDetailsModal={compDetailsModal}
-                                        changeCompDetailsModal={
-                                            changeCompDetailsModal
-                                        }
-                                        create
-                                    />
                                     <PageContent
                                         organization={organization}
                                         retracted={retracted}
                                         createCompModal={createCompModal}
                                         changeCreateCompModal={
                                             changeCreateCompModal
-                                        }
-                                        changeCompDetailsModal={
-                                            changeCompDetailsModal
                                         }
                                     >
                                         <Routes>
@@ -149,14 +145,17 @@ function App() {
                                                         setRetracted={
                                                             setRetracted
                                                         }
-                                                        changeCompDetailsModal={
-                                                            changeCompDetailsModal
+                                                        reloadHomepage={
+                                                            reloadHomepage
+                                                        }
+                                                        setReloadHomepage={
+                                                            setReloadHomepage
                                                         }
                                                     />
                                                 }
                                             />
-                                            <Route
-                                                path="/TestsList"
+                                            {/* <Route
+                                                path="/api/TestsList"
                                                 element={
                                                     <ListComps
                                                         retracted={retracted}
@@ -167,7 +166,7 @@ function App() {
                                                 }
                                             />
                                             <Route
-                                                path="/Settings"
+                                                path="/api/Settings"
                                                 element={
                                                     <Settings
                                                         retracted={retracted}
@@ -176,7 +175,7 @@ function App() {
                                                         }
                                                     />
                                                 }
-                                            />
+                                            /> */}
                                         </Routes>
                                     </PageContent>
                                 </>

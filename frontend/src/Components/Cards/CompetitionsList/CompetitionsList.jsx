@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import classes from "./CompetitionsList.module.css";
 import Card from "../Card";
 import Button from "../../Buttons/Button";
+import CompetitionDetails from "../../Modals/CompetitionDetails/CompetitionDetails";
 
 const ORDER_OPTIONS = ["Mais antigo", "Mais recente", "Nome"];
 
@@ -9,6 +10,9 @@ function CompetitionsList(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
     const [searchInput, setSearchInput] = useState("");
     const [selectedOrder, setSelectedOrder] = useState("Mais antigo");
+    const [showInfo, setShowInfo] = useState(false);
+    const [identifier, setIdentifier] = useState(0);
+    const [competitionToShow, setCompetitionToShow] = useState([]);
 
     const handleOrderOptionClick = (option) => {
         props.setTableData(
@@ -23,7 +27,6 @@ function CompetitionsList(props) {
                             .includes(searchInput.toLowerCase())
                 )
                 .sort((a, b) => {
-                    console.log(option);
                     let returnDate;
                     if (option === "Mais antigo") {
                         if (a.date < b.date) {
@@ -77,8 +80,29 @@ function CompetitionsList(props) {
         }
     };
 
+    const handleShowInfo = () => {
+        setShowInfo(!showInfo);
+        props.setReloadHomepage(showInfo);
+    };
+
+    useEffect(() => {
+        setCompetitionToShow(
+            props.tableData.find((row) => row.id === identifier)
+        );
+    }, [identifier]);
+
+    // console.log(props.tableData);
+
     return (
         <>
+            {showInfo && competitionToShow && (
+                <CompetitionDetails
+                    compDetailsModal={showInfo}
+                    changeCompDetailsModal={handleShowInfo}
+                    compInfo={competitionToShow}
+                    details
+                />
+            )}
             <Card>
                 <div className={classes.header}>
                     <div className={classes.titleContainer}>
@@ -166,21 +190,33 @@ function CompetitionsList(props) {
                                     classes.organizerColumn
                                 }
                             >
-                                {row.organizer}
+                                <div className={classes.text}>
+                                    {row.organizer}
+                                </div>
                             </div>
                             <div
                                 className={
                                     classes.tableCell + " " + classes.nameColumn
                                 }
                             >
-                                {row.name}
+                                <button
+                                    className={classes.competitionContainer}
+                                    onClick={() => {
+                                        setIdentifier(row.id);
+                                        handleShowInfo();
+                                    }}
+                                >
+                                    <div className={classes.competitionText}>
+                                        {row.name}
+                                    </div>
+                                </button>
                             </div>
                             <div
                                 className={
                                     classes.tableCell + " " + classes.dateColumn
                                 }
                             >
-                                {row.date}
+                                <div className={classes.text}>{row.date}</div>
                             </div>
                             <div
                                 className={

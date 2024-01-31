@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../../Actions/auth";
@@ -23,9 +23,11 @@ const Login = ({ login, isAuthenticated }) => {
         login(email, password);
     };
 
-    if (isAuthenticated) {
-        navigate("/");
-    }
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/");
+        }
+    }, [isAuthenticated, navigate]);
 
     return (
         <div className={classes.container}>
@@ -78,7 +80,7 @@ const Login = ({ login, isAuthenticated }) => {
                 </p>
                 <p className={classes.link}>
                     Forgot your Password?{" "}
-                    <Link to="/reset-password" className={classes.linkText}>
+                    <Link to="/api/reset-password" className={classes.linkText}>
                         Reset Password
                     </Link>
                 </p>

@@ -76,7 +76,6 @@ function CreateCompetition(props) {
         if (lxfFile) {
             form_data.append("lxf_file", lxfFile, lxfFile.name);
             form_data.append("title", lxfFile.name);
-            console.log(123);
         } else {
             setErrorMessage("Por favor, selecione um ficheiro.");
         }
@@ -86,12 +85,11 @@ function CreateCompetition(props) {
             .post(url, form_data, {
                 headers: {
                     "content-type": "multipart/form-data",
-                    'Authorization': `JWT ${localStorage.getItem('access')}`
+                    Authorization: `JWT ${localStorage.getItem("access")}`,
                 },
             })
             .then((res) => {
-                console.log(res.data);
-
+                // console.log(res.data);
                 // Clear the form fields after a successful submission
                 setLxfFile(null);
 
@@ -136,11 +134,10 @@ function CreateCompetition(props) {
                 .post(url, form_data, {
                     headers: {
                         "content-type": "multipart/form-data",
-                        'Authorization': `JWT ${localStorage.getItem('access')}`
+                        Authorization: `JWT ${localStorage.getItem("access")}`,
                     },
                 })
                 .then((res) => {
-                    console.log(res.data);
                     setFilePreview(res.data);
                 })
                 .catch((err) => {

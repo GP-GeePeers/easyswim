@@ -233,6 +233,55 @@
     display: none;
 }
 
+.competitionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* width: 40vw; */
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.competitionText,
+.text {
+    color: #b7bab6;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.14px;
+}
+
+.competitionText {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.competitionText::before,
+.competitionText::after {
+    content: "";
+    display: block;
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #72d5c8;
+    transition: width 0.3s ease-in-out;
+}
+
+.competitionText:hover::before {
+    width: 98%;
+}
+
+.competitionText:active {
+    color: #e3efee;
+}
+
 @media screen and (max-width: 900px) {
     .header {
         height: 14vh;
@@ -257,5 +306,27 @@
     }
     .buttonDropdown {
         margin-left: 1rem;
+    }
+}
+
+@media (max-width: 880px) {
+    .text {
+        color: #b7bab6;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.14px;
+    }
+    .competitionText {
+        font-size: 14px;
+    }
+    .competitionText::before,
+    .competitionText::after {
+        width: 0;
+    }
+    .competitionText:hover::before {
+        width: 0;
     }
 }

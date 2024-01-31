@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./NextCompetition.module.css";
 import Card from "../../Cards/Card";
 import Button from "../../Buttons/Button";
+import CompetitionDetails from "../../Modals/CompetitionDetails/CompetitionDetails";
 
 function NextCompetition(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
+    const [showInfo, setShowInfo] = useState(false);
+
+    const handleShowInfo = () => {
+        setShowInfo(!showInfo);
+        props.setReloadHomepage(showInfo);
+    };
+
     return (
         <>
+            {showInfo && props.nextCompetitionData && (
+                <CompetitionDetails
+                    compDetailsModal={showInfo}
+                    changeCompDetailsModal={handleShowInfo}
+                    compInfo={props.nextCompetitionData}
+                    details
+                />
+            )}
+
             <Card>
                 <div className={classes.title}>Próxima competição</div>
                 <div className={classes.content}>
@@ -24,7 +41,7 @@ function NextCompetition(props) {
                             <div className={classes.verticalLine} />
                             <button
                                 className={classes.competitionContainer}
-                                onClick={props.changeCompDetailsModal}
+                                onClick={handleShowInfo}
                             >
                                 <div className={classes.competitionText}>
                                     {props.nextCompetitionData?.name}
