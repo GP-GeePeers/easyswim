@@ -47,7 +47,7 @@ function App() {
     }, []);
 
     useEffect(() => {
-        setOrganization(userName); /* TODO: get from API */
+        setOrganization(userName);
     }, []);
 
     const changeCreateCompModal = () => {
