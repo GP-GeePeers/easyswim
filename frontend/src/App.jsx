@@ -21,6 +21,8 @@ import store from "./store";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Layout from "./Hooks/layout";
+
 
 function App() {
     const [retracted, setRetracted] = useState(true);
@@ -57,19 +59,35 @@ function App() {
                 <Background />
                 <ToastContainer />
                 <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/login" element={
+                        <Layout>
+                            <Login />
+                        </Layout>
+                    } />
+                    <Route path="/signup" element={
+                        <Layout>
+                            <Signup />
+                        </Layout>} />
                     <Route
                         path="/api/reset-password"
-                        element={<ResetPassword />}
+                        element={
+                            <Layout>
+                                <ResetPassword />
+                            </Layout>}
                     />
                     <Route
                         path="/api/password/reset/confirm/:uid/:token"
-                        element={<ResetPasswordConfirm />}
+                        element={
+                            <Layout>
+                                <ResetPasswordConfirm />
+                            </Layout>}
                     />
                     <Route
                         path="/api/activate/:uid/:token"
-                        element={<Activate />}
+                        element={
+                            <Layout>
+                                <Activate />
+                            </Layout>}
                     />
                     <Route
                         path="/"
