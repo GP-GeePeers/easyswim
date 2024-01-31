@@ -12,14 +12,14 @@ coreschema==0.0.4
 cryptography==40.0.2
 defusedxml==0.7.1
 diff-match-patch==20230430
-Django==4.1.9
+Django==4.2.7
 django-cors-headers==4.0.0
 django-import-export==2.8.0
 django-multiselectfield==0.1.12
 django-rest-swagger==2.2.0
 django-templated-mail==1.1.1
 djangorestframework==3.14.0
-djangorestframework-jsonapi==6.0.0
+djangorestframework-jsonapi==6.1.0
 djangorestframework-jwt==1.0.1
 djangorestframework-simplejwt==5.2.2
 djoser==2.2.2
