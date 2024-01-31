@@ -48,6 +48,7 @@
     flex-direction: column;
     width: 10vw;
 }
+
 .competitionText,
 .text {
     color: #b7bab6;
@@ -98,15 +99,19 @@
     .organizationContainer {
         width: 19%;
     }
+
     .dateContainer {
         width: 18%;
     }
+
     .organizationContainer {
         width: 22vw;
     }
+
     .stateContainer {
         width: 20%;
     }
+
     .text {
         color: #b7bab6;
         font-family: Inter;
@@ -116,19 +121,24 @@
         line-height: normal;
         letter-spacing: -0.14px;
     }
+
     .competitionText {
         font-size: 14px;
     }
+
     .stateContainer {
         display: none;
     }
+
     .verticalLineState {
         display: none;
     }
+
     .competitionText::before,
     .competitionText::after {
         width: 0;
     }
+
     .competitionText:hover::before {
         width: 0;
     }

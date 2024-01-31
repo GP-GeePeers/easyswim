@@ -39,6 +39,26 @@ function CompetitionDetails(props) {
         Array(keys.length).fill(0)
     );
 
+    const [teams, setTeams] = useState([]);
+
+    useEffect(() => {
+        const fetchTeams = async () => {
+            try {
+                const response = await axios.get(
+                    `http://localhost:8000/api/list-TeamManager-by-Meet/${data.id}`
+                );
+
+                setTeams(response.data.teams);
+            } catch (error) {
+                console.error("Error fetching teams:", error);
+            }
+        };
+
+        if (flag === "details") {
+            fetchTeams();
+        }
+    }, [data.id, flag]);
+
     useEffect(() => {
         const newContentHeights = contentHeights.map((_, index) => {
             const contentRef = document.getElementById(`content-${index}`);
@@ -65,19 +85,28 @@ function CompetitionDetails(props) {
 
     const cancelCompetition = () => {
         let form_data = new FormData();
-        if (data.id) {
-            form_data.append("id", data.id);
-        }
-        // const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
 
-        // console.log(document.cookie);
-        let url = "http://localhost:8000/api/lxf-delete/";
+        console.log(data);
+        console.log(data.id);
+        if (data.id) {
+            console.log("id");
+            form_data.append("id", data.id);
+            console.log(form_data);
+        }
+
+        console.log(form_data);
+        let body = JSON.stringify({'id': data.id});
+
+        const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
+        console.log(csrftoken);
+        let url = `http://localhost:8000/api/lxf-delete/`;
+        console.log(url);
         axios
-            .put(url, form_data, {
+            .patch(url, form_data, {
                 headers: {
                     "content-type": "multipart/form-data",
                     Authorization: `JWT ${localStorage.getItem("access")}`,
-                    // "X-CSRFToken": `${csrftoken}`,
+                    'X-CSRFToken': `${csrftoken}`,
                 },
                 withCredentials: true,
             })
@@ -138,41 +167,22 @@ function CompetitionDetails(props) {
                                             key !== "timing" &&
                                             key !== "type" && (
                                                 <React.Fragment key={key}>
-                                                    <div
-                                                        className={
-                                                            classes.contentContainer
-                                                        }
-                                                    >
-                                                        <div
-                                                            className={
-                                                                classes.contentTitleContainer
-                                                            }
-                                                        >
-                                                            <div
-                                                                className={
-                                                                    classes.category
-                                                                }
-                                                            >
+                                                    <div className={classes.contentContainer}>
+                                                        <div className={classes.contentTitleContainer}>
+                                                            <div className={classes.category}>
                                                                 {capitalizeFirstLetter(
-                                                                    key.replace(
-                                                                        /_/g,
-                                                                        " "
-                                                                    )
+                                                                    key.replace(/_/g, " ")
                                                                 )}
                                                             </div>
                                                         </div>
                                                         <div
-                                                            className={
-                                                                classes.verticalLine
-                                                            }
+                                                            className={classes.verticalLine}
                                                             style={{
                                                                 height: `${contentHeights[index]}px`,
                                                             }}
                                                         />
                                                         <div
-                                                            className={
-                                                                classes.contentDetailsContainer
-                                                            }
+                                                            className={classes.contentDetailsContainer}
                                                             id={`content-${index}`}
                                                         >
                                                             <div

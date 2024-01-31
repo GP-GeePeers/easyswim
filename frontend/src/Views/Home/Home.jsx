@@ -32,27 +32,6 @@ function Home(props) {
     const [nextCompetitionData, setNextCompetitionData] = useState();
     const [tableData, setTableData] = useState([]);
     const [originalData, setOriginalData] = useState([]);
-    //mockdata
-    // const [mockTableDataList, setMockTableDataList] = useState(mockDataList);
-    // console.log(mockTableDataList);
-    // const [mockNextCompetition, setMockNextCompetition] = useState(null);
-
-    // const getNextCompetition = () => {
-    //     if (!mockTableDataList || !Array.isArray(mockTableDataList)) {
-    //         setMockNextCompetition(null);
-    //     }
-    //     const currentDate = new Date();
-    //     for (const meet of mockTableDataList) {
-    //         if (!meet || typeof meet !== "object" || !meet.date) {
-    //             continue;
-    //         }
-    //         const [day, month, year] = meet.date.split("-").map(Number);
-    //         const meetDate = new Date(year, month - 1, day);
-    //         if (meet.state === "active" && meetDate >= currentDate) {
-    //             setMockNextCompetition(meet);
-    //         }
-    //     }
-    // };
 
     const getNextCompetition = () => {
         if (!tableData || !Array.isArray(tableData)) {
@@ -90,12 +69,14 @@ function Home(props) {
                 const meetDate = new Date(meet.deadline);
                 const isActive = meetDate >= currentDate;
 
+                console.log("meet", meet);
+
                 return {
                     id: meet.id,
                     organizer: meet.organizer,
                     name: meet.name,
                     date: meet.deadline,
-                    state: isActive ? "active" : "inactive",
+                    state: meet.is_active === 0 ? "inactive" : meet.is_active === 1  ? "active" : "canceled",
                 };
             });
 

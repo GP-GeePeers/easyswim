@@ -8,7 +8,7 @@
     gap: 1rem;
 }
 
-.header > * {
+.header>* {
     height: 100%;
 }
 
@@ -144,6 +144,7 @@
     color: #b7bab6;
     flex: 1;
 }
+
 .tableRow:last-child {
     border-bottom: none;
 }
@@ -190,31 +191,35 @@
 }
 
 .organizerColumn {
-    /* flex: 3; */
-    width: 6rem;
+    min-width: 15vw;
+    max-width: 15vw;
     border-left: 1px solid #335c58;
     border-right: 1px solid #335c58;
+    align-items: center;
 }
 
 .nameColumn {
-    /* flex: 4; */
-    width: 6rem;
+    min-width: 35vw;
+    max-width: 35vw;
     border-left: 1px solid #335c58;
     border-right: 1px solid #335c58;
+    align-items: center;
 }
 
 .dateColumn {
-    /* flex: 4; */
-    width: 6rem;
+    min-width: 16vw;
+    max-width: 16vw;
     border-left: 1px solid #335c58;
     border-right: 1px solid #335c58;
+    align-items: center;
 }
 
 .stateColumn {
-    /* flex: 6; */
-    width: 6rem;
+    min-width: 15vw;
+    max-width: 15vw;
     border-left: 1px solid #335c58;
     border-right: 1px solid #335c58;
+    align-items: center;
 }
 
 .text,
@@ -238,7 +243,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* width: 40vw; */
     background-color: transparent;
     border-color: transparent;
 }
@@ -286,26 +290,31 @@
     .header {
         height: 14vh;
     }
-    .contentTitleContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 35vw;
-    }
-    .contentDetailsContainer {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-direction: column;
-        width: 65vw;
-        padding: 2rem 2rem;
-    }
     .buttonsContainer {
         flex-direction: column;
     }
+
     .buttonDropdown {
         margin-left: 1rem;
+    }
+    .organizerColumn {
+        min-width: 25%;
+        max-width: 25%;
+    }
+
+    .nameColumn {
+        min-width: 20vw;
+        max-width: 20vw;
+    }
+
+    .dateColumn {
+        min-width: 10vw;
+        max-width: 10vw;
+    }
+
+    .stateColumn {
+        min-width: 15%;
+        max-width: 15%;
     }
 }
 
@@ -326,6 +335,31 @@
     .competitionText::after {
         width: 0;
     }
+    .competitionText:hover::before {
+        width: 0;
+    }
+}
+
+@media (max-width: 880px) {
+    .text {
+        color: #b7bab6;
+        font-family: Inter;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.14px;
+    }
+
+    .competitionText {
+        font-size: 14px;
+    }
+
+    .competitionText::before,
+    .competitionText::after {
+        width: 0;
+    }
+
     .competitionText:hover::before {
         width: 0;
     }

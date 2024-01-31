@@ -4,7 +4,7 @@ import classes from "./CreateCompetition.module.css";
 import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 import addDocument from "../Assets/addDocument.png";
-import document from "../Assets/document.png";
+import document_ from "../Assets/document.png";
 import CompetitionDetails from "../CompetitionDetails/CompetitionDetails";
 
 function CreateCompetition(props) {
@@ -76,17 +76,23 @@ function CreateCompetition(props) {
         if (lxfFile) {
             form_data.append("lxf_file", lxfFile, lxfFile.name);
             form_data.append("title", lxfFile.name);
+            //form_data.append("id", 1);
+            console.log(123);
         } else {
             setErrorMessage("Por favor, selecione um ficheiro.");
         }
 
+        //const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
+        //console.log(csrftoken);
         let url = "http://localhost:8000/api/lxf-meet-confirmation/";
         axios
             .post(url, form_data, {
                 headers: {
                     "content-type": "multipart/form-data",
-                    Authorization: `JWT ${localStorage.getItem("access")}`,
+                    'Authorization': `JWT ${localStorage.getItem('access')}`,
+                    //'X-CSRFToken': `${csrftoken}`,
                 },
+                withCredentials: true, // Include this line in the configuration object
             })
             .then((res) => {
                 // console.log(res.data);
@@ -98,6 +104,7 @@ function CreateCompetition(props) {
             })
             .catch((err) => {
                 console.log(err);
+                console.log(err.response.data);
                 setErrorMessage("ERRO: " + err.message);
             });
     };
@@ -134,7 +141,7 @@ function CreateCompetition(props) {
                 .post(url, form_data, {
                     headers: {
                         "content-type": "multipart/form-data",
-                        Authorization: `JWT ${localStorage.getItem("access")}`,
+                        'Authorization': `JWT ${localStorage.getItem('access')}`
                     },
                 })
                 .then((res) => {
@@ -253,7 +260,7 @@ function CreateCompetition(props) {
                             <Card>
                                 <div className={classes.inputFile}>
                                     <img
-                                        src={document}
+                                        src={document_}
                                         alt="Document"
                                         className={classes.Logo}
                                     />
