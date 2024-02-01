@@ -1,0 +1,13 @@
+.errortoast {
+    background: rgba(183, 186, 182, 0.2);
+    color: #72d5c8; 
+    border: 1px solid #b7bab6;
+    
+}
+
+.sucesstoast{
+    background: rgba(183, 186, 182, 0.2);
+    color: #72d5c8; 
+    border: 1px solid #b7bab6;
+    
+}

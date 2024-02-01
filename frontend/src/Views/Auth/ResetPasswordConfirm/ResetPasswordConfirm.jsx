@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import classes from "./ResetPasswordConfirm.module.css";
 import Button from "../../../Components/Buttons/Button";
+import toastclasses from "../../../Actions/auth.module.css"
 
 const ResetPasswordConfirm = ({ match, reset_password_confirm }) => {
     const navigate = useNavigate();
@@ -29,7 +30,9 @@ const ResetPasswordConfirm = ({ match, reset_password_confirm }) => {
             reset_password_confirm(uid, token, new_password, re_new_password);
             setRequestSent(true);
         } else {
-            toast.error("Passwords dont match");
+            toast.error("Passwords dont match",{
+                className: toastclasses.errortoast,
+            });
         }
     };
 

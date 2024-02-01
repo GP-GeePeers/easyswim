@@ -20,6 +20,12 @@
     max-height: 90%;
 }
 
+.logo {
+    height: 7.5rem;
+    margin: 2rem auto; 
+    display: block;
+}
+
 .title {
     color: #72d5c8;
     font-family: Poppins;
