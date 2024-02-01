@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { login } from "../../../Actions/auth";
 import classes from "./Login.module.css";
 import Button from "../../../Components/Buttons/Button";
+import logo from "./Assets/logo.png";
+
 
 const Login = ({ login, isAuthenticated }) => {
     const navigate = useNavigate();
@@ -32,6 +34,7 @@ const Login = ({ login, isAuthenticated }) => {
     return (
         <div className={classes.container}>
             <div className={classes.topCardContainer}>
+                <img src={logo} alt="Logo" className={classes.logo} />
                 <h1 className={classes.title}>Sign In</h1>
                 <p className={classes.subtitle}>Sign into your Account</p>
                 <form onSubmit={(e) => onSubmit(e)}>
