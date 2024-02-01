@@ -45,7 +45,7 @@ function CompetitionDetails(props) {
         const fetchTeams = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/api/list-TeamManager-by-Meet/${data.id}`
+                    `https://easyswim.online/backend/api/list-TeamManager-by-Meet/${data.id}`
                 );
 
                 setTeams(response.data.teams);
@@ -99,7 +99,7 @@ function CompetitionDetails(props) {
 
         const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
         console.log(csrftoken);
-        let url = `http://localhost:8000/api/lxf-delete/`;
+        let url = `https://easyswim.online/backend/api/lxf-delete/`;
         console.log(url);
         axios
             .patch(url, form_data, {

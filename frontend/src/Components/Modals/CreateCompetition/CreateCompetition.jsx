@@ -84,7 +84,7 @@ function CreateCompetition(props) {
 
         //const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
         //console.log(csrftoken);
-        let url = "http://localhost:8000/api/lxf-meet-confirmation/";
+        let url = "https://easyswim.online/backend/api/lxf-meet-confirmation/";
         axios
             .post(url, form_data, {
                 headers: {
@@ -136,7 +136,7 @@ function CreateCompetition(props) {
                 setErrorMessage("Por favor, selecione um ficheiro.");
             }
 
-            let url = "http://localhost:8000/api/lxf-meet-preview/";
+            let url = "https://easyswim.online/backend/api/lxf-meet-preview/";
             axios
                 .post(url, form_data, {
                     headers: {

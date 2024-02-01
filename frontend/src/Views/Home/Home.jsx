@@ -58,7 +58,7 @@ function Home(props) {
                 },
             };
             const response = await axios.get(
-                "http://127.0.0.1:8000/api/",
+                "https://easyswim.online/backend/api/",
                 config
             );
             const data = response.data; // Use response.data instead of response.json()

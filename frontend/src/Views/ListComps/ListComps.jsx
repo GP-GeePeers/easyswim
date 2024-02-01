@@ -10,7 +10,7 @@ function ListComps(props) {
         const getTestsFromAPI = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:8000/api/lxf/"
+                    "https://easyswim.online/backend/api/lxf/"
                 );
                 setTests(response.data);
             } catch (error) {
