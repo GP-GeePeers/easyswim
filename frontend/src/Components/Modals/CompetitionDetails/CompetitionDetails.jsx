@@ -96,7 +96,7 @@ function CompetitionDetails(props) {
 
             fetchTeams();
         }
-    }, [data.id, flag]);
+    }, [data.id, flag, enrollTeamvisible]);
 
     useEffect(() => {
         if (teams) {
