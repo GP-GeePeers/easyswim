@@ -444,123 +444,146 @@ function CompetitionDetails(props) {
                                                         }
                                                     ></div>
                                                 </div>
-                                                {teamsKeys.current.map(
-                                                    (clubName, index) => (
-                                                        <React.Fragment
-                                                            key={clubName}
+                                                {teamsKeys.current.length ===
+                                                    0 && (
+                                                    <div
+                                                        className={
+                                                            classes.contentContainer
+                                                        }
+                                                        style={{
+                                                            marginTop: "0.7rem",
+                                                        }}
+                                                    >
+                                                        <div
+                                                            className={
+                                                                classes.text
+                                                            }
                                                         >
-                                                            <div
-                                                                className={
-                                                                    classes.contentContainer
-                                                                }
+                                                            Não há equipas
+                                                            inscritas nesta
+                                                            competição
+                                                        </div>
+                                                    </div>
+                                                )}
+                                                {teamsKeys.current.length !==
+                                                    0 &&
+                                                    teamsKeys.current.map(
+                                                        (clubName, index) => (
+                                                            <React.Fragment
+                                                                key={clubName}
                                                             >
                                                                 <div
                                                                     className={
-                                                                        classes.contentTitleContainer
+                                                                        classes.contentContainer
                                                                     }
                                                                 >
                                                                     <div
                                                                         className={
-                                                                            classes.category
-                                                                        }
-                                                                    >
-                                                                        {
-                                                                            clubName
-                                                                        }
-                                                                    </div>
-                                                                </div>
-                                                                <div
-                                                                    className={
-                                                                        classes.verticalLine
-                                                                    }
-                                                                    style={{
-                                                                        height: `${teamsHeights[index]}px`,
-                                                                    }}
-                                                                />
-                                                                <div
-                                                                    className={
-                                                                        classes.contentDetailsContainer
-                                                                    }
-                                                                    id={`content-${index}`}
-                                                                >
-                                                                    <div
-                                                                        className={
-                                                                            classes.details
+                                                                            classes.contentTitleContainer
                                                                         }
                                                                     >
                                                                         <div
                                                                             className={
-                                                                                classes.athletesContainer
+                                                                                classes.category
                                                                             }
                                                                         >
-                                                                            <Button
-                                                                                text="Mostrar Atletas"
-                                                                                onClick={() =>
-                                                                                    handleClubClick(
-                                                                                        index
-                                                                                    )
+                                                                            {
+                                                                                clubName
+                                                                            }
+                                                                        </div>
+                                                                    </div>
+                                                                    <div
+                                                                        className={
+                                                                            classes.verticalLine
+                                                                        }
+                                                                        style={{
+                                                                            height: `${teamsHeights[index]}px`,
+                                                                        }}
+                                                                    />
+                                                                    <div
+                                                                        className={
+                                                                            classes.contentDetailsContainer
+                                                                        }
+                                                                        id={`content-${index}`}
+                                                                    >
+                                                                        <div
+                                                                            className={
+                                                                                classes.details
+                                                                            }
+                                                                        >
+                                                                            <div
+                                                                                className={
+                                                                                    classes.athletesContainer
                                                                                 }
-                                                                            />
-                                                                            {selectedClub ===
-                                                                                index &&
-                                                                                athleteDropdown && (
-                                                                                    <div
-                                                                                        className={
-                                                                                            classes.athleteDropdown
-                                                                                        }
-                                                                                    >
-                                                                                        {teams.club[
+                                                                            >
+                                                                                <Button
+                                                                                    text="Mostrar Atletas"
+                                                                                    onClick={() =>
+                                                                                        handleClubClick(
                                                                                             index
-                                                                                        ].athletes.map(
-                                                                                            (
-                                                                                                athlete,
-                                                                                                athleteIndex
-                                                                                            ) => (
-                                                                                                <React.Fragment
-                                                                                                    key={
-                                                                                                        athlete.id
-                                                                                                    }
-                                                                                                >
-                                                                                                    {
-                                                                                                        athlete.name
-                                                                                                    }
-                                                                                                    {athleteIndex <
-                                                                                                        teams
-                                                                                                            .club[
-                                                                                                            index
-                                                                                                        ]
-                                                                                                            .athletes
-                                                                                                            .length -
-                                                                                                            1 && (
-                                                                                                        <div
-                                                                                                            className={
-                                                                                                                classes.athleteSeparator
-                                                                                                            }
-                                                                                                        />
-                                                                                                    )}
-                                                                                                </React.Fragment>
-                                                                                            )
-                                                                                        )}
-                                                                                    </div>
-                                                                                )}
+                                                                                        )
+                                                                                    }
+                                                                                />
+                                                                                {selectedClub ===
+                                                                                    index &&
+                                                                                    athleteDropdown && (
+                                                                                        <div
+                                                                                            className={
+                                                                                                classes.athleteDropdown
+                                                                                            }
+                                                                                        >
+                                                                                            {teams.club[
+                                                                                                index
+                                                                                            ].athletes.map(
+                                                                                                (
+                                                                                                    athlete,
+                                                                                                    athleteIndex
+                                                                                                ) => (
+                                                                                                    <React.Fragment
+                                                                                                        key={
+                                                                                                            athlete.id
+                                                                                                        }
+                                                                                                    >
+                                                                                                        {
+                                                                                                            athlete.name
+                                                                                                        }
+                                                                                                        {athleteIndex <
+                                                                                                            teams
+                                                                                                                .club[
+                                                                                                                index
+                                                                                                            ]
+                                                                                                                .athletes
+                                                                                                                .length -
+                                                                                                                1 && (
+                                                                                                            <div
+                                                                                                                className={
+                                                                                                                    classes.athleteSeparator
+                                                                                                                }
+                                                                                                            />
+                                                                                                        )}
+                                                                                                    </React.Fragment>
+                                                                                                )
+                                                                                            )}
+                                                                                        </div>
+                                                                                    )}
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            {index <
-                                                                teamsKeys
-                                                                    .current
-                                                                    .length -
-                                                                    1 && (
-                                                                <div
-                                                                    className={
-                                                                        classes.horizontalLine
-                                                                    }
-                                                                />
-                                                            )}
-                                                        </React.Fragment>
-                                                    )
-                                                )}
+                                                                {index <
+                                                                    teamsKeys
+                                                                        .current
+                                                                        .length -
+                                                                        1 && (
+                                                                    <div
+                                                                        className={
+                                                                            classes.horizontalLine
+                                                                        }
+                                                                    />
+                                                                )}
+                                                            </React.Fragment>
+                                                        )
+                                                    )}
                                             </div>
                                         </>
                                     )}

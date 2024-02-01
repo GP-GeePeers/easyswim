@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import classes from "./Home.module.css";
 import NextCompetition from "../../Components/Cards/NextCompetition/NextCompetition";
 import CompetitionsList from "../../Components/Cards/CompetitionsList/CompetitionsList";
@@ -31,25 +31,45 @@ import { ReloadHomepageContext } from "../../contexts/reload-pages";
 
 function Home(props) {
     const [nextCompetitionData, setNextCompetitionData] = useState();
-    const [tableData, setTableData] = useState([]);
+    // const [tableData, setTableData] = useState([]);
+    const tableData = useRef([]);
     const [originalData, setOriginalData] = useState([]);
 
     const { reload } = useContext(ReloadHomepageContext);
 
     const getNextCompetition = () => {
-        if (!tableData || !Array.isArray(tableData)) {
+        if (!tableData.current || !Array.isArray(tableData.current)) {
             setNextCompetitionData(null);
+            return;
         }
+
         const currentDate = new Date();
-        for (const meet of tableData) {
-            if (!meet || typeof meet !== "object" || !meet.date) {
+        let closestMeet = null;
+
+        for (const meet of tableData.current) {
+            if (
+                !meet ||
+                typeof meet !== "object" ||
+                !meet.date ||
+                !meet.state
+            ) {
                 continue;
             }
-            const meetDate = new Date();
+
+            const meetDate = new Date(meet.date);
+
             if (meet.state === "Active" && meetDate >= currentDate) {
-                setNextCompetitionData(meet);
+                if (
+                    !closestMeet ||
+                    Math.abs(meetDate - currentDate) <
+                        Math.abs(new Date(closestMeet.date) - currentDate)
+                ) {
+                    closestMeet = meet;
+                }
             }
         }
+
+        setNextCompetitionData(closestMeet);
     };
 
     const fetchData = async () => {
@@ -88,7 +108,10 @@ function Home(props) {
                 };
             });
 
-            setTableData(updatedTableData);
+            tableData.current = updatedTableData.sort((a, b) => {
+                return new Date(b.date) - new Date(a.date);
+            });
+
             setOriginalData(updatedTableData);
         } catch (error) {
             console.error("Error:", error);
@@ -110,7 +133,7 @@ function Home(props) {
     useEffect(() => {
         getNextCompetition();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [tableData]);
+    }, [tableData.current]);
 
     return (
         <div className={classes.topCardContainer}>
@@ -122,7 +145,6 @@ function Home(props) {
             />
             <CompetitionsList
                 changeCompDetailsModal={props.changeCompDetailsModal}
-                setTableData={setTableData}
                 tableData={tableData}
                 originalData={originalData}
                 // setReloadHomepage={props.setReloadHomepage}

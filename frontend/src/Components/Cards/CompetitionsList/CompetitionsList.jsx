@@ -5,12 +5,12 @@ import Button from "../../Buttons/Button";
 import { CompetitionDetailsContext } from "../../../contexts/competition-details";
 import { ReloadHomepageContext } from "../../../contexts/reload-pages";
 
-const ORDER_OPTIONS = ["Mais antigo", "Mais recente", "Nome"];
+const ORDER_OPTIONS = ["Mais recente", "Mais antigo", "Nome"];
 
 function CompetitionsList(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
     const [searchInput, setSearchInput] = useState("");
-    const [selectedOrder, setSelectedOrder] = useState("Mais antigo");
+    const [selectedOrder, setSelectedOrder] = useState("Mais recente");
     const [identifier, setIdentifier] = useState(0);
     const {
         setCompetitionInfo,
@@ -21,47 +21,28 @@ function CompetitionsList(props) {
 
     useEffect(() => {
         setCompetitionInfo(
-            props.tableData.find((row) => row.id === identifier)
+            props.tableData.current.find((row) => row.id === identifier)
         );
     }, [identifier]);
 
     const handleOrderOptionClick = (option) => {
-        props.setTableData(
-            props.tableData
-                .filter(
-                    (row) =>
-                        row.organizer
-                            .toLowerCase()
-                            .includes(searchInput.toLowerCase()) ||
-                        row.name
-                            .toLowerCase()
-                            .includes(searchInput.toLowerCase())
-                )
-                .sort((a, b) => {
-                    let returnDate;
-                    if (option === "Mais antigo") {
-                        if (a.date < b.date) {
-                            returnDate = -1;
-                        } else if (a.date > b.date) {
-                            returnDate = 1;
-                        } else {
-                            returnDate = 0;
-                        }
-                        return returnDate;
-                    } else if (option === "Nome") {
-                        return a.name.localeCompare(b.name);
-                    } else {
-                        if (a.date < b.date) {
-                            returnDate = 1;
-                        } else if (a.date > b.date) {
-                            returnDate = -1;
-                        } else {
-                            returnDate = 0;
-                        }
-                        return returnDate;
-                    }
-                })
-        );
+        props.tableData.current = props.tableData.current
+            .filter(
+                (row) =>
+                    row.organizer
+                        .toLowerCase()
+                        .includes(searchInput.toLowerCase()) ||
+                    row.name.toLowerCase().includes(searchInput.toLowerCase())
+            )
+            .sort((a, b) => {
+                if (option === "Mais antigo") {
+                    return new Date(a.date) - new Date(b.date);
+                } else if (option === "Nome") {
+                    return a.name.localeCompare(b.name);
+                } else {
+                    return new Date(b.date) - new Date(a.date);
+                }
+            });
         setSelectedOrder(option);
     };
 
@@ -71,7 +52,8 @@ function CompetitionsList(props) {
         setSearchInput(wordsInput);
 
         if (wordsInput === "") {
-            props.setTableData(props.originalData);
+            // props.setTableData(props.originalData);
+            props.tableData.current = props.originalData;
         } else {
             const tableFilter = props.originalData.filter(
                 (competitionFilter) => {
@@ -87,7 +69,8 @@ function CompetitionsList(props) {
                 }
             );
 
-            props.setTableData(tableFilter);
+            // props.setTableData(tableFilter);
+            props.tableData.current = tableFilter;
         }
     };
 
@@ -177,7 +160,7 @@ function CompetitionsList(props) {
                             </div>
                         </div>
                     </div>
-                    {props.tableData?.map((row) => (
+                    {props.tableData.current?.map((row) => (
                         <div key={row.id} className={classes.tableRow}>
                             <div
                                 className={
