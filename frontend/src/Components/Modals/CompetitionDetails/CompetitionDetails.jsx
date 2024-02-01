@@ -251,18 +251,24 @@ function CompetitionDetails(props) {
                                                         downloadCompetition();
                                                     }}
                                                 />
-                                                <Button
-                                                    text={"Upload Team"}
-                                                    onClick={() => {
-                                                        uploadTeamManager();
-                                                    }}
-                                                />
-                                                <Button
-                                                    text={"Cancelar Prova"}
-                                                    onClick={() => {
-                                                        cancelCompetition();
-                                                    }}
-                                                />
+                                                {data.state === "Active" && (
+                                                    <>
+                                                        <Button
+                                                            text={"Upload Team"}
+                                                            onClick={() => {
+                                                                uploadTeamManager();
+                                                            }}
+                                                        />
+                                                        <Button
+                                                            text={
+                                                                "Cancelar Prova"
+                                                            }
+                                                            onClick={() => {
+                                                                cancelCompetition();
+                                                            }}
+                                                        />
+                                                    </>
+                                                )}
                                             </>
                                         )}
                                         <Button
