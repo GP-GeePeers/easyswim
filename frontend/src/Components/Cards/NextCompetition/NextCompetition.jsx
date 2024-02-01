@@ -12,17 +12,20 @@ function NextCompetition(props) {
         setCompetitionDetailsModalVisible: setModalVisible,
     } = useContext(CompetitionDetailsContext);
 
+    const [flag, setFlag] = useState(false);
+
+    const handleShowInfo = () => {
+        if (!flag) setCompetitionInfo(props.nextCompetitionData);
+        setModalVisible(!visible);
+        setFlag(visible);
+        props.setReloadHomepage(visible);
+    };
+
     useEffect(() => {
-        console.log("props.nextCompetitionData", props.nextCompetitionData);
         if (props.nextCompetitionData) {
             setCompetitionInfo(props.nextCompetitionData);
         }
     }, [props.nextCompetitionData]);
-
-    const handleShowInfo = () => {
-        setModalVisible(!visible);
-        props.setReloadHomepage(visible);
-    };
 
     return (
         <>
@@ -43,7 +46,7 @@ function NextCompetition(props) {
                             <div className={classes.verticalLine} />
                             <button
                                 className={classes.competitionContainer}
-                                onClick={handleShowInfo}
+                                // onClick={handleShowInfo}
                             >
                                 <div className={classes.competitionText}>
                                     {props.nextCompetitionData?.name}
