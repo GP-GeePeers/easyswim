@@ -6,6 +6,8 @@ import { signup } from "../../../Actions/auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "../../../Components/Buttons/Button";
+import toastclasses from "../../../Actions/auth.module.css"
+
 
 const Signup = ({ signup, isAuthenticated }) => {
     const navigate = useNavigate();
@@ -31,7 +33,10 @@ const Signup = ({ signup, isAuthenticated }) => {
             signup(first_name, last_name, email, password, re_password);
             setAccountCreated(true);
         } else {
-            toast.error("Passwords dont match");
+            toast.error("Passwords dont match",{
+                className: toastclasses.errortoast,
+            });
+        
         }
     };
 
