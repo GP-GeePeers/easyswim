@@ -5,12 +5,12 @@ import Button from "../../Buttons/Button";
 import { CompetitionDetailsContext } from "../../../contexts/competition-details";
 import { ReloadHomepageContext } from "../../../contexts/reload-pages";
 
-const ORDER_OPTIONS = ["Mais recente", "Mais antigo", "Nome"];
+const ORDER_OPTIONS = ["Data descendente", "Data ascendente", "Nome"];
 
 function CompetitionsList(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
     const [searchInput, setSearchInput] = useState("");
-    const [selectedOrder, setSelectedOrder] = useState("Mais recente");
+    const [selectedOrder, setSelectedOrder] = useState("Data descendente");
     const [identifier, setIdentifier] = useState(0);
     const {
         setCompetitionInfo,
@@ -35,7 +35,7 @@ function CompetitionsList(props) {
                     row.name.toLowerCase().includes(searchInput.toLowerCase())
             )
             .sort((a, b) => {
-                if (option === "Mais antigo") {
+                if (option === "Data ascendente") {
                     return new Date(a.date) - new Date(b.date);
                 } else if (option === "Nome") {
                     return a.name.localeCompare(b.name);
