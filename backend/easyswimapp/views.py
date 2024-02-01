@@ -91,15 +91,16 @@ class LXFMeetView(APIView):
             download_blob(bucket_name, bucket_path, destination_file_name)
 
             response = FileResponse(open(destination_file_name, 'rb'))
-            response['Content-Disposition'] = f'attachment; filename="{file_name}"'
-            return JsonResponse(data={'notification': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_200_OK)
+            response.headers['Content-Disposition'] = f'attachment; filename="{file_name}"+".lxf"'
+            return response
+            # return JsonResponse(data={'notification': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_200_OK)
 
             # return JsonResponse(data={'notification': 'Download concluído com sucesso!'}, status=status.HTTP_200_OK)
         else:
             # Se não for uma solicitação de download, continue com a lógica existente
             posts = LXF.objects.all()
             serializer = LXFSerializer(posts, many=True)
-            return JsonResponse(data={'notification': 'FUCK!'}, status=status.HTTP_201_CREATED)
+            return JsonResponse(data={'notification': 'Download Failed!'}, status=status.HTTP_201_CREATED)
 
     def post(self, request, *args, **kwargs):
         """
@@ -221,7 +222,6 @@ class LXFTeamView(APIView):
         :param request: HttpRequest object
         :return: Response object with serialized LXF data
         """
-
         posts = LXF.objects.all()
         serializer = LXFSerializer(posts, many=True)
         return Response(serializer.data)

@@ -168,6 +168,49 @@ function CompetitionDetails(props) {
             });
     };
 
+    const downloadCompetition = () => {
+        // const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
+        // console.log(csrftoken);
+        let url = `http://localhost:8000/api/lxf-meet-confirmation/?download=true&id=${data.id}`;
+
+        axios({
+            method: "get",
+            url: `http://localhost:8000/api/lxf-meet-confirmation/?download=true&id=${data.id}`,
+            responseType: "blob",
+            headers: {
+                "content-type": "multipart/form-data",
+                Authorization: `JWT ${localStorage.getItem("access")}`,
+            },
+            withCredentials: true,
+        })
+            .then((res) => {
+                const contentDisposition = res.headers["Content-Disposition"];
+                const filename = contentDisposition
+                    ? contentDisposition.split("filename=")[1]
+                    : null;
+                console.log(res);
+                // Create a blob from the response data
+                const blob = new Blob([res.data], {
+                    type: res.headers["content-type"],
+                });
+
+                // Create a link element and set its href to a Blob URL
+                const link = document.createElement("a");
+                link.href = window.URL.createObjectURL(blob);
+                link.download = filename || "meetManager.lxf";
+
+                // Append the link to the document, trigger a click, and remove the link
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            })
+            .catch((err) => {
+                console.log(err);
+                // console.log(err.response.data);
+                toast.error("Erro ao fazer download da prova!");
+            });
+    };
+
     const uploadTeamManager = () => {
         setMeetId(data.id);
         setEnrollTeamModalVisible(!enrollTeamvisible);
@@ -205,7 +248,7 @@ function CompetitionDetails(props) {
                                                 <Button
                                                     text={"Download Prova"}
                                                     onClick={() => {
-                                                        cancelCompetition();
+                                                        downloadCompetition();
                                                     }}
                                                 />
                                                 <Button
