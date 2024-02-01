@@ -1,6 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import classes from "./auth.module.css";
 
 import {
     LOGIN_SUCCESS,
@@ -121,10 +122,14 @@ export const login = (email, password) => async (dispatch) => {
         });
 
         dispatch(load_user());
-        toast.success("Login success.");
+        toast.success("Login success.",{
+            className: classes.sucesstoast,
+        });
     } catch (err) {
         console.log(err.response.data);
-        toast.error("Login Error. Check your credentials.");
+        toast.error("Login Error. Check your credentials.",{
+            className: classes.errortoast,
+        });
 
         dispatch({
             type: LOGIN_FAIL,
@@ -155,26 +160,40 @@ export const signup =
                 type: SIGNUP_SUCCESS,
                 payload: res.data,
             });
-            toast.success("Signup confirmation sended to your email.");
+            toast.success("Signup confirmation sended to your email.",{
+                className: classes.sucesstoast,
+            });
         } catch (err) {
             if (err.response.status === 400) {
                 if (err.response && err.response.data) {
                     const errorDetails = err.response.data;
 
                     if (errorDetails.password) {
-                        toast.error(`${errorDetails.password[0]}`);
+                        toast.error(`${errorDetails.password[0]}`,{
+                            className: classes.errortoast,
+                        });
                     } else if (errorDetails.email) {
-                        toast.error(`${errorDetails.email[0]}`);
+                        toast.error(`${errorDetails.email[0]}`,{
+                            className: classes.errortoast,
+                        });
                     } else if (errorDetails.detail) {
-                        toast.error(`${errorDetails.detail}`);
+                        toast.error(`${errorDetails.detail}`,{
+                            className: classes.errortoast,
+                        });
                     } else {
-                        toast.error("Something went wrong. Please try again.");
+                        toast.error("Something went wrong. Please try again.",{
+                            className: classes.errortoast,
+                        });
                     }
                 } else {
-                    toast.error("Something went wrong. Please try again.");
+                    toast.error("Something went wrong. Please try again.",{
+                        className: classes.errortoast,
+                    });
                 }
             } else {
-                toast.error("Signup Error. Fill in all fields correctly.");
+                toast.error("Signup Error. Fill in all fields correctly.",{
+                    className: classes.errortoast,
+                });
             }
             dispatch({
                 type: SIGNUP_FAIL,
@@ -197,9 +216,14 @@ export const verify = (uid, token) => async (dispatch) => {
         dispatch({
             type: ACTIVATION_SUCCESS,
         });
-        toast.success("Account activation success.");
+        toast.success("Account activation success.",{
+            className: classes.sucesstoast,
+            
+        });
     } catch (err) {
-        toast.error("Error activating account.");
+        toast.error("Error activating account.",{
+            className: classes.errortoast,
+        });
         dispatch({
             type: ACTIVATION_FAIL,
         });
@@ -217,14 +241,19 @@ export const reset_password = (email) => async (dispatch) => {
 
     try {
         await axios.post(`${apiUrl}/auth/users/reset_password/`, body, config);
-        toast.success("Reset password confirmation sended to your email.");
+        toast.success("Reset password confirmation sended to your email.",{
+            className: classes.sucesstoast,
+            
+        });
 
         dispatch({
             type: PASSWORD_RESET_SUCCESS,
         });
     } catch (err) {
         console.log(err.response.data);
-        toast.error("Reset Password Error.");
+        toast.error("Reset Password Error.",{
+            className: classes.errortoast,
+        });
         dispatch({
             type: PASSWORD_RESET_FAIL,
         });
@@ -256,10 +285,15 @@ export const reset_password_confirm =
             dispatch({
                 type: PASSWORD_RESET_CONFIRM_SUCCESS,
             });
-            toast.success("Reset Password Success.");
+            toast.success("Reset Password Success.",{
+                className: classes.sucesstoast,
+                
+            });
         } catch (err) {
             console.log(err.response.data);
-            toast.error("Reset Password Error.");
+            toast.error("Reset Password Error.",{
+                className: classes.errortoast,
+            });
             dispatch({
                 type: PASSWORD_RESET_CONFIRM_FAIL,
             });
