@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import classes from "./Home.module.css";
 import NextCompetition from "../../Components/Cards/NextCompetition/NextCompetition";
 import CompetitionsList from "../../Components/Cards/CompetitionsList/CompetitionsList";
 import axios from "axios";
+import { ReloadHomepageContext } from "../../contexts/reload-pages";
 
 // const mockDataList = [
 //     {
@@ -32,6 +33,8 @@ function Home(props) {
     const [nextCompetitionData, setNextCompetitionData] = useState();
     const [tableData, setTableData] = useState([]);
     const [originalData, setOriginalData] = useState([]);
+
+    const { reload } = useContext(ReloadHomepageContext);
 
     const getNextCompetition = () => {
         if (!tableData || !Array.isArray(tableData)) {
@@ -98,10 +101,11 @@ function Home(props) {
     }, []);
 
     useEffect(() => {
-        if (props.reloadHomepage) {
+        if (reload.current) {
             fetchData();
         }
-    }, [props.reloadHomepage]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [reload.current]);
 
     useEffect(() => {
         getNextCompetition();
@@ -113,7 +117,7 @@ function Home(props) {
             <NextCompetition
                 changeCompDetailsModal={props.changeCompDetailsModal}
                 nextCompetitionData={nextCompetitionData}
-                setReloadHomepage={props.setReloadHomepage}
+                // setReloadHomepage={props.setReloadHomepage}
                 // mockNextCompetition={mockNextCompetition}
             />
             <CompetitionsList
@@ -121,7 +125,7 @@ function Home(props) {
                 setTableData={setTableData}
                 tableData={tableData}
                 originalData={originalData}
-                setReloadHomepage={props.setReloadHomepage}
+                // setReloadHomepage={props.setReloadHomepage}
                 // mockDataList={mockTableDataList}
                 // setMockTableDataList={setMockTableDataList}
             />

@@ -3,6 +3,7 @@ import classes from "./NextCompetition.module.css";
 import Card from "../../Cards/Card";
 import Button from "../../Buttons/Button";
 import { CompetitionDetailsContext } from "../../../contexts/competition-details";
+import { ReloadHomepageContext } from "../../../contexts/reload-pages";
 
 function NextCompetition(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
@@ -11,6 +12,7 @@ function NextCompetition(props) {
         competitionDetailsVisible: visible,
         setCompetitionDetailsModalVisible: setModalVisible,
     } = useContext(CompetitionDetailsContext);
+    const { setReload } = useContext(ReloadHomepageContext);
 
     const [flag, setFlag] = useState(false);
 
@@ -18,7 +20,8 @@ function NextCompetition(props) {
         if (!flag) setCompetitionInfo(props.nextCompetitionData);
         setModalVisible(!visible);
         setFlag(visible);
-        props.setReloadHomepage(visible);
+        // props.setReloadHomepage(visible);
+        setReload(visible);
     };
 
     useEffect(() => {

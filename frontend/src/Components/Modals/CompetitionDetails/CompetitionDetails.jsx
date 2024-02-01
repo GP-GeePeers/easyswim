@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { CompetitionDetailsContext } from "../../../contexts/competition-details";
 import { EnrollTeamContext } from "../../../contexts/enroll-team";
+import { ReloadHomepageContext } from "../../../contexts/reload-pages";
 
 const mockData = [
     {
@@ -31,6 +32,8 @@ function CompetitionDetails(props) {
 
     const { setMeetId, enrollTeamvisible, setEnrollTeamModalVisible } =
         useContext(EnrollTeamContext);
+
+    const { setReload } = useContext(ReloadHomepageContext);
 
     let data;
     let keys;
@@ -265,6 +268,7 @@ function CompetitionDetails(props) {
                                                             }
                                                             onClick={() => {
                                                                 cancelCompetition();
+                                                                setReload(true);
                                                             }}
                                                         />
                                                     </>

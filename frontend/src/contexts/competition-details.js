@@ -10,7 +10,7 @@ export const CompetitionDetailsContext = createContext({
 });
 
 export const CompetitionDetailsProvider = ({ children }) => {
-    const [fileInfo, setFileInfo] = useState([]);
+    const [fileInfo, setFileInfo] = useState([]); // TODO - mudar para useRef e alterar o next competition para mostrar os detalhes da competição
     const [flag, setFlag] = useState("");
     const [visible, setVisible] = useState(false);
 

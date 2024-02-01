@@ -3,6 +3,7 @@ import classes from "./CompetitionsList.module.css";
 import Card from "../Card";
 import Button from "../../Buttons/Button";
 import { CompetitionDetailsContext } from "../../../contexts/competition-details";
+import { ReloadHomepageContext } from "../../../contexts/reload-pages";
 
 const ORDER_OPTIONS = ["Mais antigo", "Mais recente", "Nome"];
 
@@ -16,6 +17,7 @@ function CompetitionsList(props) {
         competitionDetailsVisible: visible,
         setCompetitionDetailsModalVisible: setModalVisible,
     } = useContext(CompetitionDetailsContext);
+    const { setReload } = useContext(ReloadHomepageContext);
 
     useEffect(() => {
         setCompetitionInfo(
@@ -91,7 +93,8 @@ function CompetitionsList(props) {
 
     const handleShowInfo = () => {
         setModalVisible(!visible);
-        props.setReloadHomepage(visible);
+        // props.setReloadHomepage(visible);
+        setReload(visible);
     };
 
     return (

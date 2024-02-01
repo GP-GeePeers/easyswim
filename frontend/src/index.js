@@ -7,15 +7,18 @@ import store from "./store";
 import reportWebVitals from "./reportWebVitals";
 import { CompetitionDetailsProvider } from "./contexts/competition-details";
 import { EnrollTeamProvider } from "./contexts/enroll-team";
+import { ReloadHomepageProvider } from "./contexts/reload-pages";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <Provider store={store}>
         <CompetitionDetailsProvider>
             <EnrollTeamProvider>
-                <React.StrictMode>
-                    <App />
-                </React.StrictMode>
+                <ReloadHomepageProvider>
+                    <React.StrictMode>
+                        <App />
+                    </React.StrictMode>
+                </ReloadHomepageProvider>
             </EnrollTeamProvider>
         </CompetitionDetailsProvider>
     </Provider>
