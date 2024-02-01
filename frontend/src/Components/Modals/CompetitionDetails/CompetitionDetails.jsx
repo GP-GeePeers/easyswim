@@ -128,6 +128,7 @@ function CompetitionDetails(props) {
         } else {
             setModalVisible(!visible);
         }
+        setAthleteDropdown(false);
     };
 
     const capitalizeFirstLetter = (str) => {
