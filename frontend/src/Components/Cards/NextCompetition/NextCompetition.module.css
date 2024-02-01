@@ -63,10 +63,10 @@
 .competitionText {
     position: relative;
     overflow: hidden;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 
-/* .competitionText::before,
+.competitionText::before,
 .competitionText::after {
     content: "";
     display: block;
@@ -86,7 +86,7 @@
 
 .competitionText:active {
     color: #e3efee;
-} */
+}
 
 .verticalLine,
 .verticalLineState {

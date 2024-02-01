@@ -49,7 +49,7 @@ function NextCompetition(props) {
                             <div className={classes.verticalLine} />
                             <button
                                 className={classes.competitionContainer}
-                                // onClick={handleShowInfo}
+                                onClick={handleShowInfo}
                             >
                                 <div className={classes.competitionText}>
                                     {props.nextCompetitionData?.name}
