@@ -3,23 +3,32 @@ import classes from "./NextCompetition.module.css";
 import Card from "../../Cards/Card";
 import Button from "../../Buttons/Button";
 import { CompetitionDetailsContext } from "../../../contexts/competition-details";
+import { ReloadHomepageContext } from "../../../contexts/reload-pages";
 
 function NextCompetition(props) {
     // TODO - check string sizes and add "..." if too big, just like made in src/App.jsx
-    const { setCompetitionInfo, setModalFlag, visible, setModalVisible } =
-        useContext(CompetitionDetailsContext);
+    const {
+        setCompetitionInfo,
+        competitionDetailsVisible: visible,
+        setCompetitionDetailsModalVisible: setModalVisible,
+    } = useContext(CompetitionDetailsContext);
+    const { setReload } = useContext(ReloadHomepageContext);
+
+    const [flag, setFlag] = useState(false);
+
+    const handleShowInfo = () => {
+        if (!flag) setCompetitionInfo(props.nextCompetitionData);
+        setModalVisible(!visible);
+        setFlag(visible);
+        // props.setReloadHomepage(visible);
+        setReload(visible);
+    };
 
     useEffect(() => {
         if (props.nextCompetitionData) {
             setCompetitionInfo(props.nextCompetitionData);
-            setModalFlag("details");
         }
     }, [props.nextCompetitionData]);
-
-    const handleShowInfo = () => {
-        setModalVisible(!visible);
-        props.setReloadHomepage(visible);
-    };
 
     return (
         <>
@@ -40,7 +49,7 @@ function NextCompetition(props) {
                             <div className={classes.verticalLine} />
                             <button
                                 className={classes.competitionContainer}
-                                onClick={handleShowInfo}
+                                // onClick={handleShowInfo}
                             >
                                 <div className={classes.competitionText}>
                                     {props.nextCompetitionData?.name}

@@ -27,6 +27,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     box-shadow: 0px 0px 26px rgba(0, 0, 0, 0.4);
+    max-height: 90vh;
 }
 
 .modalContent::-webkit-scrollbar {
@@ -79,12 +80,32 @@
     line-height: normal;
 }
 
+.tableClubsDetails,
+.tableContainerDetails,
 .tableContainer {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
+}
+
+.tableContainerDetails {
+    width: 100%;
+}
+
+.tableClubsDetails {
+    margin-top: 3rem;
+    width: 100%;
+    align-items: flex-end;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.tableClubsDetails::-webkit-scrollbar {
+    display: none;
 }
 
 .contentContainer {
@@ -138,10 +159,20 @@
     display: none;
 }
 
+.athletesContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 4rem;
+    width: 100%;
+}
+
 @media screen and (max-width: 667px) {
     .modalContent {
         width: 95vw;
         height: 100vh;
+        max-height: 100vh;
     }
     .header {
         height: 14vh;

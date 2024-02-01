@@ -6,14 +6,20 @@ import { Provider } from "react-redux";
 import store from "./store";
 import reportWebVitals from "./reportWebVitals";
 import { CompetitionDetailsProvider } from "./contexts/competition-details";
+import { EnrollTeamProvider } from "./contexts/enroll-team";
+import { ReloadHomepageProvider } from "./contexts/reload-pages";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <Provider store={store}>
         <CompetitionDetailsProvider>
-            <React.StrictMode>
-                <App />
-            </React.StrictMode>
+            <EnrollTeamProvider>
+                <ReloadHomepageProvider>
+                    <React.StrictMode>
+                        <App />
+                    </React.StrictMode>
+                </ReloadHomepageProvider>
+            </EnrollTeamProvider>
         </CompetitionDetailsProvider>
     </Provider>
 );

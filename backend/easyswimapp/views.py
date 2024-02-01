@@ -1,8 +1,9 @@
+from collections import defaultdict
 import shutil
 from django.shortcuts import get_object_or_404, render
 from django.http import FileResponse, HttpResponse, JsonResponse
 from .serializers import LXFSerializer
-from .models import LXF, Club_TeamManager, Meet_TeamManager
+from .models import LXF, Athlete_TeamManager, Club_TeamManager, Meet_TeamManager
 # from .utils import read_lef_file
 from .utils import read_save_lenex, read_save_lenex_TeamManager, unzip_registered_lxf, get_licenses, make_request, upload_blob, extract_lxf_file, read_preview_lenex, download_blob
 from rest_framework.views import APIView
@@ -90,15 +91,16 @@ class LXFMeetView(APIView):
             download_blob(bucket_name, bucket_path, destination_file_name)
 
             response = FileResponse(open(destination_file_name, 'rb'))
-            response['Content-Disposition'] = f'attachment; filename="{file_name}"'
-            return JsonResponse(data={'notification': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_200_OK)
+            response.headers['Content-Disposition'] = f'attachment; filename="{file_name}"+".lxf"'
+            return response
+            # return JsonResponse(data={'notification': 'Ficheiro submetido com sucesso!'}, status=status.HTTP_200_OK)
 
             # return JsonResponse(data={'notification': 'Download concluído com sucesso!'}, status=status.HTTP_200_OK)
         else:
             # Se não for uma solicitação de download, continue com a lógica existente
             posts = LXF.objects.all()
             serializer = LXFSerializer(posts, many=True)
-            return JsonResponse(data={'notification': 'FUCK!'}, status=status.HTTP_201_CREATED)
+            return JsonResponse(data={'notification': 'Download Failed!'}, status=status.HTTP_201_CREATED)
 
     def post(self, request, *args, **kwargs):
         """
@@ -220,7 +222,6 @@ class LXFTeamView(APIView):
         :param request: HttpRequest object
         :return: Response object with serialized LXF data
         """
-
         posts = LXF.objects.all()
         serializer = LXFSerializer(posts, many=True)
         return Response(serializer.data)
@@ -446,7 +447,7 @@ def list_meets(request):
 
 
 def list_TeamManager_by_Meet(request):
-    meet_id = request.data['id']
+    meet_id = request.GET.get('id')
 
     try:
         meet_id = int(meet_id)
@@ -455,9 +456,52 @@ def list_TeamManager_by_Meet(request):
 
     meet_manager = get_object_or_404(Meet_MeetManager, id=meet_id)
 
-    clubs = Club_TeamManager.objects.filter(meet_manager=meet_manager)
+    team_managers = Meet_TeamManager.objects.filter(meet=meet_manager)
 
-    serialized_club = [{'id': club.clubid, 'name': club.name,
-                        'shortname': club.shortname} for club in clubs]
+    serialized_clubs = defaultdict(dict)
 
-    return JsonResponse(data={'clubs': serialized_club}, status=200)
+    for team_manager in team_managers:
+        print(
+            '\033[91m' + f'name {team_manager.name} - city {team_manager.city}' + '\033[0m')
+        club = get_object_or_404(Club_TeamManager, meet=team_manager)
+        print(club)
+
+        if serialized_clubs[club.clubid]:
+            serialized_clubs[club.clubid].update({
+                'id': club.clubid,
+                'name': club.name,
+                'shortname': club.shortname,
+                'athletes': list_Athletes_by_Club(club.clubid)
+            })
+        else:
+            serialized_clubs[club.clubid] = {
+                'id': club.clubid,
+                'name': club.name,
+                'shortname': club.shortname,
+                'athletes': list_Athletes_by_Club(club.clubid)
+            }
+
+    serialized_clubs_list = list(serialized_clubs.values())
+
+    return JsonResponse(data={'club': serialized_clubs_list}, status=200)
+
+
+def list_Athletes_by_Club(club_id):
+    try:
+        club_id = int(club_id)
+    except (ValueError, TypeError):
+        return JsonResponse(data={'error': 'ID do Clube inválido'}, status=400)
+
+    clubs = list(Club_TeamManager.objects.filter(clubid=club_id))
+    sorted_clubs = sorted(clubs, key=lambda x: x.id, reverse=True)
+
+    if sorted_clubs:
+        club = sorted_clubs[0]
+
+        athletes = list(Athlete_TeamManager.objects.filter(club=club))
+        athletes_list = [{'name': f'{athlete.firstname} {athlete.lastname}',
+                          'license': athlete.license} for athlete in athletes]
+
+        return athletes_list
+    else:
+        return []

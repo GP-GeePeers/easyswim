@@ -1,31 +1,27 @@
 import React, { useState, createRef, useEffect, useContext } from "react";
 import axios from "axios";
-import classes from "./CreateCompetition.module.css";
+import classes from "./EnrollTeam.module.css";
 import Button from "../../Buttons/Button";
 import Card from "../../Cards/Card";
 import addDocument from "../Assets/addDocument.png";
 import document_ from "../Assets/document.png";
-import CompetitionDetails from "../CompetitionDetails/CompetitionDetails";
-import { CompetitionDetailsContext } from "../../../contexts/competition-details";
+import { EnrollTeamContext } from "../../../contexts/enroll-team";
 
-function CreateCompetition(props) {
+function EnrollTeam() {
     const [lxfFile, setLxfFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
-    const [showFile, setShowFile] = useState(false);
-    const [filePreview, setFilePreview] = useState();
     const fileInputRef = createRef();
 
-    const { setCompetitionInfo, setModalFlag } = useContext(
-        CompetitionDetailsContext
-    );
+    const { meetId, enrollTeamvisible, setEnrollTeamModalVisible } =
+        useContext(EnrollTeamContext);
 
     useEffect(() => {
         // Clear the error message if the modal is closed
         setErrorMessage("");
         setSuccessMessage("");
         setLxfFile(null);
-    }, [props.createCompModal]);
+    }, [enrollTeamvisible]);
 
     useEffect(() => {
         if (errorMessage) {
@@ -36,7 +32,7 @@ function CreateCompetition(props) {
     }, [errorMessage, successMessage]);
 
     const handleCloseModal = () => {
-        props.changeCreateCompModal();
+        setEnrollTeamModalVisible(!enrollTeamvisible);
     };
 
     const handleSelectedFile = () => {
@@ -69,37 +65,37 @@ function CreateCompetition(props) {
         }
     };
 
-    const handleSubmit = (e) => {
-        // e.preventDefault();
-
+    const handleSubmit = () => {
         if (errorMessage) {
-            // Do not submit if there is an error
             return;
         }
+
+        console.log(meetId);
 
         let form_data = new FormData();
         if (lxfFile) {
             form_data.append("lxf_file", lxfFile, lxfFile.name);
             form_data.append("title", lxfFile.name);
-            //form_data.append("id", 1);
+            form_data.append("id", meetId);
         } else {
             setErrorMessage("Por favor, selecione um ficheiro.");
         }
 
-        //const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
-        //console.log(csrftoken);
-        let url = "http://localhost:8000/api/lxf-meet-confirmation/";
+        // const csrftoken = document.cookie.match(/csrftoken=([^;]*)/)[1];
+        // console.log(csrftoken);
+        let url = "http://localhost:8000/api/lxf-team-confirmation/";
         axios
             .post(url, form_data, {
                 headers: {
                     "content-type": "multipart/form-data",
                     Authorization: `JWT ${localStorage.getItem("access")}`,
-                    //'X-CSRFToken': `${csrftoken}`,
+                    // "X-CSRFToken": `${csrftoken}`,
                 },
                 withCredentials: true, // Include this line in the configuration object
             })
             .then((res) => {
-                // console.log(res.data);
+                console.log(res.data);
+
                 // Clear the form fields after a successful submission
                 setLxfFile(null);
 
@@ -125,76 +121,11 @@ function CreateCompetition(props) {
         return `${bytes.toFixed(2)} ${units[i]}`;
     };
 
-    const handleFilePreview = async () => {
-        if (lxfFile) {
-            if (errorMessage) {
-                // Do not submit if there is an error
-                return;
-            }
-
-            let form_data = new FormData();
-            if (lxfFile) {
-                form_data.append("lxf_file", lxfFile, lxfFile.name);
-                form_data.append("title", lxfFile.name);
-            } else {
-                setErrorMessage("Por favor, selecione um ficheiro.");
-            }
-
-            console.log("4:" + form_data);
-
-            let url = "http://localhost:8000/api/lxf-meet-preview/";
-            axios
-                .post(url, form_data, {
-                    headers: {
-                        "content-type": "multipart/form-data",
-                        Authorization: `JWT ${localStorage.getItem("access")}`,
-                    },
-                })
-                .then((res) => {
-                    console.log("2:" + res.data);
-                    setFilePreview(res.data);
-                })
-                .catch((err) => {
-                    console.log(err);
-                    setErrorMessage("ERRO: " + err.message);
-                });
-        }
-    };
-
-    const handleShowFile = () => {
-        if (lxfFile) {
-            setShowFile(!showFile);
-            handleFilePreview();
-        } else {
-            setErrorMessage("Por favor, selecione um ficheiro.");
-        }
-    };
-
-    const handleSubmitOnPreview = () => {
-        handleSubmit();
-        setShowFile(!showFile);
-    };
-
-    useEffect(() => {
-        if (showFile) setModalFlag("");
-        else setModalFlag("details");
-    }, [showFile]);
-
     return (
         <div>
-            {showFile && filePreview && (
-                <CompetitionDetails
-                    compDetailsModal={showFile}
-                    changeCompDetailsModal={handleShowFile}
-                    handleSubmitOnPreview={handleSubmitOnPreview}
-                    filePreview={filePreview}
-                />
-            )}
-            {props.createCompModal && (
+            {enrollTeamvisible && (
                 <div
-                    className={
-                        !showFile ? classes.createCompModalOverlay : classes._
-                    }
+                    className={classes.createCompModalOverlay}
                     onClick={handleCloseModal}
                     onDragOver={(e) => e.preventDefault()}
                     onDragEnter={(e) => e.preventDefault()}
@@ -208,8 +139,8 @@ function CreateCompetition(props) {
                             <div className={classes.title}>Upload ficheiro</div>
                             <Button
                                 type={"secondary"}
-                                text={"Cancelar"}
-                                onClick={props.changeCreateCompModal}
+                                text={"Fechar"}
+                                onClick={handleCloseModal}
                             />
                         </div>
                         <div className={classes.topCardContainer}>
@@ -286,11 +217,11 @@ function CreateCompetition(props) {
                         </div>
                         <div className={classes.buttonsContainer}>
                             <Button text={"Submeter"} onClick={handleSubmit} />
-                            <Button
+                            {/* <Button
                                 type={"secondary"}
                                 text={"Ver Ficheiro"}
                                 onClick={handleShowFile}
-                            />
+                            /> */}
                         </div>
                     </div>
                 </div>
@@ -299,4 +230,4 @@ function CreateCompetition(props) {
     );
 }
 
-export default CreateCompetition;
+export default EnrollTeam;

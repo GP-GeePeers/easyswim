@@ -14,8 +14,7 @@ import Signup from "./Views/Auth/Signup/Signup";
 import Activate from "./Views/Auth/Activate/Activate";
 import ResetPassword from "./Views/Auth/ResetPassword/ResetPassword";
 import ResetPasswordConfirm from "./Views/Auth/ResetPasswordConfirm/ResetPasswordConfirm";
-import PrivateRoute from "./Hooks/Common/PrivateRoute";
-import { CompetitionDetailsContext } from "./contexts/competition-details";
+import EnrollTeam from "./Components/Modals/EnrollTeam/EnrollTeam";
 
 import { Provider, useSelector } from "react-redux";
 import store from "./store";
@@ -23,19 +22,25 @@ import store from "./store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./Hooks/layout";
+import PrivateRoute from "./Hooks/Common/PrivateRoute";
+
+import { CompetitionDetailsContext } from "./contexts/competition-details";
+import { ReloadHomepageContext } from "./contexts/reload-pages";
 
 function App() {
     const [retracted, setRetracted] = useState(true);
     const [organization, setOrganization] = useState("");
     const [createCompModal, setCreateCompModal] = useState(false);
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
-    const [reloadHomepage, setReloadHomepage] = useState(false);
-    const { fileInfo, flag } = useContext(CompetitionDetailsContext);
+    // const [reloadHomepage, setReloadHomepage] = useState(false);
+    const { fileInfo, competitionDetailsFlag: flag } = useContext(
+        CompetitionDetailsContext
+    );
+    const { setReload } = useContext(ReloadHomepageContext);
 
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
     const user = useSelector((state) => state.auth.user);
-    const userName = user ? user.first_name + " " + user.last_name : null;
     // console.log("user", user);
 
     useEffect(() => {
@@ -47,12 +52,14 @@ function App() {
     }, []);
 
     useEffect(() => {
+        const userName = user ? user.first_name + " " + user.last_name : null;
         setOrganization(userName);
-    }, []);
+    }, [user]);
 
     const changeCreateCompModal = () => {
         setCreateCompModal(!createCompModal);
-        setReloadHomepage(createCompModal);
+        // setReloadHomepage(createCompModal);
+        setReload(createCompModal);
     };
 
     return (
@@ -134,6 +141,7 @@ function App() {
                                             changeCreateCompModal
                                         }
                                     />
+                                    <EnrollTeam />
                                     {fileInfo && flag && (
                                         <CompetitionDetails
                                             flag={flag}
@@ -156,12 +164,6 @@ function App() {
                                                         retracted={retracted}
                                                         setRetracted={
                                                             setRetracted
-                                                        }
-                                                        reloadHomepage={
-                                                            reloadHomepage
-                                                        }
-                                                        setReloadHomepage={
-                                                            setReloadHomepage
                                                         }
                                                     />
                                                 }

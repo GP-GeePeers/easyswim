@@ -3,14 +3,14 @@ import React, { createContext, useState } from "react";
 export const CompetitionDetailsContext = createContext({
     competitionInfo: [],
     setCompetitionInfo: () => {},
-    flag: "",
+    competitionDetailsFlag: "",
     setModalFlag: () => {},
-    visible: false,
-    setModalVisible: () => {},
+    competitionDetailsVisible: false,
+    setCompetitionDetailsModalVisible: () => {},
 });
 
 export const CompetitionDetailsProvider = ({ children }) => {
-    const [fileInfo, setFileInfo] = useState([]);
+    const [fileInfo, setFileInfo] = useState([]); // TODO - mudar para useRef e alterar o next competition para mostrar os detalhes da competição
     const [flag, setFlag] = useState("");
     const [visible, setVisible] = useState(false);
 
@@ -31,10 +31,10 @@ export const CompetitionDetailsProvider = ({ children }) => {
             value={{
                 fileInfo,
                 setCompetitionInfo: setCompetitionInfo,
-                flag,
+                competitionDetailsFlag: flag,
                 setModalFlag: setModalFlag,
-                visible,
-                setModalVisible: setModalVisible,
+                competitionDetailsVisible: visible,
+                setCompetitionDetailsModalVisible: setModalVisible,
             }}
         >
             {children}

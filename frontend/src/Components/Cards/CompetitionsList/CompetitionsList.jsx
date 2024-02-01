@@ -3,6 +3,7 @@ import classes from "./CompetitionsList.module.css";
 import Card from "../Card";
 import Button from "../../Buttons/Button";
 import { CompetitionDetailsContext } from "../../../contexts/competition-details";
+import { ReloadHomepageContext } from "../../../contexts/reload-pages";
 
 const ORDER_OPTIONS = ["Mais antigo", "Mais recente", "Nome"];
 
@@ -11,8 +12,18 @@ function CompetitionsList(props) {
     const [searchInput, setSearchInput] = useState("");
     const [selectedOrder, setSelectedOrder] = useState("Mais antigo");
     const [identifier, setIdentifier] = useState(0);
-    const { setCompetitionInfo, setModalFlag, visible, setModalVisible } =
-        useContext(CompetitionDetailsContext);
+    const {
+        setCompetitionInfo,
+        competitionDetailsVisible: visible,
+        setCompetitionDetailsModalVisible: setModalVisible,
+    } = useContext(CompetitionDetailsContext);
+    const { setReload } = useContext(ReloadHomepageContext);
+
+    useEffect(() => {
+        setCompetitionInfo(
+            props.tableData.find((row) => row.id === identifier)
+        );
+    }, [identifier]);
 
     const handleOrderOptionClick = (option) => {
         props.setTableData(
@@ -82,20 +93,9 @@ function CompetitionsList(props) {
 
     const handleShowInfo = () => {
         setModalVisible(!visible);
-        props.setReloadHomepage(visible);
+        // props.setReloadHomepage(visible);
+        setReload(visible);
     };
-
-    useEffect(() => {
-        setModalFlag("details");
-    }, []);
-
-    useEffect(() => {
-        setCompetitionInfo(
-            props.tableData.find((row) => row.id === identifier)
-        );
-    }, [identifier]);
-
-    // console.log(props.tableData);
 
     return (
         <>
@@ -221,7 +221,7 @@ function CompetitionsList(props) {
                                     classes.stateColumn
                                 }
                             >
-                                {row.state === "active" ? (
+                                {row.state === "Active" ? (
                                     <Button text={row.state} disabled={true} />
                                 ) : (
                                     <Button
