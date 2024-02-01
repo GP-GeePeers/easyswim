@@ -139,7 +139,7 @@ function EnrollTeam() {
                             <div className={classes.title}>Upload ficheiro</div>
                             <Button
                                 type={"secondary"}
-                                text={"Cancelar"}
+                                text={"Fechar"}
                                 onClick={handleCloseModal}
                             />
                         </div>
